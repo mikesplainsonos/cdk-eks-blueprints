@@ -351,6 +351,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../addons/coredns/" class="md-nav__link">
+        CoreDns
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../addons/cluster-autoscaler/" class="md-nav__link">
         Cluster Autoscaler
       </a>
@@ -387,6 +399,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../addons/kube-proxy/" class="md-nav__link">
+        Kube Proxy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../addons/metrics-server/" class="md-nav__link">
         Metrics Server
       </a>
@@ -413,6 +437,30 @@
     <li class="md-nav__item">
       <a href="../addons/ssm-agent/" class="md-nav__link">
         SSM Agent
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addons/secrets-store/" class="md-nav__link">
+        Secrets Store
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addons/vpc-cni/" class="md-nav__link">
+        Vpc Cni
       </a>
     </li>
   
@@ -501,8 +549,32 @@
   
   
     <li class="md-nav__item">
-      <a href="ec2-cluster-provider/" class="md-nav__link">
-        EC2 Cluster Provider
+      <a href="asg-cluster-provider/" class="md-nav__link">
+        ASG Cluster Provider
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mng-cluster-provider/" class="md-nav__link">
+        MNG Cluster Provider
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fargate-cluster-provider/" class="md-nav__link">
+        Fargate Cluster Provider
       </a>
     </li>
   
@@ -549,6 +621,31 @@
                 
                 
                 <h1 id="cluster-providers">Cluster Providers<a class="headerlink" href="#cluster-providers" title="Permanent link">&para;</a></h1>
+<p>The <code>ssp-amazon-eks</code> framework allows customers to easily configure the underlying EKS clusters that it provisions. This is done via Cluster Providers. Customers can leverage the Cluster Providers that the framework supports, or supply their own. </p>
+<p>The framework currently provides support for the following Cluster Providers:</p>
+<table>
+<thead>
+<tr>
+<th>Cluster Provider</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="./asg-cluster-provider"><code>AsgClusterProvider</code></a></td>
+<td>Provisions an EKS cluster with an Auto Scaling group used for compute capacity.</td>
+</tr>
+<tr>
+<td><a href="./mng-cluster-provider"><code>MngClusterProvider</code></a></td>
+<td>Provisions an EKS cluster with a Managed Node group for compute capacity.</td>
+</tr>
+<tr>
+<td><a href="./fargate-cluster-provider"><code>FargateClusterProviders</code></a></td>
+<td>Provisions an EKS cluster which leverages AWS Fargate to run Kubernetes pods.</td>
+</tr>
+</tbody>
+</table>
+<p>By default, the framework will leverage the <code>MngClusterProvider</code>.</p>
                 
               
               
@@ -582,13 +679,13 @@
         </a>
       
       
-        <a href="ec2-cluster-provider/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="asg-cluster-provider/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              EC2 Cluster Provider
+              ASG Cluster Provider
             </div>
           </div>
           <div class="md-footer__button md-icon">

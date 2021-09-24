@@ -433,6 +433,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../addons/coredns/" class="md-nav__link">
+        CoreDns
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../addons/cluster-autoscaler/" class="md-nav__link">
         Cluster Autoscaler
       </a>
@@ -469,6 +481,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../addons/kube-proxy/" class="md-nav__link">
+        Kube Proxy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../addons/metrics-server/" class="md-nav__link">
         Metrics Server
       </a>
@@ -495,6 +519,30 @@
     <li class="md-nav__item">
       <a href="../addons/ssm-agent/" class="md-nav__link">
         SSM Agent
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addons/secrets-store/" class="md-nav__link">
+        Secrets Store
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addons/vpc-cni/" class="md-nav__link">
+        Vpc Cni
       </a>
     </li>
   
@@ -571,8 +619,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../cluster-providers/ec2-cluster-provider/" class="md-nav__link">
-        EC2 Cluster Provider
+      <a href="../cluster-providers/asg-cluster-provider/" class="md-nav__link">
+        ASG Cluster Provider
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cluster-providers/mng-cluster-provider/" class="md-nav__link">
+        MNG Cluster Provider
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cluster-providers/fargate-cluster-provider/" class="md-nav__link">
+        Fargate Cluster Provider
       </a>
     </li>
   
@@ -676,10 +748,10 @@
                 
                 
                 <h1 id="teams">Teams<a class="headerlink" href="#teams" title="Permanent link">&para;</a></h1>
-<p>The <code>cdk-eks-blueprint</code> framework provides support for onboarding and managing teams and easily configuring cluster access. We currently support two <code>Team</code> types: <code>ApplicationTeam</code> and <code>PlatformTeam</code>. <code>ApplicationTeam</code> represent teams managing workloads running in cluster namespaces and <code>PlatformTeam</code> represents platform administrators who have admin access (masters group) to clusters.</p>
+<p>The <code>ssp-amazon-eks</code> framework provides support for onboarding and managing teams and easily configuring cluster access. We currently support two <code>Team</code> types: <code>ApplicationTeam</code> and <code>PlatformTeam</code>. <code>ApplicationTeam</code> represent teams managing workloads running in cluster namespaces and <code>PlatformTeam</code> represents platform administrators who have admin access (masters group) to clusters.</p>
 <p>You are also able to create your own team implementations by creating classes that inherits from <code>Team</code>.</p>
 <h3 id="applicationteam">ApplicationTeam<a class="headerlink" href="#applicationteam" title="Permanent link">&para;</a></h3>
-<p>To create an <code>ApplicationTeam</code> for your cluster, simplye implement a class that extends <code>ApplicationTeam</code>. You will need to supply a team name and an array of users.  </p>
+<p>To create an <code>ApplicationTeam</code> for your cluster, simply implement a class that extends <code>ApplicationTeam</code>. You will need to supply a team name, an array of users, and (optionally) a directory where you may optionally place any policy definitions and generic manifests for the team. These manifests will be applied by the platform and will be outside of the team control <strong>NOTE:</strong> When the manifests are applied, namespaces are not checked. Therefore, you are responsible for namespace settings in the yaml files.</p>
 <div class="highlight"><pre><span></span><code><span class="k">export</span> <span class="kd">class</span> <span class="nx">TeamAwesome</span> <span class="k">extends</span> <span class="nx">ApplicationTeam</span> <span class="p">{</span>
     <span class="kr">constructor</span><span class="p">(</span><span class="nx">app</span>: <span class="kt">App</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">super</span><span class="p">({</span>
@@ -688,7 +760,7 @@
                 <span class="k">new</span> <span class="nx">ArnPrincipal</span><span class="p">(</span><span class="sb">`arn:aws:iam::</span><span class="si">${</span><span class="nx">YOUR_IAM_ACCOUNT</span><span class="si">}</span><span class="sb">:user/user1`</span><span class="p">),</span>  
                 <span class="k">new</span> <span class="nx">ArnPrincipal</span><span class="p">(</span><span class="sb">`arn:aws:iam::</span><span class="si">${</span><span class="nx">YOUR_IAM_ACCOUNT</span><span class="si">}</span><span class="sb">:user/user2`</span><span class="p">)</span>
             <span class="p">]</span>
-
+        <span class="nx">teamManifestDir</span><span class="o">:</span> <span class="s1">&#39;./examples/teams/team-awesome/&#39;</span>
         <span class="p">});</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -700,6 +772,7 @@
 <li>Register IAM users for cross-account access</li>
 <li>Create a shared role for cluster access. Alternatively, an existing role can be supplied.</li>
 <li>Register provided users/role in the <code>awsAuth</code> map for <code>kubectl</code> and console access to the cluster and namespace.</li>
+<li>(Optionally) read all additional manifests (e.g., network policies, OPA policies, others) stored in a provided directory, and applies them.</li>
 </ul>
 <h3 id="platformteam">PlatformTeam<a class="headerlink" href="#platformteam" title="Permanent link">&para;</a></h3>
 <p>To create an <code>PlatformTeam</code> for your cluster, simplye implement a class that extends <code>PlatformTeam</code>. You will need to supply a team name and an array of users.  </p>
@@ -734,7 +807,7 @@ The <code>PlatformTeam</code> class does the following:</p>
 <li>Namespace role and role binding for the group to view pods, deployments, daemonsets, services</li>
 </ul>
 <h2 id="team-benefits">Team Benefits<a class="headerlink" href="#team-benefits" title="Permanent link">&para;</a></h2>
-<p>By managing teams via infrastrucutre as code, we achieve the following benefits:</p>
+<p>By managing teams via infrastructure as code, we achieve the following benefits:</p>
 <ol>
 <li>Self-documenting code</li>
 <li>Centralized logic related to the team</li>
@@ -756,7 +829,7 @@ westdevConfigCommand1AE70258    aws eks update-kubeconfig --name west-dev --regi
 <p>Developers (members of each team) should use the role name for the team role, such as <code>burnhamteamrole</code> for team name <code>burnham</code>. 
 Platform administrators must use the role output for their team name, such as platformteamadmin in the above example.</p>
 <h2 id="console-access">Console Access<a class="headerlink" href="#console-access" title="Permanent link">&para;</a></h2>
-<p>Provided that each team has recieved the name of the role that was created for the cluster access, each team member listed in the users section will be able to assume the role in the target account. </p>
+<p>Provided that each team has received the name of the role that was created for the cluster access, each team member listed in the users section will be able to assume the role in the target account. </p>
 <p>To do that, users should use "Switch Roles" function in the console and specify the provided role. This will enable EKS console access to list clusters and to get console visibility into the workloads that belong to the team. </p>
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
 <p>There are a few team examples under /teams folder.</p>

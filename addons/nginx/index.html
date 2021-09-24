@@ -353,6 +353,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../coredns/" class="md-nav__link">
+        CoreDns
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../cluster-autoscaler/" class="md-nav__link">
         Cluster Autoscaler
       </a>
@@ -379,6 +391,18 @@
     <li class="md-nav__item">
       <a href="../external-dns/" class="md-nav__link">
         External DNS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kube-proxy/" class="md-nav__link">
+        Kube Proxy
       </a>
     </li>
   
@@ -455,6 +479,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#tls-termination-and-certificates" class="md-nav__link">
+    TLS Termination and Certificates
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#functionality" class="md-nav__link">
     Functionality
   </a>
@@ -476,6 +507,30 @@
     <li class="md-nav__item">
       <a href="../ssm-agent/" class="md-nav__link">
         SSM Agent
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../secrets-store/" class="md-nav__link">
+        Secrets Store
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpc-cni/" class="md-nav__link">
+        Vpc Cni
       </a>
     </li>
   
@@ -552,8 +607,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cluster-providers/ec2-cluster-provider/" class="md-nav__link">
-        EC2 Cluster Provider
+      <a href="../../cluster-providers/asg-cluster-provider/" class="md-nav__link">
+        ASG Cluster Provider
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cluster-providers/mng-cluster-provider/" class="md-nav__link">
+        MNG Cluster Provider
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cluster-providers/fargate-cluster-provider/" class="md-nav__link">
+        Fargate Cluster Provider
       </a>
     </li>
   
@@ -612,6 +691,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#tls-termination-and-certificates" class="md-nav__link">
+    TLS Termination and Certificates
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#functionality" class="md-nav__link">
     Functionality
   </a>
@@ -638,16 +724,13 @@
                 <h1 id="nginx-add-on">NGINX Add-on<a class="headerlink" href="#nginx-add-on" title="Permanent link">&para;</a></h1>
 <p>This add-on installs <a href="https://kubernetes.github.io/ingress-nginx/deploy/">NGINX Ingress Controller</a> on Amazon EKS. NGINX ingress controller is using <a href="https://www.nginx.org/">NGINX</a> as a reverse proxy and load balancer. </p>
 <p>Other than handling Kubernetes ingress objects, this ingress controller can facilitate multi-tenancy and segregation of workload ingresses based on host name (host-based routing) and/or URL Path (path based routing). </p>
+<p>This add-on depends on <a href="../aws-load-balancer-controller/">AWS Load Balancer Controller</a> in order to enable NLB support. </p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<p>NGINX add-on is a standard SSP add-on and it is usage is similar to the rest of the add-ons.</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">NginxAddOn</span><span class="p">,</span> <span class="nx">ClusterAddOn</span><span class="p">,</span> <span class="nx">EksBlueprint</span> <span class="p">}</span>  <span class="k">from</span> <span class="s1">&#39;@shapirov/cdk-eks-blueprint&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">NginxAddOn</span><span class="p">,</span> <span class="nx">ClusterAddOn</span><span class="p">,</span> <span class="nx">EksBlueprint</span> <span class="p">}</span>  <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/ssp-amazon-eks&#39;</span><span class="p">;</span>
 
-<span class="kd">const</span> <span class="nx">subdomain</span>  <span class="o">=</span> <span class="p">...;</span>
-<span class="kd">const</span> <span class="nx">nginxAddOn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">NginxAddOn</span><span class="p">(({</span> 
-    <span class="nx">externaDnsHostname</span>: <span class="kt">subdomain</span>
-<span class="p">}));</span>
-
-<span class="kd">const</span> <span class="nx">addOns</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">ClusterAddOn</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">nginxAddOn</span> <span class="p">];</span>
+<span class="kd">const</span> <span class="nx">externalDnsHostname</span>  <span class="o">=</span> <span class="p">...;</span>
+<span class="kd">const</span> <span class="nx">addOn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">NginxAddOn</span><span class="p">({</span> <span class="nx">externalDnsHostname</span> <span class="p">});</span>
+<span class="kd">const</span> <span class="nx">addOns</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">ClusterAddOn</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">addOn</span> <span class="p">];</span>
 
 <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
 <span class="k">new</span> <span class="nx">EksBlueprint</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;my-stack-name&#39;</span><span class="p">,</span> <span class="nx">addOns</span><span class="p">,</span> <span class="p">[],</span> <span class="p">{</span>
@@ -676,22 +759,22 @@ ssp-addon-nginx-ingress-78b8567p4q6   <span class="m">1</span>/1     Running   <
 <h2 id="dns-integration-and-routing">DNS Integration and Routing<a class="headerlink" href="#dns-integration-and-routing" title="Permanent link">&para;</a></h2>
 <p>If <a href="../external-dns/">External DNS Add-on</a> is installed, it is possible to configure NGINX ingress with an external NLB load balancer and leverage wild-card DNS domains (and public certificate) to route external traffic to individual workloads. </p>
 <p>The following example provides support for AWS Load Balancer controller, External DNS and NGINX add-ons to enable such routing:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">wildcardDomain</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-<span class="kd">const</span> <span class="nx">addOns</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">ssp</span><span class="p">.</span><span class="nx">ClusterAddOn</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">AwsLoadBalancerControllerAddOn</span><span class="p">,</span>
-            <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">ExternalDnsAddon</span><span class="p">({</span>
-                <span class="nx">hostedZone</span>: <span class="kt">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">DelegatingHostedZoneProvider</span><span class="p">(</span>
-                    <span class="nx">parentDomain</span><span class="p">,</span>
-                    <span class="nx">subdomain</span><span class="p">,</span> 
-                    <span class="nx">parentDnsAccountId</span><span class="p">,</span>
-                    <span class="s1">&#39;DomainOperatorRole&#39;</span><span class="p">,</span> 
-                    <span class="nx">wildcardDomain</span>
-                <span class="p">)</span>
-            <span class="p">}),</span>
-            <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">NginxAddOn</span><span class="p">({</span> <span class="nx">internetFacing</span>: <span class="kt">true</span><span class="p">,</span> <span class="nx">backendProtocol</span><span class="o">:</span> <span class="s2">&quot;tcp&quot;</span><span class="p">,</span> <span class="nx">externaDnsHostname</span>: <span class="kt">subdomain</span><span class="p">,</span> <span class="nx">crossZoneEnabled</span>: <span class="kt">false</span> <span class="p">})</span>
-        <span class="p">];</span>
+<div class="highlight"><pre><span></span><code><span class="nx">ssp</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">.</span><span class="nx">builder</span><span class="p">()</span>
+    <span class="c1">//  Register hosted zone1 under the name of MyHostedZone1</span>
+    <span class="p">.</span><span class="nx">resourceProvider</span><span class="p">(</span><span class="s2">&quot;MyHostedZone1&quot;</span><span class="p">,</span>  <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">DelegatingHostedZoneProvider</span><span class="p">({</span>
+        <span class="nx">parentDomain</span><span class="o">:</span> <span class="s1">&#39;myglobal-domain.com&#39;</span><span class="p">,</span>
+        <span class="nx">subdomain</span><span class="o">:</span> <span class="s1">&#39;dev.myglobal-domain.com&#39;</span><span class="p">,</span> 
+        <span class="nx">parentAccountId</span>: <span class="kt">parentDnsAccountId</span><span class="p">,</span>
+        <span class="nx">delegatingRoleName</span><span class="o">:</span> <span class="s1">&#39;DomainOperatorRole&#39;</span><span class="p">,</span>
+        <span class="nx">wildcardSubdomain</span>: <span class="kt">true</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">ExternalDnsAddon</span><span class="p">({</span>
+        <span class="nx">hostedZoneProviders</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;MyHostedZone1&quot;</span><span class="p">];</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">NginxAddOn</span><span class="p">({</span> <span class="nx">internetFacing</span>: <span class="kt">true</span><span class="p">,</span> <span class="nx">backendProtocol</span><span class="o">:</span> <span class="s2">&quot;tcp&quot;</span><span class="p">,</span> <span class="nx">externaDnsHostname</span>: <span class="kt">subdomain</span><span class="p">,</span> <span class="nx">crossZoneEnabled</span>: <span class="kt">false</span> <span class="p">})</span>
+    <span class="p">.</span><span class="nx">build</span><span class="p">(...);</span>
 </code></pre></div>
-<p>Assuming the subdomain in the above example is <code>dev.my-domain.com</code> and wilcard is enabled for the external DNS add-on customers can now create ingress objects for host-based routing. Let's define an ingress object for <code>team-riker</code> that is currently deploying guestbook application with no ingress:</p>
+<p>Assuming the subdomain in the above example is <code>dev.my-domain.com</code> and wildcard is enabled for the external DNS add-on customers can now create ingress objects for host-based routing. Let's define an ingress object for <code>team-riker</code> that is currently deploying guestbook application with no ingress:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">extensions/v1beta1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Ingress</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -710,7 +793,7 @@ ssp-addon-nginx-ingress-78b8567p4q6   <span class="m">1</span>/1     Running   <
         <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/</span>
         <span class="nt">pathType</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Prefix</span>
 </code></pre></div>
-<p>A similar ingess may be defined for <code>team-troi</code> routing to the workloads deployed by that team:</p>
+<p>A similar ingress may be defined for <code>team-troi</code> routing to the workloads deployed by that team:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">extensions/v1beta1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Ingress</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -732,11 +815,44 @@ ssp-addon-nginx-ingress-78b8567p4q6   <span class="m">1</span>/1     Running   <
 <p>After the above ingresses applied (ideally through a GitOps engine) you can now navigate to the specified hosts respectively:</p>
 <p><a href="http://riker.dev.my-domain.com">http://riker.dev.my-domain.com</a>
 <a href="http://troi.dev.my-domain.com">http://troi.dev.my-domain.com</a></p>
+<h2 id="tls-termination-and-certificates">TLS Termination and Certificates<a class="headerlink" href="#tls-termination-and-certificates" title="Permanent link">&para;</a></h2>
+<p>You can configure the NGINX add-on to terminate TLS at the load balancer and supply an ACM certificate through the platform blueprint.</p>
+<p>A certificate can be registered using a named <a href="../../resource-providers/">resource provider</a>.</p>
+<p>For convenience the framework provides a couple of common certificate providers:</p>
+<p><strong>Import Certificate</strong></p>
+<p>This case is used when certificate is already created and you just need to reference it with the blueprint stack:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">myCertArn</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="nx">ssp</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">.</span><span class="nx">builder</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">resourceProvider</span><span class="p">(</span><span class="nx">GlobalResources</span><span class="p">.</span><span class="nx">Certificate</span><span class="p">,</span> <span class="k">new</span> <span class="nx">ImportCertificateProvider</span><span class="p">(</span><span class="nx">myCertArn</span><span class="p">,</span> <span class="s2">&quot;cert1-id&quot;</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="k">new</span> <span class="nx">NginxAddOn</span><span class="p">({</span>
+        <span class="nx">certificateResourceName</span>: <span class="kt">GlobalResources.Certificate</span><span class="p">,</span>
+        <span class="nx">externalDnsHostname</span><span class="o">:</span> <span class="s1">&#39;my.domain.com&#39;</span>
+    <span class="p">}))</span>
+    <span class="p">.</span><span class="nx">teams</span><span class="p">(...)</span>
+    <span class="p">.</span><span class="nx">build</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;stack-with-cert-provider&#39;</span><span class="p">);</span>
+</code></pre></div>
+<p><strong>Create Certificate</strong></p>
+<p>This approach is used when certificate should be created with the blueprint stack. In this case, the new certificate requires DNS validation which can be accomplished automatically if the corresponding Route53 hosted zone is provisioned (either along with the stack or separately) and registered as a resource provider.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">ssp</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">.</span><span class="nx">builder</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">resourceProvider</span><span class="p">(</span><span class="nx">GlobalResources</span><span class="p">.</span><span class="nx">HostedZone</span> <span class="p">,</span><span class="k">new</span> <span class="nx">ImportHostedZoneProvider</span><span class="p">(</span><span class="s1">&#39;hosted-zone-id1&#39;</span><span class="p">,</span> <span class="s1">&#39;my.domain.com&#39;</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">resourceProvider</span><span class="p">(</span><span class="nx">GlobalResources</span><span class="p">.</span><span class="nx">Certificate</span><span class="p">,</span> <span class="k">new</span> <span class="nx">CreateCertificateProvider</span><span class="p">(</span><span class="s1">&#39;domain-wildcard-cert&#39;</span><span class="p">,</span> <span class="s1">&#39;*.my.domain.com&#39;</span><span class="p">,</span> <span class="nx">GlobalResources</span><span class="p">.</span><span class="nx">HostedZone</span><span class="p">))</span> <span class="c1">// referencing hosted zone for automatic DNS validation</span>
+    <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="k">new</span> <span class="nx">AwsLoadBalancerControllerAddOn</span><span class="p">())</span>
+    <span class="c1">// Use hosted zone for External DNS</span>
+    <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="k">new</span> <span class="nx">ExternalDnsAddon</span><span class="p">({</span><span class="nx">hostedZoneResources</span><span class="o">:</span> <span class="p">[</span><span class="nx">GlobalResources</span><span class="p">.</span><span class="nx">HostedZone</span><span class="p">]}))</span>
+    <span class="c1">// Use certificate registered before with NginxAddon</span>
+    <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="k">new</span> <span class="nx">NginxAddOn</span><span class="p">({</span>
+        <span class="nx">certificateResourceName</span>: <span class="kt">GlobalResources.Certificate</span><span class="p">,</span>
+        <span class="nx">externalDnsHostname</span><span class="o">:</span> <span class="s1">&#39;my.domain.com&#39;</span>
+    <span class="p">}))</span>
+    <span class="p">.</span><span class="nx">teams</span><span class="p">(...)</span>
+    <span class="p">.</span><span class="nx">build</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;stack-with-resource-providers&#39;</span><span class="p">);</span>
+</code></pre></div>
 <h2 id="functionality">Functionality<a class="headerlink" href="#functionality" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Installs NGINX ingress controller</li>
 <li>Provides convenience options to integrate with AWS Load Balancer controller to leverage NLB for the load balancer</li>
 <li>Provides convenience options to integrate with External DNS add-on for integration with Amazon Route 53. </li>
+<li>Allows configuring TLS termination at the load balancer provisioned with the add-on. </li>
 </ol>
                 
               

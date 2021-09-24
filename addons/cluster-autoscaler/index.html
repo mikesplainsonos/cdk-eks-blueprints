@@ -351,6 +351,18 @@
             
   
   
+  
+    <li class="md-nav__item">
+      <a href="../coredns/" class="md-nav__link">
+        CoreDns
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
     
   
   
@@ -477,6 +489,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../kube-proxy/" class="md-nav__link">
+        Kube Proxy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../metrics-server/" class="md-nav__link">
         Metrics Server
       </a>
@@ -503,6 +527,30 @@
     <li class="md-nav__item">
       <a href="../ssm-agent/" class="md-nav__link">
         SSM Agent
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../secrets-store/" class="md-nav__link">
+        Secrets Store
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpc-cni/" class="md-nav__link">
+        Vpc Cni
       </a>
     </li>
   
@@ -579,8 +627,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cluster-providers/ec2-cluster-provider/" class="md-nav__link">
-        EC2 Cluster Provider
+      <a href="../../cluster-providers/asg-cluster-provider/" class="md-nav__link">
+        ASG Cluster Provider
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cluster-providers/mng-cluster-provider/" class="md-nav__link">
+        MNG Cluster Provider
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cluster-providers/fargate-cluster-provider/" class="md-nav__link">
+        Fargate Cluster Provider
       </a>
     </li>
   
@@ -690,15 +762,16 @@
                 
                 
                 <h1 id="cluster-autoscaler-add-on">Cluster Autoscaler Add-on<a class="headerlink" href="#cluster-autoscaler-add-on" title="Permanent link">&para;</a></h1>
-<p>The <code>ClusterAutoscaler</code> addon adds support for <a href="https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler">Cluster Autoscaler</a>.</p>
-<p>Cluster Autoscaler is a tool that automatically adjusts the number of nodes in your cluster when:
-- pods fail due to insufficient resources, or 
-- pods are rescheduled onto other nodes due to being in nodes that are underutilized for an extended period of time.</p>
+<p>The Cluster Autoscaler add-on adds support for <a href="https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler">Cluster Autoscaler</a> to an EKS cluster. Cluster Autoscaler is a tool that automatically adjusts the number of nodes in your cluster when:</p>
+<ul>
+<li>pods fail due to insufficient resources, or </li>
+<li>pods are rescheduled onto other nodes due to being in nodes that are underutilized for an extended period of time.</li>
+</ul>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ClusterAutoScalerAddOn</span> <span class="p">}</span>  <span class="k">from</span> <span class="s1">&#39;@shapirov/cdk-eks-blueprint&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ClusterAutoScalerAddOn</span><span class="p">,</span> <span class="nx">ClusterAddOn</span><span class="p">,</span> <span class="nx">EksBlueprint</span> <span class="p">}</span>  <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/ssp-amazon-eks&#39;</span><span class="p">;</span>
 
-<span class="k">readonly</span> <span class="nx">myClusterAutoscaler</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ClusterAutoscalerAddOn</span><span class="p">(</span><span class="s2">&quot;v1.19.1&quot;</span><span class="p">);</span><span class="c1">// optionally specify image version to pull  or empty constructor</span>
-<span class="kd">const</span> <span class="nx">addOns</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">ClusterAddOn</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">myClusterAutoscaler</span> <span class="p">];</span>
+<span class="kd">const</span> <span class="nx">addOn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ClusterAutoscalerAddOn</span><span class="p">()</span>
+<span class="kd">const</span> <span class="nx">addOns</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">ClusterAddOn</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">addOn</span> <span class="p">];</span>
 
 <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
 <span class="k">new</span> <span class="nx">EksBlueprint</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;my-stack-name&#39;</span><span class="p">,</span> <span class="nx">addOns</span><span class="p">,</span> <span class="p">[],</span> <span class="p">{</span>
@@ -717,7 +790,7 @@
 <li>Applies proper tags for discoverability to the EC2 instances.</li>
 </ol>
 <h2 id="testing-the-scaling-functionality">Testing the scaling functionality<a class="headerlink" href="#testing-the-scaling-functionality" title="Permanent link">&para;</a></h2>
-<p>These following steps will help test the functionality of the Cluster Autoscaler:</p>
+<p>The following steps will help test and validate Cluster Autoscaler functionality in your cluster.</p>
 <ol>
 <li>Deploy a sample app as a deployment.</li>
 <li>Create a Horizontal Pod Autoscaler (HPA) resource.</li>
@@ -795,7 +868,7 @@ ip-10-0-233-105.us-west-2.compute.internal   Ready    &lt;none&gt;   90s   v1.19
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../calico/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../coredns/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -804,7 +877,7 @@ ip-10-0-233-105.us-west-2.compute.internal   Ready    &lt;none&gt;   90s   v1.19
               <span class="md-footer__direction">
                 Previous
               </span>
-              Calico
+              CoreDns
             </div>
           </div>
         </a>

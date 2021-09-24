@@ -14,7 +14,7 @@
     
     
       
-        <title>EC2 Cluster Provider - Amazon EKS SSP Quick Start</title>
+        <title>Vpc Cni - Amazon EKS SSP Quick Start</title>
       
     
     
@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ec2-cluster-provider" class="md-skip">
+        <a href="#vpc-cni-amazon-eks-add-on" class="md-skip">
           Skip to content
         </a>
       
@@ -89,7 +89,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              EC2 Cluster Provider
+              Vpc Cni
             
           </span>
         </div>
@@ -268,12 +268,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
       
       <label class="md-nav__link" for="__nav_6">
         AddOns
@@ -291,7 +293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../addons/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -303,7 +305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../addons/app-mesh/" class="md-nav__link">
+      <a href="../app-mesh/" class="md-nav__link">
         AWS App Mesh
       </a>
     </li>
@@ -315,7 +317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../addons/argo-cd/" class="md-nav__link">
+      <a href="../argo-cd/" class="md-nav__link">
         ArgoCD
       </a>
     </li>
@@ -327,7 +329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../addons/aws-load-balancer-controller/" class="md-nav__link">
+      <a href="../aws-load-balancer-controller/" class="md-nav__link">
         AWS Load Balancer Controller
       </a>
     </li>
@@ -339,7 +341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../addons/calico/" class="md-nav__link">
+      <a href="../calico/" class="md-nav__link">
         Calico
       </a>
     </li>
@@ -351,7 +353,19 @@
   
   
     <li class="md-nav__item">
-      <a href="../../addons/cluster-autoscaler/" class="md-nav__link">
+      <a href="../coredns/" class="md-nav__link">
+        CoreDns
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cluster-autoscaler/" class="md-nav__link">
         Cluster Autoscaler
       </a>
     </li>
@@ -363,7 +377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../addons/container-insights/" class="md-nav__link">
+      <a href="../container-insights/" class="md-nav__link">
         Container Insights
       </a>
     </li>
@@ -375,7 +389,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../addons/external-dns/" class="md-nav__link">
+      <a href="../external-dns/" class="md-nav__link">
         External DNS
       </a>
     </li>
@@ -387,7 +401,19 @@
   
   
     <li class="md-nav__item">
-      <a href="../../addons/metrics-server/" class="md-nav__link">
+      <a href="../kube-proxy/" class="md-nav__link">
+        Kube Proxy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metrics-server/" class="md-nav__link">
         Metrics Server
       </a>
     </li>
@@ -399,7 +425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../addons/nginx/" class="md-nav__link">
+      <a href="../nginx/" class="md-nav__link">
         Nginx
       </a>
     </li>
@@ -411,9 +437,87 @@
   
   
     <li class="md-nav__item">
-      <a href="../../addons/ssm-agent/" class="md-nav__link">
+      <a href="../ssm-agent/" class="md-nav__link">
         SSM Agent
       </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../secrets-store/" class="md-nav__link">
+        Secrets Store
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Vpc Cni
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Vpc Cni
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisite" class="md-nav__link">
+    Prerequisite
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-options" class="md-nav__link">
+    Configuration Options
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -435,7 +539,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../addons/xray/" class="md-nav__link">
+      <a href="../xray/" class="md-nav__link">
         AWS XRay
       </a>
     </li>
@@ -454,14 +558,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
       
       <label class="md-nav__link" for="__nav_7">
         Cluster Providers
@@ -479,7 +581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../cluster-providers/" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -489,72 +591,35 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          EC2 Cluster Provider
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        EC2 Cluster Provider
+    <li class="md-nav__item">
+      <a href="../../cluster-providers/asg-cluster-provider/" class="md-nav__link">
+        ASG Cluster Provider
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+    </li>
+  
+
+          
+            
   
   
   
-    
+    <li class="md-nav__item">
+      <a href="../../cluster-providers/mng-cluster-provider/" class="md-nav__link">
+        MNG Cluster Provider
+      </a>
+    </li>
+  
+
+          
+            
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
-    Usage
-  </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    Configuration
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#upgrading-worker-nodes" class="md-nav__link">
-    Upgrading Worker Nodes
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-clusters-with-spot-capacity-type" class="md-nav__link">
-    Creating Clusters with Spot Capacity Type
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
+    <li class="md-nav__item">
+      <a href="../../cluster-providers/fargate-cluster-provider/" class="md-nav__link">
+        Fargate Cluster Provider
+      </a>
     </li>
   
 
@@ -591,6 +656,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#prerequisite" class="md-nav__link">
+    Prerequisite
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#usage" class="md-nav__link">
     Usage
   </a>
@@ -598,22 +670,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    Configuration
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#upgrading-worker-nodes" class="md-nav__link">
-    Upgrading Worker Nodes
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-clusters-with-spot-capacity-type" class="md-nav__link">
-    Creating Clusters with Spot Capacity Type
+  <a href="#configuration-options" class="md-nav__link">
+    Configuration Options
   </a>
   
 </li>
@@ -630,102 +688,78 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/aws-quickstart/ssp-amazon-eks/edit/master/docs/cluster-providers/ec2-cluster-provider.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/aws-quickstart/ssp-amazon-eks/edit/master/docs/addons/vpc-cni.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="ec2-cluster-provider">EC2 Cluster Provider<a class="headerlink" href="#ec2-cluster-provider" title="Permanent link">&para;</a></h1>
-<p>The <code>EC2ClusterProvider</code> allows you to provision an EKS cluster which leverages <a href="https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html">EKS managed node groups</a>(MNGs) for compute capacity. MNGs automate the provisioning and lifecycle management of nodes (Amazon EC2 instances) for Amazon EKS Kubernetes clusters.</p>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">props</span>: <span class="kt">EC2ProviderClusterProps</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">minSize</span>: <span class="kt">1</span><span class="p">,</span>
-    <span class="nx">maxSize</span>: <span class="kt">10</span><span class="p">,</span>
-    <span class="nx">desiredSize</span>: <span class="kt">4</span><span class="p">,</span>
-    <span class="nx">instanceTypes</span><span class="o">:</span> <span class="p">[</span><span class="nx">ew</span> <span class="nx">InstanceType</span><span class="p">(</span><span class="s1">&#39;m5.large&#39;</span><span class="p">)],</span>
-    <span class="nx">amiType</span>: <span class="kt">NodegroupAmiType.AL2_X86_64</span><span class="p">,</span>
-    <span class="nx">nodeGroupCapacityType</span>: <span class="kt">CapacityType.ON_DEMAND</span><span class="p">,</span>
-    <span class="nx">version</span>: <span class="kt">KubernetesVersion.V1_20</span><span class="p">,</span>
-    <span class="nx">amiReleaseVersion</span><span class="o">:</span> <span class="s2">&quot;1.20.4-20210519&quot;</span> <span class="c1">// this will upgrade kubelet to 1.20.4</span>
-<span class="p">}</span>
-<span class="kd">const</span> <span class="nx">clusterProvider</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">EC2ClusterProvider</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
-<span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="p">{</span> <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;blueprint&#39;</span><span class="p">,</span> <span class="nx">teams</span><span class="p">,</span> <span class="nx">addOns</span><span class="p">,</span> <span class="nx">clusterProvider</span> <span class="p">});</span>
-</code></pre></div>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
-<p>THe <code>EC2ClusterProvider</code> supports the following configuration options. </p>
-<table>
-<thead>
-<tr>
-<th>Prop</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>minSize</td>
-<td>Min cluster size, must be positive integer greater than 0 (default 1).</td>
-</tr>
-<tr>
-<td>maxSize</td>
-<td>Max cluster size, must be greater than minSize (default 3).</td>
-</tr>
-<tr>
-<td>desiredSize</td>
-<td>Desired cluster size, must be greater or equal to minSize (default <code>min-size</code>).</td>
-</tr>
-<tr>
-<td>instanceTypes</td>
-<td>Type of instance for the EKS cluster, must be a valid instance type, i.e. t3.medium (default "m5.large")</td>
-</tr>
-<tr>
-<td>amiType</td>
-<td>The AMI type for the managed node group.</td>
-</tr>
-<tr>
-<td>amiReleaseVersion</td>
-<td>The AMI Kuberenetes release version for the node group.</td>
-</tr>
-<tr>
-<td>nodeGroupCapacityType</td>
-<td>The capacity type for the node group (on demand or spot).</td>
-</tr>
-<tr>
-<td>vpcSubnets</td>
-<td>The subnets for the cluster.</td>
-</tr>
-<tr>
-<td>privateCluster</td>
-<td>public cluster, you will need to provide a list of subnets. There should be public and private subnets for EKS cluster to work. For more information see <a href="https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">Cluster VPC Considerations</a>.</td>
-</tr>
-</tbody>
-</table>
-<p>Configuration can also be supplied via context variables (specify in cdk.json, cdk.context.json, ~/.cdk.json or pass with -c command line option):</p>
+                <h1 id="vpc-cni-amazon-eks-add-on">VPC CNI Amazon EKS Add-on<a class="headerlink" href="#vpc-cni-amazon-eks-add-on" title="Permanent link">&para;</a></h1>
+<p>The <code>VPC CNI Amazon EKS Add-on</code> adds support for <code>Amazon VPC Container Network Interface (CNI)</code> plugin.</p>
+<p>Amazon EKS supports native VPC networking with the Amazon VPC Container Network Interface (CNI) plugin for Kubernetes. Using this plugin allows Kubernetes pods to have the same IP address inside the pod as they do on the VPC network. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/pod-networking.html">Pod networking (CNI)</a>.</p>
+<p>Installing VPC CNI as <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html">Amazon EKS add-on</a> will reduce the amount of work that is needed to do in order to install, configure, and update add-ons. It includes the latest security patches, bug fixes and is validated by AWS to work with Amazon EKS. This ensures that Amazon EKS clusters are secure and stable.</p>
+<p>Amazon EKS automatically installs VPC CNI as self-managed add-on for every cluster. So if it is already running on your cluster, you can still install it as Amazon EKS add-on to start benefiting from the capabilities of Amazon EKS add-ons.</p>
+<h2 id="prerequisite">Prerequisite<a class="headerlink" href="#prerequisite" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>eks.default.min-size</code></li>
-<li><code>eks.default.max-size</code> </li>
-<li><code>eks.default.desired-size</code></li>
-<li><code>eks.default.instance-type</code> </li>
-<li><code>eks.default.private-cluster</code></li>
+<li>Amazon EKS add-ons are only available with Amazon EKS clusters running Kubernetes version 1.18 and later.</li>
 </ul>
-<p>Configuration of the EC2 parameters through context parameters makes sense if you would like to apply default configuration to multiple clusters without the need to explicitly pass <code>EC2ProviderClusterProps</code> to each cluster provider.</p>
-<h2 id="upgrading-worker-nodes">Upgrading Worker Nodes<a class="headerlink" href="#upgrading-worker-nodes" title="Permanent link">&para;</a></h2>
-<p>Upgrading Kubernetes versions via cluster configuration at present won't impact the kubelet version running on the worker nodes. To perform an in-place upgrade of the cluster, you must also update the <code>amiReleaseVersion</code> property. The following demonstrates how to do so.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">props</span>: <span class="kt">EC2ProviderClusterProps</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">version</span>: <span class="kt">KubernetesVersion.V1_20</span><span class="p">,</span>
-    <span class="nx">amiReleaseVersion</span><span class="o">:</span> <span class="s2">&quot;1.20.4-20210519&quot;</span> <span class="c1">// this will upgrade kubelet to 1.20.4</span>
-<span class="p">}</span>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">ssp</span> <span class="k">from</span> <span class="s1">&#39;@shapirov/cdk-eks-blueprint&#39;</span><span class="p">;</span>
+
+<span class="k">readonly</span> <span class="nx">vpcCni</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">VpcCniAddOn</span><span class="p">(</span><span class="s2">&quot;v1.7.5-eksbuild.2&quot;</span><span class="p">);</span><span class="c1">// optionally specify image version to pull  or empty constructor</span>
+
+<span class="kd">const</span> <span class="nx">addOns</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">ClusterAddOn</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">vpcCni</span> <span class="p">];</span>
+
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
+<span class="k">new</span> <span class="nx">EksBlueprint</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;my-stack-name&#39;</span><span class="p">,</span> <span class="nx">addOns</span><span class="p">,</span> <span class="p">[],</span> <span class="p">{</span>
+  <span class="nx">env</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">account</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">AWS_ACCOUNT_ID</span><span class="o">&gt;</span><span class="p">,</span>
+      <span class="nx">region</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">AWS_REGION</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="p">},</span>
+<span class="p">});</span>
 </code></pre></div>
-<p>Note: consult the <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html">official EKS documentation</a> for information ion the AMI release version that matches Kubernetes versions.</p>
-<h2 id="creating-clusters-with-spot-capacity-type">Creating Clusters with Spot Capacity Type<a class="headerlink" href="#creating-clusters-with-spot-capacity-type" title="Permanent link">&para;</a></h2>
-<p>To create clusters which leverage Spot capacity, set the <code>nodeGroupCapacityType</code> value to <code>CapacityType.SPOT</code></p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">props</span>: <span class="kt">EC2ProviderClusterProps</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">nodeGroupCapacityType</span>: <span class="kt">CapacityType.SPOT</span><span class="p">,</span>
-    <span class="nx">version</span>: <span class="kt">KubernetesVersion.V1_20</span><span class="p">,</span>
-    <span class="nx">instanceTypes</span><span class="o">:</span> <span class="p">[</span><span class="k">new</span> <span class="nx">InstanceType</span><span class="p">(</span><span class="s1">&#39;t3.large&#39;</span><span class="p">),</span> <span class="k">new</span> <span class="nx">InstanceType</span><span class="p">(</span><span class="s1">&#39;m5.large&#39;</span><span class="p">)],</span>
-    <span class="nx">amiReleaseVersion</span><span class="o">:</span> <span class="s2">&quot;1.20.4-20210519&quot;</span> <span class="c1">// this will upgrade kubelet to 1.20.4</span>
-<span class="p">}</span>
+<h2 id="configuration-options">Configuration Options<a class="headerlink" href="#configuration-options" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>version</code>: Pass in the vpc-cni plugin version compatible with kubernetes-cluster version as shown below
+<div class="highlight"><pre><span></span><code><span class="c1"># Assuming cluster version is 1.19, below command shows versions of the vpc-cni add-on available for the specified cluster&#39;s version.</span>
+aws eks describe-addon-versions <span class="se">\</span>
+    --addon-name vpc-cni <span class="se">\</span>
+    --kubernetes-version <span class="m">1</span>.19 <span class="se">\</span>
+    --query <span class="s2">&quot;addons[].addonVersions[].[addonVersion, compatibilities[].defaultVersion]&quot;</span> <span class="se">\</span>
+    --output text
+<span class="c1"># Output</span>
+v1.9.0-eksbuild.1
+False
+v1.8.0-eksbuild.1
+False
+...
+...
+v1.7.5-eksbuild.2
+True
+...
+...
+v1.7.5-eksbuild.1
+False
+v1.6.3-eksbuild.2
+False
+</code></pre></div></li>
+</ul>
+<h1 id="validation">Validation<a class="headerlink" href="#validation" title="Permanent link">&para;</a></h1>
+<p>To validate that vpc-cni add-on is running, ensure that the pod is in Running state.</p>
+<div class="highlight"><pre><span></span><code>$ kubectl get pods  -n kube-system|grep aws-node
+NAME              READY    STATUS    RESTARTS   AGE
+aws-node-xzk5n     1/1     Running   0          34d
 </code></pre></div>
-<p>Note that two attributes in this configuration are relevant for Spot: <code>nodeGroupCapacityType</code> and <code>instaceTypes</code>. The latter indicates the types of instances which could be leveraged for Spot capacity and it makes sense to have a number of instance types to maximize availability. </p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Assuming cluster-name is my-cluster, below command shows the version of vpc-cni add-on installed. Check if it is same as the version installed via EKS add-on</span>
+aws eks describe-addon <span class="se">\</span>
+    --cluster-name my-cluster <span class="se">\</span>
+    --addon-name vpc-cni <span class="se">\</span>
+    --query <span class="s2">&quot;addon.addonVersion&quot;</span> <span class="se">\</span>
+    --output text
+<span class="c1"># Output</span>
+v1.7.5-eksbuild.2
+</code></pre></div>
+<h2 id="functionality">Functionality<a class="headerlink" href="#functionality" title="Permanent link">&para;</a></h2>
+<p>Applies VPC CNI add-on to Amazon EKS cluster.</p>
                 
               
               
@@ -744,7 +778,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../secrets-store/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -753,11 +787,25 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Overview
+              Secrets Store
             </div>
           </div>
         </a>
       
+      
+        <a href="../xray/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              AWS XRay
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
       
     </nav>
   

@@ -378,19 +378,12 @@
     Usage
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#securing-your-environment-with-kubernetes-network-policies" class="md-nav__link">
-    Securing your environment with Kubernetes Network Policies
-  </a>
-  
-    <nav class="md-nav" aria-label="Securing your environment with Kubernetes Network Policies">
+    <nav class="md-nav" aria-label="Usage">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#pod-to-pod-communications-with-no-policies" class="md-nav__link">
-    Pod to Pod communications with no policies
+  <a href="#applying-network-policies" class="md-nav__link">
+    Applying Network Policies
   </a>
   
 </li>
@@ -414,10 +407,29 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#securing-your-environment-with-kubernetes-network-policies" class="md-nav__link">
+    Securing your environment with Kubernetes Network Policies
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../coredns/" class="md-nav__link">
+        CoreDns
+      </a>
     </li>
   
 
@@ -463,6 +475,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../kube-proxy/" class="md-nav__link">
+        Kube Proxy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../metrics-server/" class="md-nav__link">
         Metrics Server
       </a>
@@ -489,6 +513,30 @@
     <li class="md-nav__item">
       <a href="../ssm-agent/" class="md-nav__link">
         SSM Agent
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../secrets-store/" class="md-nav__link">
+        Secrets Store
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpc-cni/" class="md-nav__link">
+        Vpc Cni
       </a>
     </li>
   
@@ -565,8 +613,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cluster-providers/ec2-cluster-provider/" class="md-nav__link">
-        EC2 Cluster Provider
+      <a href="../../cluster-providers/asg-cluster-provider/" class="md-nav__link">
+        ASG Cluster Provider
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cluster-providers/mng-cluster-provider/" class="md-nav__link">
+        MNG Cluster Provider
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cluster-providers/fargate-cluster-provider/" class="md-nav__link">
+        Fargate Cluster Provider
       </a>
     </li>
   
@@ -608,19 +680,12 @@
     Usage
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#securing-your-environment-with-kubernetes-network-policies" class="md-nav__link">
-    Securing your environment with Kubernetes Network Policies
-  </a>
-  
-    <nav class="md-nav" aria-label="Securing your environment with Kubernetes Network Policies">
+    <nav class="md-nav" aria-label="Usage">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#pod-to-pod-communications-with-no-policies" class="md-nav__link">
-    Pod to Pod communications with no policies
+  <a href="#applying-network-policies" class="md-nav__link">
+    Applying Network Policies
   </a>
   
 </li>
@@ -644,6 +709,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#securing-your-environment-with-kubernetes-network-policies" class="md-nav__link">
+    Securing your environment with Kubernetes Network Policies
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -662,13 +734,13 @@
                 
                 
                 <h1 id="calico-add-on">Calico Add-on<a class="headerlink" href="#calico-add-on" title="Permanent link">&para;</a></h1>
-<p>The <code>Calico</code> addon adds support for Kubernetes Network Policies to an EKS cluster.</p>
-<p><a href="https://www.projectcalico.org/">Project Calico</a> is an open source networking and network security solution for containers, virtual machines, and native host-based workloads. To secure workloads in Kubernetes, Calico utilizes Network Policies as you will see below.</p>
+<p><a href="https://www.projectcalico.org/">Project Calico</a> is an open source networking and network security solution for containers, virtual machines, and native host-based workloads. To secure workloads in Kubernetes, Calico utilizes Network Policies. The <code>Calico</code> add-on adds support for Calico to an EKS cluster.</p>
+<p>By default, the native <a href="https://docs.aws.amazon.com/eks/latest/userguide/pod-networking.html">VPC-CNI plugin</a> for Kubernetes on EKS does not support Kubernetes Network Policies. Installing Calico (or alternate CNI provider) will enable customers to define and apply standard <a href="https://kubernetes.io/docs/concepts/services-networking/network-policies/">Kubernetes Network Policies</a> to their EKS cluster. </p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">addons</span> <span class="p">}</span>  <span class="k">from</span> <span class="s1">&#39;@shapirov/cdk-eks-blueprint&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">CalicoAddon</span><span class="p">,</span> <span class="nx">ClusterAddOn</span><span class="p">,</span> <span class="nx">EksBlueprint</span> <span class="p">}</span>  <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/ssp-amazon-eks&#39;</span><span class="p">;</span>
 
-<span class="kd">const</span> <span class="nx">myCalicoCNI</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">addon</span><span class="p">.</span><span class="nx">CalicoAddon</span><span class="p">();</span>
-<span class="kd">const</span> <span class="nx">addOns</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">ClusterAddOn</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">myCalicoCNI</span> <span class="p">];</span>
+<span class="kd">const</span> <span class="nx">addOn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CalicoAddon</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">addOns</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">ClusterAddOn</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">addOn</span> <span class="p">];</span>
 
 <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
 <span class="k">new</span> <span class="nx">EksBlueprint</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;my-stack-name&#39;</span><span class="p">,</span> <span class="nx">addOns</span><span class="p">,</span> <span class="p">[],</span> <span class="p">{</span>
@@ -678,20 +750,12 @@
   <span class="p">},</span>
 <span class="p">});</span>
 </code></pre></div>
-<h2 id="securing-your-environment-with-kubernetes-network-policies">Securing your environment with Kubernetes Network Policies<a class="headerlink" href="#securing-your-environment-with-kubernetes-network-policies" title="Permanent link">&para;</a></h2>
-<p>By default, native VPC-CNI plugin for Kubernetes on EKS does not support Kubernetes Network Policies. Installing Calico addon (or alternate CNI provider) for network policy support will enable customers to define and apply standard <a href="https://kubernetes.io/docs/concepts/services-networking/network-policies/">Kubernetes Network Policies</a>. </p>
-<p>However, Calico also allows Custom Resource Definitions (CRD) which gives you the ability to add features not in the standard Kubernetes policies, such as:
-- Explicit Deny rules
-- Layer 7 rule support (i.e. Http Request types)
-- Endpoint support other than standard pods: OpenShift, VMs, interfaces, etc. </p>
-<p>In order to use CRDs (in particular defined within the <em>projectcalico.org/v3</em> Calico API), you need to install the Calico CLI (<a href="https://docs.projectcalico.org/getting-started/clis/calicoctl/install">calicoctl</a>). You can find more information about Calico Network Policy and using <code>calicoctl</code> <a href="https://docs.projectcalico.org/security/calico-network-policy">here</a>. </p>
-<p>In this section, you will look at how the standard Kubernetes Network Policies are applied. This will be done using <code>kubectl</code>.</p>
-<h3 id="pod-to-pod-communications-with-no-policies">Pod to Pod communications with no policies<a class="headerlink" href="#pod-to-pod-communications-with-no-policies" title="Permanent link">&para;</a></h3>
-<p>If you deploy <a href="https://github.com/aws-quickstart/quickstart-ssp-amazon-eks/blob/feature/calico/docs/getting-started.md#deploy-workloads-with-argocd">App of Apps installed using ArgoCD</a>, you can verify that there are no network policies in place:</p>
+<h3 id="applying-network-policies">Applying Network Policies<a class="headerlink" href="#applying-network-policies" title="Permanent link">&para;</a></h3>
+<p>In the <a href="">Getting Started</a> guide, we bootstrapped an EKS cluster with the workloads contained in the ssp-workloads repository. Below, we will demonstrate how we can apply network policies to govern traffic between the workloads once Calico is installed.</p>
+<p>To start, we can verify that there are no network policies in place in your EKS cluster.</p>
 <div class="highlight"><pre><span></span><code>kubectl get networkpolicy -A
 </code></pre></div>
-<p>This means that any resources within the cluster should be able to make ingress and egress connections with other resources within and outside the cluster. You can verify, for example, that you are able to ping from <code>team-riker</code> pod to <code>team-burnham</code> pod.</p>
-<p>First you retrieve the pod name from the <code>team-burnham</code> namespace its podIP:</p>
+<p>This means that all resources within the cluster should be able to make ingress and egress connections with other resources within and outside the cluster. You can verify, for example, that you are able to ping a<code>team-burnham</code> pod from a <code>team-riker</code> pod. To do so, first retrieve the podIP from the <code>team-burnham</code> namespace.</p>
 <div class="highlight"><pre><span></span><code><span class="nv">BURNHAM_POD</span><span class="o">=</span><span class="k">$(</span>kubectl get pod -n team-burnham -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.items[0].metadata.name}&#39;</span><span class="k">)</span> 
 <span class="nv">BURNHAM_POD_IP</span><span class="o">=</span><span class="k">$(</span>kubectl get pod -n team-burnham <span class="nv">$BURNHAM_POD</span> -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.status.podIP}&#39;</span><span class="k">)</span>
 </code></pre></div>
@@ -718,10 +782,10 @@ kubectl <span class="nb">exec</span> -ti -n team-riker <span class="nv">$RIKER_P
 <div class="highlight"><pre><span></span><code>kubectl -n team-riker apply -f deny-all.yaml 
 kubectl -n team-burnham apply -f deny-all.yaml
 </code></pre></div>
-<p>This will essentially prevent access to all resources within both namespaces. Try curl commands from above to verify that it fails.</p>
+<p>This will prevent access to all resources within both namespaces. Try curl commands from above to verify that it fails.</p>
 <h3 id="applying-additional-policy-to-re-open-pod-to-pod-communications">Applying additional policy to re-open pod to pod communications<a class="headerlink" href="#applying-additional-policy-to-re-open-pod-to-pod-communications" title="Permanent link">&para;</a></h3>
-<p>You can apply Kubernetes NetworkPolicy on top of that to “poke holes” for egress and ingress needs. </p>
-<p>For example, if you wanted to be able to curl from the <code>team-riker</code> pod to the <code>team-burnham</code> pod, the following Kubernetes NetworkPolicy should be applied. </p>
+<p>You can apply a new Kubernetes Network Policy on top of the previous to “poke holes” for egress and ingress needs. </p>
+<p>For example, if you want to be able to curl from the <code>team-riker</code> pod to the <code>team-burnham</code> pod, the following Kubernetes NetworkPolicy should be applied. </p>
 <div class="highlight"><pre><span></span><code><span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">NetworkPolicy</span>
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">networking.k8s.io/v1</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -761,6 +825,14 @@ kubectl -n team-burnham apply -f deny-all.yaml
 <div class="highlight"><pre><span></span><code>kubectl apply -f allow-burnham-riker.yaml     
 </code></pre></div>
 <p>Once the policy is applied, once again try the curl command from above. You should now see <code>Success.</code> once again.</p>
+<h2 id="securing-your-environment-with-kubernetes-network-policies">Securing your environment with Kubernetes Network Policies<a class="headerlink" href="#securing-your-environment-with-kubernetes-network-policies" title="Permanent link">&para;</a></h2>
+<p>Calico also allows Custom Resource Definitions (CRD) which provides the ability to add features not in the standard Kubernetes  Network Policies, such as:</p>
+<ul>
+<li>Explicit Deny rules</li>
+<li>Layer 7 rule support (i.e. Http Request types)</li>
+<li>Endpoint support other than standard pods: OpenShift, VMs, interfaces, etc. </li>
+</ul>
+<p>In order to use CRDs (in particular defined within the <em>projectcalico.org/v3</em> Calico API), you must install the Calico CLI (<a href="https://docs.projectcalico.org/getting-started/clis/calicoctl/install">calicoctl</a>). You can find more information about Calico Network Policy and using <code>calicoctl</code> <a href="https://docs.projectcalico.org/security/calico-network-policy">here</a>. </p>
                 
               
               
@@ -794,13 +866,13 @@ kubectl -n team-burnham apply -f deny-all.yaml
         </a>
       
       
-        <a href="../cluster-autoscaler/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../coredns/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Cluster Autoscaler
+              CoreDns
             </div>
           </div>
           <div class="md-footer__button md-icon">

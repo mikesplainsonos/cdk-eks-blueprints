@@ -353,6 +353,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../coredns/" class="md-nav__link">
+        CoreDns
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../cluster-autoscaler/" class="md-nav__link">
         Cluster Autoscaler
       </a>
@@ -417,6 +429,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#using-external-dns" class="md-nav__link">
+    Using External DNS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#hosted-zone-providers" class="md-nav__link">
     Hosted Zone Providers
   </a>
@@ -441,6 +460,18 @@
   
 </nav>
       
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kube-proxy/" class="md-nav__link">
+        Kube Proxy
+      </a>
     </li>
   
 
@@ -476,6 +507,30 @@
     <li class="md-nav__item">
       <a href="../ssm-agent/" class="md-nav__link">
         SSM Agent
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../secrets-store/" class="md-nav__link">
+        Secrets Store
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpc-cni/" class="md-nav__link">
+        Vpc Cni
       </a>
     </li>
   
@@ -552,8 +607,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cluster-providers/ec2-cluster-provider/" class="md-nav__link">
-        EC2 Cluster Provider
+      <a href="../../cluster-providers/asg-cluster-provider/" class="md-nav__link">
+        ASG Cluster Provider
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cluster-providers/mng-cluster-provider/" class="md-nav__link">
+        MNG Cluster Provider
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cluster-providers/fargate-cluster-provider/" class="md-nav__link">
+        Fargate Cluster Provider
       </a>
     </li>
   
@@ -593,6 +672,13 @@
         <li class="md-nav__item">
   <a href="#usage" class="md-nav__link">
     Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-external-dns" class="md-nav__link">
+    Using External DNS
   </a>
   
 </li>
@@ -639,13 +725,12 @@
 <p>External DNS add-on is based on the <a href="https://github.com/kubernetes-sigs/external-dns">ExternalDNS</a> open source project and allows integration of exposed Kubernetes services and Ingresses with DNS providers, in particular <a href="https://aws.amazon.com/route53/">Amazon Route 53</a>.</p>
 <p>The add-on provides functionality to configure IAM policies and Kubernetes service accounts for Route 53 integration support based on <a href="https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/aws.md">AWS Tutorial for External DNS</a>.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<p><div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">ssp</span> <span class="k">from</span> <span class="s1">&#39;@shapirov/cdk-eks-blueprint&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">ssp</span> <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/ssp-amazon-eks&#39;</span><span class="p">;</span>
 
-<span class="k">readonly</span> <span class="nx">externalDns</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">ExternalDnsAddon</span><span class="p">({</span>
-    <span class="nx">hostedZone</span>: <span class="kt">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">LookupHostedZoneProvider</span><span class="p">(</span><span class="nx">myHostedZoneName</span><span class="p">)</span>
-<span class="p">});</span>
-
-<span class="kd">const</span> <span class="nx">addOns</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">ClusterAddOn</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">externalDns</span> <span class="p">];</span>
+<span class="kd">const</span> <span class="nx">hostedZoneName</span> <span class="o">=</span> <span class="p">...</span>
+<span class="kd">const</span> <span class="nx">hostedZone</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">LookupHostedZoneProvider</span><span class="p">(</span><span class="nx">hostedZoneName</span><span class="p">)</span>
+<span class="kd">const</span> <span class="nx">addOn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">ExternalDnsAddon</span><span class="p">({</span> <span class="nx">hostedZone</span> <span class="p">});</span>
+<span class="kd">const</span> <span class="nx">addOns</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">ClusterAddOn</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">addOn</span> <span class="p">];</span>
 
 <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
 <span class="k">new</span> <span class="nx">EksBlueprint</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;my-stack-name&#39;</span><span class="p">,</span> <span class="nx">addOns</span><span class="p">,</span> <span class="p">[],</span> <span class="p">{</span>
@@ -655,14 +740,14 @@
   <span class="p">},</span>
 <span class="p">});</span>
 </code></pre></div>
-To validate that external DNS add-on is running ensure that the add-on deployment is in <code>RUNNING</code> state:</p>
+<p>To validate that external DNS add-on is running ensure that the add-on deployment is in <code>RUNNING</code> state:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Assuming add-on is installed in the external-dns namespace.</span>
 $ kubectl get po -n external-dns
 NAME                           READY   STATUS    RESTARTS   AGE
 external-dns-fcf6c9c66-xd8f4   <span class="m">1</span>/1     Running   <span class="m">0</span>          3d3h
 </code></pre></div>
-<p>You can now provision external services and ingresses integrating with Route 53. 
-For example to provision an NLB you can use the following service manifest:</p>
+<h2 id="using-external-dns">Using External DNS<a class="headerlink" href="#using-external-dns" title="Permanent link">&para;</a></h2>
+<p>You can now provision external services and ingresses integrating with Route 53. For example to provision an NLB you can use the following service manifest:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -682,20 +767,29 @@ For example to provision an NLB you can use the following service manifest:</p>
 </code></pre></div>
 <p>Note the <code>external-dns.alpha.kubernetes.io/hostname</code> annotation for the service name that allows specifying its domain name. </p>
 <h2 id="hosted-zone-providers">Hosted Zone Providers<a class="headerlink" href="#hosted-zone-providers" title="Permanent link">&para;</a></h2>
-<p>In order for external DNS to work, you need to supply one or more hosted zones. You need a reference to the EKS stack in order to either create or look up the hosted zones. </p>
-<p>To help customers handle common use cases for Route 53 provisioning the framework provides a few convenience providers. </p>
+<p>In order for external DNS to work, you need to supply one or more hosted zones. Hosted zones are expected to be supplied leveraging <a href="../../resource-providers/">resource providers</a>.</p>
+<p>To help customers handle common use cases for Route 53 provisioning the framework provides a few convenience providers that can be registered with the EKS Blueprint Stack. </p>
 <p><strong>Name look-up and direct import provider:</strong>
 This provider will allow to bind to an existing hosted zone based on its name.</p>
-<div class="highlight"><pre><span></span><code>    <span class="kd">const</span> <span class="nx">myDomainName</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-    <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">ExternalDnsAddon</span><span class="p">({</span>
-        <span class="nx">hostedZone</span>: <span class="kt">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">LookupHostedZoneProvider</span><span class="p">(</span><span class="nx">myDomainName</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">myDomainName</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+
+<span class="nx">ssp</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">.</span><span class="nx">builder</span><span class="p">()</span>
+    <span class="c1">//  Register hosted zone1 under the name of MyHostedZone1</span>
+    <span class="p">.</span><span class="nx">resourceProvider</span><span class="p">(</span><span class="s2">&quot;MyHostedZone1&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">LookupHostedZoneProvider</span><span class="p">(</span><span class="nx">myDomainName</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">ExternalDnsAddon</span><span class="p">({</span>
+        <span class="nx">hostedZoneProviders</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;MyHostedZone1&quot;</span><span class="p">];</span>
     <span class="p">})</span>
+    <span class="p">.</span><span class="nx">build</span><span class="p">(...);</span>
 </code></pre></div>
 <p>If the hosted zone ID is known, then the recommended approach is to use a <code>ImportHostedZoneProvider</code> which bypasses any lookup calls.</p>
-<div class="highlight"><pre><span></span><code>    <span class="kd">const</span> <span class="nx">myHostedZoneId</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-    <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">ExternalDnsAddon</span><span class="p">({</span>
-        <span class="nx">hostedZone</span>: <span class="kt">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">ImportHostedZoneProvider</span><span class="p">(</span><span class="nx">myDomainName</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">myHostedZoneId</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="nx">ssp</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">.</span><span class="nx">builder</span><span class="p">()</span>
+    <span class="c1">//  Register hosted zone1 under the name of MyHostedZone1</span>
+    <span class="p">.</span><span class="nx">resourceProvider</span><span class="p">(</span><span class="s2">&quot;MyHostedZone1&quot;</span><span class="p">,</span>  <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">ImportHostedZoneProvider</span><span class="p">(</span><span class="nx">myHostedZoneId</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">ExternalDnsAddon</span><span class="p">({</span>
+        <span class="nx">hostedZoneProviders</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;MyHostedZone1&quot;</span><span class="p">];</span>
     <span class="p">})</span>
+    <span class="p">.</span><span class="nx">build</span><span class="p">(...);</span>
 </code></pre></div>
 <p><strong>Delegating Hosted Zone Provider</strong></p>
 <p>In many cases, enterprises choose to decouple provisioning of root domains and subdomains. A common pattern is to have a specific DNS account (AWS account) hosting the root domain, while subdomains may be created within individual workload accounts. </p>
@@ -720,18 +814,20 @@ This provider will allow to bind to an existing hosted zone based on its name.</
 <li>In the <code>parentAccountId</code> you create a public hosted zone for <code>myglobal-domain.com</code>. With that the setup that may require separate automation (or a manual process) is complete. </li>
 <li>Use the following configuration of the add-on:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">useWildcardDomain</span> <span class="o">=</span> <span class="kc">true</span>
-<span class="k">readonly</span> <span class="nx">externalDns</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">ExternalDnsAddon</span><span class="p">({</span>
-    <span class="nx">hostedZone</span>: <span class="kt">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">DelegatingHostedZoneProvider</span><span class="p">({</span>
+<div class="highlight"><pre><span></span><code><span class="nx">ssp</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">.</span><span class="nx">builder</span><span class="p">()</span>
+    <span class="c1">//  Register hosted zone1 under the name of MyHostedZone1</span>
+    <span class="p">.</span><span class="nx">resourceProvider</span><span class="p">(</span><span class="s2">&quot;MyHostedZone1&quot;</span><span class="p">,</span>  <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">DelegatingHostedZoneProvider</span><span class="p">({</span>
         <span class="nx">parentDomain</span><span class="o">:</span> <span class="s1">&#39;myglobal-domain.com&#39;</span><span class="p">,</span>
         <span class="nx">subdomain</span><span class="o">:</span> <span class="s1">&#39;dev.myglobal-domain.com&#39;</span><span class="p">,</span> 
         <span class="nx">parentAccountId</span>: <span class="kt">parentDnsAccountId</span><span class="p">,</span>
-        <span class="nx">delegatingRoleName</span><span class="o">:</span> <span class="s1">&#39;DomainOperatorRole&#39;</span><span class="p">,</span> 
-        <span class="nx">wildcardSubdomain</span>: <span class="kt">useWildcardDomain</span>
+        <span class="nx">delegatingRoleName</span><span class="o">:</span> <span class="s1">&#39;DomainOperatorRole&#39;</span><span class="p">,</span>
+        <span class="nx">wildcardSubdomain</span>: <span class="kt">true</span>
     <span class="p">})</span>
-<span class="p">});</span>
+    <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">ExternalDnsAddon</span><span class="p">({</span>
+        <span class="nx">hostedZoneProviders</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;MyHostedZone1&quot;</span><span class="p">];</span>
+    <span class="p">})</span>
 </code></pre></div>
-<p>The parameter <code>useWildcardDomain</code> above when set to true will also create a CNAME for <code>*.dev.myglobal-domain.com</code>. This is at the moment used for host based routing within EKS (e.g. with NGINX ingress).</p>
+<p>The parameter <code>wildcardSubdomain</code> above when set to true will also create a CNAME for <code>*.dev.myglobal-domain.com</code>. This is at the moment used for host based routing within EKS (e.g. with NGINX ingress).</p>
 <h2 id="configuration-options">Configuration Options<a class="headerlink" href="#configuration-options" title="Permanent link">&para;</a></h2>
 <ul>
 <li><code>namespace</code>: Optional target namespace where add-on will be installed. Changing this value on the operating cluster is not recommended. Set to <code>external-dns</code> by default.</li>
@@ -773,13 +869,13 @@ This provider will allow to bind to an existing hosted zone based on its name.</
         </a>
       
       
-        <a href="../metrics-server/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../kube-proxy/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Metrics Server
+              Kube Proxy
             </div>
           </div>
           <div class="md-footer__button md-icon">

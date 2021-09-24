@@ -357,8 +357,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#setting-admin-password-from-aws-secrets-manager" class="md-nav__link">
-    Setting Admin Password from AWS Secrets Manager
+  <a href="#functionality" class="md-nav__link">
+    Functionality
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-an-admin-password" class="md-nav__link">
+    Setting an Admin Password
   </a>
   
 </li>
@@ -371,13 +378,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#known-issues" class="md-nav__link">
-    Known Issues
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#secrets-support" class="md-nav__link">
     Secrets Support
   </a>
@@ -385,8 +385,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#functionality" class="md-nav__link">
-    Functionality
+  <a href="#known-issues" class="md-nav__link">
+    Known Issues
   </a>
   
 </li>
@@ -418,6 +418,18 @@
     <li class="md-nav__item">
       <a href="../calico/" class="md-nav__link">
         Calico
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../coredns/" class="md-nav__link">
+        CoreDns
       </a>
     </li>
   
@@ -464,6 +476,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../kube-proxy/" class="md-nav__link">
+        Kube Proxy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../metrics-server/" class="md-nav__link">
         Metrics Server
       </a>
@@ -490,6 +514,30 @@
     <li class="md-nav__item">
       <a href="../ssm-agent/" class="md-nav__link">
         SSM Agent
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../secrets-store/" class="md-nav__link">
+        Secrets Store
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpc-cni/" class="md-nav__link">
+        Vpc Cni
       </a>
     </li>
   
@@ -566,8 +614,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cluster-providers/ec2-cluster-provider/" class="md-nav__link">
-        EC2 Cluster Provider
+      <a href="../../cluster-providers/asg-cluster-provider/" class="md-nav__link">
+        ASG Cluster Provider
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cluster-providers/mng-cluster-provider/" class="md-nav__link">
+        MNG Cluster Provider
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cluster-providers/fargate-cluster-provider/" class="md-nav__link">
+        Fargate Cluster Provider
       </a>
     </li>
   
@@ -612,8 +684,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#setting-admin-password-from-aws-secrets-manager" class="md-nav__link">
-    Setting Admin Password from AWS Secrets Manager
+  <a href="#functionality" class="md-nav__link">
+    Functionality
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-an-admin-password" class="md-nav__link">
+    Setting an Admin Password
   </a>
   
 </li>
@@ -626,13 +705,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#known-issues" class="md-nav__link">
-    Known Issues
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#secrets-support" class="md-nav__link">
     Secrets Support
   </a>
@@ -640,8 +712,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#functionality" class="md-nav__link">
-    Functionality
+  <a href="#known-issues" class="md-nav__link">
+    Known Issues
   </a>
   
 </li>
@@ -664,15 +736,16 @@
                 
                 
                 <h1 id="argo-cd-add-on">Argo CD Add-on<a class="headerlink" href="#argo-cd-add-on" title="Permanent link">&para;</a></h1>
-<p><a href="https://argoproj.github.io/argo-cd/">Argo CD</a> is a declarative, GitOps continuous delivery tool for Kubernetes. The Argo CD add-on provisions <a href="https://argoproj.github.io/argo-cd/">Argo CD</a> into an EKS cluster, and can optionally bootstrap your workloads from public and private repositories. This allows platform administrators to combine cluster provisioning and workload bootstrapping in a single step and enable use cases such as replicating an existing running production cluster in a different region in a matter of minutes. This is important for business continuity and disaster recovery cases as well as for cross-regional availability and geographical expansion.</p>
+<p><a href="https://argoproj.github.io/argo-cd/">Argo CD</a> is a declarative, GitOps continuous delivery tool for Kubernetes. The Argo CD add-on provisions <a href="https://argoproj.github.io/argo-cd/">Argo CD</a> into an EKS cluster, and can optionally bootstrap your workloads from public and private Git repositories. </p>
+<p>The Argo CD add-on allows platform administrators to combine cluster provisioning and workload bootstrapping in a single step and enables use cases such as replicating an existing running production cluster in a different region in a matter of minutes. This is important for business continuity and disaster recovery cases as well as for cross-regional availability and geographical expansion.</p>
 <p>Please see the documentation below for details on automatic boostrapping with ArgoCD add-on. If you prefer manual bootstrapping (once your cluster is deployed with this add-on included), you can find instructions on getting started with Argo CD in our <a href="/getting-started/#deploy-workloads-with-argocd">Getting Started</a> guide.</p>
 <p>Full Argo CD project documentation <a href="https://argoproj.github.io/argo-cd/">can be found here</a>.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<p>To provision and maintain ArgoCD components without any bootstrapping the add-on allows no-argument constructor to get started. </p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ArgoCDAddOn</span><span class="p">,</span> <span class="nx">ClusterAddOn</span><span class="p">,</span> <span class="nx">EksBlueprint</span> <span class="p">}</span>  <span class="k">from</span> <span class="s1">&#39;@shapirov/cdk-eks-blueprint&#39;</span><span class="p">;</span>
+<p>To provision and maintain ArgoCD components without any bootstrapping, the add-on provides a no-argument constructor to get started. </p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ArgoCDAddOn</span><span class="p">,</span> <span class="nx">ClusterAddOn</span><span class="p">,</span> <span class="nx">EksBlueprint</span> <span class="p">}</span>  <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/ssp-amazon-eks&#39;</span><span class="p">;</span>
 
-<span class="kd">const</span> <span class="nx">argoCDAddOn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ArgoCDAddOn</span><span class="p">();</span>
-<span class="kd">const</span> <span class="nx">addOns</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">ClusterAddOn</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">argoCDAddOn</span> <span class="p">];</span>
+<span class="kd">const</span> <span class="nx">addOn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ArgoCDAddOn</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">addOns</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">ClusterAddOn</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">addOn</span> <span class="p">];</span>
 
 <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
 <span class="k">new</span> <span class="nx">EksBlueprint</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;my-stack-name&#39;</span><span class="p">,</span> <span class="nx">addOns</span><span class="p">,</span> <span class="p">[],</span> <span class="p">{</span>
@@ -682,8 +755,16 @@
   <span class="p">},</span>
 <span class="p">});</span>
 </code></pre></div>
-<p>The above will use <code>argocd</code> namespace and install all the components. In order to bootstrap workloads you will need to change the default ArgoCD admin password and add repositories as specified in the <a href="https://argoproj.github.io/argo-cd/getting_started/#port-forwarding">Getting Started</a> documentation.</p>
-<h2 id="setting-admin-password-from-aws-secrets-manager">Setting Admin Password from AWS Secrets Manager<a class="headerlink" href="#setting-admin-password-from-aws-secrets-manager" title="Permanent link">&para;</a></h2>
+<p>The above will create an <code>argocd</code> namespace and install all Argo CD components. In order to bootstrap workloads you will need to change the default ArgoCD admin password and add repositories as specified in the <a href="https://argoproj.github.io/argo-cd/getting_started/#port-forwarding">Getting Started</a> documentation.</p>
+<h2 id="functionality">Functionality<a class="headerlink" href="#functionality" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Creates the namespace specified in the construction parameter (<code>argocd</code> by default).</li>
+<li>Deploys the <a href="https://argoproj.github.io/argo-helm"><code>argo-cd</code></a> Helm chart into the cluster.</li>
+<li>Allows to specify <code>ApplicationRepository</code> selecting the required authentication method as SSH Key, username/password or username/token. Credentials are expected to be set in AWS Secrets Manager and replicated to the desired region. If bootstrap repository is specified, creates the initial bootstrap application which may be leveraged to bootstrap workloads and/or other add-ons through GitOps.</li>
+<li>Allows setting the initial admin password through AWS Secrets Manager, replicating to the desired region. </li>
+</ol>
+<h2 id="setting-an-admin-password">Setting an Admin Password<a class="headerlink" href="#setting-an-admin-password" title="Permanent link">&para;</a></h2>
+<p>By default, the Argo CD add-on will create a new admin password for you. To specify your own, you can leverage the AWS Secrets Manager.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">argoCDAddOn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ArgoCDAddOn</span><span class="p">({</span>
     <span class="nx">adminPasswordSecretName</span><span class="o">:</span> <span class="sb">`your-secret-name`</span>
 <span class="p">});</span>
@@ -694,40 +775,42 @@
 <p>You can change the admin password through the Secrets Manager, but it will require rerunning the provisioning pipeline. Automatic sync with the Secrets Manager will be added in the future. </p>
 <h2 id="bootstrapping">Bootstrapping<a class="headerlink" href="#bootstrapping" title="Permanent link">&para;</a></h2>
 <p>The SSP framework provides an approach to bootstrap workloads and/or additional add-ons from a customer GitOps repository. In a general case, the bootstrap GitOps repository may contains an <a href="https://argoproj.github.io/argo-cd/operator-manual/cluster-bootstrapping/#app-of-apps-pattern">App of Apps</a> that points to all workloads and add-ons.  </p>
-<p>In order to enable bootstrapping, the add-on allows passing an <code>ArgoApplicationRepository</code> at construction time. The following repository types are supported at present:</p>
+<p>In order to enable bootstrapping, the add-on allows passing an <code>ApplicationRepository</code> at construction time. The following repository types are supported at present:</p>
 <ol>
 <li>Public HTTP/HTTPS repositories (e.g., GitHub)</li>
 <li>Private HTTPS accessible git repositories requiring username/password authentication.</li>
 <li>Private git repositories with SSH access requiring an SSH key for authentication.</li>
 <li>Private HTTPS accessible GitHub repositories accessible with GitHub token. </li>
 </ol>
-<p>The usage example is provided below, along with an approach that could use a separate app of apps to bootstrap workloads in different stages, which is important for a software delivery platform as it allows segregating workloads specific to each stage of the SDLC and defines clear promotion processes through GitOps.</p>
-<p><div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ArgoCDAddOn</span><span class="p">,</span> <span class="nx">ClusterAddOn</span><span class="p">,</span> <span class="nx">EksBlueprint</span> <span class="p">}</span>  <span class="k">from</span> <span class="s1">&#39;@shapirov/cdk-eks-blueprint&#39;</span><span class="p">;</span>
+<p>An example is provided below, along with an approach that could use a separate app of apps to bootstrap workloads in different stages, which is important for a software delivery platform as it allows segregating workloads specific to each stage of the SDLC and defines clear promotion processes through GitOps.</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ArgoCDAddOn</span><span class="p">,</span> <span class="nx">ClusterAddOn</span><span class="p">,</span> <span class="nx">EksBlueprint</span> <span class="p">}</span>  <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/ssp-amazon-eks&#39;</span><span class="p">;</span>
 
 <span class="kd">const</span> <span class="nx">addOns</span> <span class="o">=</span> <span class="p">...;</span>
-<span class="kd">const</span> <span class="nx">gitUrl</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/aws-samples/ssp-eks-workloads.git&#39;</span>
+<span class="kd">const</span> <span class="nx">repoUrl</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/aws-samples/ssp-eks-workloads.git&#39;</span>
+
+<span class="kd">const</span> <span class="nx">bootstrapRepo</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">repoUrl</span><span class="p">,</span>
+    <span class="nx">credentialsSecretName</span><span class="o">:</span> <span class="s1">&#39;github-ssh-test&#39;</span><span class="p">,</span>
+    <span class="nx">credentialsType</span><span class="o">:</span> <span class="s1">&#39;SSH&#39;</span>
+<span class="p">}</span>
 
 <span class="kd">const</span> <span class="nx">devBootstrapArgo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ArgoCDAddOn</span><span class="p">({</span>
     <span class="nx">bootstrapRepo</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">repoUrl</span>: <span class="kt">gitUrl</span><span class="p">,</span>
+        <span class="p">...</span><span class="nx">bootstrapRepo</span><span class="p">,</span>
         <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;envs/dev&#39;</span>
     <span class="p">}</span>
 <span class="p">});</span>
 <span class="kd">const</span> <span class="nx">testBootstrapArgo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ArgoCDAddOn</span><span class="p">({</span>
     <span class="nx">bootstrapRepo</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">repoUrl</span><span class="o">:</span> <span class="s1">&#39;git@github.com:aws-samples/ssp-eks-workloads.git&#39;</span><span class="p">,</span>
+        <span class="p">...</span><span class="nx">bootstrapRepo</span><span class="p">,</span>
         <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;envs/test&#39;</span><span class="p">,</span>
-        <span class="nx">credentialsSecretName</span><span class="o">:</span> <span class="s1">&#39;github-ssh-test&#39;</span><span class="p">,</span>
-        <span class="nx">credentialsType</span><span class="o">:</span> <span class="s1">&#39;SSH&#39;</span>
     <span class="p">},</span>
 
 <span class="p">});</span>
 <span class="kd">const</span> <span class="nx">prodBootstrapArgo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ArgoCDAddOn</span><span class="p">({</span>
     <span class="nx">bootstrapRepo</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">repoUrl</span><span class="o">:</span> <span class="s1">&#39;git@github.com:aws-samples/ssp-eks-workloads.git&#39;</span><span class="p">,</span>
+        <span class="p">...</span><span class="nx">bootstrapRepo</span><span class="p">,</span>
         <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;envs/prod&#39;</span><span class="p">,</span>
-        <span class="nx">credentialsSecretName</span><span class="o">:</span> <span class="s1">&#39;github-ssh-test&#39;</span><span class="p">,</span>
-        <span class="nx">credentialsType</span><span class="o">:</span> <span class="s1">&#39;SSH&#39;</span>
     <span class="p">},</span>
     <span class="nx">adminPasswordSecretName</span><span class="o">:</span> <span class="s1">&#39;argo-admin-secret&#39;</span><span class="p">,</span>
 <span class="p">});</span>
@@ -747,12 +830,7 @@
     <span class="nx">env</span><span class="o">:</span> <span class="p">{</span> <span class="nx">region</span>: <span class="kt">west2</span> <span class="p">}</span>
 <span class="p">});</span>
 </code></pre></div>
-The application promotion process in the above example is handled entirely through GitOps. Each stage specific App of Apps contains references to respective application GitOps repository for each stage (e.g referencing the release vs work branches or path-based within individual app GitOps repository).</p>
-<h2 id="known-issues">Known Issues<a class="headerlink" href="#known-issues" title="Permanent link">&para;</a></h2>
-<ol>
-<li>Destruction of the cluster with provisioned applications may cause cloud formation to get stuck on deleting ArgoCD namespace. This happens because the server component that handles Application CRD resource is destroyed before it has a chance to clean up application that were provisioned through GitOps (of which CFN is unaware). To address this issue at the moment, App of Apps application should be destroyed manually before destroying the stack. </li>
-<li>Changing the administrator password in the AWS Secrets Manager and rerunning the stack causes login error on ArgoCD UI. This happens due to the fact that Argo Helm rewrites the the secret containing the Dex server API Key (OIDC component of ArgoCD). The workaround at present is to restart the <code>argocd-server</code> pod, which repopulates the token. Secret management aspect of ArgoCD will be improved in the future to not require this step after password change. </li>
-</ol>
+<p>The application promotion process in the above example is handled entirely through GitOps. Each stage specific App of Apps contains references to respective application GitOps repository for each stage (e.g referencing the release vs work branches or path-based within individual app GitOps repository).</p>
 <h2 id="secrets-support">Secrets Support<a class="headerlink" href="#secrets-support" title="Permanent link">&para;</a></h2>
 <p>The framework provides support to supply repository and administrator secrets in AWS Secrets Manager. This support is evolving and will be improved over time as ArgoCD itself matures. </p>
 <p><strong>SSH Key Authentication</strong></p>
@@ -770,12 +848,10 @@ The application promotion process in the above example is handled entirely throu
 <li>Replicate the secret to all the desired regions.</li>
 <li>Set the secret name in <code>adminPasswordSecretName</code> in ArgoCD add-on configuration.</li>
 </ol>
-<h2 id="functionality">Functionality<a class="headerlink" href="#functionality" title="Permanent link">&para;</a></h2>
+<h2 id="known-issues">Known Issues<a class="headerlink" href="#known-issues" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Creates the namespace specified in the construction parameter (<code>argocd</code> by default).</li>
-<li>Deploys the <a href="https://argoproj.github.io/argo-helm"><code>argo-cd</code></a> Helm chart into the cluster.</li>
-<li>Allows to specify <code>ApplicationRepository</code> selecting the required authentication method as SSH Key, username/password or username/token. Credentials are expected to be set in AWS Secrets Manager and replicated to the desired region. If bootstrap repository is specified, creates the initial bootstrap application which may be leveraged to bootstrap workloads and/or other add-ons through GitOps.</li>
-<li>Allows setting the initial admin password through AWS Secrets Manager, replicating to the desired region. </li>
+<li>Destruction of the cluster with provisioned applications may cause cloud formation to get stuck on deleting ArgoCD namespace. This happens because the server component that handles Application CRD resource is destroyed before it has a chance to clean up applications that were provisioned through GitOps (of which CFN is unaware). To address this issue at the moment, App of Apps application should be destroyed manually before destroying the stack. </li>
+<li>Changing the administrator password in the AWS Secrets Manager and rerunning the stack causes login error on ArgoCD UI. This happens due to the fact that Argo Helm rewrites the secret containing the Dex server API Key (OIDC component of ArgoCD). The workaround at present is to restart the <code>argocd-server</code> pod, which repopulates the token. Secret management aspect of ArgoCD will be improved in the future to not require this step after password change. </li>
 </ol>
                 
               

@@ -14,7 +14,7 @@
     
     
       
-        <title>SSM Agent - Amazon EKS SSP Quick Start</title>
+        <title>Secrets Store - Amazon EKS SSP Quick Start</title>
       
     
     
@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ssm-agent-add-on" class="md-skip">
+        <a href="#secrets-store-add-on" class="md-skip">
           Skip to content
         </a>
       
@@ -89,7 +89,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SSM Agent
+              Secrets Store
             
           </span>
         </div>
@@ -435,6 +435,18 @@
             
   
   
+  
+    <li class="md-nav__item">
+      <a href="../ssm-agent/" class="md-nav__link">
+        SSM Agent
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
     
   
   
@@ -447,12 +459,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          SSM Agent
+          Secrets Store
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        SSM Agent
+        Secrets Store
       </a>
       
         
@@ -478,8 +490,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#use-case-private-clusters" class="md-nav__link">
-    Use Case: Private Clusters
+  <a href="#indexts" class="md-nav__link">
+    index.ts
   </a>
   
 </li>
@@ -489,22 +501,31 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#functionality" class="md-nav__link">
+    Functionality
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-considerations" class="md-nav__link">
+    Security Considerations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../secrets-store/" class="md-nav__link">
-        Secrets Store
-      </a>
     </li>
   
 
@@ -663,14 +684,35 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#use-case-private-clusters" class="md-nav__link">
-    Use Case: Private Clusters
+  <a href="#indexts" class="md-nav__link">
+    index.ts
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functionality" class="md-nav__link">
+    Functionality
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-considerations" class="md-nav__link">
+    Security Considerations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
   
 </li>
       
@@ -686,97 +728,177 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/aws-quickstart/ssp-amazon-eks/edit/master/docs/addons/ssm-agent.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/aws-quickstart/ssp-amazon-eks/edit/master/docs/addons/secrets-store.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="ssm-agent-add-on">SSM Agent Add-on<a class="headerlink" href="#ssm-agent-add-on" title="Permanent link">&para;</a></h1>
-<p>This add-on uses the Kubernetes DaemonSet resource type to install AWS Systems Manager Agent (SSM Agent) on all worker nodes, instead of installing it manually or replacing the Amazon Machine Image (AMI) for the nodes. DaemonSet uses a CronJob on the worker node to schedule the installation of SSM Agent.</p>
-<p>A common use-case for installing SSM Agent on the worker nodes is to be able open a terminal session on an instance without the need to create a bastion instance and without having to install SSH keys on the worker nodes.</p>
-<p>The AWS Identity and Access Management (IAM) managed role <strong>AmazonSSMManagedInstanceCore</strong> provides the required permissions for SSM Agent to run on EC2 instances. This role is automatically attached to the instances when this add-on is enabled.</p>
-<p><strong>Limitations</strong></p>
-<ul>
-<li>
-<p>This add-on isn't applicable to AWS Fargate, because DaemonSets aren't supported on the Fargate platform.</p>
-</li>
-<li>
-<p>This add-on applies only to Linux-based worker nodes.</p>
-</li>
-<li>
-<p>The DaemonSet pods run in privileged mode. If the Amazon EKS cluster has a webhook that blocks pods in privileged mode, the SSM Agent will not be installed.</p>
-</li>
-<li>
-<p>Only latest version of SSM Agent add-on can be installed.</p>
-</li>
-</ul>
+                <h1 id="secrets-store-add-on">Secrets Store Add-on<a class="headerlink" href="#secrets-store-add-on" title="Permanent link">&para;</a></h1>
+<p>The Secrets Store Add-on provisions the <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/integrating_csi_driver.html">AWS Secrets Manager and Config Provider(ASCP) for Secret Store CSI Driver</a> on your EKS cluster. With ASCP, you now have a plugin for the industry-standard Kubernetes Secrets Store <a href="https://github.com/kubernetes-sigs/secrets-store-csi-driver">Container Storage Interface (CSI) Driver</a> used for providing secrets to applications operating on Amazon Elastic Kubernetes Service.</p>
+<p>With ASCP, you can securely store and manage your secrets in <a href="https://docs.aws.amazon.com/secretsmanager">AWS Secrets Manager</a> or <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html">AWS Systems Manager Parameter Store</a> and retrieve them through your application workloads running on Kubernetes. You no longer have to write custom code for your applications.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">SSMAgentAddOn</span><span class="p">,</span> <span class="nx">ClusterAddOn</span><span class="p">,</span> <span class="nx">EksBlueprint</span> <span class="p">}</span>  <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/ssp-amazon-eks&#39;</span><span class="p">;</span>
+<h3 id="indexts"><strong><code>index.ts</code></strong><a class="headerlink" href="#indexts" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cdk</span> <span class="k">from</span> <span class="s1">&#39;@aws-cdk/core&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span>
+  <span class="nx">SecretProvider</span>
+  <span class="nx">ClusterAddOn</span><span class="p">,</span>
+  <span class="nx">EksBlueprint</span><span class="p">,</span>
+  <span class="nx">ApplicationTeam</span>
+<span class="p">}</span> <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/ssp-amazon-eks&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">ISecret</span><span class="p">,</span> <span class="nx">Secret</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">&#39;@aws-cdk/aws-secretsmanager&#39;</span><span class="p">;</span>
 
-<span class="kd">const</span> <span class="nx">addOn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SSMAgentAddon</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">addOn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SecretsStoreAddOn</span><span class="p">();</span>
 <span class="kd">const</span> <span class="nx">addOns</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">ClusterAddOn</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">addOn</span> <span class="p">];</span>
 
-<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
-<span class="k">new</span> <span class="nx">EksBlueprint</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;my-stack-name&#39;</span><span class="p">,</span> <span class="nx">addOns</span><span class="p">,</span> <span class="p">[],</span> <span class="p">{</span>
-  <span class="nx">env</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">account</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">AWS_ACCOUNT_ID</span><span class="o">&gt;</span><span class="p">,</span>
-      <span class="nx">region</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">AWS_REGION</span><span class="o">&gt;</span><span class="p">,</span>
-  <span class="p">},</span>
-<span class="p">});</span>
-</code></pre></div>
-<p>To validate that SSM Agent is running on worker node instance:</p>
-<blockquote>
-<p><strong>Pre-Requisite</strong>: Install the Session Manager plugin for the AWS CLI as per <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html">instructions</a> for your OS.</p>
-</blockquote>
-<ol>
-<li>Get the EC2 Instance Id of a worker node</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="nv">instance_id</span><span class="o">=</span><span class="k">$(</span>kubectl get nodes -o custom-columns<span class="o">=</span>NAME:.metadata.name,INSTANCEID:.spec.providerID <span class="p">|</span> awk -F/ <span class="s1">&#39;FNR == 2 {print $5}&#39;</span><span class="k">)</span>
-</code></pre></div>
-<ol>
-<li>Use the <code>start-session</code> api to see if you can open a terminal into the instance</li>
-</ol>
-<div class="highlight"><pre><span></span><code>aws ssm start-session --target <span class="nv">$instance_id</span>
-</code></pre></div>
-<h3 id="use-case-private-clusters">Use Case: Private Clusters<a class="headerlink" href="#use-case-private-clusters" title="Permanent link">&para;</a></h3>
-<p>If you are disabling public access for your EKS cluster endpoint such that the cluster endpoint is provisioned as private only i.e <code>endpointPublicAccess=false</code> and <code>endpointPrivateAccess=true</code>, then you can use one of the worker nodes as a TCP jump box to your EKS cluster api.</p>
-<p>To set up a TCP tunnel with your worker node as a jump box:</p>
-<ol>
-<li>Use SSM <code>send-command</code> api to create a TCP tunnel to Cluster API using <code>socat</code>:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="c1"># Get the Cluster API endpoint first</span>
-<span class="nv">CLUSTER_NAME</span><span class="o">=</span>&lt;insert your cluster name, e.g. blueprint-construct-dev&gt;
+<span class="cm">/* Setup application team with secrets</span>
+<span class="cm"> * Here we are generating a new SecretManager secret for AuthPassword</span>
+<span class="cm"> * We are also looking up a pre-existing secret in Parameter Store called GITHUB_TOKEN</span>
+<span class="cm"> */</span>
 
-<span class="nv">CLUSTER_API</span><span class="o">=</span><span class="k">$(</span>aws eks describe-cluster --name <span class="nv">$CLUSTER_NAME</span> <span class="p">|</span> jq -r <span class="s1">&#39;.cluster.endpoint&#39;</span> <span class="p">|</span> awk -F/ <span class="s1">&#39;{print $3}&#39;</span><span class="k">)</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">TeamBurnham</span> <span class="k">extends</span> <span class="nx">ApplicationTeam</span> <span class="p">{</span>
+    <span class="kr">constructor</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">super</span><span class="p">({</span>
+            <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;burnham&quot;</span><span class="p">,</span>
+            <span class="nx">users</span>: <span class="kt">getUserArns</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="s2">&quot;team-burnham.users&quot;</span><span class="p">),</span>
+            <span class="nx">teamSecrets</span><span class="o">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nx">secretProvider</span>: <span class="kt">new</span> <span class="nx">GenerateSecretManagerProvider</span><span class="p">(</span><span class="s1">&#39;AuthPassword),</span>
+<span class="s1">                    kubernetesSecret: {</span>
+<span class="s1">                        secretName: &#39;</span><span class="nx">auth</span><span class="o">-</span><span class="nx">password</span><span class="s1">&#39;,</span>
+<span class="s1">                        data: [</span>
+<span class="s1">                            {</span>
+<span class="s1">                                key: &#39;</span><span class="nx">password</span><span class="s1">&#39;</span>
+<span class="s1">                            }</span>
+<span class="s1">                        ]</span>
+<span class="s1">                    }</span>
+<span class="s1">                },</span>
+<span class="s1">                {</span>
+<span class="s1">                    secretProvider: new LookupSsmSecretByAttrs(&#39;</span><span class="nx">GITHUB_TOKEN</span><span class="s1">&#39;, 1),</span>
+<span class="s1">                    kubernetesSecret: {</span>
+<span class="s1">                        secretName: &#39;</span><span class="nx">github</span><span class="s1">&#39;</span>
+<span class="s1">                    }</span>
+<span class="s1">                }</span>
+<span class="s1">            ]</span>
+<span class="s1">        });</span>
+<span class="s1">    }</span>
+<span class="s1">}</span>
 
-aws ssm send-command <span class="se">\</span>
-  --instance-ids <span class="nv">$instance_id</span> <span class="se">\</span>
-  --document-name <span class="s2">&quot;AWS-RunShellScript&quot;</span> <span class="se">\</span>
-  --comment <span class="s2">&quot;tcp tunnel to cluster api&quot;</span> <span class="se">\</span>
-  --parameters <span class="nv">commands</span><span class="o">=</span><span class="s2">&quot;nohup sudo socat TCP-LISTEN:443\,fork TCP:</span><span class="nv">$CLUSTER_API</span><span class="s2">:443 &amp;&quot;</span>
+<span class="s1">class GenerateSecretManagerProvider implements SecretProvider {</span>
+
+<span class="s1">    construct(private secretName: string) {}</span>
+
+<span class="s1">    provide(clusterInfo: ClusterInfo): ISecret {</span>
+<span class="s1">        const secret = new Secret(clusterInfo.cluster.stack, &#39;</span><span class="nx">AuthPassword</span><span class="s1">&#39;, {</span>
+<span class="s1">          secretName: this.secretName</span>
+<span class="s1">        });</span>
+
+<span class="s1">        // create this secret first</span>
+<span class="s1">        clusterInfo.cluster.node.addDependency(secret);</span>
+<span class="s1">        return secret</span>
+<span class="s1">    }</span>
+<span class="s1">}</span>
+
+<span class="s1">const app = new cdk.App();</span>
+<span class="s1">const teams: Array&lt;ApplicationTeam&gt; = [ new TeamBurnham(app) ];</span>
+<span class="s1">new EksBlueprint(app, &#39;</span><span class="nx">my</span><span class="o">-</span><span class="nx">stack</span><span class="o">-</span><span class="nx">name</span><span class="err">&#39;</span><span class="p">,</span> <span class="nx">addOns</span><span class="p">,</span> <span class="nx">teams</span><span class="p">});</span>
 </code></pre></div>
+<h2 id="functionality">Functionality<a class="headerlink" href="#functionality" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Update <code>~/.kube/config</code> to use port 8443 instead of 443 as your local host may not allow you to bind port 443 (depending on your machine network configuration you may not be able to bind to port 443. In such a case, you can bind to port 8443)</li>
+<li>Installs the <a href="https://github.com/kubernetes-sigs/secrets-store-csi-driver">Kubernetes Secrets Store CSI Driver</a> in the <code>kube-system</code> namespace.</li>
+<li>Installs <a href="https://github.com/aws/secrets-store-csi-driver-provider-aws">AWS Secrets Manager and Config Provider for Secret Store CSI Driver</a> in the <code>kube-system</code> namespace.</li>
+<li>Creates an IAM access policy for scoped down to just the secrets the provided namespace should have access to.</li>
+<li>Updates <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-service-account-iam-policy-and-role.html">IAM roles for service accounts</a> <code>[team-name]-sa</code> for policies to grant read access to the provided secrets.</li>
+<li>Creates a <a href="https://github.com/aws/secrets-store-csi-driver-provider-aws#secretproviderclass-options">SecretProviderClass</a> <code>[team-name]-aws-secrets</code> which tells the AWS provider which secrets can be mounted in an application pod in the provided namespace.</li>
 </ol>
-<div class="highlight"><pre><span></span><code>sed -i -e <span class="s2">&quot;s/https:\/\/</span><span class="nv">$CLUSTER_API</span><span class="s2">/https:\/\/</span><span class="nv">$CLUSTER_API</span><span class="s2">:8443/&quot;</span> ~/.kube/config
+<h2 id="security-considerations">Security Considerations<a class="headerlink" href="#security-considerations" title="Permanent link">&para;</a></h2>
+<p>The AWS Secrets Manger and Config Provider provides compatibility for legacy applications that access secrets as mounted files in the pod. Security conscious applications should use the native AWS APIs to fetch secrets and optionally cache them in memory rather than storing them in the file system.</p>
+<h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
+<p>After the Blueprint stack is deployed you can test consuming the secret from within a <code>deployment</code>.</p>
+<p>This sample <code>deployment</code> shows how to consume the secrets as mounted volumes as well as environment variables.</p>
+<div class="highlight"><pre><span></span><code>cat <span class="s">&lt;&lt; EOF &gt;&gt; test-secrets.yaml</span>
+<span class="s">apiVersion: apps/v1</span>
+<span class="s">kind: Deployment</span>
+<span class="s">metadata:</span>
+<span class="s">  name: app-deployment</span>
+<span class="s">  labels:</span>
+<span class="s">    app: myapp</span>
+<span class="s">  namespace: team-burnham</span>
+<span class="s">spec:</span>
+<span class="s">  replicas: 1</span>
+<span class="s">  selector:</span>
+<span class="s">    matchLabels:</span>
+<span class="s">      app: myapp</span>
+<span class="s">  template:</span>
+<span class="s">    metadata:</span>
+<span class="s">      labels:</span>
+<span class="s">        app: myapp</span>
+<span class="s">    spec:</span>
+<span class="s">      serviceAccountName: burnham-sa</span>
+<span class="s">      volumes:</span>
+<span class="s">      - name: secrets-store-inline</span>
+<span class="s">        csi:</span>
+<span class="s">          driver: secrets-store.csi.k8s.io</span>
+<span class="s">          readOnly: true</span>
+<span class="s">          volumeAttributes:</span>
+<span class="s">            secretProviderClass: burnham-aws-secrets</span>
+<span class="s">      containers:</span>
+<span class="s">      - name: test-secrets</span>
+<span class="s">        image: public.ecr.aws/ubuntu/ubuntu:latest</span>
+<span class="s">        command: [ &quot;/bin/bash&quot;, &quot;-c&quot;, &quot;--&quot; ]</span>
+<span class="s">        args: [ &quot;while true; do sleep 30; done;&quot; ]</span>
+<span class="s">        resources:</span>
+<span class="s">          limits:</span>
+<span class="s">            cpu: &quot;100m&quot;</span>
+<span class="s">            memory: &quot;128Mi&quot;</span>
+<span class="s">          requests:</span>
+<span class="s">            cpu: &quot;100m&quot;</span>
+<span class="s">            memory: &quot;128Mi&quot;</span>
+<span class="s">        env:</span>
+<span class="s">          - name: PASSWORD</span>
+<span class="s">            valueFrom:</span>
+<span class="s">              secretKeyRef:</span>
+<span class="s">                name: auth-password</span>
+<span class="s">                key: password</span>
+<span class="s">          - name: GITHUB_TOKEN</span>
+<span class="s">            valueFrom:</span>
+<span class="s">              secretKeyRef:</span>
+<span class="s">                name: github</span>
+<span class="s">                key: GITHUB_TOKEN</span>
+<span class="s">        volumeMounts:</span>
+<span class="s">          - name: secrets-store-inline</span>
+<span class="s">            mountPath: /mnt/secrets-store</span>
+<span class="s">            readOnly: true</span>
+<span class="s">EOF</span>
 </code></pre></div>
-<ol>
-<li>Update /etc/hosts so that <code>$CLUSTER_API</code> resolves to <code>127.0.0.1</code>.</li>
-</ol>
-<p><div class="highlight"><pre><span></span><code>sudo <span class="nb">echo</span> <span class="s2">&quot;127.0.0.1 </span><span class="nv">$CLUSTER_API</span><span class="s2">&quot;</span> &gt;&gt; /etc/hosts
+<p>The values for <code>serviceAccountName</code> and the <code>secretProviderClass</code> shown in the example above are obtained from CloudFormation outputs of the blueprint stack shown in the screenshot below as <code>burnhamsa</code> and <code>teamburnhamsecretproviderclass</code>.</p>
+<p><img alt="outputs" src="../../assets/images/cloudformation-outputs.png" /></p>
+<p>Apply the manifest.</p>
+<div class="highlight"><pre><span></span><code>$ kubectl apply -f test-secrets.yaml
+deployment.apps/app-deployment created
 </code></pre></div>
-4. Start an SSM session to forward remote port 443 to local port 8443:</p>
-<div class="highlight"><pre><span></span><code>aws ssm start-session <span class="se">\</span>
-  --target <span class="nv">$instance_id</span> <span class="se">\</span>
-  --document-name AWS-StartPortForwardingSession <span class="se">\</span>
-  --parameters <span class="s1">&#39;{&quot;portNumber&quot;:[&quot;443&quot;], &quot;localPortNumber&quot;:[&quot;8443&quot;]}&#39;</span>
+<p>Test that kubernetes secret <code>burnham-github-secrets</code> was created.</p>
+<div class="highlight"><pre><span></span><code>kubectl get secrets -n team-burnham
+NAME                     TYPE                                  DATA   AGE
+auth-password            Opaque                                <span class="m">1</span>      19s
+burnham-sa-token-fqjqw   kubernetes.io/service-account-token   <span class="m">3</span>      64m
+default-token-7fn69      kubernetes.io/service-account-token   <span class="m">3</span>      64m
+github                   Opaque                                <span class="m">1</span>      19s
 </code></pre></div>
-<p>At this point you should be able to execute <code>kubectl ...</code> commands against your cluster API from another terminal window.</p>
-<p><strong>Limitations</strong></p>
-<ul>
-<li>This approach cannot be used for Fargate or BottleRocket based providers.</li>
-<li><code>socat</code> is available on EKS optimized AMI out of the box but may have to be explicitly installed on others AMIs.</li>
-</ul>
+<p>Test that the deployment has completed and the pod is running successfully.</p>
+<div class="highlight"><pre><span></span><code>$ kubectl get pods -n team-burnham
+NAME                              READY   STATUS    RESTARTS   AGE
+app-deployment-6867fc6bd6-jzdwh   <span class="m">1</span>/1     Running   <span class="m">0</span>          46s
+</code></pre></div>
+<p>Next, test whether the secret <code>PASSWORD</code> is available as an environment variable from within the <code>app-deployment</code> pod.</p>
+<div class="highlight"><pre><span></span><code>$ kubectl <span class="nb">exec</span> app-deployment-6867fc6bd6-jzdwh -n team-burnham -- <span class="nb">echo</span> <span class="nv">$PASSWORD</span>
+
+XXXXXXXXXXXXXXXXXX
+</code></pre></div>
+<p>Test whether <code>GITHUB_TOKEN</code> is available as an environment variable from within the <code>app-deployment</code> pod.</p>
+<div class="highlight"><pre><span></span><code>$ kubectl <span class="nb">exec</span> app-deployment-6867fc6bd6-jzdwh -n team-burnham -- <span class="nb">echo</span> <span class="nv">$GITHUB_TOKEN</span>
+
+ghp_XXXXXXXXXXXXXXXXXXXXXXXXXX
+</code></pre></div>
                 
               
               
@@ -795,7 +917,7 @@ aws ssm send-command <span class="se">\</span>
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../nginx/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../ssm-agent/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -804,19 +926,19 @@ aws ssm send-command <span class="se">\</span>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Nginx
+              SSM Agent
             </div>
           </div>
         </a>
       
       
-        <a href="../secrets-store/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../vpc-cni/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Secrets Store
+              Vpc Cni
             </div>
           </div>
           <div class="md-footer__button md-icon">

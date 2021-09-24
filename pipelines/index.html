@@ -412,6 +412,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../addons/coredns/" class="md-nav__link">
+        CoreDns
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../addons/cluster-autoscaler/" class="md-nav__link">
         Cluster Autoscaler
       </a>
@@ -448,6 +460,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../addons/kube-proxy/" class="md-nav__link">
+        Kube Proxy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../addons/metrics-server/" class="md-nav__link">
         Metrics Server
       </a>
@@ -474,6 +498,30 @@
     <li class="md-nav__item">
       <a href="../addons/ssm-agent/" class="md-nav__link">
         SSM Agent
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addons/secrets-store/" class="md-nav__link">
+        Secrets Store
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addons/vpc-cni/" class="md-nav__link">
+        Vpc Cni
       </a>
     </li>
   
@@ -550,8 +598,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../cluster-providers/ec2-cluster-provider/" class="md-nav__link">
-        EC2 Cluster Provider
+      <a href="../cluster-providers/asg-cluster-provider/" class="md-nav__link">
+        ASG Cluster Provider
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cluster-providers/mng-cluster-provider/" class="md-nav__link">
+        MNG Cluster Provider
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cluster-providers/fargate-cluster-provider/" class="md-nav__link">
+        Fargate Cluster Provider
       </a>
     </li>
   
@@ -639,7 +711,7 @@
 <p>Additionally, the EKS SSP - Reference Solution leverages the GitHub integration that the <code>Pipelines</code> CDK module provides in order to integrate our pipelines with GitHub. The end result is that any new configuration pushed to a GitHub repository containing our CDK will be automatically deployed.</p>
 <h2 id="creating-a-pipeline">Creating a pipeline<a class="headerlink" href="#creating-a-pipeline" title="Permanent link">&para;</a></h2>
 <p>We can create a new <code>CodePipeline</code> resource via the following. </p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">ssp</span> <span class="k">from</span> <span class="s1">&#39;@shapirov/cdk-eks-blueprint&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">ssp</span> <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/ssp-amazon-eks&#39;</span>
 
 <span class="kd">const</span> <span class="nx">pipeline</span> <span class="o">=</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">CodePipeline</span><span class="p">.</span><span class="nx">build</span><span class="p">({</span>
     <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;blueprint-pipeline&#39;</span><span class="p">,</span>
@@ -652,7 +724,7 @@
 </code></pre></div>
 <h2 id="creating-stages">Creating stages<a class="headerlink" href="#creating-stages" title="Permanent link">&para;</a></h2>
 <p>Once our pipeline is created, we need to define a <code>stage</code> for the pipeline. To do so, we can wrap our <code>EksBlueprint</code> stack in a <code>cdk.Stage</code> object.  </p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">ssp</span> <span class="k">from</span> <span class="s1">&#39;@shapirov/cdk-eks-blueprint&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">ssp</span> <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/ssp-amazon-eks&#39;</span>
 
 <span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">team</span> <span class="k">from</span> <span class="s1">&#39;path/to/teams&#39;</span>
 
@@ -699,7 +771,7 @@
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cdk</span> <span class="k">from</span> <span class="s1">&#39;@aws-cdk/core&#39;</span><span class="p">;</span>
 
 <span class="c1">// SSP Lib</span>
-<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">ssp</span> <span class="k">from</span> <span class="s1">&#39;@shapirov/cdk-eks-blueprint&#39;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">ssp</span> <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/ssp-amazon-eks&#39;</span>
 
 <span class="c1">// Team implementations</span>
 <span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">team</span> <span class="k">from</span> <span class="s1">&#39;path/to/teams&#39;</span>

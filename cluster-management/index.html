@@ -351,6 +351,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../addons/coredns/" class="md-nav__link">
+        CoreDns
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../addons/cluster-autoscaler/" class="md-nav__link">
         Cluster Autoscaler
       </a>
@@ -387,6 +399,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../addons/kube-proxy/" class="md-nav__link">
+        Kube Proxy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../addons/metrics-server/" class="md-nav__link">
         Metrics Server
       </a>
@@ -413,6 +437,30 @@
     <li class="md-nav__item">
       <a href="../addons/ssm-agent/" class="md-nav__link">
         SSM Agent
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addons/secrets-store/" class="md-nav__link">
+        Secrets Store
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addons/vpc-cni/" class="md-nav__link">
+        Vpc Cni
       </a>
     </li>
   
@@ -489,8 +537,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../cluster-providers/ec2-cluster-provider/" class="md-nav__link">
-        EC2 Cluster Provider
+      <a href="../cluster-providers/asg-cluster-provider/" class="md-nav__link">
+        ASG Cluster Provider
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cluster-providers/mng-cluster-provider/" class="md-nav__link">
+        MNG Cluster Provider
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cluster-providers/fargate-cluster-provider/" class="md-nav__link">
+        Fargate Cluster Provider
       </a>
     </li>
   
@@ -601,7 +673,7 @@
 <p>In a production environment, it is common to have clusters that reside in different locations. This could be in different regions, on-prem, or follow a hybrid cloud model. Some of the common design patterns that come in to play when it comes to multi-cluster management across these different operational models include things like high availability, data replication, networking, traffic routing, and the underlying management of those clusters. In the ssp-ek-patterns/lib/multi-region-construct directory, you will find the index.ts file which shows a concrete example of how to deploy multiple clusters to different regions as shown below</p>
 <p><div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cdk</span> <span class="k">from</span> <span class="s1">&#39;@aws-cdk/core&#39;</span><span class="p">;</span>
 <span class="c1">// SSP Lib</span>
-<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">ssp</span> <span class="k">from</span> <span class="s1">&#39;@shapirov/cdk-eks-blueprint&#39;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">ssp</span> <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/ssp-amazon-eks&#39;</span>
 <span class="c1">// Team implementations</span>
 <span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">team</span> <span class="k">from</span> <span class="s1">&#39;../teams&#39;</span>
 <span class="k">export</span> <span class="k">default</span> <span class="kd">class</span> <span class="nx">MultiRegionConstruct</span> <span class="k">extends</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">Construct</span> <span class="p">{</span>
@@ -613,12 +685,15 @@
         <span class="kd">const</span> <span class="nx">teams</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">ssp</span><span class="p">.</span><span class="nx">Team</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="nx">platformTeam</span><span class="p">];</span>
         <span class="c1">// AddOns for the cluster.</span>
         <span class="kd">const</span> <span class="nx">addOns</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">ssp</span><span class="p">.</span><span class="nx">ClusterAddOn</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">NginxAddOn</span><span class="p">,</span>
-            <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">ArgoCDAddOn</span><span class="p">,</span>
-            <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">CalicoAddOn</span><span class="p">,</span>
-            <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">MetricsServerAddOn</span><span class="p">,</span>
-            <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">ClusterAutoScalerAddOn</span><span class="p">,</span>
-            <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">ContainerInsightsAddOn</span><span class="p">,</span>
+            <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">NginxAddOn</span><span class="p">,</span>
+            <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">ArgoCDAddOn</span><span class="p">,</span>
+            <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">CalicoAddOn</span><span class="p">,</span>
+            <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">MetricsServerAddOn</span><span class="p">,</span>
+            <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">ClusterAutoScalerAddOn</span><span class="p">,</span>
+            <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">ContainerInsightsAddOn</span><span class="p">,</span>
+            <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">VpcCniAddOn</span><span class="p">(),</span>
+            <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">CoreDnsAddOn</span><span class="p">(),</span>
+            <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">KubeProxyAddOn</span><span class="p">()</span>
         <span class="p">];</span>
         <span class="kd">const</span> <span class="nx">east</span> <span class="o">=</span> <span class="s1">&#39;blueprint-us-east-2&#39;</span>
         <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="p">{</span> <span class="nx">id</span><span class="o">:</span> <span class="sb">`</span><span class="si">${</span><span class="nx">id</span><span class="si">}</span><span class="sb">-</span><span class="si">${</span><span class="nx">east</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span> <span class="nx">addOns</span><span class="p">,</span> <span class="nx">teams</span> <span class="p">},</span> <span class="p">{</span>

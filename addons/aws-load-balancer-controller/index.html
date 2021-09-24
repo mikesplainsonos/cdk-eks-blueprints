@@ -375,6 +375,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#creating-a-load-balanced-service" class="md-nav__link">
+    Creating a Load Balanced Service
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -390,6 +397,18 @@
     <li class="md-nav__item">
       <a href="../calico/" class="md-nav__link">
         Calico
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../coredns/" class="md-nav__link">
+        CoreDns
       </a>
     </li>
   
@@ -436,6 +455,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../kube-proxy/" class="md-nav__link">
+        Kube Proxy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../metrics-server/" class="md-nav__link">
         Metrics Server
       </a>
@@ -462,6 +493,30 @@
     <li class="md-nav__item">
       <a href="../ssm-agent/" class="md-nav__link">
         SSM Agent
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../secrets-store/" class="md-nav__link">
+        Secrets Store
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpc-cni/" class="md-nav__link">
+        Vpc Cni
       </a>
     </li>
   
@@ -538,8 +593,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cluster-providers/ec2-cluster-provider/" class="md-nav__link">
-        EC2 Cluster Provider
+      <a href="../../cluster-providers/asg-cluster-provider/" class="md-nav__link">
+        ASG Cluster Provider
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cluster-providers/mng-cluster-provider/" class="md-nav__link">
+        MNG Cluster Provider
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cluster-providers/fargate-cluster-provider/" class="md-nav__link">
+        Fargate Cluster Provider
       </a>
     </li>
   
@@ -590,6 +669,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#creating-a-load-balanced-service" class="md-nav__link">
+    Creating a Load Balanced Service
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -608,22 +694,17 @@
                 
                 
                 <h1 id="aws-load-balancer-controller-add-on">AWS Load Balancer Controller Add-on<a class="headerlink" href="#aws-load-balancer-controller-add-on" title="Permanent link">&para;</a></h1>
-<p>The AWS Load Balancer Controller manages AWS Elastic Load Balancers for a Kubernetes cluster. The controller provisions the following resources:</p>
+<p>The <a href="https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html">AWS Load Balancer Controller</a> manages AWS Elastic Load Balancers for a Kubernetes cluster. The controller provisions the following resources:</p>
 <ul>
-<li>
-<p>An AWS Application Load Balancer (ALB) when you create a Kubernetes Ingress.</p>
-</li>
-<li>
-<p>An AWS Network Load Balancer (NLB) when you create a Kubernetes Service of type LoadBalancer. In the past, you used the Kubernetes in-tree load balancer for instance targets, but used the AWS Load balancer Controller for IP targets. With the AWS Load Balancer Controller version 2.2.0 or later, you can create Network Load Balancers using either target type. For more information about NLB target types, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#target-type">Target type</a> in the User Guide for Network Load Balancers.</p>
-</li>
+<li>An AWS Application Load Balancer (ALB) when you create a Kubernetes Ingress.</li>
+<li>An AWS Network Load Balancer (NLB) when you create a Kubernetes Service of type LoadBalancer. In the past, you used the Kubernetes in-tree load balancer for instance targets, but used the AWS Load balancer Controller for IP targets. With the AWS Load Balancer Controller version 2.2.0 or later, you can create Network Load Balancers using either target type. For more information about NLB target types, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#target-type">Target type</a> in the User Guide for Network Load Balancers.</li>
 </ul>
-<p>For more information about AWS Load Balancer Controller please see the <a href="https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html">official documentation</a>.</p>
-<p>This controller is a required for proper configuration of other ingress controllers such as NGINX.</p>
+<p>For more information about AWS Load Balancer Controller please see the <a href="https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html">official documentation</a>. This controller is a required for proper configuration of other ingress controllers such as NGINX.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<p><div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">AwsLoadBalancerControllerAddon</span> <span class="p">}</span>  <span class="k">from</span> <span class="s1">&#39;@shapirov/cdk-eks-blueprint&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">AwsLoadBalancerControllerAddon</span><span class="p">,</span> <span class="nx">ClusterAddOn</span><span class="p">,</span> <span class="nx">EksBlueprint</span> <span class="p">}</span>  <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/ssp-amazon-eks&#39;</span><span class="p">;</span>
 
-<span class="k">readonly</span> <span class="nx">awsLoadBalancerController</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AwsLoadBalancerControllerAddon</span><span class="p">({</span><span class="nx">version</span><span class="o">:</span> <span class="s1">&#39;2.2.0&#39;</span><span class="p">});</span><span class="c1">// optionally specify image version to pull  or empty constructor</span>
-<span class="kd">const</span> <span class="nx">addOns</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">ClusterAddOn</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">awsLoadBalancerController</span> <span class="p">];</span>
+<span class="kd">const</span> <span class="nx">addOn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AwsLoadBalancerControllerAddon</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">addOns</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">ClusterAddOn</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">addOn</span> <span class="p">];</span>
 
 <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
 <span class="k">new</span> <span class="nx">EksBlueprint</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;my-stack-name&#39;</span><span class="p">,</span> <span class="nx">addOns</span><span class="p">,</span> <span class="p">[],</span> <span class="p">{</span>
@@ -633,13 +714,20 @@
   <span class="p">},</span>
 <span class="p">});</span>
 </code></pre></div>
-To validate that controller is running ensure that controller deployment is in <code>RUNNING</code> state:</p>
-<p><div class="highlight"><pre><span></span><code><span class="c1"># Assuming controller is installed in kube-system namespace</span>
+<p>To validate that controller is running, ensure that controller deployment is in <code>RUNNING</code> state:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Assuming controller is installed in kube-system namespace</span>
 $ kubectl get deployments -n kube-system
 NAME                                                       READY   UP-TO-DATE   AVAILABLE   AGE
 aws-load-balancer-controller                               <span class="m">2</span>/2     <span class="m">2</span>            <span class="m">2</span>           3m58s
 </code></pre></div>
-You can now provision NLB and ALB load balancers. For example to provision an NLB you can use the following service manifest:</p>
+<h2 id="functionality">Functionality<a class="headerlink" href="#functionality" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Adds proper IAM permissions and creates a Kubernetes service account with IRSA integration. </li>
+<li>Allows configuration options such as enabling WAF and Shield. </li>
+<li>Allows to replace the helm chart version if a specific version of the controller is needed.</li>
+</ol>
+<h2 id="creating-a-load-balanced-service">Creating a Load Balanced Service<a class="headerlink" href="#creating-a-load-balanced-service" title="Permanent link">&para;</a></h2>
+<p>Once the AWS Load Balancer Controller add-on is installed in your cluster, it is able to provision both Network Load Balancers and Application Load Balancers on your behalf. For example, when the following manifest is applied to your cluster, it will create an NLB.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -656,12 +744,6 @@ You can now provision NLB and ALB load balancers. For example to provision an NL
   <span class="nt">selector</span><span class="p">:</span>
     <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">your-app</span>
 </code></pre></div>
-<h2 id="functionality">Functionality<a class="headerlink" href="#functionality" title="Permanent link">&para;</a></h2>
-<ol>
-<li>Adds proper IAM permissions and creates a Kubernetes service account with IRSA integration. </li>
-<li>Allows configuration options such as enabling WAF and Shield. </li>
-<li>Allows to replace the helm chart version if a specific version of the controller is needed.</li>
-</ol>
                 
               
               

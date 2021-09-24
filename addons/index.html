@@ -393,6 +393,18 @@
   
   
     <li class="md-nav__item">
+      <a href="coredns/" class="md-nav__link">
+        CoreDns
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="cluster-autoscaler/" class="md-nav__link">
         Cluster Autoscaler
       </a>
@@ -429,6 +441,18 @@
   
   
     <li class="md-nav__item">
+      <a href="kube-proxy/" class="md-nav__link">
+        Kube Proxy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="metrics-server/" class="md-nav__link">
         Metrics Server
       </a>
@@ -455,6 +479,30 @@
     <li class="md-nav__item">
       <a href="ssm-agent/" class="md-nav__link">
         SSM Agent
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="secrets-store/" class="md-nav__link">
+        Secrets Store
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="vpc-cni/" class="md-nav__link">
+        Vpc Cni
       </a>
     </li>
   
@@ -531,8 +579,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../cluster-providers/ec2-cluster-provider/" class="md-nav__link">
-        EC2 Cluster Provider
+      <a href="../cluster-providers/asg-cluster-provider/" class="md-nav__link">
+        ASG Cluster Provider
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cluster-providers/mng-cluster-provider/" class="md-nav__link">
+        MNG Cluster Provider
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cluster-providers/fargate-cluster-provider/" class="md-nav__link">
+        Fargate Cluster Provider
       </a>
     </li>
   
@@ -594,8 +666,8 @@
                 
                 
                 <h1 id="add-ons">Add-ons<a class="headerlink" href="#add-ons" title="Permanent link">&para;</a></h1>
-<p>The <code>cdk-eks-blueprint</code> framework leverages a modular approach to managing <a href="https://kubernetes.io/docs/concepts/cluster-administration/addons/">Add-ons</a> that run within the context of a Kubernetes cluster. Customers are free to select the add-ons that run in each of their blueprint clusters.</p>
-<p>Within the context of the <code>cdk-eks-blueprint</code> framework, an Add-n is simply an interface, and the implementation of an add-on can do whatever is necessary to support the desired add-on functionality. This can include applying manifests to a Kubernetes cluster or calling AWS APIs to provision new resources. </p>
+<p>The <code>ssp-amazon-eks</code> framework leverages a modular approach to managing <a href="https://kubernetes.io/docs/concepts/cluster-administration/addons/">Add-ons</a> that run within the context of a Kubernetes cluster. Customers are free to select the add-ons that run in each of their blueprint clusters.</p>
+<p>Within the context of the <code>ssp-amazon-eks</code> framework, an add-on is abstracted as <code>ClusterAddOn</code> interface, and the implementation of the add-on interface can do whatever is necessary to support the desired add-on functionality. This can include applying manifests to a Kubernetes cluster or calling AWS APIs to provision new resources. </p>
 <h2 id="supported-add-ons">Supported Add-ons<a class="headerlink" href="#supported-add-ons" title="Permanent link">&para;</a></h2>
 <p>The framework currently supports the following add-ons.</p>
 <table>
@@ -623,12 +695,24 @@
 <td>Adds the Calico 1.7.1 CNI/Network policy engine</td>
 </tr>
 <tr>
+<td><a href="./cluster-autoscaler"><code>ClusterAutoscalerAddOn</code></a></td>
+<td>Adds the standard cluster autoscaler (<a href="https://github.com/awslabs/karpenter">Karpenter</a> is coming)</td>
+</tr>
+<tr>
 <td><a href="./container-insights"><code>ContainerInsightsAddOn</code></a></td>
 <td>Adds Container Insights support integrating monitoring with CloudWatch</td>
 </tr>
 <tr>
-<td><a href="./cluster-autoscaler"><code>ClusterAutoscalerAddOn</code></a></td>
-<td>Adds the standard cluster autoscaler (<a href="https://github.com/awslabs/karpenter">Karpenter</a> is coming)</td>
+<td><a href="coredns/"><code>CoreDnsAddOn</code></a></td>
+<td>Adds CoreDNS Amazon EKS add-on. CoreDNS is a flexible, extensible DNS server that can serve as the Kubernetes cluster DNS</td>
+</tr>
+<tr>
+<td><a href="kube-proxy/"><code>KubeProxyAddOn</code></a></td>
+<td>Adds kube-proxy Amazon EKS add-on. Kube-proxy maintains network rules on each Amazon EC2 node</td>
+</tr>
+<tr>
+<td><a href="metrics-server/"><code>MetricsServerAddOn</code></a></td>
+<td>Adds metrics server (pre-req for HPA and other monitoring tools)</td>
 </tr>
 <tr>
 <td><a href="./external-dns"><code>ExternalDnsAddOn</code></a></td>
@@ -643,8 +727,16 @@
 <td>Adds NGINX ingress controller</td>
 </tr>
 <tr>
-<td><a href="./ssm-agent"><code>SSMAgentAddOn</code></a></td>
+<td><a href="secrets-store/"><code>SecretsStoreAddOn</code></a></td>
+<td>Adds AWS Secrets Manager and Config Provider for Secret Store CSI Driver to the EKS Cluster</td>
+</tr>
+<tr>
+<td><a href="ssm-agent/"><code>SSMAgentAddOn</code></a></td>
 <td>Adds <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent.html">Amazon SSM Agent</a> to worker nodes</td>
+</tr>
+<tr>
+<td><a href="vpc-cni/"><code>VpcCniAddOn</code></a></td>
+<td>Adds the Amazon VPC CNI Amazon EKS addon to support native VPC networking for Amazon EKS</td>
 </tr>
 <tr>
 <td><a href="https://github.com/weaveworks/weave-gitops-ssp-addon"><code>Weave GitOps</code></a></td>

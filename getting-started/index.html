@@ -460,6 +460,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../addons/coredns/" class="md-nav__link">
+        CoreDns
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../addons/cluster-autoscaler/" class="md-nav__link">
         Cluster Autoscaler
       </a>
@@ -496,6 +508,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../addons/kube-proxy/" class="md-nav__link">
+        Kube Proxy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../addons/metrics-server/" class="md-nav__link">
         Metrics Server
       </a>
@@ -522,6 +546,30 @@
     <li class="md-nav__item">
       <a href="../addons/ssm-agent/" class="md-nav__link">
         SSM Agent
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addons/secrets-store/" class="md-nav__link">
+        Secrets Store
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addons/vpc-cni/" class="md-nav__link">
+        Vpc Cni
       </a>
     </li>
   
@@ -598,8 +646,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../cluster-providers/ec2-cluster-provider/" class="md-nav__link">
-        EC2 Cluster Provider
+      <a href="../cluster-providers/asg-cluster-provider/" class="md-nav__link">
+        ASG Cluster Provider
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cluster-providers/mng-cluster-provider/" class="md-nav__link">
+        MNG Cluster Provider
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cluster-providers/fargate-cluster-provider/" class="md-nav__link">
+        Fargate Cluster Provider
       </a>
     </li>
   
@@ -730,10 +802,10 @@
                 
                 
                 <h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h1>
-<p>This getting started guide will walk you through setting up a new CDK project which leverages the <code>cdk-eks-blueprint</code> NPM module to deploy a simple SSP. </p>
+<p>This getting started guide will walk you through setting up a new CDK project which leverages the <code>ssp-amazon-eks</code> NPM module to deploy a simple SSP. </p>
 <h2 id="project-setup">Project setup<a class="headerlink" href="#project-setup" title="Permanent link">&para;</a></h2>
-<p>To use the <code>cdk-eks-blueprint</code> module, you must have the <a href="https://aws.amazon.com/cdk/">AWS Cloud Development Kit (CDK)</a> installed. Install CDK via the following.</p>
-<div class="highlight"><pre><span></span><code>npm install -g aws-cdk@1.113.0
+<p>To use the <code>ssp-amazon-eks</code> module, you must have the <a href="https://aws.amazon.com/cdk/">AWS Cloud Development Kit (CDK)</a> installed. Install CDK via the following.</p>
+<div class="highlight"><pre><span></span><code>npm install -g aws-cdk@1.119.0
 </code></pre></div>
 <p>Verify the installation.</p>
 <div class="highlight"><pre><span></span><code>cdk --version
@@ -742,13 +814,13 @@
 <div class="highlight"><pre><span></span><code>cdk init app --language typescript
 </code></pre></div>
 <h2 id="deploy-a-blueprint-eks-cluster">Deploy a Blueprint EKS Cluster<a class="headerlink" href="#deploy-a-blueprint-eks-cluster" title="Permanent link">&para;</a></h2>
-<p>Install the <code>cdk-eks-blueprint</code> NPM package via the following.</p>
-<div class="highlight"><pre><span></span><code>npm i @shapirov/cdk-eks-blueprint
+<p>Install the <code>ssp-amazon-eks</code> NPM package via the following.</p>
+<div class="highlight"><pre><span></span><code>npm i @aws-quickstart/ssp-amazon-eks
 </code></pre></div>
 <p>Replace the contents of <code>bin/&lt;your-main-file&gt;.ts</code> (where <code>your-main-file</code> by default is the name of the root project directory) with the following code. This code will deploy a new EKS Cluster and install the <code>ArgoCD</code> addon.</p>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="s1">&#39;source-map-support/register&#39;</span><span class="p">;</span>
 <span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cdk</span> <span class="k">from</span> <span class="s1">&#39;@aws-cdk/core&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">ssp</span> <span class="k">from</span> <span class="s1">&#39;@shapirov/cdk-eks-blueprint&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">ssp</span> <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/ssp-amazon-eks&#39;</span><span class="p">;</span>
 
 <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
 
@@ -759,7 +831,10 @@
     <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">MetricsServerAddOn</span><span class="p">,</span>
     <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">ClusterAutoScalerAddOn</span><span class="p">,</span>
     <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">ContainerInsightsAddOn</span><span class="p">,</span>
-    <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">AwsLoadBalancerControllerAddOn</span><span class="p">()</span>
+    <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">AwsLoadBalancerControllerAddOn</span><span class="p">(),</span>
+    <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">VpcCniAddOn</span><span class="p">(),</span>
+    <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">CoreDnsAddOn</span><span class="p">(),</span>
+    <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">KubeProxyAddOn</span><span class="p">()</span>
 <span class="p">];</span>
 
 <span class="kd">const</span> <span class="nx">opts</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;east-test-1&#39;</span><span class="p">,</span> <span class="nx">addOns</span> <span class="p">}</span>
@@ -777,7 +852,7 @@
 <p>Deploy the stack using the following command. This command will take roughly 20 minutes to complete.</p>
 <div class="highlight"><pre><span></span><code>cdk deploy
 </code></pre></div>
-<p>Congratulations! You have deployed your first EKS cluster with <code>cdk-eks-blueprint</code>. The above code will provision the following:</p>
+<p>Congratulations! You have deployed your first EKS cluster with <code>ssp-amazon-eks</code>. The above code will provision the following:</p>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> A new Well-Architected VPC with both Public and Private subnets.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> A new Well-Architected EKS cluster in the region and account you specify.</li>
@@ -811,6 +886,7 @@ arn:aws:cloudformation:us-east-1:115717706081:stack/east-test-1/e1b9e6a0-d5f6-11
 <p>Next, let's walk you through how to deploy workloads to your cluster with ArgoCD. This approach leverages the <a href="https://argoproj.github.io/argo-cd/operator-manual/cluster-bootstrapping/#app-of-apps-pattern">App of Apps</a> pattern to deploy multiple workloads across multiple namespaces. The sample app of apps repository that we use in this getting started guide can be found <a href="https://github.com/aws-samples/ssp-eks-workloads">here</a>.</p>
 <p>You can leverage <a href="../addons/argo-cd/#Bootstrapping">Automatic Bootstrapping</a> for automatic onboarding of workloads. This feature may be leveraged even when workload repositories are not ready yet, as it creates a placeholder for future workloads and decouples workload onboarding for the infrastructure provisioning pipeline. The next steps, described in this guide apply for cases when customer prefer to bootstrap their workloads manually through ArgoCD UI console.</p>
 <h3 id="install-argocd-cli">Install ArgoCD CLI<a class="headerlink" href="#install-argocd-cli" title="Permanent link">&para;</a></h3>
+<p>These steps are needed for manual workload onboarding. For automatic bootstrapping please refer to the <a href="../addons/argo-cd/#Bootstrapping">Automatic Bootstrapping</a>.</p>
 <p>Follow the instructions found <a href="https://argoproj.github.io/argo-cd/cli_installation/">here</a> as it will include instructions for your specific OS. You can test that the ArgoCD CLI was installed correctly using the following:</p>
 <div class="highlight"><pre><span></span><code>argocd version --short --client
 </code></pre></div>
