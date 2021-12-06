@@ -1,9 +1,7 @@
 #!/usr/bin/env node
 import * as ec2 from '@aws-cdk/aws-ec2';
-import { KubernetesVersion } from '@aws-cdk/aws-eks';
 import * as cdk from '@aws-cdk/core';
 import BlueprintConstruct from '../examples/blueprint-construct';
-import * as ssp from '../lib';
 
 // pre-create a VPC
 export class VPCStack extends cdk.Stack {
