@@ -2,9 +2,12 @@ import { Vpc } from '@aws-cdk/aws-ec2';
 import * as cdk from '@aws-cdk/core';
 // SSP lib.
 import * as ssp from '../../lib';
+import { KubectlProvider } from '../../lib/addons/helm-addon/kubectl-provider';
 import { DirectVpcProvider } from '../../lib/resource-providers/vpc';
+import { createArgoHelmApplication } from '../argo-gitops';
 // Example teams.
 import * as team from '../teams';
+
 
 
 
@@ -28,6 +31,8 @@ export default class BlueprintConstruct extends cdk.Construct {
     constructor(scope: cdk.Construct, blueprintProps: BlueprintConstructProps, props: cdk.StackProps) {
         super(scope, blueprintProps.id);
 
+        KubectlProvider.applyHelmDeployment = createArgoHelmApplication;
+
         // TODO: fix IAM user provisioning for admin user
         // Setup platform team.
         //const account = props.env!.account!
@@ -42,17 +47,17 @@ export default class BlueprintConstruct extends cdk.Construct {
         const prodBootstrapArgo = new ssp.addons.ArgoCDAddOn({
             // TODO: enabling this cause stack deletion failure, known issue:
             // https://github.com/aws-quickstart/ssp-amazon-eks/blob/main/docs/addons/argo-cd.md#known-issues
-            // bootstrapRepo: {
-            //      repoUrl: 'https://github.com/aws-samples/ssp-eks-workloads.git',
-            //      path: 'envs/dev',
-            //      targetRevision: "deployable"
-            // },
-            // adminPasswordSecretName: "argo-admin-secret"
+            bootstrapRepo: {
+                 repoUrl: 'https://github.com/aws-samples/ssp-eks-workloads.git',
+                 path: 'envs/dev',
+                 targetRevision: "deployable"
+            },
+//            adminPasswordSecretName: "argo-admin-secret"
         });
         // AddOns for the cluster.
         const addOns: Array<ssp.ClusterAddOn> = [
-            new ssp.addons.AppMeshAddOn(),
             prodBootstrapArgo,
+            new ssp.addons.AppMeshAddOn(),
             new ssp.addons.CalicoAddOn(),
             new ssp.addons.MetricsServerAddOn(),
             new ssp.addons.ClusterAutoScalerAddOn(),
