@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
     
     
       
@@ -611,6 +611,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#creating-clusters-with-custom-ami-for-the-node-group" class="md-nav__link">
+    Creating Clusters with custom AMI for the node group
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -690,6 +697,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#creating-clusters-with-custom-ami-for-the-node-group" class="md-nav__link">
+    Creating Clusters with custom AMI for the node group
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -762,6 +776,10 @@
 <td>The AMI Kuberenetes release version for the node group.</td>
 </tr>
 <tr>
+<td>customAmi</td>
+<td>The custom AMI and the userData for the node group, <code>amiType</code> and <code>amiReleaseVersion</code> will be ignored if this is set.</td>
+</tr>
+<tr>
 <td>nodeGroupCapacityType</td>
 <td>The capacity type for the node group (on demand or spot).</td>
 </tr>
@@ -786,7 +804,7 @@
 <p>Configuration of the EC2 parameters through context parameters makes sense if you would like to apply default configuration to multiple clusters without the need to explicitly pass <code>MngProviderClusterProps</code> to each cluster blueprint.</p>
 <h2 id="upgrading-worker-nodes">Upgrading Worker Nodes<a class="headerlink" href="#upgrading-worker-nodes" title="Permanent link">&para;</a></h2>
 <p>Upgrading Kubernetes versions via cluster configuration at present won't impact the kubelet version running on the worker nodes. To perform an in-place upgrade of the cluster, you must also update the <code>amiReleaseVersion</code> property. The following demonstrates how to do so.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">props</span>: <span class="kt">EC2ProviderClusterProps</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">props</span>: <span class="kt">MngClusterProviderProps</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">version</span>: <span class="kt">KubernetesVersion.V1_20</span><span class="p">,</span>
     <span class="nx">amiReleaseVersion</span><span class="o">:</span> <span class="s2">&quot;1.20.4-20210519&quot;</span> <span class="c1">// this will upgrade kubelet to 1.20.4</span>
 <span class="p">}</span>
@@ -794,7 +812,7 @@
 <p>Note: consult the <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html">official EKS documentation</a> for information ion the AMI release version that matches Kubernetes versions.</p>
 <h2 id="creating-clusters-with-spot-capacity-type">Creating Clusters with Spot Capacity Type<a class="headerlink" href="#creating-clusters-with-spot-capacity-type" title="Permanent link">&para;</a></h2>
 <p>To create clusters which leverage Spot capacity, set the <code>nodeGroupCapacityType</code> value to <code>CapacityType.SPOT</code></p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">props</span>: <span class="kt">EC2ProviderClusterProps</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">props</span>: <span class="kt">MngClusterProviderProps</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">nodeGroupCapacityType</span>: <span class="kt">CapacityType.SPOT</span><span class="p">,</span>
     <span class="nx">version</span>: <span class="kt">KubernetesVersion.V1_20</span><span class="p">,</span>
     <span class="nx">instanceTypes</span><span class="o">:</span> <span class="p">[</span><span class="k">new</span> <span class="nx">InstanceType</span><span class="p">(</span><span class="s1">&#39;t3.large&#39;</span><span class="p">),</span> <span class="k">new</span> <span class="nx">InstanceType</span><span class="p">(</span><span class="s1">&#39;m5.large&#39;</span><span class="p">)],</span>
@@ -802,6 +820,21 @@
 <span class="p">}</span>
 </code></pre></div>
 <p>Note that two attributes in this configuration are relevant for Spot: <code>nodeGroupCapacityType</code> and <code>instaceTypes</code>. The latter indicates the types of instances which could be leveraged for Spot capacity and it makes sense to have a number of instance types to maximize availability.</p>
+<h2 id="creating-clusters-with-custom-ami-for-the-node-group">Creating Clusters with custom AMI for the node group<a class="headerlink" href="#creating-clusters-with-custom-ami-for-the-node-group" title="Permanent link">&para;</a></h2>
+<p>To create clusters using custom AMI for the worker nodes, set the <code>customAmi</code> to your custom image and provide your <code>userData</code> for node bootstrapping. </p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">userData</span> <span class="o">=</span> <span class="nx">UserData</span><span class="p">.</span><span class="nx">forLinux</span><span class="p">();</span>
+<span class="nx">userData</span><span class="p">.</span><span class="nx">addCommands</span><span class="p">(</span><span class="sb">`/etc/eks/bootstrap.sh </span><span class="si">${</span><span class="nx">cluster</span><span class="p">.</span><span class="nx">clusterName</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">props</span>: <span class="kt">MngClusterProviderProps</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">nodeGroupCapacityType</span>: <span class="kt">CapacityType.ON_DEMAND</span><span class="p">,</span>
+    <span class="nx">version</span>: <span class="kt">KubernetesVersion.V1_20</span><span class="p">,</span>
+    <span class="nx">instanceTypes</span><span class="o">:</span> <span class="p">[</span><span class="k">new</span> <span class="nx">InstanceType</span><span class="p">(</span><span class="s1">&#39;t3.large&#39;</span><span class="p">)],</span>
+    <span class="nx">customAmi</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">machineImage</span>: <span class="kt">MachineImage.genericLinux</span><span class="p">({</span><span class="s1">&#39;us-east-1&#39;</span><span class="o">:</span> <span class="s1">&#39;ami-0be34337b485b2609&#39;</span><span class="p">}),</span>
+        <span class="nx">userData</span>: <span class="kt">userData</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</code></pre></div>
                 
               
               
@@ -870,10 +903,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.4fa0e4ee.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.1d3bfcf1.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
       
     
   </body>

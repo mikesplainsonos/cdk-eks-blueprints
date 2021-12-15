@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
     
     
       
@@ -817,7 +817,7 @@ daemonset.apps/fluentd-cloudwatch   1         1         1       1            1  
 </code></pre></div>
 <h2 id="view-metrics-for-cluster-and-workloads">View metrics for cluster and workloads<a class="headerlink" href="#view-metrics-for-cluster-and-workloads" title="Permanent link">&para;</a></h2>
 <p>Under Performance Monitoring, the Container Insights dashboard allows you to hone in on both cluster and workload metrics. After selecting EKS Pods and Clusters, you will see that the dashboard provides CPU and memory utilization along with other important metrics such as network performance. </p>
-<p><img alt="CloudWatch" src="/screenshots/eks-blueprint-cwinsights-performance-monitoring.png" /></p>
+<p><img alt="CloudWatch" src="../../assets/images/eks-blueprint-cwinsights-performance-monitoring.png" /></p>
 <h2 id="view-cluster-level-logs">View cluster level logs<a class="headerlink" href="#view-cluster-level-logs" title="Permanent link">&para;</a></h2>
 <p>After you have enabled any of the control plane log types for your Amazon EKS cluster, you can view them on the CloudWatch console.</p>
 <p>To view these logs on the CloudWatch console follow these steps:</p>
@@ -832,7 +832,7 @@ daemonset.apps/fluentd-cloudwatch   1         1         1       1            1  
 </ol>
 <p>Next in the console, click on Log groups under Logs. </p>
 <p>You will see under log streams all the log streams from your Amazon EKS control plane. </p>
-<p><img alt="CloudWatch" src="../../screenshots/eks-blueprint-cwlogs.png" /></p>
+<p><img alt="CloudWatch" src="../../assets/images/eks-blueprint-cwlogs.png" /></p>
 <h2 id="view-workload-level-logs">View workload level logs<a class="headerlink" href="#view-workload-level-logs" title="Permanent link">&para;</a></h2>
 <p>In order to view workload level logs follow these steps after browsing to the CloudWatch Logs Insights console</p>
 <p>In the navigation pane, choose Insights.</p>
@@ -843,16 +843,16 @@ daemonset.apps/fluentd-cloudwatch   1         1         1       1            1  
 <p>STATS avg(node_cpu_utilization) as avg_node_cpu_utilization by NodeName
 <code>SORT avg_node_cpu_utilization DESC</code>
 This query shows a list of nodes, sorted by average node CPU utilization. Below is an example of what the visualization should look like.</p>
-<p><img alt="CloudWatch" src="../../screenshots/eks-blueprint-cloudwatch-loginsights.png" /></p>
+<p><img alt="CloudWatch" src="../../assets/images/eks-blueprint-cloudwatch-loginsights.png" /></p>
 <p>To try another example, replace that query with another query and choose Run query. More sample queries are listed later on this page.</p>
 <p>STATS avg(number_of_container_restarts) as avg_number_of_container_restarts by PodName
 <code>SORT avg_number_of_container_restarts DESC</code>
 This query displays a list of your pods, sorted by average number of container restarts as shown below</p>
-<p><img alt="CloudWatch" src="../../screenshots/eks-blueprint-cloudwatch-loginsights-2.png" /></p>
+<p><img alt="CloudWatch" src="../../assets/images/eks-blueprint-cloudwatch-loginsights-2.png" /></p>
 <p>If you want to try another query, you can use include fields in the list at the right of the screen. For more information about query syntax, see CloudWatch Logs Insights Query Syntax.</p>
 <h2 id="view-containers-via-that-container-map-in-container-insights">View containers via that container map in container insights.<a class="headerlink" href="#view-containers-via-that-container-map-in-container-insights" title="Permanent link">&para;</a></h2>
 <p>In order to view a map of all of your containers running inside your cluster, click on <code>View your container map</code> in the Container Insights tab. You will then see a map of all of your namespaces and their associated pods and services.</p>
-<p><img alt="CloudWatch" src="../../screenshots/eks-blueprint-container-insights.png" /></p>
+<p><img alt="CloudWatch" src="../../assets/images/eks-blueprint-container-insights.png" /></p>
                 
               
               
@@ -921,10 +921,10 @@ This query displays a list of your pods, sorted by average number of container r
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.4fa0e4ee.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.1d3bfcf1.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
       
     
   </body>

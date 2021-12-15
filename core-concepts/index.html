@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
     
     
       
@@ -759,11 +759,15 @@
 <tbody>
 <tr>
 <td><a href="#blueprint">Blueprint</a></td>
-<td>A <code>blueprint</code> combines <code>clusters</code>, <code>add-ons</code>, and <code>teams</code> into a cohesive object that can deployed as a whole.</td>
+<td>A <code>blueprint</code> combines <code>clusters</code>, <code>add-ons</code>, and <code>teams</code> into a cohesive object that can deployed as a whole</td>
 </tr>
 <tr>
 <td><a href="#cluster">Cluster</a></td>
 <td>A Well-Architected EKS Cluster.</td>
+</tr>
+<tr>
+<td><a href="#resource-provider">Resource Provider</a></td>
+<td>Resource providers are abstractions that supply external AWS resources to the cluster (e.g. hosted zones, VPCs, etc.)</td>
 </tr>
 <tr>
 <td><a href="#add-on">Add-on</a></td>
@@ -788,7 +792,7 @@
 <p>To view sample <code>blueprint</code> implementations, please see our <a href="https://github.com/aws-samples/ssp-eks-patterns">patterns repository</a>. </p>
 <h2 id="cluster">Cluster<a class="headerlink" href="#cluster" title="Permanent link">&para;</a></h2>
 <p>A <code>cluster</code> is simply an EKS cluster. The <code>ssp-amazon-eks</code> framework provides for customizing the compute options you leverage with your <code>clusters</code>. The framework currently supports <code>EC2</code>, <code>Fargate</code> and <code>BottleRocket</code> instances. To specify the type of compute you want to use for your <code>cluster</code>, you supply a <code>ClusterProvider</code> object to your <code>blueprint</code>. The framework defaults to leveraging the <code>EC2ClusterProvider</code>.</p>
-<p>Each <code>ClusterProvider</code> provides additional configuration options as well. For example, the <code>EC2ClusterProvider</code> allows you to configure instance types, min and max instance counts, and amiType, among other options. </p>
+<p>Each <code>ClusterProvider</code> provides additional configuration options as well. For example, the <code>MngClusterProvider</code> allows you to configure instance types, min and max instance counts, and amiType, among other options. </p>
 <p>See our <a href="../cluster-providers"><code>Cluster Providers</code></a> documentation page for detailed information. </p>
 <h2 id="resource-provider">Resource Provider<a class="headerlink" href="#resource-provider" title="Permanent link">&para;</a></h2>
 <p>A <code>resource</code> is a CDK construct that implements <code>IResource</code> interface from <code>@aws-cdk/core</code> which is a generic interface for any AWS resource. An example of a resource could be a hosted zone in Route53 <a href="https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-route53.HostedZone.html"><code>IHostedZone</code></a>, an ACM certificate <a href="https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-certificatemanager.ICertificate.html"><code>ICertificate</code></a>, a VPC or even a DynamoDB table which could be leveraged either in add-ons or teams.</p>
@@ -875,10 +879,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.4fa0e4ee.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.1d3bfcf1.min.js"></script>
+      <script src="../assets/javascripts/bundle.a1609d9a.min.js"></script>
       
     
   </body>

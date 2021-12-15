@@ -14,7 +14,7 @@
     
     
       
-        <title>Cluster Autoscaler - Amazon EKS SSP Quick Start</title>
+        <title>Velero Add-On - Amazon EKS SSP Quick Start</title>
       
     
     
@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cluster-autoscaler-add-on" class="md-skip">
+        <a href="#velero-add-on" class="md-skip">
           Skip to content
         </a>
       
@@ -89,7 +89,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Cluster Autoscaler
+              Velero Add-On
             
           </span>
         </div>
@@ -268,14 +268,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       <label class="md-nav__link" for="__nav_6">
         AddOns
@@ -363,99 +361,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Cluster Autoscaler
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../cluster-autoscaler/" class="md-nav__link">
         Cluster Autoscaler
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
-    Usage
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#functionality" class="md-nav__link">
-    Functionality
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testing-the-scaling-functionality" class="md-nav__link">
-    Testing the scaling functionality
-  </a>
-  
-    <nav class="md-nav" aria-label="Testing the scaling functionality">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#deploy-a-sample-app" class="md-nav__link">
-    Deploy a sample app
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#create-hpa-resource" class="md-nav__link">
-    Create HPA resource
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#generate-load" class="md-nav__link">
-    Generate load
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#verify-that-cluster-autoscaler-works" class="md-nav__link">
-    Verify that Cluster Autoscaler works
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -704,37 +614,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#testing-the-scaling-functionality" class="md-nav__link">
-    Testing the scaling functionality
+  <a href="#limitations" class="md-nav__link">
+    Limitations
   </a>
   
-    <nav class="md-nav" aria-label="Testing the scaling functionality">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-velero-functionality" class="md-nav__link">
+    Testing Velero Functionality
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing Velero Functionality">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#deploy-a-sample-app" class="md-nav__link">
-    Deploy a sample app
+  <a href="#deploy-a-sample-app-into-a-newly-created-namespace" class="md-nav__link">
+    Deploy a sample app into a newly created namespace
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#create-hpa-resource" class="md-nav__link">
-    Create HPA resource
+  <a href="#backup-the-sample-app-from-the-namespace" class="md-nav__link">
+    Backup the sample app from the namespace
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#generate-load" class="md-nav__link">
-    Generate load
+  <a href="#delete-the-sample-app-namespace" class="md-nav__link">
+    Delete the sample app namespace
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#verify-that-cluster-autoscaler-works" class="md-nav__link">
-    Verify that Cluster Autoscaler works
+  <a href="#restore-the-sample-app" class="md-nav__link">
+    Restore the sample app
   </a>
   
 </li>
@@ -756,101 +673,195 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/aws-quickstart/ssp-amazon-eks/edit/master/docs/addons/cluster-autoscaler.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/aws-quickstart/ssp-amazon-eks/edit/master/docs/addons/velero.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="cluster-autoscaler-add-on">Cluster Autoscaler Add-on<a class="headerlink" href="#cluster-autoscaler-add-on" title="Permanent link">&para;</a></h1>
-<p>The Cluster Autoscaler add-on adds support for <a href="https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler">Cluster Autoscaler</a> to an EKS cluster. Cluster Autoscaler is a tool that automatically adjusts the number of nodes in your cluster when:</p>
+                <h1 id="velero-add-on">Velero Add-On<a class="headerlink" href="#velero-add-on" title="Permanent link">&para;</a></h1>
+<p>The <a href="https://velero.io/docs">Velero(formerly Heptio Ark)</a> is a tool to backup and restore your Kubernetes cluster resources and persistent volumes. Velero lets you :</p>
 <ul>
-<li>pods fail due to insufficient resources, or </li>
-<li>pods are rescheduled onto other nodes due to being in nodes that are underutilized for an extended period of time.</li>
+<li>Take backups of your cluster and restore in case of loss.</li>
+<li>Migrate cluster resources to other clusters.</li>
+<li>Replicate your production cluster to development and testing clusters.</li>
 </ul>
+<p>Velero consists of:</p>
+<ul>
+<li>A server that runs on your cluster</li>
+<li>A command-line client that runs locally</li>
+</ul>
+<p>The Velero add-on installs Velero on Amazon EKS. By default it will create a private encrypted S3 Bucket to be the Velero backup destination. It leverages <a href="https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html">IAM Role for Service Accounts (IRSA)</a> feature to enable Velero pod to make API calls with S3 and EC2 natively without the need to use kube2iam or AWS credentials. </p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ClusterAutoScalerAddOn</span><span class="p">,</span> <span class="nx">ClusterAddOn</span><span class="p">,</span> <span class="nx">EksBlueprint</span> <span class="p">}</span>  <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/ssp-amazon-eks&#39;</span><span class="p">;</span>
-
-<span class="kd">const</span> <span class="nx">addOn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ClusterAutoscalerAddOn</span><span class="p">()</span>
-<span class="kd">const</span> <span class="nx">addOns</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">ClusterAddOn</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">addOn</span> <span class="p">];</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cdk</span> <span class="k">from</span> <span class="s1">&#39;@aws-cdk/core&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">ssp</span> <span class="k">from</span> <span class="s1">&#39;../lib&#39;</span><span class="p">;</span>
 
 <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
-<span class="k">new</span> <span class="nx">EksBlueprint</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;my-stack-name&#39;</span><span class="p">,</span> <span class="nx">addOns</span><span class="p">,</span> <span class="p">[],</span> <span class="p">{</span>
-  <span class="nx">env</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">account</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">AWS_ACCOUNT_ID</span><span class="o">&gt;</span><span class="p">,</span>
-      <span class="nx">region</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">AWS_REGION</span><span class="o">&gt;</span><span class="p">,</span>
-  <span class="p">},</span>
-<span class="p">});</span>
+
+<span class="kd">const</span> <span class="nx">addOns</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">ssp</span><span class="p">.</span><span class="nx">ClusterAddOn</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">VeleroAddOn</span><span class="p">(),</span>
+<span class="p">];</span>
+
+<span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">(</span>
+    <span class="nx">app</span><span class="p">,</span> 
+    <span class="p">{</span>
+        <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;my-stack-name&#39;</span><span class="p">,</span> 
+        <span class="nx">addOns</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nx">env</span><span class="o">:</span><span class="p">{</span>
+          <span class="nx">account</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">AWS_ACCOUNT_ID</span><span class="o">&gt;</span><span class="p">,</span>
+          <span class="nx">region</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">AWS_REGION</span><span class="o">&gt;</span><span class="p">,</span> 
+        <span class="p">}</span>       
+    <span class="p">});</span>
 </code></pre></div>
 <h2 id="functionality">Functionality<a class="headerlink" href="#functionality" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Adds proper IAM permissions (such as modify autoscaling groups, terminate instances, etc.) to the NodeGroup IAM role. </li>
-<li>Configures service account, cluster roles, roles, role bindings and deployment.</li>
-<li>Resolves proper CA image to pull based on the Kubernetes version.</li>
-<li>Configuration allows passing a specific version of the image to pull.</li>
-<li>Applies proper tags for discoverability to the EC2 instances.</li>
+<li>By default create a private S3 bucket (blocking all public access) with SSE-KMS encryption with AWS Managed Key from KMS(Encryption At Rest) for the Velero Backup destination.</li>
+<li>Configure S3 Bucket policy to enable encryption in transit.</li>
+<li>Create the IAM Role for Service Account for Velero pod to make API calls to AWS S3 and EC2 to backup and restore.</li>
+<li>Preset <a href="https://github.com/vmware-tanzu/helm-charts/blob/main/charts/velero/values.yaml">Velero Helm Chart Values</a>.</li>
+<li>Allow users to pass <a href="https://github.com/vmware-tanzu/helm-charts/blob/main/charts/velero/values.yaml">Velero Helm Chart Values</a> for customization purposes. </li>
 <li>Supports <a href="../#standard-helm-add-on-configuration-options">standard helm configuration options</a>.</li>
 </ol>
-<h2 id="testing-the-scaling-functionality">Testing the scaling functionality<a class="headerlink" href="#testing-the-scaling-functionality" title="Permanent link">&para;</a></h2>
-<p>The following steps will help test and validate Cluster Autoscaler functionality in your cluster.</p>
+<h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Deploy a sample app as a deployment.</li>
-<li>Create a Horizontal Pod Autoscaler (HPA) resource.</li>
-<li>Generate load to trigger scaling.</li>
+<li>Velero has a known bug for support of S3 with SSE-KMS encryption with Customer master key (CMK). Please refer to <a href="https://github.com/vmware-tanzu/helm-charts/issues/83">Velero GitHub Issue #83</a>.</li>
+<li>As a result of #1, Velero is unable to leverage the <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-key.html">S3 Bucket Key</a> feature which requires using AWS CMK to achieve "reduce AWS KMS request costs by up to 99 percent by decreasing the request traffic from Amazon S3 to AWS KMS."</li>
 </ol>
-<h3 id="deploy-a-sample-app">Deploy a sample app<a class="headerlink" href="#deploy-a-sample-app" title="Permanent link">&para;</a></h3>
-<p>Take a note of the number of nodes available:</p>
-<div class="highlight"><pre><span></span><code>kubectl get nodes
+<h2 id="testing-velero-functionality">Testing Velero Functionality<a class="headerlink" href="#testing-velero-functionality" title="Permanent link">&para;</a></h2>
+<p>The following steps will help test the backup and restore Kuberenetes resources from Velero</p>
+<ol>
+<li>Deploy a sample app as deployment into a newly created namespace</li>
+<li>Backup the sample app from the namespace</li>
+<li>Delete the sample app namespace</li>
+<li>Restore the sample app</li>
+</ol>
+<h3 id="deploy-a-sample-app-into-a-newly-created-namespace">Deploy a sample app into a newly created namespace<a class="headerlink" href="#deploy-a-sample-app-into-a-newly-created-namespace" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Properly configure your <code>kubeconfig</code> to use <code>kubectl</code> command. By successfully deploying the EKS cluster, you can run commands to set up your <code>kubeconfig</code> correctly by: <code>aws eks update-kubeconfig --name &lt;EKS_Cluster_Name&gt;  --region &lt;AWS_Region&gt; --role-arn arn:aws:iam::&lt;AWS_ACCOUNT_ID&gt;:role/&lt;IRSA_Role_Name&gt;</code></li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># Create the test01 namespace</span>
+$ kubectl create ns test01
+namespace/test01 created
+
+<span class="c1"># Deploy the Nginx Stateless applications on to namespace test01</span>
+$ kubectl apply -f https://k8s.io/examples/application/deployment.yaml -n test01
+deployment.apps/nginx-deployment created
+
+<span class="c1"># Check the nginx pods</span>
+$ kubectl get pods -n test01
+NAME                                READY   STATUS    RESTARTS   AGE
+nginx-deployment-66b6c48dd5-qf7lc   <span class="m">1</span>/1     Running   <span class="m">0</span>          53s
+nginx-deployment-66b6c48dd5-wvxjx   <span class="m">1</span>/1     Running   <span class="m">0</span>          53s
+
+<span class="c1"># Deploy the Stateful Nginx Application with PV to namespace nginx-example</span>
+$ kubectl apply -f https://raw.githubusercontent.com/vmware-tanzu/velero/main/examples/nginx-app/with-pv.yaml
+namespace/nginx-example created
+persistentvolumeclaim/nginx-logs created
+deployment.apps/nginx-deployment created
+service/my-nginx created
+
+<span class="c1"># Check the application and PV</span>
+$ kubectl get pods -n nginx-example
+NAME                               READY   STATUS    RESTARTS   AGE
+nginx-deployment-66689547d-4mqsd   <span class="m">2</span>/2     Running   <span class="m">0</span>          106s
+haofeif@a483e70791e6 ~ $ kubectl get pv -n nginx-example
+NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                      STORAGECLASS   REASON   AGE
+pvc-73498192-6571-4e31-b455-e7e7efbf2fb7   1Gi        RWO            Delete           Bound    nginx-example/nginx-logs   gp2                     110s
+
+<span class="c1">## EBS Volume got created </span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>NAME                                         STATUS   ROLES    AGE   VERSION
-ip-10-0-189-107.us-west-2.compute.internal   Ready    &lt;none&gt;   80m   v1.19.6-eks-49a6c0
+<img alt="EBS_Volume_Screenshot" src="../../assets/images/velero_ebs_volume.png" /></p>
+<h3 id="backup-the-sample-app-from-the-namespace">Backup the sample app from the namespace<a class="headerlink" href="#backup-the-sample-app-from-the-namespace" title="Permanent link">&para;</a></h3>
+<ul>
+<li>To install Velero client Cli, please refer to the <a href="https://velero.io/docs/v1.6/basic-install/">User Guide</a></li>
+<li>The backup will be created into the S3 bucket created or specified by the users. </li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># Create the backup for stateless app at namespace test01</span>
+$ velero backup create test01 --include-namespaces test01
+Backup request <span class="s2">&quot;test01&quot;</span> submitted successfully.
+Run <span class="sb">`</span>velero backup describe test01<span class="sb">`</span> or <span class="sb">`</span>velero backup logs test01<span class="sb">`</span> <span class="k">for</span> more details.
+
+<span class="c1"># Check for the backup</span>
+$ velero backup get
+NAME       STATUS      ERRORS   WARNINGS   CREATED                          EXPIRES   STORAGE LOCATION   SELECTOR
+test01     Completed   <span class="m">0</span>        <span class="m">0</span>          <span class="m">2021</span>-09-20 <span class="m">12</span>:40:37 +1000 AEST   29d       default            &lt;none&gt;
+
+<span class="c1"># Check the logs of the backup</span>
+$ velero backup logs test01
+<span class="nv">time</span><span class="o">=</span><span class="s2">&quot;2021-09-19T02:40:37Z&quot;</span> <span class="nv">level</span><span class="o">=</span>info <span class="nv">msg</span><span class="o">=</span><span class="s2">&quot;Setting up backup temp file&quot;</span> <span class="nv">backup</span><span class="o">=</span>velero/test01 <span class="nv">logSource</span><span class="o">=</span><span class="s2">&quot;pkg/controller/backup_controller.go:556&quot;</span>
+<span class="nv">time</span><span class="o">=</span><span class="s2">&quot;2021-09-19T02:40:37Z&quot;</span> <span class="nv">level</span><span class="o">=</span>info <span class="nv">msg</span><span class="o">=</span><span class="s2">&quot;Setting up plugin manager&quot;</span> <span class="nv">backup</span><span class="o">=</span>velero/test01 <span class="nv">logSource</span><span class="o">=</span><span class="s2">&quot;pkg/controller/backup_controller.go:563&quot;</span>
+<span class="nv">time</span><span class="o">=</span><span class="s2">&quot;2021-09-19T02:40:37Z&quot;</span> <span class="nv">level</span><span class="o">=</span>info <span class="nv">msg</span><span class="o">=</span><span class="s2">&quot;Getting backup item actions&quot;</span> <span class="nv">backup</span><span class="o">=</span>velero/test01 <span class="nv">logSource</span><span class="o">=</span><span class="s2">&quot;pkg/controller/backup_controller.go:567&quot;</span>
+...
+
+<span class="c1"># Check the backup location, the Access mode shows the S3 bucket name and its folders.</span>
+$ velero backup-location get
+NAME      PROVIDER   BUCKET/PREFIX                                                                         PHASE       LAST VALIDATED                   ACCESS MODE   DEFAULT
+default   aws        my-stack-name-mystacknamevelerobackupxxx/velero/my-stack-name   Available   <span class="m">2021</span>-09-20 <span class="m">12</span>:29:35 +1000 AEST   ReadWrite     <span class="nb">true</span>
+
+<span class="c1"># Screenshot of the S3 bucket folder for the backup test01</span>
 </code></pre></div>
-<p>The first step is to create a sample application via deployment and request 20m of CPU:</p>
-<div class="highlight"><pre><span></span><code>kubectl create deployment php-apache --image<span class="o">=</span>us.gcr.io/k8s-artifacts-prod/hpa-example
-kubectl <span class="nb">set</span> resources deploy php-apache --requests<span class="o">=</span><span class="nv">cpu</span><span class="o">=</span>20m 
-kubectl expose php-apache --port <span class="m">80</span>
+<img alt="VeleroBackupScreenshot" src="../../assets/images/velero_backup_S3_bucket.png" /></p>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># Create the Backup with the PV at namespace nginx-example</span>
+$ velero backup create nginx-backup --include-namespaces nginx-example
+Backup request <span class="s2">&quot;nginx-backup&quot;</span> submitted successfully.
+Run <span class="sb">`</span>velero backup describe nginx-backup<span class="sb">`</span> or <span class="sb">`</span>velero backup logs nginx-backup<span class="sb">`</span> <span class="k">for</span> more details.
+
+<span class="c1">## Check the backup status</span>
+$ velero backup get
+NAME           STATUS      ERRORS   WARNINGS   CREATED                          EXPIRES   STORAGE LOCATION   SELECTOR
+nginx-backup   Completed   <span class="m">0</span>        <span class="m">0</span>          <span class="m">2021</span>-09-20 <span class="m">12</span>:37:36 +1000 AEST   29d       default            &lt;none&gt;
+
+<span class="c1"># Screenshot of the S3 bucket folder for the backup nginx-backup (with PV)</span>
 </code></pre></div>
-<p>You can see that there's 1 pod currently running:</p>
-<div class="highlight"><pre><span></span><code>kubectl get pod -l <span class="nv">app</span><span class="o">=</span>php-apache
+<img alt="Velero_Backup_withPV" src="../../assets/images/velero_backup_S3_bucket_withpv.png" /></p>
+<h3 id="delete-the-sample-app-namespace">Delete the sample app namespace<a class="headerlink" href="#delete-the-sample-app-namespace" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Delete the namespace test01</span>
+$ kubectl delete ns test01
+
+<span class="c1"># Delete the namespace nginx-example</span>
+$ kubectl delete ns nginx-example
+
+<span class="c1"># Note: Because the default reclaim policy for dynamically-provisioned PVs is “Delete”, these commands should trigger AWS to delete the EBS Volume that backs the PV. Deletion is asynchronous, so this may take some time. </span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>NAME                          READY   STATUS    RESTARTS   AGE
-php-apache-55c4584468-vsbl7   1/1     Running   0          63s
+<h3 id="restore-the-sample-app">Restore the sample app<a class="headerlink" href="#restore-the-sample-app" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># Restore from the backup of test01</span>
+$ velero restore create test01 --from-backup test01
+
+Restore request <span class="s2">&quot;test01&quot;</span> submitted successfully.
+Run <span class="sb">`</span>velero restore describe test01<span class="sb">`</span> or <span class="sb">`</span>velero restore logs test01<span class="sb">`</span> <span class="k">for</span> more details.
+
+<span class="c1"># Check the restore status of test01</span>
+$ velero restore get
+NAME     BACKUP   STATUS       STARTED                          COMPLETED   ERRORS   WARNINGS   CREATED                          SELECTOR
+test01   test01   Completed   <span class="m">2021</span>-09-20 <span class="m">12</span>:41:38 +1000 AEST   &lt;nil&gt;       <span class="m">0</span>        <span class="m">0</span>          <span class="m">2021</span>-09-20 <span class="m">12</span>:41:36 +1000 AEST   &lt;none&gt;
+
+<span class="c1"># Check the stateless application restore completed</span>
+$ kubectl get pods -n test01
+NAME                                READY   STATUS    RESTARTS   AGE
+nginx-deployment-66b6c48dd5-qf7lc   <span class="m">1</span>/1     Running   <span class="m">0</span>          53s
+nginx-deployment-66b6c48dd5-wvxjx   <span class="m">1</span>/1     Running   <span class="m">0</span>          53s
+
+<span class="c1"># Restore from the backup of nginx-backup (With PV) after confirming EBS volume has been deleted successfully</span>
+$ velero restore create --from-backup nginx-backup
+
+<span class="c1"># Check the Restore status</span>
+$ velero restore get
+NAME                          BACKUP         STATUS      STARTED                          COMPLETED                        ERRORS   WARNINGS   CREATED                          SELECTOR
+nginx-backup-20210920124336   nginx-backup   Completed   <span class="m">2021</span>-09-20 <span class="m">12</span>:43:42 +1000 AEST   <span class="m">2021</span>-09-20 <span class="m">12</span>:43:45 +1000 AEST   <span class="m">0</span>        <span class="m">0</span>          <span class="m">2021</span>-09-20 <span class="m">12</span>:43:40 +1000 AEST   &lt;none&gt;
+
+<span class="c1"># Check the status of pod and PV in namespace nginx-example</span>
+$ kubectl get pods -n nginx-example
+NAME                               READY   STATUS    RESTARTS   AGE
+nginx-deployment-66689547d-4mqsd   <span class="m">2</span>/2     Running   <span class="m">0</span>          2m12s
+
+$ kubectl get pv -n nginx-example
+NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                      STORAGECLASS   REASON   AGE
+pvc-73498192-6571-4e31-b455-e7e7efbf2fb7   1Gi        RWO            Delete           Bound    nginx-example/nginx-logs   gp2                     2m22s
+
+<span class="c1"># EBS Volume is back</span>
 </code></pre></div>
-<h3 id="create-hpa-resource">Create HPA resource<a class="headerlink" href="#create-hpa-resource" title="Permanent link">&para;</a></h3>
-<p>Now we can create Horizontal Pod Autoscaler resource with 50% CPU target utilization, and the minimum number of pods at 1 and max at 20:
-<div class="highlight"><pre><span></span><code>kubectl autoscale deployment php-apache <span class="se">\</span>
-    --cpu-percent<span class="o">=</span><span class="m">50</span> <span class="se">\</span>
-    --min<span class="o">=</span><span class="m">1</span> <span class="se">\</span>
-    --max<span class="o">=</span><span class="m">20</span>
-</code></pre></div></p>
-<p>You can verify by looking at the hpa resource:</p>
-<div class="highlight"><pre><span></span><code>kubectl get hpa
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>NAME         REFERENCE               TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
-php-apache   Deployment/php-apache   10%/50%   1         20        2          52s
-</code></pre></div>
-<h3 id="generate-load">Generate load<a class="headerlink" href="#generate-load" title="Permanent link">&para;</a></h3>
-<p>With the resources created, you can generate load on the apache server with a busybox container:</p>
-<div class="highlight"><pre><span></span><code>kubectl --generator<span class="o">=</span>run-pod/v1 run -i --tty load-generator --image<span class="o">=</span>busybox /bin/sh
-</code></pre></div>
-<p>You can generate the actual load on the shell by running a while loop:</p>
-<div class="highlight"><pre><span></span><code><span class="k">while</span> true<span class="p">;</span> <span class="k">do</span> wget -q -O - http://php-apache<span class="p">;</span> <span class="k">done</span>
-</code></pre></div>
-<h3 id="verify-that-cluster-autoscaler-works">Verify that Cluster Autoscaler works<a class="headerlink" href="#verify-that-cluster-autoscaler-works" title="Permanent link">&para;</a></h3>
-<p>While the load is being generated, access another terminal to verify that HPA is working. The following command should return a list of many nods created (as many as 10):</p>
-<div class="highlight"><pre><span></span><code>kubectl get pods -l <span class="nv">app</span><span class="o">=</span>php-apache -o wide --watch
-</code></pre></div>
-<p>With more pods being created, you would expect more nodes to be created; you can access the Cluster Autoscaler logs to confirm:</p>
-<div class="highlight"><pre><span></span><code>kubectl -n kube-system logs -f deployment/cluster-autoscaler
-</code></pre></div>
-<p>Lastly, you can list all the nodes and see that there are now multiple nodes:</p>
-<div class="highlight"><pre><span></span><code>kubectl get nodes
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>NAME                                         STATUS   ROLES    AGE   VERSION
-ip-10-0-187-70.us-west-2.compute.internal    Ready    &lt;none&gt;   73s   v1.19.6-eks-49a6c0
-ip-10-0-189-107.us-west-2.compute.internal   Ready    &lt;none&gt;   84m   v1.19.6-eks-49a6c0
-ip-10-0-224-226.us-west-2.compute.internal   Ready    &lt;none&gt;   46s   v1.19.6-eks-49a6c0
-ip-10-0-233-105.us-west-2.compute.internal   Ready    &lt;none&gt;   90s   v1.19.6-eks-49a6c0
-</code></pre></div>
+<img alt="VeleroRestoreEBSScreenshot" src="../../assets/images/velero_ebs_volume_afterrestore.png" /></p>
                 
               
               
@@ -866,39 +877,6 @@ ip-10-0-233-105.us-west-2.compute.internal   Ready    &lt;none&gt;   90s   v1.19
       
         
 <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        <a href="../coredns/" class="md-footer__link md-footer__link--prev" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              CoreDns
-            </div>
-          </div>
-        </a>
-      
-      
-        <a href="../container-insights/" class="md-footer__link md-footer__link--next" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Container Insights
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

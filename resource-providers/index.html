@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
     
     
       
@@ -756,10 +756,14 @@ A resource provider is a core SSP concept that enables customers to supply resou
 </code></pre></div>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
 <p><strong>Registering Resource Providers for a Blueprint</strong></p>
-<p>Note: <code>GlobalResources.HostedZone</code> and <code>GlobalResources.Certificate</code> are provides for convenience as commonly referenced constants.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">ssp</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">.</span><span class="nx">builder</span><span class="p">()</span>
+<p>Note: <code>GlobalResources.HostedZone</code> and <code>GlobalResources.Certificate</code> are provided for convenience as commonly referenced constants.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">myVpcId</span> <span class="o">=</span> <span class="p">...;</span>  <span class="c1">// e.g. app.node.tryGetContext(&#39;my-vpc&#39;, &#39;default)  will look up property my-vpc in the cdk.json</span>
+
+<span class="nx">ssp</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">.</span><span class="nx">builder</span><span class="p">()</span>
+    <span class="c1">//  Specify VPC for the cluster (if not set, a new VPC will be provisioned as per EKS Best Practices)</span>
+    <span class="p">.</span><span class="nx">resourceProvider</span><span class="p">(</span><span class="nx">GlobalResources</span><span class="p">.</span><span class="nx">VPC</span><span class="p">,</span> <span class="k">new</span> <span class="nx">VpcProvider</span><span class="p">(</span><span class="nx">myVpcId</span><span class="p">)</span>
     <span class="c1">//  Register hosted zone and give it a name of GlobalResources.HostedZone</span>
-    <span class="p">.</span><span class="nx">resourceProvider</span><span class="p">(</span><span class="nx">GlobalResources</span><span class="p">.</span><span class="nx">HostedZone</span> <span class="p">,</span><span class="k">new</span> <span class="nx">ImportHostedZoneProvider</span><span class="p">(</span><span class="s1">&#39;hosted-zone-id1&#39;</span><span class="p">,</span> <span class="s1">&#39;my.domain.com&#39;</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">resourceProvider</span><span class="p">(</span><span class="nx">GlobalResources</span><span class="p">.</span><span class="nx">HostedZone</span><span class="p">,</span> <span class="k">new</span> <span class="nx">ImportHostedZoneProvider</span><span class="p">(</span><span class="s1">&#39;hosted-zone-id1&#39;</span><span class="p">,</span> <span class="s1">&#39;my.domain.com&#39;</span><span class="p">))</span>
     <span class="c1">// Register certificate GlobalResources.Certificate name and reference the hosted zone registered in the previous step</span>
     <span class="p">.</span><span class="nx">resourceProvider</span><span class="p">(</span><span class="nx">GlobalResources</span><span class="p">.</span><span class="nx">Certificate</span><span class="p">,</span> <span class="k">new</span> <span class="nx">CreateCertificateProvider</span><span class="p">(</span><span class="s1">&#39;domain-wildcard-cert&#39;</span><span class="p">,</span> <span class="s1">&#39;*.my.domain.com&#39;</span><span class="p">,</span> <span class="nx">GlobalResources</span><span class="p">.</span><span class="nx">HostedZone</span><span class="p">))</span>
     <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="k">new</span> <span class="nx">AwsLoadBalancerControllerAddOn</span><span class="p">())</span>
@@ -776,9 +780,9 @@ A resource provider is a core SSP concept that enables customers to supply resou
 <p><strong>Registering Multiple Hosted Zones</strong></p>
 <div class="highlight"><pre><span></span><code><span class="nx">ssp</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">.</span><span class="nx">builder</span><span class="p">()</span>
     <span class="c1">//  Register hosted zone1 under the name of MyHostedZone1</span>
-    <span class="p">.</span><span class="nx">resourceProvider</span><span class="p">(</span><span class="s2">&quot;MyHostedZone1&quot;</span> <span class="p">,</span><span class="k">new</span> <span class="nx">ImportHostedZoneProvider</span><span class="p">(</span><span class="s1">&#39;hosted-zone-id1&#39;</span><span class="p">,</span> <span class="s1">&#39;my.domain.com&#39;</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">resourceProvider</span><span class="p">(</span><span class="s2">&quot;MyHostedZone1&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">ImportHostedZoneProvider</span><span class="p">(</span><span class="s1">&#39;hosted-zone-id1&#39;</span><span class="p">,</span> <span class="s1">&#39;my.domain.com&#39;</span><span class="p">))</span>
     <span class="c1">// Register zone2 under the name of MyHostedZone2</span>
-    <span class="p">.</span><span class="nx">resourceProvider</span><span class="p">(</span><span class="s2">&quot;MyHostedZone2&quot;</span> <span class="p">,</span><span class="k">new</span> <span class="nx">ImportHostedZoneProvider</span><span class="p">(</span><span class="s1">&#39;hosted-zone-id2&#39;</span><span class="p">,</span> <span class="s1">&#39;my.otherdomain.com&#39;</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">resourceProvider</span><span class="p">(</span><span class="s2">&quot;MyHostedZone2&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">ImportHostedZoneProvider</span><span class="p">(</span><span class="s1">&#39;hosted-zone-id2&#39;</span><span class="p">,</span> <span class="s1">&#39;my.otherdomain.com&#39;</span><span class="p">))</span>
     <span class="c1">// Register certificate and reference the hosted zone1 registered in the previous steps</span>
     <span class="p">.</span><span class="nx">resourceProvider</span><span class="p">(</span><span class="s2">&quot;MyCert&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">CreateCertificateProvider</span><span class="p">(</span><span class="s1">&#39;domain-wildcard-cert&#39;</span><span class="p">,</span> <span class="s1">&#39;*.my.domain.com&#39;</span><span class="p">,</span> <span class="s2">&quot;MyHostedZone1&quot;</span><span class="p">))</span>
     <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="k">new</span> <span class="nx">AwsLoadBalancerControllerAddOn</span><span class="p">())</span>
@@ -857,10 +861,10 @@ A resource provider is a core SSP concept that enables customers to supply resou
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.4fa0e4ee.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.1d3bfcf1.min.js"></script>
+      <script src="../assets/javascripts/bundle.a1609d9a.min.js"></script>
       
     
   </body>

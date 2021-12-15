@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
     
     
       
@@ -805,7 +805,7 @@
 <p>This getting started guide will walk you through setting up a new CDK project which leverages the <code>ssp-amazon-eks</code> NPM module to deploy a simple SSP. </p>
 <h2 id="project-setup">Project setup<a class="headerlink" href="#project-setup" title="Permanent link">&para;</a></h2>
 <p>To use the <code>ssp-amazon-eks</code> module, you must have the <a href="https://aws.amazon.com/cdk/">AWS Cloud Development Kit (CDK)</a> installed. Install CDK via the following.</p>
-<div class="highlight"><pre><span></span><code>npm install -g aws-cdk@1.119.0
+<div class="highlight"><pre><span></span><code>npm install -g aws-cdk@1.135.0
 </code></pre></div>
 <p>Verify the installation.</p>
 <div class="highlight"><pre><span></span><code>cdk --version
@@ -825,7 +825,6 @@
 <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
 
 <span class="kd">const</span> <span class="nx">addOns</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">ssp</span><span class="p">.</span><span class="nx">ClusterAddOn</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">NginxAddOn</span><span class="p">,</span>
     <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">ArgoCDAddOn</span><span class="p">,</span>
     <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">CalicoAddOn</span><span class="p">,</span>
     <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">MetricsServerAddOn</span><span class="p">,</span>
@@ -834,21 +833,21 @@
     <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">AwsLoadBalancerControllerAddOn</span><span class="p">(),</span>
     <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">VpcCniAddOn</span><span class="p">(),</span>
     <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">CoreDnsAddOn</span><span class="p">(),</span>
-    <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">KubeProxyAddOn</span><span class="p">()</span>
+    <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">KubeProxyAddOn</span><span class="p">(),</span>
+    <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">XrayAddOn</span><span class="p">()</span>
 <span class="p">];</span>
 
-<span class="kd">const</span> <span class="nx">opts</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;east-test-1&#39;</span><span class="p">,</span> <span class="nx">addOns</span> <span class="p">}</span>
-<span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="nx">opts</span><span class="p">,</span> <span class="p">{</span>
-    <span class="nx">env</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">account</span><span class="o">:</span> <span class="s1">&#39;XXXXXXXXXXXXX&#39;</span><span class="p">,</span>
-        <span class="nx">region</span><span class="o">:</span> <span class="s1">&#39;us-east-1&#39;</span>
-    <span class="p">},</span>
-<span class="p">});</span>
+<span class="kd">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="s1">&#39;XXXXXXXXXXXXX&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">region</span> <span class="o">=</span> <span class="s1">&#39;us-east-2&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">props</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">env</span><span class="o">:</span> <span class="p">{</span> <span class="nx">account</span><span class="p">,</span> <span class="nx">region</span> <span class="p">}</span> <span class="p">};</span>
+<span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="p">{</span> <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;east-test-1&#39;</span><span class="p">,</span> <span class="nx">addOns</span><span class="p">},</span> <span class="nx">props</span><span class="p">);</span>
 </code></pre></div>
 <p>Each combination of target account and region must be bootstrapped prior to deploying stacks. Bootstrapping is an process of creating IAM roles and lambda functions that can execute some of the common CDK constructs.</p>
 <p><a href="https://docs.aws.amazon.com/cdk/latest/guide/bootstrapping.html">Bootstrap</a> your environment with the following command. </p>
 <div class="highlight"><pre><span></span><code>cdk bootstrap
 </code></pre></div>
+<p>Note: if the account/region combination used in the code example above is different from the initial combination used with <code>cdk bootstrap</code>, you will need to perform <code>cdk bootstrap</code> again to avoid error.</p>
+<p>Please reference <a href="https://docs.aws.amazon.com/cdk/latest/guide/home.html">CDK</a> usage doc for detail.</p>
 <p>Deploy the stack using the following command. This command will take roughly 20 minutes to complete.</p>
 <div class="highlight"><pre><span></span><code>cdk deploy
 </code></pre></div>
@@ -863,6 +862,9 @@
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> AWS and Kubernetes resources needed to support <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-autoscaler.html">Cluster Autoscaler</a>.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> AWS and Kubernetes resources needed to forward logs and metrics to <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/deploy-container-insights-EKS.html">Container Insights</a>.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> AWS and Kubernetes resources needed to support <a href="https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html">AWS Load Balancer Controller</a>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://docs.aws.amazon.com/eks/latest/userguide/managing-vpc-cni.html">Amazon VPC CNI add-on (VpcCni)</a> into your cluster to support native VPC networking for Amazon EKS.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://docs.aws.amazon.com/eks/latest/userguide/managing-coredns.html">CoreDNS Amazon EKS add-on (CoreDns)</a> into your cluster. CoreDns is a flexible, extensible DNS server that can serve as the Kubernetes cluster DNS</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://docs.aws.amazon.com/eks/latest/userguide/managing-kube-proxy.html"> kube-proxy Amazon EKS add-on (KubeProxy)</a> into your cluster to maintains network rules on each Amazon EC2 node</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> AWS and Kubernetes resources needed to support <a href="https://aws.amazon.com/xray/">AWS X-Ray</a>.</li>
 </ul>
 <h2 id="cluster-access">Cluster Access<a class="headerlink" href="#cluster-access" title="Permanent link">&para;</a></h2>
@@ -929,8 +931,8 @@ arn:aws:cloudformation:us-east-1:115717706081:stack/east-test-1/e1b9e6a0-d5f6-11
 <div class="highlight"><pre><span></span><code>argocd app sync dev-apps 
 </code></pre></div>
 <h3 id="validate-deployments">Validate deployments.<a class="headerlink" href="#validate-deployments" title="Permanent link">&para;</a></h3>
-<p>To validate your deployments, leverage <code>kubectl port-forwarding</code> to access the <code>guestbook-ui</code> service for <code>team-burnham</code>.</p>
-<div class="highlight"><pre><span></span><code>kubectl port-forward svc/guestbook-ui -n team-burnham 4040:80
+<p>To validate your deployments, leverage <code>kubectl port-forwarding</code> to access the <code>guestbook-ui</code> service for <code>team-riker</code>.</p>
+<div class="highlight"><pre><span></span><code>kubectl port-forward svc/guestbook-ui -n team-riker 4040:80
 </code></pre></div>
 <p>Open up <code>localhost:4040</code> in your browser and you should see the application.</p>
 <h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
@@ -1006,10 +1008,10 @@ arn:aws:cloudformation:us-east-1:115717706081:stack/east-test-1/e1b9e6a0-d5f6-11
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.4fa0e4ee.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.1d3bfcf1.min.js"></script>
+      <script src="../assets/javascripts/bundle.a1609d9a.min.js"></script>
       
     
   </body>
