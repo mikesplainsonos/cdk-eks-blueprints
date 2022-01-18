@@ -8,19 +8,19 @@
       
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.4">
     
     
       
-        <title>Core Concepts - Amazon EKS SSP Quick Start</title>
+        <title>Kubecost AddOn - Amazon EKS SSP Quick Start</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.bb3983ee.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bb3983ee.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
         
       
     
@@ -34,7 +34,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -58,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#core-concepts" class="md-skip">
+        <a href="#kubecost-addon" class="md-skip">
           Skip to content
         </a>
       
@@ -72,7 +72,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Amazon EKS SSP Quick Start" class="md-header__button md-logo" aria-label="Amazon EKS SSP Quick Start" data-md-component="logo">
+    <a href="../.." title="Amazon EKS SSP Quick Start" class="md-header__button md-logo" aria-label="Amazon EKS SSP Quick Start" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -91,7 +91,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Core Concepts
+              Kubecost AddOn
             
           </span>
         </div>
@@ -170,7 +170,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Amazon EKS SSP Quick Start" class="md-nav__button md-logo" aria-label="Amazon EKS SSP Quick Start" data-md-component="logo">
+    <a href="../.." title="Amazon EKS SSP Quick Start" class="md-nav__button md-logo" aria-label="Amazon EKS SSP Quick Start" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -201,7 +201,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         Overview
       </a>
     </li>
@@ -216,7 +216,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting-started/" class="md-nav__link">
+      <a href="../../getting-started/" class="md-nav__link">
         Getting Started
       </a>
     </li>
@@ -229,94 +229,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Core Concepts
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../core-concepts/" class="md-nav__link">
         Core Concepts
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#blueprint" class="md-nav__link">
-    Blueprint
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cluster" class="md-nav__link">
-    Cluster
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resource-provider" class="md-nav__link">
-    Resource Provider
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#add-on" class="md-nav__link">
-    Add-on
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#team" class="md-nav__link">
-    Team
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pipeline" class="md-nav__link">
-    Pipeline
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#application" class="md-nav__link">
-    Application
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -329,7 +246,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../teams/" class="md-nav__link">
+      <a href="../../teams/" class="md-nav__link">
         Teams
       </a>
     </li>
@@ -344,7 +261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pipelines/" class="md-nav__link">
+      <a href="../../pipelines/" class="md-nav__link">
         Pipelines
       </a>
     </li>
@@ -385,7 +302,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../addons/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -399,7 +316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../addons/app-mesh/" class="md-nav__link">
+      <a href="../app-mesh/" class="md-nav__link">
         AWS App Mesh
       </a>
     </li>
@@ -413,7 +330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../addons/argo-cd/" class="md-nav__link">
+      <a href="../argo-cd/" class="md-nav__link">
         ArgoCD
       </a>
     </li>
@@ -427,7 +344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../addons/aws-load-balancer-controller/" class="md-nav__link">
+      <a href="../aws-load-balancer-controller/" class="md-nav__link">
         AWS Load Balancer Controller
       </a>
     </li>
@@ -441,7 +358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../addons/calico/" class="md-nav__link">
+      <a href="../calico/" class="md-nav__link">
         Calico
       </a>
     </li>
@@ -455,7 +372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../addons/coredns/" class="md-nav__link">
+      <a href="../coredns/" class="md-nav__link">
         CoreDns
       </a>
     </li>
@@ -469,7 +386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../addons/cluster-autoscaler/" class="md-nav__link">
+      <a href="../cluster-autoscaler/" class="md-nav__link">
         Cluster Autoscaler
       </a>
     </li>
@@ -483,7 +400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../addons/container-insights/" class="md-nav__link">
+      <a href="../container-insights/" class="md-nav__link">
         Container Insights
       </a>
     </li>
@@ -497,7 +414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../addons/external-dns/" class="md-nav__link">
+      <a href="../external-dns/" class="md-nav__link">
         External DNS
       </a>
     </li>
@@ -511,7 +428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../addons/kube-proxy/" class="md-nav__link">
+      <a href="../kube-proxy/" class="md-nav__link">
         Kube Proxy
       </a>
     </li>
@@ -525,7 +442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../addons/metrics-server/" class="md-nav__link">
+      <a href="../metrics-server/" class="md-nav__link">
         Metrics Server
       </a>
     </li>
@@ -539,7 +456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../addons/nginx/" class="md-nav__link">
+      <a href="../nginx/" class="md-nav__link">
         Nginx
       </a>
     </li>
@@ -553,7 +470,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../addons/ssm-agent/" class="md-nav__link">
+      <a href="../ssm-agent/" class="md-nav__link">
         SSM Agent
       </a>
     </li>
@@ -567,7 +484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../addons/secrets-store/" class="md-nav__link">
+      <a href="../secrets-store/" class="md-nav__link">
         Secrets Store
       </a>
     </li>
@@ -581,7 +498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../addons/vpc-cni/" class="md-nav__link">
+      <a href="../vpc-cni/" class="md-nav__link">
         Vpc Cni
       </a>
     </li>
@@ -609,7 +526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../addons/xray/" class="md-nav__link">
+      <a href="../xray/" class="md-nav__link">
         AWS XRay
       </a>
     </li>
@@ -657,7 +574,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cluster-providers/" class="md-nav__link">
+      <a href="../../cluster-providers/" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -671,7 +588,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cluster-providers/asg-cluster-provider/" class="md-nav__link">
+      <a href="../../cluster-providers/asg-cluster-provider/" class="md-nav__link">
         ASG Cluster Provider
       </a>
     </li>
@@ -685,7 +602,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cluster-providers/mng-cluster-provider/" class="md-nav__link">
+      <a href="../../cluster-providers/mng-cluster-provider/" class="md-nav__link">
         MNG Cluster Provider
       </a>
     </li>
@@ -699,7 +616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cluster-providers/fargate-cluster-provider/" class="md-nav__link">
+      <a href="../../cluster-providers/fargate-cluster-provider/" class="md-nav__link">
         Fargate Cluster Provider
       </a>
     </li>
@@ -721,7 +638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../extensibility/" class="md-nav__link">
+      <a href="../../extensibility/" class="md-nav__link">
         Extensibility
       </a>
     </li>
@@ -755,50 +672,91 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#blueprint" class="md-nav__link">
-    Blueprint
+  <a href="#installation" class="md-nav__link">
+    Installation
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#cluster" class="md-nav__link">
-    Cluster
+  <a href="#usage" class="md-nav__link">
+    Usage
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#resource-provider" class="md-nav__link">
-    Resource Provider
+  <a href="#kubecostaddon-options-props" class="md-nav__link">
+    KubecostAddOn Options (props)
+  </a>
+  
+    <nav class="md-nav" aria-label="KubecostAddOn Options (props)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#namespace-string-optional" class="md-nav__link">
+    namespace: string (optional)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubecosttoken-string-optional" class="md-nav__link">
+    kubecostToken: string (optional)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-string-optional" class="md-nav__link">
+    version: string (optional)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#values-key-string-any-optional" class="md-nav__link">
+    values?: { [key: string]: any } (optional)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customprometheus-string-optional" class="md-nav__link">
+    customPrometheus: string (optional)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installprometheusnodeexporter-boolean-optional" class="md-nav__link">
+    installPrometheusNodeExporter: boolean (optional)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repository-string-release-string-chart-string-optional" class="md-nav__link">
+    repository: string, release: string, chart: string (optional)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support" class="md-nav__link">
+    Support
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#add-on" class="md-nav__link">
-    Add-on
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#team" class="md-nav__link">
-    Team
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pipeline" class="md-nav__link">
-    Pipeline
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#application" class="md-nav__link">
-    Application
+  <a href="#license" class="md-nav__link">
+    License
   </a>
   
 </li>
@@ -815,75 +773,59 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/aws-quickstart/ssp-amazon-eks/edit/master/docs/core-concepts.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/aws-quickstart/ssp-amazon-eks/edit/master/docs/addons/kubecost.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
-<h1 id="core-concepts">Core Concepts<a class="headerlink" href="#core-concepts" title="Permanent link">&para;</a></h1>
-<p>This document provides a high level overview of the Core Concepts that are embedded in the <code>ssp-amazon-eks</code> framework. For the purposes of this document, we will assume the reader is familiar with Git, Docker, Kubernetes and AWS. </p>
-<table>
-<thead>
-<tr>
-<th>Concept</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="#blueprint">Blueprint</a></td>
-<td>A <code>blueprint</code> combines <code>clusters</code>, <code>add-ons</code>, and <code>teams</code> into a cohesive object that can deployed as a whole</td>
-</tr>
-<tr>
-<td><a href="#cluster">Cluster</a></td>
-<td>A Well-Architected EKS Cluster.</td>
-</tr>
-<tr>
-<td><a href="#resource-provider">Resource Provider</a></td>
-<td>Resource providers are abstractions that supply external AWS resources to the cluster (e.g. hosted zones, VPCs, etc.)</td>
-</tr>
-<tr>
-<td><a href="#add-on">Add-on</a></td>
-<td>Allow you to configure, deploy, and update the operational software, or add-ons, that provide key functionality to support your Kubernetes applications.</td>
-</tr>
-<tr>
-<td><a href="#team">Team</a></td>
-<td>A logical grouping of IAM identities that have access to a Kubernetes namespace(s).</td>
-</tr>
-<tr>
-<td><a href="#pipeline">Pipeline</a></td>
-<td>Continuous Delivery pipelines for deploying <code>clusters</code> and <code>add-ons</code>.</td>
-</tr>
-<tr>
-<td><a href="#application">Application</a></td>
-<td>An application that runs within an EKS Cluster.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="blueprint">Blueprint<a class="headerlink" href="#blueprint" title="Permanent link">&para;</a></h2>
-<p>The <code>ssp-amazon-eks</code> framework allows you to configure and deploy what we call <code>blueprint</code> clusters. A <code>blueprint</code> consists of an EKS cluster, a set of <code>add-ons</code> that will be deployed into the cluster, and a set of <code>teams</code> who will have access to a cluster. Once a <code>blueprint</code> is configured, it can be easily deployed across any number of AWS accounts and regions. <code>Blueprints</code> also leverage GitOps tooling to facilitate cluster bootstrapping and workload onboarding. </p>
-<p>To view sample <code>blueprint</code> implementations, please see our <a href="https://github.com/aws-samples/ssp-eks-patterns">patterns repository</a>. </p>
-<h2 id="cluster">Cluster<a class="headerlink" href="#cluster" title="Permanent link">&para;</a></h2>
-<p>A <code>cluster</code> is simply an EKS cluster. The <code>ssp-amazon-eks</code> framework provides for customizing the compute options you leverage with your <code>clusters</code>. The framework currently supports <code>EC2</code>, <code>Fargate</code> and <code>BottleRocket</code> instances. To specify the type of compute you want to use for your <code>cluster</code>, you supply a <code>ClusterProvider</code> object to your <code>blueprint</code>. The framework defaults to leveraging the <code>EC2ClusterProvider</code>.</p>
-<p>Each <code>ClusterProvider</code> provides additional configuration options as well. For example, the <code>MngClusterProvider</code> allows you to configure instance types, min and max instance counts, and amiType, among other options. </p>
-<p>See our <a href="../cluster-providers"><code>Cluster Providers</code></a> documentation page for detailed information. </p>
-<h2 id="resource-provider">Resource Provider<a class="headerlink" href="#resource-provider" title="Permanent link">&para;</a></h2>
-<p>A <code>resource</code> is a CDK construct that implements <code>IResource</code> interface from <code>@aws-cdk/core</code> which is a generic interface for any AWS resource. An example of a resource could be a hosted zone in Route53 <a href="https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-route53.HostedZone.html"><code>IHostedZone</code></a>, an ACM certificate <a href="https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-certificatemanager.ICertificate.html"><code>ICertificate</code></a>, a VPC or even a DynamoDB table which could be leveraged either in add-ons or teams.</p>
-<p><code>ResourceProviders</code> enable customers to supply resources for add-ons, teams and/or post-deployment steps. Resources may be imported (e.g., if created outside of the platform) or created with the blueprint. </p>
-<p>See our <a href="../resource-providers/"><code>Resource Providers</code></a> documentation page for detailed information.</p>
-<h2 id="add-on">Add-on<a class="headerlink" href="#add-on" title="Permanent link">&para;</a></h2>
-<p><code>Add-ons</code> allow you to configure the tools and services that you would like to run in order to support your EKS workloads. When you configure <code>add-ons</code> for a <code>blueprint</code>, the <code>add-ons</code> will be provisioned at deploy time. Add-ons can deploy both Kubernetes specific resources and AWS resources needed to support add-on functionality. </p>
-<p>For example, the <code>MetricsServerAddOn</code> only deploys the Kubernetes manifests that are needed to run the Kubernetes Metrics Server (as a Helm chart). By contrast, the <code>AWSLoadBalancerControllerAddon</code> deploys Kubernetes resources, in addition to creating resources via AWS APIs that are needed to support the AWS Load Balancer Controller. The most common case to address via an add-on is configuration of IAM roles and permissions and the Kubernetes service account, leveraging IRSA to access AWS resources.</p>
-<p>See our <a href="add-ons"><code>Add-ons</code></a> documentation page for detailed information. </p>
-<h2 id="team">Team<a class="headerlink" href="#team" title="Permanent link">&para;</a></h2>
-<p><code>Teams</code> allow you to configure the logical grouping of users that have access to your EKS clusters, in addition to the access permissions they are granted. The framework currently supports two types of <code>teams</code>: <code>ApplicationTeam</code> and <code>PlatformTeam</code>. <code>ApplicationTeam</code> members are granted access to specific namespaces. <code>PlatformTeam</code> members are granted administrative access to your clusters. </p>
-<p>See our <a href="../teams"><code>Teams</code></a> documentation page for detailed information. </p>
-<h2 id="pipeline">Pipeline<a class="headerlink" href="#pipeline" title="Permanent link">&para;</a></h2>
-<p><code>Pipelines</code> allow you to configure <code>Continuous Delivery</code> (CD) pipelines for your cluster <code>blueprints</code> that are directly integrated with your Git provider.</p>
-<p>See our <a href="../pipelines"><code>Pipelines</code></a> documentation page for detailed information. </p>
-<h2 id="application">Application<a class="headerlink" href="#application" title="Permanent link">&para;</a></h2>
-<p><code>Applications</code> represent the actual workloads that run within a Kubernetes cluster. The framework leverages a GitOps approach for deploying applications onto clusters. </p>
-<p>See our <a href="../applications">`Applications</a> documentation for detailed information.</p>
+<h1 id="kubecost-addon">Kubecost AddOn<a class="headerlink" href="#kubecost-addon" title="Permanent link">&para;</a></h1>
+<p><a href="https://kubecost.com">Kubecost</a> provides real-time cost visibility and insights by uncovering patterns that create overspending on infrastructure to help teams prioritize where to focus optimization efforts. By identifying root causes for negative patterns, customers using Kubecost save 30-50% or more of their Kubernetes cloud infrastructure costs. To read more about Kubecost and how to use it, see the <a href="https://docs.kubecost.com/getting-started">product and technical docs</a>.</p>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<p>Using <a href="https://npmjs.org">npm</a>:</p>
+<div class="highlight"><pre><span></span><code>$ npm install @kubecost/kubecost-ssp-addon
+</code></pre></div>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cdk</span> <span class="kr">from</span> <span class="s1">&#39;@aws-cdk/core&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">EksBlueprint</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@aws-quickstart/ssp-amazon-eks&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">KubecostAddOn</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@kubecost/kubecost-ssp-addon&#39;</span><span class="p">;</span>
+
+
+<span class="k">export</span> <span class="k">default</span> <span class="kd">class</span> <span class="nx">KubecostConstruct</span> <span class="k">extends</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">Construct</span> <span class="p">{</span>
+    <span class="kr">constructor</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">cdk.Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">super</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">id</span><span class="p">);</span>
+        <span class="c1">// AddOns for the cluster</span>
+        <span class="kd">const</span> <span class="nx">stackId</span> <span class="o">=</span> <span class="sb">`</span><span class="si">${</span><span class="nx">id</span><span class="si">}</span><span class="sb">-blueprint`</span><span class="p">;</span>
+
+        <span class="nx">EksBlueprint</span><span class="p">.</span><span class="nx">builder</span><span class="p">()</span>
+            <span class="p">.</span><span class="nx">account</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">CDK_DEFAULT_ACCOUNT</span><span class="o">!</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">region</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">CDK_DEFAULT_REGION</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="ow">new</span> <span class="nx">KubecostAddOn</span><span class="p">())</span>
+            <span class="p">.</span><span class="nx">build</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">stackId</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="kubecostaddon-options-props"><code>KubecostAddOn</code> Options (props)<a class="headerlink" href="#kubecostaddon-options-props" title="Permanent link">&para;</a></h2>
+<h4 id="namespace-string-optional"><code>namespace: string</code> (optional)<a class="headerlink" href="#namespace-string-optional" title="Permanent link">&para;</a></h4>
+<p>The namespace where Kubecost will be installed. Defaults to <code>kubecost</code>.</p>
+<h4 id="kubecosttoken-string-optional"><code>kubecostToken: string</code> (optional)<a class="headerlink" href="#kubecosttoken-string-optional" title="Permanent link">&para;</a></h4>
+<p>You may get one <a href="https://kubecost.com/install">here</a>.</p>
+<h4 id="version-string-optional"><code>version: string</code> (optional)<a class="headerlink" href="#version-string-optional" title="Permanent link">&para;</a></h4>
+<p>The <code>cost-analyzer</code> helm chart version. Defaults to the latest stable version specified in this repo (<code>1.88.1</code> at the time of writing).</p>
+<h4 id="values-key-string-any-optional"><code>values?: { [key: string]: any }</code> (optional)<a class="headerlink" href="#values-key-string-any-optional" title="Permanent link">&para;</a></h4>
+<p>Custom values to pass to the chart. Config options: https://github.com/kubecost/cost-analyzer-helm-chart/blob/master/README.md#config-options </p>
+<h4 id="customprometheus-string-optional"><code>customPrometheus: string</code> (optional)<a class="headerlink" href="#customprometheus-string-optional" title="Permanent link">&para;</a></h4>
+<p>Kubecost comes bundled with a Prometheus installation. However, if you wish to integrate with an external Prometheus deployment, provide your local Prometheus service address with this format <code>http://..svc</code>.
+Note: integrating with an existing Prometheus is only officially supported under Kubecost paid plans and requires some extra configurations on your Prometheus: https://docs.kubecost.com/custom-prom.html</p>
+<h4 id="installprometheusnodeexporter-boolean-optional"><code>installPrometheusNodeExporter: boolean</code> (optional)<a class="headerlink" href="#installprometheusnodeexporter-boolean-optional" title="Permanent link">&para;</a></h4>
+<p>Set to false to use an existing Node Exporter DaemonSet.
+Note: this requires your existing Node Exporter endpoint to be visible from the namespace where Kubecost is installed.
+https://github.com/kubecost/docs/blob/main/getting-started.md#using-an-existing-node-exporter</p>
+<h4 id="repository-string-release-string-chart-string-optional"><code>repository: string</code>, <code>release: string</code>, <code>chart: string</code> (optional)<a class="headerlink" href="#repository-string-release-string-chart-string-optional" title="Permanent link">&para;</a></h4>
+<p>Additional options for customers who may need to supply their own private Helm repository.</p>
+<h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">&para;</a></h2>
+<p>If you have any questions about Kubecost, get in touch with the team <a href="https://docs.kubecost.com/support-channels.html">on Slack</a>.</p>
+<h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
+<p>The Kubecost SSP AddOn is licensed under the Apache 2.0 license. <a href="https://github.com/kubecost/kubecost-ssp-addon">Project repository</a></p>
 
               
             </article>
@@ -893,41 +835,6 @@
       </main>
       
         <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        
-        <a href="../getting-started/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Getting Started" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Getting Started
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../teams/" class="md-footer__link md-footer__link--next" aria-label="Next: Teams" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Teams
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -949,10 +856,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.361d90f1.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.361d90f1.min.js"}</script>
     
     
-      <script src="../assets/javascripts/bundle.289a2a4b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.289a2a4b.min.js"></script>
       
     
   </body>

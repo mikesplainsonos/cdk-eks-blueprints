@@ -8,19 +8,19 @@
       
       
       
-      <link rel="icon" href="/assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.4">
     
     
       
-        <title>Amazon EKS SSP Quick Start</title>
+        <title>AWS Node Termination Handler - Amazon EKS SSP Quick Start</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.bb3983ee.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bb3983ee.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.e6a45f82.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
         
       
     
@@ -34,7 +34,7 @@
       
     
     
-    <script>__md_scope=new URL("/",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -57,6 +57,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#aws-node-termination-handler" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -67,7 +72,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="Amazon EKS SSP Quick Start" class="md-header__button md-logo" aria-label="Amazon EKS SSP Quick Start" data-md-component="logo">
+    <a href="../.." title="Amazon EKS SSP Quick Start" class="md-header__button md-logo" aria-label="Amazon EKS SSP Quick Start" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -86,7 +91,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              AWS Node Termination Handler
             
           </span>
         </div>
@@ -165,7 +170,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="Amazon EKS SSP Quick Start" class="md-nav__button md-logo" aria-label="Amazon EKS SSP Quick Start" data-md-component="logo">
+    <a href="../.." title="Amazon EKS SSP Quick Start" class="md-nav__button md-logo" aria-label="Amazon EKS SSP Quick Start" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -196,7 +201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         Overview
       </a>
     </li>
@@ -211,7 +216,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/getting-started/" class="md-nav__link">
+      <a href="../../getting-started/" class="md-nav__link">
         Getting Started
       </a>
     </li>
@@ -226,7 +231,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/core-concepts/" class="md-nav__link">
+      <a href="../../core-concepts/" class="md-nav__link">
         Core Concepts
       </a>
     </li>
@@ -241,7 +246,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/teams/" class="md-nav__link">
+      <a href="../../teams/" class="md-nav__link">
         Teams
       </a>
     </li>
@@ -256,7 +261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/pipelines/" class="md-nav__link">
+      <a href="../../pipelines/" class="md-nav__link">
         Pipelines
       </a>
     </li>
@@ -297,7 +302,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/addons/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -311,7 +316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/addons/app-mesh/" class="md-nav__link">
+      <a href="../app-mesh/" class="md-nav__link">
         AWS App Mesh
       </a>
     </li>
@@ -325,7 +330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/addons/argo-cd/" class="md-nav__link">
+      <a href="../argo-cd/" class="md-nav__link">
         ArgoCD
       </a>
     </li>
@@ -339,7 +344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/addons/aws-load-balancer-controller/" class="md-nav__link">
+      <a href="../aws-load-balancer-controller/" class="md-nav__link">
         AWS Load Balancer Controller
       </a>
     </li>
@@ -353,7 +358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/addons/calico/" class="md-nav__link">
+      <a href="../calico/" class="md-nav__link">
         Calico
       </a>
     </li>
@@ -367,7 +372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/addons/coredns/" class="md-nav__link">
+      <a href="../coredns/" class="md-nav__link">
         CoreDns
       </a>
     </li>
@@ -381,7 +386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/addons/cluster-autoscaler/" class="md-nav__link">
+      <a href="../cluster-autoscaler/" class="md-nav__link">
         Cluster Autoscaler
       </a>
     </li>
@@ -395,7 +400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/addons/container-insights/" class="md-nav__link">
+      <a href="../container-insights/" class="md-nav__link">
         Container Insights
       </a>
     </li>
@@ -409,7 +414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/addons/external-dns/" class="md-nav__link">
+      <a href="../external-dns/" class="md-nav__link">
         External DNS
       </a>
     </li>
@@ -423,7 +428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/addons/kube-proxy/" class="md-nav__link">
+      <a href="../kube-proxy/" class="md-nav__link">
         Kube Proxy
       </a>
     </li>
@@ -437,7 +442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/addons/metrics-server/" class="md-nav__link">
+      <a href="../metrics-server/" class="md-nav__link">
         Metrics Server
       </a>
     </li>
@@ -451,7 +456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/addons/nginx/" class="md-nav__link">
+      <a href="../nginx/" class="md-nav__link">
         Nginx
       </a>
     </li>
@@ -465,7 +470,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/addons/ssm-agent/" class="md-nav__link">
+      <a href="../ssm-agent/" class="md-nav__link">
         SSM Agent
       </a>
     </li>
@@ -479,7 +484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/addons/secrets-store/" class="md-nav__link">
+      <a href="../secrets-store/" class="md-nav__link">
         Secrets Store
       </a>
     </li>
@@ -493,7 +498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/addons/vpc-cni/" class="md-nav__link">
+      <a href="../vpc-cni/" class="md-nav__link">
         Vpc Cni
       </a>
     </li>
@@ -521,7 +526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/addons/xray/" class="md-nav__link">
+      <a href="../xray/" class="md-nav__link">
         AWS XRay
       </a>
     </li>
@@ -569,7 +574,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/cluster-providers/" class="md-nav__link">
+      <a href="../../cluster-providers/" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -583,7 +588,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/cluster-providers/asg-cluster-provider/" class="md-nav__link">
+      <a href="../../cluster-providers/asg-cluster-provider/" class="md-nav__link">
         ASG Cluster Provider
       </a>
     </li>
@@ -597,7 +602,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/cluster-providers/mng-cluster-provider/" class="md-nav__link">
+      <a href="../../cluster-providers/mng-cluster-provider/" class="md-nav__link">
         MNG Cluster Provider
       </a>
     </li>
@@ -611,7 +616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/cluster-providers/fargate-cluster-provider/" class="md-nav__link">
+      <a href="../../cluster-providers/fargate-cluster-provider/" class="md-nav__link">
         Fargate Cluster Provider
       </a>
     </li>
@@ -633,7 +638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/extensibility/" class="md-nav__link">
+      <a href="../../extensibility/" class="md-nav__link">
         Extensibility
       </a>
     </li>
@@ -647,12 +652,143 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functionality" class="md-nav__link">
+    Functionality
+  </a>
+  
+    <nav class="md-nav" aria-label="Functionality">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#imds-mode-default" class="md-nav__link">
+    IMDS Mode (default)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#queue-mode" class="md-nav__link">
+    Queue Mode
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
-  <h1>404 - Not found</h1>
+                
+<a href="https://github.com/aws-quickstart/ssp-amazon-eks/edit/master/docs/addons/aws-node-termination-handler.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
 
+
+<h1 id="aws-node-termination-handler">AWS Node Termination Handler<a class="headerlink" href="#aws-node-termination-handler" title="Permanent link">&para;</a></h1>
+<p>The AWS Node Termination Handler (NTH) project ensures that the Kubernetes control plane responds appropriately to events that can cause your EC2 instance to become unavailable, such as EC2 maintenance events, EC2 Spot interruptions, ASG Scale-In, ASG AZ Rebalance, and EC2 Instance Termination via the API or Console. If not handled, your application code may not stop gracefully, take longer to recover full availability, or accidentally schedule work to nodes that are going down. For more information see [README.md][https://github.com/aws/aws-node-termination-handler#readme].</p>
+<p>NTH can operate in two different modes: Instance Metadata Service (IMDS) or the Queue Processor. To choose the operating mode refer to this <a href="https://github.com/aws/aws-node-termination-handler#which-one-should-i-use">table</a>.</p>
+<blockquote>
+<p><strong>Best Practice</strong> NTH should only be used when you are using <strong>self-managed</strong> node groups and self-managed node groups with Spot instances. For more information on why you do not need NTH on managed node groups see this <a href="https://github.com/aws/aws-node-termination-handler/issues/186">issue</a> and <a href="https://www.eksworkshop.com/beginner/150_spotnodegroups/spotlifecycle/#interruption-handling-in-spot-managed-node-groups">EKS Workshop</a> for detailed explanation.</p>
+<p><strong>Best Practice</strong> Use NTH in Queue Processor option to add every AWS Node Termination Handler feature to the self-managed node group.</p>
+<p><strong>Note</strong> With AWS Fargate, you no longer have to provision, configure, or scale clusters of virtual machines to run containers. This removes the need to use AWS Node Termination Handler.</p>
+</blockquote>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cdk</span> <span class="kr">from</span> <span class="s1">&#39;@aws-cdk/core&#39;</span><span class="p">;</span>
+
+<span class="c1">// SSP Lib</span>
+<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">ssp</span> <span class="kr">from</span> <span class="s1">&#39;@aws-quickstart/ssp-amazon-eks&#39;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">eks</span> <span class="kr">from</span> <span class="s1">&#39;@aws-cdk/aws-eks&#39;</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="kd">class</span> <span class="nx">BottlerocketConstruct</span> <span class="k">extends</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">Construct</span> <span class="p">{</span>
+    <span class="kr">constructor</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">cdk.Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">super</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">id</span><span class="p">);</span>
+
+        <span class="c1">// AddOns for the cluster.</span>
+        <span class="kd">const</span> <span class="nx">addOns</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">ssp</span><span class="p">.</span><span class="nx">ClusterAddOn</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="ow">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">AwsNodeTerminationHandlerAddOn</span><span class="p">,</span>
+        <span class="p">];</span>
+
+        <span class="kd">const</span> <span class="nx">stackID</span> <span class="o">=</span> <span class="sb">`</span><span class="si">${</span><span class="nx">id</span><span class="si">}</span><span class="sb">-blueprint`</span><span class="p">;</span>
+        <span class="kd">const</span> <span class="nx">clusterProvider</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">AsgClusterProvider</span><span class="p">({</span>
+            <span class="nx">version</span>: <span class="kt">eks.KubernetesVersion.V1_20</span><span class="p">,</span>
+            <span class="nx">machineImageType</span>:  <span class="kt">eks.MachineImageType.BOTTLEROCKET</span>
+         <span class="p">});</span>
+        <span class="ow">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span>
+          <span class="p">{</span>
+            <span class="nx">id</span>: <span class="kt">stackID</span><span class="p">,</span>
+            <span class="nx">addOns</span><span class="p">,</span>
+            <span class="nx">clusterProvider</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="nx">env</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">region</span><span class="o">:</span> <span class="s1">&#39;us-east-1&#39;</span>
+            <span class="p">}</span>
+          <span class="p">}</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>To validate that controller is running, ensure that controller deployment is in <code>RUNNING</code> state:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Assuming handler is installed in kube-system namespace</span>
+$ kubectl get deployments -n kube-system
+NAME                                 READY   UP-TO-DATE   AVAILABLE   AGE
+aws-node-termination-handler         <span class="m">1</span>/1     <span class="m">1</span>            <span class="m">1</span>           23m
+</code></pre></div>
+<h2 id="functionality">Functionality<a class="headerlink" href="#functionality" title="Permanent link">&para;</a></h2>
+<h3 id="imds-mode-default">IMDS Mode (default)<a class="headerlink" href="#imds-mode-default" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Node group ASG tagged with <code>key=aws-node-termination-handler/managed</code></li>
+<li>Deploy the AWS Node Termination Handler helm chart</li>
+</ol>
+<h3 id="queue-mode">Queue Mode<a class="headerlink" href="#queue-mode" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Node group ASG tagged with <code>key=aws-node-termination-handler/managed</code></li>
+<li>AutoScaling Group Termination Lifecycle Hook</li>
+<li>Amazon Simple Queue Service (SQS) Queue</li>
+<li>Amazon EventBridge Rule</li>
+<li>IAM Role for the aws-node-termination-handler Queue Processing Pods</li>
+<li>Deploy the AWS Node Termination Handler helm chart</li>
+</ol>
+
+              
             </article>
           </div>
         </div>
@@ -681,10 +817,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "/", "features": ["tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "/assets/javascripts/workers/search.361d90f1.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.361d90f1.min.js"}</script>
     
     
-      <script src="/assets/javascripts/bundle.289a2a4b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.289a2a4b.min.js"></script>
       
     
   </body>

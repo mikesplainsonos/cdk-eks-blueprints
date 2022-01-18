@@ -13,7 +13,7 @@
     
     
       
-        <title>Secrets Store - Amazon EKS SSP Quick Start</title>
+        <title>Karpenter Add-on - Amazon EKS SSP Quick Start</title>
       
     
     
@@ -58,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#secrets-store-add-on" class="md-skip">
+        <a href="#karpenter-add-on" class="md-skip">
           Skip to content
         </a>
       
@@ -91,7 +91,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Secrets Store
+              Karpenter Add-on
             
           </span>
         </div>
@@ -274,14 +274,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       
       
@@ -484,86 +482,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Secrets Store
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../secrets-store/" class="md-nav__link">
         Secrets Store
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
-    Usage
-  </a>
-  
-    <nav class="md-nav" aria-label="Usage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#indexts" class="md-nav__link">
-    index.ts
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#functionality" class="md-nav__link">
-    Functionality
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#security-considerations" class="md-nav__link">
-    Security Considerations
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    Example
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -749,22 +672,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
-    Usage
-  </a>
-  
-    <nav class="md-nav" aria-label="Usage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#indexts" class="md-nav__link">
-    index.ts
+  <a href="#prerequisite" class="md-nav__link">
+    Prerequisite
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
   
 </li>
       
@@ -776,15 +693,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#security-considerations" class="md-nav__link">
-    Security Considerations
+  <a href="#using-karpenter" class="md-nav__link">
+    Using Karpenter
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    Example
+  <a href="#testing-with-a-sample-deployment" class="md-nav__link">
+    Testing with a sample deployment
   </a>
   
 </li>
@@ -801,176 +718,130 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/aws-quickstart/ssp-amazon-eks/edit/master/docs/addons/secrets-store.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/aws-quickstart/ssp-amazon-eks/edit/master/docs/addons/karpenter.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
-<h1 id="secrets-store-add-on">Secrets Store Add-on<a class="headerlink" href="#secrets-store-add-on" title="Permanent link">&para;</a></h1>
-<p>The Secrets Store Add-on provisions the <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/integrating_csi_driver.html">AWS Secrets Manager and Config Provider(ASCP) for Secret Store CSI Driver</a> on your EKS cluster. With ASCP, you now have a plugin for the industry-standard Kubernetes Secrets Store <a href="https://github.com/kubernetes-sigs/secrets-store-csi-driver">Container Storage Interface (CSI) Driver</a> used for providing secrets to applications operating on Amazon Elastic Kubernetes Service.</p>
-<p>With ASCP, you can securely store and manage your secrets in <a href="https://docs.aws.amazon.com/secretsmanager">AWS Secrets Manager</a> or <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html">AWS Systems Manager Parameter Store</a> and retrieve them through your application workloads running on Kubernetes. You no longer have to write custom code for your applications.</p>
+<h1 id="karpenter-add-on">Karpenter Add-on<a class="headerlink" href="#karpenter-add-on" title="Permanent link">&para;</a></h1>
+<p>Karpenter add-on is based on the <a href="https://github.com/aws/karpenter">Karpenter</a> open source node provisioning project. It provides a more efficient and cost-effective way to manage workloads by launching just the right compute resources to handle a cluster's application. </p>
+<p>Karpenter works by:</p>
+<ul>
+<li>Watching for pods that the Kubernetes scheduler has marked as unschedulable,</li>
+<li>Evaluating scheduling constraints (resource requests, nodeselectors, affinities, tolerations, and topology spread constraints) requested by the pods,</li>
+<li>Provisioning nodes that meet the requirements of the pods,</li>
+<li>Scheduling the pods to run on the new nodes, and</li>
+<li>Removing the nodes when the nodes are no longer needed</li>
+</ul>
+<h2 id="prerequisite">Prerequisite<a class="headerlink" href="#prerequisite" title="Permanent link">&para;</a></h2>
+<p>(If using Spot), EC2 Spot Service Linked Role should be created. See <a href="https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html">here</a> for more details.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<h3 id="indexts"><strong><code>index.ts</code></strong><a class="headerlink" href="#indexts" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cdk</span> <span class="kr">from</span> <span class="s1">&#39;@aws-cdk/core&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span>
-  <span class="nx">SecretProvider</span>
-  <span class="nx">ClusterAddOn</span><span class="p">,</span>
-  <span class="nx">EksBlueprint</span><span class="p">,</span>
-  <span class="nx">ApplicationTeam</span>
-<span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@aws-quickstart/ssp-amazon-eks&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">ISecret</span><span class="p">,</span> <span class="nx">Secret</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@aws-cdk/aws-secretsmanager&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">ssp</span> <span class="kr">from</span> <span class="s1">&#39;@aws-quickstart/ssp-amazon-eks&#39;</span><span class="p">;</span>
 
-<span class="kd">const</span> <span class="nx">addOn</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">SecretsStoreAddOn</span><span class="p">();</span>
-<span class="kd">const</span> <span class="nx">addOns</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">ClusterAddOn</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">addOn</span> <span class="p">];</span>
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">AWS_ACCOUNT_ID</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">region</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">AWS_REGION</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">env</span><span class="o">:</span> <span class="p">{</span> <span class="nx">account</span><span class="p">,</span> <span class="nx">region</span> <span class="p">},</span>
 
-<span class="cm">/* Setup application team with secrets</span>
-<span class="cm"> * Here we are generating a new SecretManager secret for AuthPassword</span>
-<span class="cm"> * We are also looking up a pre-existing secret in Parameter Store called GITHUB_TOKEN</span>
-<span class="cm"> */</span>
-
-<span class="k">export</span> <span class="kd">class</span> <span class="nx">TeamBurnham</span> <span class="k">extends</span> <span class="nx">ApplicationTeam</span> <span class="p">{</span>
-    <span class="kr">constructor</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">super</span><span class="p">({</span>
-            <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;burnham&quot;</span><span class="p">,</span>
-            <span class="nx">users</span>: <span class="kt">getUserArns</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="s2">&quot;team-burnham.users&quot;</span><span class="p">),</span>
-            <span class="nx">teamSecrets</span><span class="o">:</span> <span class="p">[</span>
-                <span class="p">{</span>
-                    <span class="nx">secretProvider</span>: <span class="kt">new</span> <span class="nx">GenerateSecretManagerProvider</span><span class="p">(</span><span class="s1">&#39;AuthPassword),</span>
-<span class="s1">                    kubernetesSecret: {</span>
-<span class="s1">                        secretName: &#39;</span><span class="nx">auth</span><span class="o">-</span><span class="nx">password</span><span class="s1">&#39;,</span>
-<span class="s1">                        data: [</span>
-<span class="s1">                            {</span>
-<span class="s1">                                key: &#39;</span><span class="nx">password</span><span class="s1">&#39;</span>
-<span class="s1">                            }</span>
-<span class="s1">                        ]</span>
-<span class="s1">                    }</span>
-<span class="s1">                },</span>
-<span class="s1">                {</span>
-<span class="s1">                    secretProvider: new LookupSsmSecretByAttrs(&#39;</span><span class="nx">GITHUB_TOKEN</span><span class="s1">&#39;, 1),</span>
-<span class="s1">                    kubernetesSecret: {</span>
-<span class="s1">                        secretName: &#39;</span><span class="nx">github</span><span class="s1">&#39;</span>
-<span class="s1">                    }</span>
-<span class="s1">                }</span>
-<span class="s1">            ]</span>
-<span class="s1">        });</span>
-<span class="s1">    }</span>
-<span class="s1">}</span>
-
-<span class="s1">class GenerateSecretManagerProvider implements SecretProvider {</span>
-
-<span class="s1">    construct(private secretName: string) {}</span>
-
-<span class="s1">    provide(clusterInfo: ClusterInfo): ISecret {</span>
-<span class="s1">        const secret = new Secret(clusterInfo.cluster.stack, &#39;</span><span class="nx">AuthPassword</span><span class="s1">&#39;, {</span>
-<span class="s1">          secretName: this.secretName</span>
-<span class="s1">        });</span>
-
-<span class="s1">        // create this secret first</span>
-<span class="s1">        clusterInfo.cluster.node.addDependency(secret);</span>
-<span class="s1">        return secret</span>
-<span class="s1">    }</span>
-<span class="s1">}</span>
-
-<span class="s1">const app = new cdk.App();</span>
-<span class="s1">const teams: Array&lt;ApplicationTeam&gt; = [ new TeamBurnham(app) ];</span>
-<span class="s1">new EksBlueprint(app, &#39;</span><span class="nx">my</span><span class="o">-</span><span class="nx">stack</span><span class="o">-</span><span class="nx">name</span><span class="err">&#39;</span><span class="p">,</span> <span class="nx">addOns</span><span class="p">,</span> <span class="nx">teams</span><span class="p">});</span>
+<span class="kd">const</span> <span class="nx">blueprint</span> <span class="o">=</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">.</span><span class="nx">builder</span><span class="p">()</span>
+  <span class="p">.</span><span class="nx">account</span><span class="p">(</span><span class="nx">account</span><span class="p">)</span> 
+  <span class="p">.</span><span class="nx">region</span><span class="p">(</span><span class="nx">region</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span> <span class="ow">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">KarpenterAddOn</span><span class="p">()</span> <span class="p">)</span>
+  <span class="p">.</span><span class="nx">teams</span><span class="p">().</span><span class="nx">build</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;my-stack-name&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">env</span><span class="p">});</span>
+</code></pre></div>
+<p>To validate that Karpenter add-on is running ensure that the add-on deployments for the controller and the webhook are in <code>RUNNING</code> state:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Assuming add-on is installed in the karpenter namespace.</span>
+$ kubectl get po -n karpenter
+NAME                                    READY   STATUS    RESTARTS   AGE
+karpenter-controller-79dc99d7cd-zkkf7   <span class="m">1</span>/1     Running   <span class="m">0</span>          62m
+karpenter-webhook-7bf684c676-52chv      <span class="m">1</span>/1     Running   <span class="m">0</span>          62m
 </code></pre></div>
 <h2 id="functionality">Functionality<a class="headerlink" href="#functionality" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Installs the <a href="https://github.com/kubernetes-sigs/secrets-store-csi-driver">Kubernetes Secrets Store CSI Driver</a> in the <code>kube-system</code> namespace.</li>
-<li>Installs <a href="https://github.com/aws/secrets-store-csi-driver-provider-aws">AWS Secrets Manager and Config Provider for Secret Store CSI Driver</a> in the <code>kube-system</code> namespace.</li>
-<li>Creates an IAM access policy for scoped down to just the secrets the provided namespace should have access to.</li>
-<li>Updates <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-service-account-iam-policy-and-role.html">IAM roles for service accounts</a> <code>[team-name]-sa</code> for policies to grant read access to the provided secrets.</li>
-<li>Creates a <a href="https://github.com/aws/secrets-store-csi-driver-provider-aws#secretproviderclass-options">SecretProviderClass</a> <code>[team-name]-aws-secrets</code> which tells the AWS provider which secrets can be mounted in an application pod in the provided namespace.</li>
+<li>EKS VPC subnets are tagged with the following (as required by Karpenter): <code>kubernetes.io/cluster/$CLUSTER_NAME</code>.</li>
+<li>Creates Karpenter Node Role, Karpenter Instance Profile, and Karpenter Controller Policy (Please see Karpenter documentation <a href="https://karpenter.sh/docs/getting-started/">here</a> for more details on what is required and why)</li>
+<li>Creates <code>karpenter</code> namespace.</li>
+<li>Creates Kubernetes Service Account, and associate AWS IAM Role with Karpenter Controller Policy attached using <a href="https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/setting-up-enable-IAM.html">IRSA</a>.</li>
+<li>Deploys Karpenter helm chart in the <code>karpenter</code> namespace, configuring cluster name and cluster endpoint on the controller by default.</li>
+<li>(Optionally) provision a default Karpenter Provisioner CRD based on user-provided <a href="https://karpenter.sh/docs/provisioner/#specrequirements">spec.requirements</a></li>
 </ol>
-<h2 id="security-considerations">Security Considerations<a class="headerlink" href="#security-considerations" title="Permanent link">&para;</a></h2>
-<p>The AWS Secrets Manger and Config Provider provides compatibility for legacy applications that access secrets as mounted files in the pod. Security conscious applications should use the native AWS APIs to fetch secrets and optionally cache them in memory rather than storing them in the file system.</p>
-<h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<p>After the Blueprint stack is deployed you can test consuming the secret from within a <code>deployment</code>.</p>
-<p>This sample <code>deployment</code> shows how to consume the secrets as mounted volumes as well as environment variables.</p>
-<div class="highlight"><pre><span></span><code>cat <span class="s">&lt;&lt; EOF &gt;&gt; test-secrets.yaml</span>
+<h2 id="using-karpenter">Using Karpenter<a class="headerlink" href="#using-karpenter" title="Permanent link">&para;</a></h2>
+<p>To use Karpenter, you need to provision a Karpenter <a href="https://karpenter.sh/docs/provisioner/">provisioner CRD</a>. A single provisioner is capable of handling many different pod shapes.</p>
+<p>This can be done in 2 ways (either will yield the same provisioner):</p>
+<ol>
+<li>Provide a set of spec.requirements during add-on deployment.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">provisionerSpecs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;node.kubernetes.io/instance-type&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;m5.2xlarge&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;topology.kubernetes.io/zone&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;us-east-1c&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;kubernetes.io/arch&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;amd64&#39;</span><span class="p">,</span><span class="s1">&#39;arm64&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;karpenter.sh/capacity-type&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;spot&#39;</span><span class="p">,</span><span class="s1">&#39;on-demand&#39;</span><span class="p">],</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">karpenterAddOn</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">KarpenterAddOn</span><span class="p">({</span><span class="nx">provisionerSpecs</span>: <span class="kt">provisionerSpecs</span><span class="p">})</span>
+</code></pre></div>
+<p>If the <code>provisionerSpecs</code> is not provided at deploy time, the add-on will be installed without a Provisioner. </p>
+<ol>
+<li>Use <code>kubectl</code> to apply a provisioner manifest:
+<div class="highlight"><pre><span></span><code>cat <span class="s">&lt;&lt;EOF | kubectl apply -f -</span>
+<span class="s">apiVersion: karpenter.sh/v1alpha5</span>
+<span class="s">kind: Provisioner</span>
+<span class="s">metadata:</span>
+<span class="s">  name: default</span>
+<span class="s">spec:</span>
+<span class="s">  requirements:</span>
+<span class="s">    - key: &quot;node.kubernetes.io/instance-type&quot; </span>
+<span class="s">      operator: In</span>
+<span class="s">      values: [&quot;m5.2xlarge&quot;]</span>
+<span class="s">    - key: &quot;topology.kubernetes.io/zone&quot; </span>
+<span class="s">      operator: In</span>
+<span class="s">      values: [&quot;us-east-1c&quot;]</span>
+<span class="s">    - key: &quot;kubernetes.io/arch&quot; </span>
+<span class="s">      operator: In</span>
+<span class="s">      values: [&quot;arm64&quot;, &quot;amd64&quot;]</span>
+<span class="s">    - key: &quot;karpenter.sh/capacity-type&quot; </span>
+<span class="s">      operator: In</span>
+<span class="s">      values: [&quot;spot&quot;, &quot;on-demand&quot;]</span>
+<span class="s">  provider:</span>
+<span class="s">    instanceProfile: KarpenterNodeInstanceProfile-${CLUSTER_NAME}</span>
+<span class="s">  ttlSecondsAfterEmpty: 30</span>
+<span class="s">EOF</span>
+</code></pre></div></li>
+</ol>
+<h2 id="testing-with-a-sample-deployment">Testing with a sample deployment<a class="headerlink" href="#testing-with-a-sample-deployment" title="Permanent link">&para;</a></h2>
+<p>Now that the provisioner is deployed, Karpenter is active and ready to provision nodes. Create some pods using a deployment:</p>
+<div class="highlight"><pre><span></span><code>cat <span class="s">&lt;&lt;EOF | kubectl apply -f -</span>
 <span class="s">apiVersion: apps/v1</span>
 <span class="s">kind: Deployment</span>
 <span class="s">metadata:</span>
-<span class="s">  name: app-deployment</span>
-<span class="s">  labels:</span>
-<span class="s">    app: myapp</span>
-<span class="s">  namespace: team-burnham</span>
+<span class="s">  name: inflate</span>
 <span class="s">spec:</span>
-<span class="s">  replicas: 1</span>
+<span class="s">  replicas: 0</span>
 <span class="s">  selector:</span>
 <span class="s">    matchLabels:</span>
-<span class="s">      app: myapp</span>
+<span class="s">      app: inflate</span>
 <span class="s">  template:</span>
 <span class="s">    metadata:</span>
 <span class="s">      labels:</span>
-<span class="s">        app: myapp</span>
+<span class="s">        app: inflate</span>
 <span class="s">    spec:</span>
-<span class="s">      serviceAccountName: burnham-sa</span>
-<span class="s">      volumes:</span>
-<span class="s">      - name: secrets-store-inline</span>
-<span class="s">        csi:</span>
-<span class="s">          driver: secrets-store.csi.k8s.io</span>
-<span class="s">          readOnly: true</span>
-<span class="s">          volumeAttributes:</span>
-<span class="s">            secretProviderClass: burnham-aws-secrets</span>
+<span class="s">      terminationGracePeriodSeconds: 0</span>
 <span class="s">      containers:</span>
-<span class="s">      - name: test-secrets</span>
-<span class="s">        image: public.ecr.aws/ubuntu/ubuntu:latest</span>
-<span class="s">        command: [ &quot;/bin/bash&quot;, &quot;-c&quot;, &quot;--&quot; ]</span>
-<span class="s">        args: [ &quot;while true; do sleep 30; done;&quot; ]</span>
-<span class="s">        resources:</span>
-<span class="s">          limits:</span>
-<span class="s">            cpu: &quot;100m&quot;</span>
-<span class="s">            memory: &quot;128Mi&quot;</span>
-<span class="s">          requests:</span>
-<span class="s">            cpu: &quot;100m&quot;</span>
-<span class="s">            memory: &quot;128Mi&quot;</span>
-<span class="s">        env:</span>
-<span class="s">          - name: PASSWORD</span>
-<span class="s">            valueFrom:</span>
-<span class="s">              secretKeyRef:</span>
-<span class="s">                name: auth-password</span>
-<span class="s">                key: password</span>
-<span class="s">          - name: GITHUB_TOKEN</span>
-<span class="s">            valueFrom:</span>
-<span class="s">              secretKeyRef:</span>
-<span class="s">                name: github</span>
-<span class="s">                key: GITHUB_TOKEN</span>
-<span class="s">        volumeMounts:</span>
-<span class="s">          - name: secrets-store-inline</span>
-<span class="s">            mountPath: /mnt/secrets-store</span>
-<span class="s">            readOnly: true</span>
+<span class="s">        - name: inflate</span>
+<span class="s">          image: public.ecr.aws/eks-distro/kubernetes/pause:3.2</span>
+<span class="s">          resources:</span>
+<span class="s">            requests:</span>
+<span class="s">              cpu: 1</span>
 <span class="s">EOF</span>
 </code></pre></div>
-<p>The values for <code>serviceAccountName</code> and the <code>secretProviderClass</code> shown in the example above are obtained from CloudFormation outputs of the blueprint stack shown in the screenshot below as <code>burnhamsa</code> and <code>teamburnhamsecretproviderclass</code>.</p>
-<p><img alt="outputs" src="../../assets/images/cloudformation-outputs.png" /></p>
-<p>Apply the manifest.</p>
-<div class="highlight"><pre><span></span><code>$ kubectl apply -f test-secrets.yaml
-deployment.apps/app-deployment created
+<p>Now scale the deployment:</p>
+<div class="highlight"><pre><span></span><code>kubectl scale deployment inflate --replicas <span class="m">10</span>
 </code></pre></div>
-<p>Test that kubernetes secret <code>burnham-github-secrets</code> was created.</p>
-<div class="highlight"><pre><span></span><code>kubectl get secrets -n team-burnham
-NAME                     TYPE                                  DATA   AGE
-auth-password            Opaque                                <span class="m">1</span>      19s
-burnham-sa-token-fqjqw   kubernetes.io/service-account-token   <span class="m">3</span>      64m
-default-token-7fn69      kubernetes.io/service-account-token   <span class="m">3</span>      64m
-github                   Opaque                                <span class="m">1</span>      19s
+<p>The provisioner will then start deploying more nodes to deploy the scaled replicas. You can verify by either looking at the karpenter controller logs,</p>
+<div class="highlight"><pre><span></span><code>kubectl logs -f -n karpenter <span class="k">$(</span>kubectl get pods -n karpenter -l <span class="nv">karpenter</span><span class="o">=</span>controller -o name<span class="k">)</span>
 </code></pre></div>
-<p>Test that the deployment has completed and the pod is running successfully.</p>
-<div class="highlight"><pre><span></span><code>$ kubectl get pods -n team-burnham
-NAME                              READY   STATUS    RESTARTS   AGE
-app-deployment-6867fc6bd6-jzdwh   <span class="m">1</span>/1     Running   <span class="m">0</span>          46s
-</code></pre></div>
-<p>Next, test whether the secret <code>PASSWORD</code> is available as an environment variable from within the <code>app-deployment</code> pod.</p>
-<div class="highlight"><pre><span></span><code>$ kubectl <span class="nb">exec</span> app-deployment-6867fc6bd6-jzdwh -n team-burnham -- <span class="nb">echo</span> <span class="nv">$PASSWORD</span>
-
-XXXXXXXXXXXXXXXXXX
-</code></pre></div>
-<p>Test whether <code>GITHUB_TOKEN</code> is available as an environment variable from within the <code>app-deployment</code> pod.</p>
-<div class="highlight"><pre><span></span><code>$ kubectl <span class="nb">exec</span> app-deployment-6867fc6bd6-jzdwh -n team-burnham -- <span class="nb">echo</span> <span class="nv">$GITHUB_TOKEN</span>
-
-ghp_XXXXXXXXXXXXXXXXXXXXXXXXXX
+<p>or, by looking at the nodes being created:</p>
+<div class="highlight"><pre><span></span><code>kubectl get nodes
 </code></pre></div>
 
               
@@ -981,41 +852,6 @@ ghp_XXXXXXXXXXXXXXXXXXXXXXXXXX
       </main>
       
         <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        
-        <a href="../ssm-agent/" class="md-footer__link md-footer__link--prev" aria-label="Previous: SSM Agent" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              SSM Agent
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../vpc-cni/" class="md-footer__link md-footer__link--next" aria-label="Next: Vpc Cni" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Vpc Cni
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

@@ -1,0 +1,1065 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.4">
+    
+    
+      
+        <title>Extensibility - Amazon EKS SSP Quick Start</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.bb3983ee.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#extensibility" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Amazon EKS SSP Quick Start" class="md-header__button md-logo" aria-label="Amazon EKS SSP Quick Start" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Amazon EKS SSP Quick Start
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Extensibility
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aws-quickstart/ssp-amazon-eks/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aws-quickstart/ssp-amazon-eks
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Amazon EKS SSP Quick Start" class="md-nav__button md-logo" aria-label="Amazon EKS SSP Quick Start" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Amazon EKS SSP Quick Start
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aws-quickstart/ssp-amazon-eks/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aws-quickstart/ssp-amazon-eks
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core-concepts/" class="md-nav__link">
+        Core Concepts
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../teams/" class="md-nav__link">
+        Teams
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipelines/" class="md-nav__link">
+        Pipelines
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          AddOns
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="AddOns" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          AddOns
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addons/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addons/app-mesh/" class="md-nav__link">
+        AWS App Mesh
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addons/argo-cd/" class="md-nav__link">
+        ArgoCD
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addons/aws-load-balancer-controller/" class="md-nav__link">
+        AWS Load Balancer Controller
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addons/calico/" class="md-nav__link">
+        Calico
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addons/coredns/" class="md-nav__link">
+        CoreDns
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addons/cluster-autoscaler/" class="md-nav__link">
+        Cluster Autoscaler
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addons/container-insights/" class="md-nav__link">
+        Container Insights
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addons/external-dns/" class="md-nav__link">
+        External DNS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addons/kube-proxy/" class="md-nav__link">
+        Kube Proxy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addons/metrics-server/" class="md-nav__link">
+        Metrics Server
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addons/nginx/" class="md-nav__link">
+        Nginx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addons/ssm-agent/" class="md-nav__link">
+        SSM Agent
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addons/secrets-store/" class="md-nav__link">
+        Secrets Store
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addons/vpc-cni/" class="md-nav__link">
+        Vpc Cni
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/weaveworks/weave-gitops-ssp-addon" class="md-nav__link">
+        Weave GitOps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addons/xray/" class="md-nav__link">
+        AWS XRay
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Cluster Providers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cluster Providers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Cluster Providers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cluster-providers/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cluster-providers/asg-cluster-provider/" class="md-nav__link">
+        ASG Cluster Provider
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cluster-providers/mng-cluster-provider/" class="md-nav__link">
+        MNG Cluster Provider
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cluster-providers/fargate-cluster-provider/" class="md-nav__link">
+        Fargate Cluster Provider
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Extensibility
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Extensibility
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-on-extensions" class="md-nav__link">
+    Add-on Extensions
+  </a>
+  
+    <nav class="md-nav" aria-label="Add-on Extensions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#post-deployment-hooks" class="md-nav__link">
+    Post Deployment Hooks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#helm-add-ons" class="md-nav__link">
+    Helm Add-ons
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-helm-add-ons" class="md-nav__link">
+    Non-helm Add-ons
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-on-dependencies" class="md-nav__link">
+    Add-on Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#private-extensions" class="md-nav__link">
+    Private Extensions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-extensions" class="md-nav__link">
+    Public Extensions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partner-extensions" class="md-nav__link">
+    Partner Extensions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-extension" class="md-nav__link">
+    Example Extension
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-on-extensions" class="md-nav__link">
+    Add-on Extensions
+  </a>
+  
+    <nav class="md-nav" aria-label="Add-on Extensions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#post-deployment-hooks" class="md-nav__link">
+    Post Deployment Hooks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#helm-add-ons" class="md-nav__link">
+    Helm Add-ons
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-helm-add-ons" class="md-nav__link">
+    Non-helm Add-ons
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-on-dependencies" class="md-nav__link">
+    Add-on Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#private-extensions" class="md-nav__link">
+    Private Extensions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-extensions" class="md-nav__link">
+    Public Extensions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partner-extensions" class="md-nav__link">
+    Partner Extensions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-extension" class="md-nav__link">
+    Example Extension
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://github.com/aws-quickstart/ssp-amazon-eks/edit/master/docs/extensibility.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+<h1 id="extensibility">Extensibility<a class="headerlink" href="#extensibility" title="Permanent link">&para;</a></h1>
+<p>This guide provides an overview of extensibility options focusing on add-on extensions as the primary mechanism for the partners and customers. </p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>SSP Framework is designed to be extensible. In the context of this guide, extensibility refers to the ability of customers and partners to both add new capabilities to the framework or platforms based on SSP as well as customize existing behavior, including the ability to modify or override existing behavior.</p>
+<p>The following abstractions can be leveraged to add new features to the framework:</p>
+<ul>
+<li><a href="../core-concepts/#add-on">Add-on</a>. Customers and partners can implement new add-ons which could be leveraged exactly the same way as the core add-ons (supplied by the framework).</li>
+<li><a href="../core-concepts/#resource-provider">Resource Provider</a>. This construct allows customers to create resources that can be reused across multiple add-ons and/or teams. For example, IAM roles, VPC, hosted zone. </li>
+<li><a href="../cluster-providers/">Cluster Provider</a>. This construct allows creation of custom code that provisions an EKS cluster with node groups. It can be leveraged to extend behavior such as control plane customization, custom settings for node groups.</li>
+<li><a href="../teams/">Team</a>. This abstraction allows to create team templates for application and platform teams and set custom setting for network isolation, policies (network, security), software wiring (auto injection of proxies, team specific service mesh configuration) and other extensions pertinent to the teams. </li>
+</ul>
+<h2 id="add-on-extensions">Add-on Extensions<a class="headerlink" href="#add-on-extensions" title="Permanent link">&para;</a></h2>
+<p>In a general case, implementation of an add-on is a class which implements the <code>ClusterAddOn</code> interface.</p>
+<div class="highlight"><pre><span></span><code><span class="k">export</span> <span class="kr">declare</span> <span class="kd">interface</span> <span class="nx">ClusterAddOn</span> <span class="p">{</span> 
+    <span class="nx">id?</span> : <span class="kt">string</span><span class="p">;</span>
+    <span class="nx">deploy</span><span class="p">(</span><span class="nx">clusterInfo</span>: <span class="kt">types.ClusterInfo</span><span class="p">)</span><span class="o">:</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">Construct</span><span class="o">&gt;</span> <span class="o">|</span> <span class="ow">void</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Note</strong>: The add-on implementation can optionally supply the <code>id</code> attribute if the target add-on can be added to a blueprint more than once. </p>
+<p>Implementation of the add-on is expected to be an exported class that implements the interface and supplies the implementation of the <code>deploy</code> method. In order for the add-on to receive the deployment contextual information about the provisioned cluster, region, resource providers and/or other add-ons, the <code>deploy</code> method takes the <code>ClusterInfo</code> parameter (see <a href="https://github.com/aws-quickstart/ssp-amazon-eks/blob/main/lib/spi/types.ts">types</a>), which represents a structure defined in the SPI (service provider interface) contracts. The API for the cluster info structure is stable and provides access to the provisioned EKS cluster, scheduled add-ons (that have not been installed yet but are part of the blueprint) or provisioned add-ons and other contexts.</p>
+<h3 id="post-deployment-hooks">Post Deployment Hooks<a class="headerlink" href="#post-deployment-hooks" title="Permanent link">&para;</a></h3>
+<p>In certain cases, add-on provisioning may require logic to be executed after provisioning of the add-ons (and teams) is complete. For such cases, add-on can optionally implement <code>ClusterPostDeploy</code> interface.</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Optional interface to allow cluster bootstrapping after provisioning of add-ons and teams is complete.</span>
+<span class="cm"> * Can be leveraged to bootstrap workloads, perform cluster checks. </span>
+<span class="cm"> * ClusterAddOn implementation may implement this interface in order to get post deployment hook point.</span>
+<span class="cm"> */</span>
+<span class="k">export</span> <span class="kr">declare</span> <span class="kd">interface</span> <span class="nx">ClusterPostDeploy</span> <span class="p">{</span>
+    <span class="nx">postDeploy</span><span class="p">(</span><span class="nx">clusterInfo</span>: <span class="kt">types.ClusterInfo</span><span class="p">,</span> <span class="nx">teams</span>: <span class="kt">Team</span><span class="p">[])</span><span class="o">:</span> <span class="ow">void</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>This capability is leveraged for example in ArgoCD add-on to bootstrap workloads after all add-ons finished provisioning. Note, in this case unlike the standard <code>deploy</code> method implementation, the add-on also gets access to the provisioned teams. </p>
+<h3 id="helm-add-ons">Helm Add-ons<a class="headerlink" href="#helm-add-ons" title="Permanent link">&para;</a></h3>
+<p>Helm add-ons are the most common case that generally combines provisioning of a helm chart as well as supporting infrastructure such as wiring of proper IAM policies for the Kubernetes service account, provisioning or configuring other AWS resources (VPC, subnets, node groups). </p>
+<p>In order to provide consistency across all Helm add-ons supplied by the SSP framework all Helm add-ons are implemented as derivatives of the <code>HelmAddOn</code> base class and support properties based on <code>HelmAddOnUserProps</code>. See the <a href="#example-extension">example extension section</a> below for more details.</p>
+<p>Use cases that are enabled by leveraging the base <code>HelmAddOn</code> class:</p>
+<ol>
+<li>Consistency across all helm based add-on will reduce effort to understand how to apply and configure standard add-on options.</li>
+<li>Ability to override helm chart repository can enable leveraging private helm chart repository by the customer and facilitate add-on usage for private EKS clusters.</li>
+<li>Extensibility mechanisms available in the SSP framework can allow to intercept helm deployments and leverage GitOps driven add-on configuration.</li>
+</ol>
+<h3 id="non-helm-add-ons">Non-helm Add-ons<a class="headerlink" href="#non-helm-add-ons" title="Permanent link">&para;</a></h3>
+<p>Add-ons that don't leverage helm but require to install arbitrary Kubernetes manifests will not be able to leverage the benefits provided by the <code>HelmAddOn</code> however, they are still relatively easy to implement.
+Deployment of arbitrary kubernetes manifests can leverage the following construct:</p>
+<p><div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">KubernetesManifest</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">&quot;@aws-cdk/aws-eks&quot;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">ClusterAddOn</span><span class="p">,</span> <span class="nx">ClusterInfo</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">&quot;../../spi&quot;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">loadYaml</span><span class="p">,</span> <span class="nx">readYamlDocument</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">&quot;../../utils/yaml-utils&quot;</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">MyNonHelmAddOn</span> <span class="k">implements</span> <span class="nx">ClusterAddOn</span> <span class="p">{</span>
+    <span class="nx">deploy</span><span class="p">(</span><span class="nx">clusterInfo</span>: <span class="kt">ClusterInfo</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">cluster</span> <span class="o">=</span> <span class="nx">clusterInfo</span><span class="p">.</span><span class="nx">cluster</span><span class="p">;</span>
+        <span class="c1">// Apply manifest</span>
+        <span class="kd">const</span> <span class="nx">doc</span> <span class="o">=</span> <span class="nx">readYamlDocument</span><span class="p">(</span><span class="nx">__dirname</span> <span class="o">+</span> <span class="s1">&#39;/my-product.yaml&#39;</span><span class="p">);</span>
+        <span class="c1">// ... apply any substitutions for dynamic values </span>
+        <span class="kd">const</span> <span class="nx">manifest</span> <span class="o">=</span> <span class="nx">docArray</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nx">e</span> <span class="p">=&gt;</span> <span class="nx">loadYaml</span><span class="p">(</span><span class="nx">e</span><span class="p">));</span>
+        <span class="ow">new</span> <span class="nx">KubernetesManifest</span><span class="p">(</span><span class="nx">cluster</span><span class="p">.</span><span class="nx">stack</span><span class="p">,</span> <span class="s2">&quot;myproduct-manifest&quot;</span><span class="p">,</span> <span class="p">{</span>
+            <span class="nx">cluster</span><span class="p">,</span>
+            <span class="nx">manifest</span><span class="p">,</span>
+            <span class="nx">overwrite</span>: <span class="kt">true</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<strong>Note:</strong> When leveraging this approach consider how customers can apply the add-on for fully private clusters. It may be reasonable to bundle the manifest with the add-on in the npm package. </p>
+<h3 id="add-on-dependencies">Add-on Dependencies<a class="headerlink" href="#add-on-dependencies" title="Permanent link">&para;</a></h3>
+<p>Add-ons can depend on other add-ons and that dependency may be soft or hard. Hard dependency implies that add-on provisioning must fail if the dependency is not available. 
+For example, if an add-on requires access to AWS Secrets Manager for a secret containing a license key, credentials or other sensitive information, it can declare dependency on the CSI Secret Store Driver. </p>
+<p>Dependency management for direct hard dependency are implemented using a decorator <code>@dependable</code>.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Construct</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">&quot;@aws-cdk/core&quot;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">ClusterInfo</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">&quot;../../spi&quot;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">dependable</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">&quot;../../utils&quot;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">HelmAddOn</span><span class="p">,</span> <span class="nx">HelmAddOnUserProps</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">&quot;../helm-addon&quot;</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">MyProductAddOn</span> <span class="k">extends</span> <span class="nx">HelmAddOn</span> <span class="p">{</span>
+
+    <span class="k">readonly</span> <span class="nx">options</span>: <span class="kt">MyProductAddOnProps</span><span class="p">;</span> <span class="c1">// extends HelmAddOnUserProps</span>
+
+    <span class="p">...</span>
+
+    <span class="kd">@dependable</span><span class="p">(</span><span class="s1">&#39;AwsLoadBalancerControllerAddOn&#39;</span><span class="p">)</span> <span class="c1">// depends on AwsLoadBalancerController</span>
+    <span class="nx">deploy</span><span class="p">(</span><span class="nx">clusterInfo</span>: <span class="kt">ClusterInfo</span><span class="p">)</span><span class="o">:</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">Construct</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="p">...</span>
+    <span class="p">}</span>
+</code></pre></div>
+<h2 id="private-extensions">Private Extensions<a class="headerlink" href="#private-extensions" title="Permanent link">&para;</a></h2>
+<p>Extensions specific to a customer instance of SSPs can be implemented inline with the blueprint in the same codebase. Such extensions are scoped to the customer base and cannot be reused. 
+Example of a private extension:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nx">MyAddOn</span> <span class="k">extends</span> <span class="nx">HelmAddOn</span> <span class="p">{</span>
+
+    <span class="kr">constructor</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">super</span><span class="p">({</span>
+            <span class="nx">chart</span><span class="o">:</span> <span class="s1">&#39;mychart&#39;</span><span class="p">,</span>
+            <span class="p">...</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+
+    <span class="nx">deploy</span><span class="p">(</span><span class="nx">clusterInfo</span>: <span class="kt">ssp.ClusterInfo</span><span class="p">)</span><span class="o">:</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">Construct</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">addHelmChart</span><span class="p">(</span><span class="nx">clusterInfo</span><span class="p">,</span> <span class="p">{}));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">ssp</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">.</span><span class="nx">builder</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="ow">new</span> <span class="nx">MyAddOn</span><span class="p">())</span>
+    <span class="p">.</span><span class="nx">build</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;my-extension-test-blueprint&#39;</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="public-extensions">Public Extensions<a class="headerlink" href="#public-extensions" title="Permanent link">&para;</a></h2>
+<p>The life-cycle of a public extension should be decoupled from the life-cycle of the <a href="https://github.com/aws-quickstart/ssp-amazon-eks">SSP Quickstart main repository</a>. When decoupled, extensions can be released at any arbitrary cadence specific to the extension, enabling better agility when it comes to new features or bug fixes. </p>
+<p>In order to enable this model the following workflow outline steps required to create and release a public extension:</p>
+<ol>
+<li>Public extensions are created in a separate repository. Public GitHub repository is preferred as it aligns with the open-source spirit of the framework and enables external reviews/feedback.</li>
+<li>Extensions are released and consumed as distinct public NPM packages. </li>
+<li>Public Extensions are expected to have sufficient documentation to allow customers to consume them independently. Documentation can reside in GitHub or external resources referenced in the documentation bundled with the extension.</li>
+<li>Public extensions are expected to be tested and validated against released SSP versions, e.g. with a CICD pipeline. Pipeline can be created with the <a href="../pipelines/">pipelines</a> support from the SSP framework or leveraging customer/partner specific tools. </li>
+</ol>
+<h2 id="partner-extensions">Partner Extensions<a class="headerlink" href="#partner-extensions" title="Permanent link">&para;</a></h2>
+<p>Partner extensions (APN Partner) are expected to comply with the public extension workflow and additional items required to ensure proper validation and documentation support for a partner extension. </p>
+<ol>
+<li>Documentation PR should be created to the main <a href="https://github.com/aws-quickstart/ssp-amazon-eks">SSP Quickstart repository</a> to update the AddOns section. Example of add-on documentation can be found <a href="https://aws-quickstart.github.io/ssp-amazon-eks/addons/container-insights/">here</a> along with the list of other add-ons.</li>
+<li>An example that shows a ready to use pattern leveraging the add-on should be submitted to the <a href="https://github.com/aws-samples/ssp-eks-patterns">SSP Patterns Repository</a>. This step will enable AWS PSAs to validate the add-on as well as provide a ready to use pattern to the customers, that could be copied/cloned in their SSP implementation. </li>
+</ol>
+<h2 id="example-extension">Example Extension<a class="headerlink" href="#example-extension" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/shapirov103/ssp-eks-extension">Example extension</a> contains a sample implementation of a FluentBit log forwarder add-on and covers the following aspects of an extension workflow:</p>
+<ol>
+<li>Pre-requisite configuration related to nodejs, npm, typescript.</li>
+<li>Project template with support to build, test and run the extension.</li>
+<li>Example blueprint (can be found in ./bin/main.ts) that references the add-on.</li>
+<li>Example of configuring a Kubernetes service account with IRSA (IAM roles for service accounts) and required IAM policies. </li>
+<li>Example of the helm chart provisioning. </li>
+<li>Outlines support to build, package and publish the add-on in an NPM repository. </li>
+</ol>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../cluster-providers/fargate-cluster-provider/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Fargate Cluster Provider" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Fargate Cluster Provider
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.361d90f1.min.js"}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.289a2a4b.min.js"></script>
+      
+    
+  </body>
+</html>
