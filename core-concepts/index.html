@@ -874,7 +874,7 @@
 <h2 id="add-on">Add-on<a class="headerlink" href="#add-on" title="Permanent link">&para;</a></h2>
 <p><code>Add-ons</code> allow you to configure the tools and services that you would like to run in order to support your EKS workloads. When you configure <code>add-ons</code> for a <code>blueprint</code>, the <code>add-ons</code> will be provisioned at deploy time. Add-ons can deploy both Kubernetes specific resources and AWS resources needed to support add-on functionality. </p>
 <p>For example, the <code>MetricsServerAddOn</code> only deploys the Kubernetes manifests that are needed to run the Kubernetes Metrics Server (as a Helm chart). By contrast, the <code>AWSLoadBalancerControllerAddon</code> deploys Kubernetes resources, in addition to creating resources via AWS APIs that are needed to support the AWS Load Balancer Controller. The most common case to address via an add-on is configuration of IAM roles and permissions and the Kubernetes service account, leveraging IRSA to access AWS resources.</p>
-<p>See our <a href="add-ons"><code>Add-ons</code></a> documentation page for detailed information. </p>
+<p>See our <a href="../addons/"><code>Add-ons</code></a> documentation page for detailed information. </p>
 <h2 id="team">Team<a class="headerlink" href="#team" title="Permanent link">&para;</a></h2>
 <p><code>Teams</code> allow you to configure the logical grouping of users that have access to your EKS clusters, in addition to the access permissions they are granted. The framework currently supports two types of <code>teams</code>: <code>ApplicationTeam</code> and <code>PlatformTeam</code>. <code>ApplicationTeam</code> members are granted access to specific namespaces. <code>PlatformTeam</code> members are granted administrative access to your clusters. </p>
 <p>See our <a href="../teams"><code>Teams</code></a> documentation page for detailed information. </p>
@@ -883,7 +883,7 @@
 <p>See our <a href="../pipelines"><code>Pipelines</code></a> documentation page for detailed information. </p>
 <h2 id="application">Application<a class="headerlink" href="#application" title="Permanent link">&para;</a></h2>
 <p><code>Applications</code> represent the actual workloads that run within a Kubernetes cluster. The framework leverages a GitOps approach for deploying applications onto clusters. </p>
-<p>See our <a href="../applications">`Applications</a> documentation for detailed information.</p>
+<p>See our <a href="../addons/argo-cd/#bootstrapping">Workload Bootstrapping</a> documentation for detailed information.</p>
 
               
             </article>
