@@ -8,8 +8,9 @@
       
       
       
+      
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
     
     
       
@@ -17,10 +18,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.bb3983ee.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bde7dde4.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
         
       
     
@@ -30,14 +31,13 @@
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
     
       
-
     
     
   </head>
@@ -51,6 +51,7 @@
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
   
     
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -67,10 +68,7 @@
       
     </div>
     
-    
-      
-
-<header class="md-header" data-md-component="header">
+      <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Amazon EKS SSP Quick Start" class="md-header__button md-logo" aria-label="Amazon EKS SSP Quick Start" data-md-component="logo">
       
@@ -103,22 +101,19 @@
       <label class="md-header__button md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
-      <div class="md-search" data-md-component="search" role="dialog">
+      
+<div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-        </button>
-      </nav>
-      
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -135,7 +130,8 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/aws-quickstart/ssp-amazon-eks/" title="Go to repository" class="md-source" data-md-component="source">
+        
+<a href="https://github.com/aws-quickstart/ssp-amazon-eks/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -147,14 +143,11 @@
       </div>
     
   </nav>
-  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
-        
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -180,7 +173,8 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/aws-quickstart/ssp-amazon-eks/" title="Go to repository" class="md-source" data-md-component="source">
+      
+<a href="https://github.com/aws-quickstart/ssp-amazon-eks/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -281,14 +275,10 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
-      
-      
-      
-        <label class="md-nav__link" for="__nav_6">
-          AddOns
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
+      <label class="md-nav__link" for="__nav_6">
+        AddOns
+        <span class="md-nav__icon md-icon"></span>
+      </label>
       <nav class="md-nav" aria-label="AddOns" data-md-level="1">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
@@ -297,7 +287,6 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
-              
   
   
   
@@ -308,10 +297,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -322,10 +309,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -336,10 +321,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -350,10 +333,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -364,10 +345,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -378,10 +357,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -392,10 +369,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -406,10 +381,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -420,10 +393,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -434,10 +405,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -448,10 +417,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -462,10 +429,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -476,10 +441,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -490,10 +453,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -504,10 +465,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -518,10 +477,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -532,7 +489,6 @@
     </li>
   
 
-            
           
         </ul>
       </nav>
@@ -553,14 +509,10 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
       
-      
-      
-      
-        <label class="md-nav__link" for="__nav_7">
-          Cluster Providers
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
+      <label class="md-nav__link" for="__nav_7">
+        Cluster Providers
+        <span class="md-nav__icon md-icon"></span>
+      </label>
       <nav class="md-nav" aria-label="Cluster Providers" data-md-level="1">
         <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
@@ -569,7 +521,6 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
-              
   
   
   
@@ -580,10 +531,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -594,10 +543,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -608,10 +555,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -622,7 +567,6 @@
     </li>
   
 
-            
           
         </ul>
       </nav>
@@ -657,7 +601,6 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
@@ -672,35 +615,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-does-gatekeeper-work-with-opa-and-kube-mgmt" class="md-nav__link">
-    How does Gatekeeper work with OPA and Kube-mgmt?
+  <a href="#key-terminology" class="md-nav__link">
+    Key Terminology
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-policies" class="md-nav__link">
-    Example Policies
+  <a href="#usage" class="md-nav__link">
+    Usage
   </a>
-  
-    <nav class="md-nav" aria-label="Example Policies">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-are-pod-security-policies-psps" class="md-nav__link">
-    What are Pod Security Policies (PSP's)?
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#getting-started-with-opa-gatekeeper" class="md-nav__link">
-    Getting Started with OPA Gatekeeper
+  <a href="#example-with-opa-gatekeeper" class="md-nav__link">
+    Example with OPA Gatekeeper
   </a>
   
 </li>
@@ -717,16 +647,16 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/aws-quickstart/ssp-amazon-eks/edit/master/docs/addons/opa-gatekeeper.md" title="Edit this page" class="md-content__button md-icon">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-</a>
-
-
-<h1 id="what-is-opa-gatekeeper">What is OPA Gatekeeper?<a class="headerlink" href="#what-is-opa-gatekeeper" title="Permanent link">&para;</a></h1>
+                  <a href="https://github.com/aws-quickstart/ssp-amazon-eks/edit/master/docs/addons/opa-gatekeeper.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="what-is-opa-gatekeeper">What is OPA Gatekeeper?<a class="headerlink" href="#what-is-opa-gatekeeper" title="Permanent link">&para;</a></h1>
 <p>The Open Policy Agent (OPA, pronounced “oh-pa”) is an open source, general-purpose policy engine that unifies policy enforcement across the stack. OPA provides a high-level declarative language that lets you specify policy as code and simple APIs to offload policy decision-making from your software. You can use OPA to enforce policies in microservices, Kubernetes, CI/CD pipelines, API gateways, and more. OPA uses a policy language known as Rego which is a query language which was purpose built to support structured document models such as JSON. To learn more about Rego check out this <a href="https://www.openpolicyagent.org/docs/latest/policy-language/">link</a>.</p>
-<p>OPA Gatekeeper is an open-source project that provides a first-class integration between OPA and Kubernetes. What Gatekeeper adds is an extensible parameterized policy library that includes native Kubernetes CRD's for instantiating and extending the OPA policy library. Gatekeeper also provides audit functionality as well. The diagram below shows how Gatekeeper interacts with the Kube API Server.</p>
+<p>OPA Gatekeeper is an open-source project that provides a first-class integration between OPA and Kubernetes. What Gatekeeper adds is an extensible parameterized policy library that includes native Kubernetes CRD's for instantiating and extending the OPA policy library. The Kubernetes API Server is configured to query OPA for admission control decisions when objects (e.g., Pods, Services, etc.) are created, updated, or deleted. The API Server sends the entire Kubernetes object in the webhook request to OPA. OPA evaluates the policies it has loaded using the admission review as input. Gatekeeper also provides audit functionality as well. The diagram below shows the flow between a user making a request to the Kube-API server and how AdmissionReview and AdmissionRequests are made through OPA Gatekeeper. </p>
 <p><img alt="opa" src="https://d33wubrfki0l68.cloudfront.net/a5ed0c27ff2dda6abb18b9bc960f2ad4120d937a/a5939/docs/latest/images/kubernetes-admission-flow.png" />)</p>
-<p>In the context of a Shared Services Platform running on Amazon EKS, platform teams and administrators need a way of being able to set policies to adhere to governance and security requirements for all workloads and teams working on the same cluster. Examples of standard use cases for using policies via OPA Gatekeeper are shown below:</p>
+<p>In the context of a Shared Services Platform running on Amazon EKS, platform teams and administrators need a way of being able to set policies to adhere to governance and security requirements for all workloads and teams working on the same cluster. Examples of standard use cases for using policies via OPA Gatekeeper are listed below:</p>
 <ul>
 <li>Which users can access which resources.</li>
 <li>Which subnets egress traffic is allowed to.</li>
@@ -735,158 +665,68 @@
 <li>Which OS capabilities a container can execute with.</li>
 <li>Which times of day the system can be accessed at.</li>
 </ul>
-<h2 id="how-does-gatekeeper-work-with-opa-and-kube-mgmt">How does Gatekeeper work with OPA and Kube-mgmt?<a class="headerlink" href="#how-does-gatekeeper-work-with-opa-and-kube-mgmt" title="Permanent link">&para;</a></h2>
-<p>The Kubernetes API Server is configured to query OPA for admission control decisions when objects (e.g., Pods, Services, etc.) are created, updated, or deleted. The API Server sends the entire Kubernetes object in the webhook request to OPA. OPA evaluates the policies it has loaded using the admission review as input. The diagram below shows the flow between a user making a request to the Kube-API server and how AdmissionReview and AdmissionRequests are made through OPA Gatekeeper.</p>
-<h2 id="example-policies">Example Policies<a class="headerlink" href="#example-policies" title="Permanent link">&para;</a></h2>
-<p>The following policy denies objects that include container images referring to illegal registries:</p>
-<p><div class="highlight"><pre><span></span><code>package kubernetes.admission
-
-deny[reason] {
-  some container
-  input_containers[container]
-  not startswith(container.image, &quot;hooli.com/&quot;)
-  reason := &quot;container image refers to illegal registry (must be hooli.com)&quot;
-}
-
-input_containers[container] {
-  container := input.request.object.spec.containers[_]
-}
-
-input_containers[container] {
-  container := input.request.object.spec.template.spec.containers[_]
-}
-</code></pre></div>
-When deny is evaluated with the input defined below the answer is:
-<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="w"></span>
-<span class="w">  </span><span class="s2">&quot;container image refers to illegal registry (must be hooli.com)&quot;</span><span class="w"></span>
-<span class="p">]</span><span class="w"></span>
-</code></pre></div></p>
-<p>The input document contains the following fields:</p>
+<p>RBAC (role-based access control) can help with some of the scenarios above but <strong>roles are nothing but a group of permissions that you then assign to users leveraging rolebindings.</strong> If for example, a user tries to perform an operation (get, list, watch, create, etc...) that particular user may do so if they have the appropriate role. <strong>Please note that RBAC should be used in conjunction with OPA Gatekeeper policies to fully secure your cluster.</strong></p>
+<h2 id="key-terminology">Key Terminology<a class="headerlink" href="#key-terminology" title="Permanent link">&para;</a></h2>
 <ul>
-<li>input.request.kind specifies the type of the object (e.g., Pod, Service, etc.)</li>
-<li>input.request.operation specifies the type of the operation, i.e., CREATE, UPDATE, DELETE, CONNECT.</li>
-<li>input.request.userInfo specifies the identity of the caller.</li>
-<li>input.request.object contains the entire Kubernetes object.</li>
-<li>input.request.oldObject specifies the previous version of the Kubernetes object on UPDATE and DELETE.</li>
+<li>OPA Constraint Framework - Framework that enforces CRD-based policies and allow declaratively configured policies to be reliably shareable</li>
+<li>Constraint -  A Constraint is a declaration that its author wants a system to meet a given set of requirements. Each Constraint is written with Rego, a declarative query language used by OPA to enumerate instances of data that violate the expected state of the system. All Constraints are evaluated as a logical AND. If one Constraint is not satisfied, then the whole request is rejected.</li>
+<li>Enforcement Point - Places where constraints can be enforced. Examples are Git hooks, Kubernetes admission controllers, and audit systems.</li>
+<li>Constraint Template - Templates that allows users to declare new constraints </li>
+<li>Target - Represents a coherent set of objects sharing a common identification and/or selection scheme, generic purpose, and can be analyzed in the same validation context</li>
 </ul>
-<p>The policies you give to OPA ultimately generate an admission review response that is sent back to the API Server. Gatekeeper </p>
-<h3 id="what-are-pod-security-policies-psps">What are Pod Security Policies (PSP's)?<a class="headerlink" href="#what-are-pod-security-policies-psps" title="Permanent link">&para;</a></h3>
-<p>Pod Security Policies (PSP's) is a common use case you will see being defined by Gatekeeper within a Kubernetes cluster. A Pod Security Policy (PSP) is a cluster-level resource for managing security aspects of a pod specification. PSP's allow you to control things like the ability to run privileged containers or the ability to control access to host filesystems. The example below shows a policy that is assigned to all authenticated users in a cluster which limits volume types, denies running as root/escalating to root, requires a security profile, and a few other aspects.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">policy/v1beta1</span><span class="w"></span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PodSecurityPolicy</span><span class="w"></span>
-<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">restricted</span><span class="w"></span>
-<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">seccomp.security.alpha.kubernetes.io/allowedProfileNames</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;docker/default&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">apparmor.security.beta.kubernetes.io/allowedProfileNames</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;runtime/default&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">seccomp.security.alpha.kubernetes.io/defaultProfileName</span><span class="p">:</span><span class="w">  </span><span class="s">&#39;docker/default&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">apparmor.security.beta.kubernetes.io/defaultProfileName</span><span class="p">:</span><span class="w">  </span><span class="s">&#39;runtime/default&#39;</span><span class="w"></span>
-<span class="nt">spec</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">privileged</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<span class="w">  </span><span class="c1"># Required to prevent escalations to root.</span><span class="w"></span>
-<span class="w">  </span><span class="nt">allowPrivilegeEscalation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<span class="w">  </span><span class="c1"># This is redundant with non-root + disallow privilege escalation,</span><span class="w"></span>
-<span class="w">  </span><span class="c1"># but we can provide it for defense in depth.</span><span class="w"></span>
-<span class="w">  </span><span class="nt">requiredDropCapabilities</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ALL</span><span class="w"></span>
-<span class="w">  </span><span class="c1"># Allow core volume types.</span><span class="w"></span>
-<span class="w">  </span><span class="nt">volumes</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;configMap&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;emptyDir&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;projected&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;secret&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;downwardAPI&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="c1"># Assume that persistentVolumes set up by the cluster admin are safe to use.</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;persistentVolumeClaim&#39;</span><span class="w"></span>
-<span class="w">  </span><span class="nt">hostNetwork</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<span class="w">  </span><span class="nt">hostIPC</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<span class="w">  </span><span class="nt">hostPID</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<span class="w">  </span><span class="nt">runAsUser</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="c1"># Require the container to run without root privileges.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">rule</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;MustRunAsNonRoot&#39;</span><span class="w"></span>
-<span class="w">  </span><span class="nt">seLinux</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="c1"># This policy assumes the nodes are using AppArmor rather than SELinux.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">rule</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;RunAsAny&#39;</span><span class="w"></span>
-<span class="w">  </span><span class="nt">supplementalGroups</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">rule</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;MustRunAs&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ranges</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="c1"># Forbid adding the root group.</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">min</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"></span>
-<span class="w">        </span><span class="nt">max</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">65535</span><span class="w"></span>
-<span class="w">  </span><span class="nt">fsGroup</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">rule</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;MustRunAs&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ranges</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="c1"># Forbid adding the root group.</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">min</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"></span>
-<span class="w">        </span><span class="nt">max</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">65535</span><span class="w"></span>
-<span class="w">  </span><span class="nt">readOnlyRootFilesystem</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-</code></pre></div>
-<p><strong>Note: PSP's will be deprecated as of Kubernetes version 1.21 so please keep that in mind while you are evaluating this add on. To learn more please follow this <a href="https://kubernetes.io/blog/2021/04/06/podsecuritypolicy-deprecation-past-present-and-future/">link</a></strong></p>
-<h2 id="getting-started-with-opa-gatekeeper">Getting Started with OPA Gatekeeper<a class="headerlink" href="#getting-started-with-opa-gatekeeper" title="Permanent link">&para;</a></h2>
-<p>For the purposes of operating within a Shared Services Platform, we will be focusing on how to use a policy driven approach to secure our cluster using OPA Gatekeeper. You will see a directory with a set of example policies you can use to get started which can be found <a href="https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/general">here</a>. In this example we will create a policy that limits what repositories containers can be pulled from. The policy that we will be using can be found <a href="https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/general/allowedrepos">here</a>. </p>
-<p>The policy should look like the following: </p>
-<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">templates.gatekeeper.sh/v1beta1</span><span class="w"></span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConstraintTemplate</span><span class="w"></span>
-<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">k8sallowedrepos</span><span class="w"></span>
-<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Requires container images to begin with a repo string from a specified</span><span class="w"></span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">list.</span><span class="w"></span>
-<span class="nt">spec</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">crd</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">names</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">K8sAllowedRepos</span><span class="w"></span>
-<span class="w">      </span><span class="nt">validation</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="c1"># Schema for the `parameters` field</span><span class="w"></span>
-<span class="w">        </span><span class="nt">openAPIV3Schema</span><span class="p">:</span><span class="w"></span>
-<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">object</span><span class="w"></span>
-<span class="w">          </span><span class="nt">properties</span><span class="p">:</span><span class="w"></span>
-<span class="w">            </span><span class="nt">repos</span><span class="p">:</span><span class="w"></span>
-<span class="w">              </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">array</span><span class="w"></span>
-<span class="w">              </span><span class="nt">items</span><span class="p">:</span><span class="w"></span>
-<span class="w">                </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span><span class="w"></span>
-<span class="w">  </span><span class="nt">targets</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admission.k8s.gatekeeper.sh</span><span class="w"></span>
-<span class="w">      </span><span class="nt">rego</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">        </span><span class="no">package k8sallowedrepos</span><span class="w"></span>
-<span class="w">        </span><span class="no">violation[{&quot;msg&quot;: msg}] {</span><span class="w"></span>
-<span class="w">          </span><span class="no">container := input.review.object.spec.containers[_]</span><span class="w"></span>
-<span class="w">          </span><span class="no">satisfied := [good | repo = input.parameters.repos[_] ; good = startswith(container.image, repo)]</span><span class="w"></span>
-<span class="w">          </span><span class="no">not any(satisfied)</span><span class="w"></span>
-<span class="w">          </span><span class="no">msg := sprintf(&quot;container &lt;%v&gt; has an invalid image repo &lt;%v&gt;, allowed repos are %v&quot;, [container.name, container.image, input.parameters.repos])</span><span class="w"></span>
-<span class="w">        </span><span class="no">}</span><span class="w"></span>
-<span class="w">        </span><span class="no">violation[{&quot;msg&quot;: msg}] {</span><span class="w"></span>
-<span class="w">          </span><span class="no">container := input.review.object.spec.initContainers[_]</span><span class="w"></span>
-<span class="w">          </span><span class="no">satisfied := [good | repo = input.parameters.repos[_] ; good = startswith(container.image, repo)]</span><span class="w"></span>
-<span class="w">          </span><span class="no">not any(satisfied)</span><span class="w"></span>
-<span class="w">          </span><span class="no">msg := sprintf(&quot;container &lt;%v&gt; has an invalid image repo &lt;%v&gt;, allowed repos are %v&quot;, [container.name, container.image, input.parameters.repos])</span><span class="w"></span>
-<span class="w">        </span><span class="no">}</span><span class="w"></span>
-</code></pre></div>
-<p>All the Gatekeeper policy examples can be found under the examples directory in the SSP repository. If you go into the examples directory and go into the gatekeeper-library folder, we can apply this to our cluster by running the 
-<div class="highlight"><pre><span></span><code>kubectl apply -f /examples/gatekeeper-library/library/general/allowedrepos/samples/repo-must-be-openpolicyagent command. If we run a 
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">ssp</span> <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/ssp-amazon-eks&#39;</span><span class="p">;</span>
 
-<span class="sb">```</span>bash
-kubectl get pods
-</code></pre></div></p>
-<p>we should see the following output:</p>
-<div class="highlight"><pre><span></span><code>NAME                  READY   STATUS    RESTARTS   AGE
-opa-allowed           <span class="m">1</span>/1     Running   <span class="m">0</span>          76s
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">AWS_ACCOUNT_ID</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">region</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">AWS_REGION</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">blueprint</span> <span class="o">=</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">.</span><span class="nx">builder</span><span class="p">()</span>
+  <span class="p">.</span><span class="nx">account</span><span class="p">(</span><span class="nx">account</span><span class="p">)</span> 
+  <span class="p">.</span><span class="nx">region</span><span class="p">(</span><span class="nx">region</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span> <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">OpaGatekeeperAddOn</span><span class="p">()</span> <span class="p">)</span>
+  <span class="p">.</span><span class="nx">teams</span><span class="p">().</span><span class="nx">build</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;my-stack-name&#39;</span><span class="p">);</span>
 </code></pre></div>
-<p>If we inspect the pods and look at the containers.spec section of the pod we see the following:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">Containers</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">opa</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">Container ID</span><span class="p">:</span><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">docker://1b2da3c7d7c41becac49613ed7db863c7b1365137bbfe1b108220d4ffba188b3</span><span class="w"></span>
-<span class="w">    </span><span class="nt">Image</span><span class="p">:</span><span class="w">         </span><span class="l l-Scalar l-Scalar-Plain">openpolicyagent/opa:0.9.2</span><span class="w"></span>
-<span class="w">    </span><span class="nt">Image ID</span><span class="p">:</span><span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">docker-pullable://openpolicyagent/opa@sha256:04ff8fce2afd1a3bc26260348e5b290e8d945b1fad4b4c16d22834c2f3a1814a</span><span class="w"></span>
-<span class="w">    </span><span class="nt">Port</span><span class="p">:</span><span class="w">          </span><span class="l l-Scalar l-Scalar-Plain">&lt;none&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">Host Port</span><span class="p">:</span><span class="w">     </span><span class="l l-Scalar l-Scalar-Plain">&lt;none&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">Args</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">run</span><span class="w"></span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">--server</span><span class="w"></span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">--addr=localhost:8080</span><span class="w"></span>
+<p>To validate that OPA Gatekeeper is running within your cluster run the following command:</p>
+<div class="highlight"><pre><span></span><code>k get po -n gatekeeper-system
 </code></pre></div>
-<p>This is exactly what is defined in our example_allowed.yaml file so we know that our policy was deployed successfully using OPA Gatekeeper. For more information on OPA Gatekeeper policies, check out the GitHub repo which can be found <a href="https://github.com/open-policy-agent/gatekeeper-library">here</a></p>
+<p>You should see the following output:</p>
+<p><div class="highlight"><pre><span></span><code>NAME                                             READY   STATUS    RESTARTS   AGE
+gatekeeper-audit-7c5998d4c-b5n7j                 <span class="m">1</span>/1     Running   <span class="m">0</span>          1d
+gatekeeper-controller-manager-5894545cc9-b86zm   <span class="m">1</span>/1     Running   <span class="m">0</span>          1d
+gatekeeper-controller-manager-5894545cc9-bntdt   <span class="m">1</span>/1     Running   <span class="m">0</span>          1d
+gatekeeper-controller-manager-5894545cc9-tb7fz   <span class="m">1</span>/1     Running   <span class="m">0</span>          1d
+</code></pre></div>
+You will notice the <code>gatekeeper-audit-7c5998d4c-b5n7j</code> pod that is created when we deploy the <code>OpaGatekeeperAddOn</code>. The audit functionality enables periodic evaluations of replicated resources against the Constraints enforced in the cluster to detect pre-existing misconfigurations. Gatekeeper stores audit results as violations listed in the status field of the relevant Constraint. The <code>gatekeeper-controller-manager</code> is simply there to manage the <code>OpaGatekeeperAddOn</code>. </p>
+<h2 id="example-with-opa-gatekeeper">Example with OPA Gatekeeper<a class="headerlink" href="#example-with-opa-gatekeeper" title="Permanent link">&para;</a></h2>
+<p>For the purposes of operating within a Shared Services Platform, we will be focusing on how to use a policy driven approach to secure our cluster using OPA Gatekeeper. The OPA Gatekeeper community has created a library of example policies and constraint templates which can be found <a href="https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/general">here</a>. In this example we will create a policy that enforces including labels for newly created namespaces and pods. The ConstraintTemplate can be found <a href="https://github.com/open-policy-agent/gatekeeper-library/blob/master/library/general/requiredlabels/template.yaml">here</a>.</p>
+<p>Run the following command to create the ConstraintTemplate:</p>
+<div class="highlight"><pre><span></span><code>kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper-library/master/library/general/requiredlabels/template.yaml
+</code></pre></div>
+<p>To verify that the ConstraintTemplate was created run the following command:</p>
+<div class="highlight"><pre><span></span><code>kubectl get constrainttemplate
+</code></pre></div>
+<p>You should see the following output:</p>
+<div class="highlight"><pre><span></span><code>NAME                AGE
+k8srequiredlabels   45s
+</code></pre></div>
+<p>You will notice that if you create a new namespace without any labels that the request will go through and that is because we now need to create the individual <code>Constraint CRD</code> as defined by the <code>Constraint Template</code> that we created above. Let's create the individal <code>Constraint CRD</code> using the command below: </p>
+<div class="highlight"><pre><span></span><code>k apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper-library/master/library/general/requiredlabels/samples/all-must-have-owner/constraint.yaml           
+</code></pre></div>
+<p>If we then try and create a namespace by running <code>kubectl create ns test</code> (notice that we are not adding any labels) you will get the following error message:</p>
+<div class="highlight"><pre><span></span><code>Error from server <span class="o">([</span>all-must-have-owner<span class="o">]</span> All namespaces must have an <span class="sb">`</span>owner<span class="sb">`</span> label that points to your company username<span class="o">)</span>: admission webhook <span class="s2">&quot;validation.gatekeeper.sh&quot;</span> denied the request: <span class="o">[</span>all-must-have-owner<span class="o">]</span> All namespaces must have an <span class="sb">`</span>owner<span class="sb">`</span> label that points to your company username
+</code></pre></div>
+<p>For more information on OPA Gatekeeper please refer to the links below:</p>
+<ul>
+<li>https://github.com/open-policy-agent</li>
+<li>https://open-policy-agent.github.io/gatekeeper/website/docs/</li>
+<li>https://github.com/open-policy-agent/gatekeeper-library </li>
+</ul>
+                
+              
+              
+                
+
 
               
             </article>
@@ -895,19 +735,19 @@ opa-allowed           <span class="m">1</span>/1     Running   <span class="m">0
         
       </main>
       
-        <footer class="md-footer">
+        
+<footer class="md-footer">
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
       
     </div>
   </div>
@@ -917,10 +757,10 @@ opa-allowed           <span class="m">1</span>/1     Running   <span class="m">0
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.361d90f1.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.289a2a4b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
       
     
   </body>

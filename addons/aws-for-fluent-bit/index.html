@@ -14,7 +14,7 @@
     
     
       
-        <title>SSM Agent - Amazon EKS SSP Quick Start</title>
+        <title>AWS for Fluent Bit - Amazon EKS SSP Quick Start</title>
       
     
     
@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ssm-agent-add-on" class="md-skip">
+        <a href="#aws-for-fluent-bit" class="md-skip">
           Skip to content
         </a>
       
@@ -89,7 +89,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SSM Agent
+              AWS for Fluent Bit
             
           </span>
         </div>
@@ -268,14 +268,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       <label class="md-nav__link" for="__nav_6">
         AddOns
@@ -435,64 +433,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          SSM Agent
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../ssm-agent/" class="md-nav__link">
         SSM Agent
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
-    Usage
-  </a>
-  
-    <nav class="md-nav" aria-label="Usage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#use-case-private-clusters" class="md-nav__link">
-    Use Case: Private Clusters
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -674,18 +619,19 @@
     Usage
   </a>
   
-    <nav class="md-nav" aria-label="Usage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#use-case-private-clusters" class="md-nav__link">
-    Use Case: Private Clusters
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#iam-policies" class="md-nav__link">
+    IAM Policies
+  </a>
   
 </li>
       
@@ -701,35 +647,19 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/aws-quickstart/ssp-amazon-eks/edit/master/docs/addons/ssm-agent.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/aws-quickstart/ssp-amazon-eks/edit/master/docs/addons/aws-for-fluent-bit.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="ssm-agent-add-on">SSM Agent Add-on<a class="headerlink" href="#ssm-agent-add-on" title="Permanent link">&para;</a></h1>
-<p>This add-on uses the Kubernetes DaemonSet resource type to install AWS Systems Manager Agent (SSM Agent) on all worker nodes, instead of installing it manually or replacing the Amazon Machine Image (AMI) for the nodes. DaemonSet uses a CronJob on the worker node to schedule the installation of SSM Agent.</p>
-<p>A common use-case for installing SSM Agent on the worker nodes is to be able open a terminal session on an instance without the need to create a bastion instance and without having to install SSH keys on the worker nodes.</p>
-<p>The AWS Identity and Access Management (IAM) managed role <strong>AmazonSSMManagedInstanceCore</strong> provides the required permissions for SSM Agent to run on EC2 instances. This role is automatically attached to the instances when this add-on is enabled.</p>
-<p><strong>Limitations</strong></p>
-<ul>
-<li>
-<p>This add-on isn't applicable to AWS Fargate, because DaemonSets aren't supported on the Fargate platform.</p>
-</li>
-<li>
-<p>This add-on applies only to Linux-based worker nodes.</p>
-</li>
-<li>
-<p>The DaemonSet pods run in privileged mode. If the Amazon EKS cluster has a webhook that blocks pods in privileged mode, the SSM Agent will not be installed.</p>
-</li>
-<li>
-<p>Only latest version of SSM Agent add-on can be installed.</p>
-</li>
-</ul>
+                <h1 id="aws-for-fluent-bit">AWS for Fluent Bit<a class="headerlink" href="#aws-for-fluent-bit" title="Permanent link">&para;</a></h1>
+<p>Fluent Bit is an open source log processor and forwarder which allows you to collect data like metrics and logs from different sources, enrich them with filters and send them to multiple destinations.</p>
+<p>AWS provides a Fluent Bit image with plugins for both CloudWatch Logs and Kinesis Data Firehose. The <a href="https://gallery.ecr.aws/aws-observability/aws-for-fluent-bit">AWS for Fluent Bit image</a> is available on the Amazon ECR Public Gallery. For more details, see <a href="https://github.com/aws/aws-for-fluent-bit">AWS for Fluent Bit GitHub repository</a>.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">SSMAgentAddOn</span><span class="p">,</span> <span class="nx">ClusterAddOn</span><span class="p">,</span> <span class="nx">EksBlueprint</span> <span class="p">}</span>  <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/ssp-amazon-eks&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">ssp</span> <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/ssp-amazon-eks&#39;</span><span class="p">;</span>
 
-<span class="kd">const</span> <span class="nx">addOn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SSMAgentAddon</span><span class="p">();</span>
-<span class="kd">const</span> <span class="nx">addOns</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">ClusterAddOn</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">addOn</span> <span class="p">];</span>
+<span class="kd">const</span> <span class="nx">awsForFluentBit</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">AwsForFluentBitAddOn</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">addOns</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">ClusterAddOn</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">awsForFluentBit</span> <span class="p">];</span>
 
 <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
 <span class="k">new</span> <span class="nx">EksBlueprint</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;my-stack-name&#39;</span><span class="p">,</span> <span class="nx">addOns</span><span class="p">,</span> <span class="p">[],</span> <span class="p">{</span>
@@ -739,59 +669,57 @@
   <span class="p">},</span>
 <span class="p">});</span>
 </code></pre></div>
-<p>To validate that SSM Agent is running on worker node instance:</p>
-<blockquote>
-<p><strong>Pre-Requisite</strong>: Install the Session Manager plugin for the AWS CLI as per <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html">instructions</a> for your OS.</p>
-</blockquote>
-<ol>
-<li>Get the EC2 Instance Id of a worker node</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="nv">instance_id</span><span class="o">=</span><span class="k">$(</span>kubectl get nodes -o custom-columns<span class="o">=</span>NAME:.metadata.name,INSTANCEID:.spec.providerID <span class="p">|</span> awk -F/ <span class="s1">&#39;FNR == 2 {print $5}&#39;</span><span class="k">)</span>
-</code></pre></div>
-<ol>
-<li>Use the <code>start-session</code> api to see if you can open a terminal into the instance</li>
-</ol>
-<div class="highlight"><pre><span></span><code>aws ssm start-session --target <span class="nv">$instance_id</span>
-</code></pre></div>
-<h3 id="use-case-private-clusters">Use Case: Private Clusters<a class="headerlink" href="#use-case-private-clusters" title="Permanent link">&para;</a></h3>
-<p>If you are disabling public access for your EKS cluster endpoint such that the cluster endpoint is provisioned as private only i.e <code>endpointPublicAccess=false</code> and <code>endpointPrivateAccess=true</code>, then you can use one of the worker nodes as a TCP jump box to your EKS cluster api.</p>
-<p>To set up a TCP tunnel with your worker node as a jump box:</p>
-<ol>
-<li>Use SSM <code>send-command</code> api to create a TCP tunnel to Cluster API using <code>socat</code>:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="c1"># Get the Cluster API endpoint first</span>
-<span class="nv">CLUSTER_NAME</span><span class="o">=</span>&lt;insert your cluster name, e.g. blueprint-construct-dev&gt;
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<p>AWS for FluentBit can be configured to forward logs to multiple AWS destinations including CloudWatch, Kinesis, and Elasticsearch (now AWS OpenSearch Search). </p>
+<p>Sample configuration can be found below:</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">ssp</span> <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/ssp-amazon-eks&#39;</span><span class="p">;</span>
 
-<span class="nv">CLUSTER_API</span><span class="o">=</span><span class="k">$(</span>aws eks describe-cluster --name <span class="nv">$CLUSTER_NAME</span> <span class="p">|</span> jq -r <span class="s1">&#39;.cluster.endpoint&#39;</span> <span class="p">|</span> awk -F/ <span class="s1">&#39;{print $3}&#39;</span><span class="k">)</span>
+<span class="kd">const</span> <span class="nx">awsForFluentBit</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">AwsForFluentBitAddOn</span><span class="p">({</span> 
+    <span class="nx">values</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">cloudWatch</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">enabled</span>: <span class="kt">true</span><span class="p">,</span>
+            <span class="nx">region</span><span class="o">:</span> <span class="s2">&quot;&lt;aws_region&quot;</span><span class="p">,</span>
+            <span class="nx">logGroupName</span><span class="o">:</span> <span class="s2">&quot;&lt;log_groups_name&gt;&quot;</span>
+        <span class="p">},</span>
+        <span class="nx">kinesis</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">enabled</span>: <span class="kt">true</span><span class="p">,</span>
+            <span class="nx">region</span><span class="o">:</span> <span class="s2">&quot;&lt;aws_region&quot;</span><span class="p">,</span>
+            <span class="nx">deliveryStream</span><span class="o">:</span> <span class="s2">&quot;&lt;delivery_stream&gt;&quot;</span>
+        <span class="p">},</span>
+        <span class="nx">elasticSearch</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">enabled</span>: <span class="kt">true</span><span class="p">,</span>
+            <span class="nx">region</span><span class="o">:</span> <span class="s2">&quot;&lt;aws_region&quot;</span><span class="p">,</span>
+            <span class="nx">host</span><span class="o">:</span> <span class="s2">&quot;&lt;elastic_search_host&gt;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+<h2 id="iam-policies">IAM Policies<a class="headerlink" href="#iam-policies" title="Permanent link">&para;</a></h2>
+<p>When leveraging AWS for FluentBit to forward logs to various AWS destinations, you will need to supply an IAM role that grants privileges to the namespace in which FluentBit runs. For example, in order to forward logs to Amazon Elasticsearch Service, you would supply the following IAMPolicyStatement. </p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">ssp</span> <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/ssp-amazon-eks&#39;</span><span class="p">;</span>
 
-aws ssm send-command <span class="se">\</span>
-  --instance-ids <span class="nv">$instance_id</span> <span class="se">\</span>
-  --document-name <span class="s2">&quot;AWS-RunShellScript&quot;</span> <span class="se">\</span>
-  --comment <span class="s2">&quot;tcp tunnel to cluster api&quot;</span> <span class="se">\</span>
-  --parameters <span class="nv">commands</span><span class="o">=</span><span class="s2">&quot;nohup sudo socat TCP-LISTEN:443\,fork TCP:</span><span class="nv">$CLUSTER_API</span><span class="s2">:443 &amp;&quot;</span>
+<span class="kd">const</span> <span class="nx">domain</span> <span class="o">=</span> <span class="nx">es</span><span class="p">.</span><span class="nx">Domain</span><span class="p">()</span>
+<span class="kd">const</span> <span class="nx">domainWritePolicy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">iam</span><span class="p">.</span><span class="nx">PolicyStatement</span><span class="p">({</span>
+    <span class="nx">actions</span><span class="o">:</span> <span class="p">[</span>
+        <span class="s1">&#39;es:ESHttpDelete&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;es:ESHttpPost&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;es:ESHttpPut&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;es:ESHttpPatch&#39;</span>
+    <span class="p">],</span>
+    <span class="nx">resources</span><span class="o">:</span> <span class="p">[</span><span class="nx">domain</span><span class="p">.</span><span class="nx">arn</span><span class="p">],</span>
+<span class="p">})</span>
+
+<span class="kd">const</span> <span class="nx">awsForFluentBit</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">AwsForFluentBitAddOn</span><span class="p">({</span> 
+    <span class="nx">iamPolicies</span><span class="o">:</span> <span class="p">[</span><span class="nx">domainWritePolicy</span><span class="p">]</span>
+    <span class="nx">values</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">elasticSearch</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">enabled</span>: <span class="kt">true</span><span class="p">,</span>
+            <span class="nx">region</span><span class="o">:</span> <span class="s2">&quot;&lt;aws_region&quot;</span><span class="p">,</span>
+            <span class="nx">host</span><span class="o">:</span> <span class="s2">&quot;&lt;elastic_search_host&gt;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">});</span>
 </code></pre></div>
-<ol>
-<li>Update <code>~/.kube/config</code> to use port 8443 instead of 443 as your local host may not allow you to bind port 443 (depending on your machine network configuration you may not be able to bind to port 443. In such a case, you can bind to port 8443)</li>
-</ol>
-<div class="highlight"><pre><span></span><code>sed -i -e <span class="s2">&quot;s/https:\/\/</span><span class="nv">$CLUSTER_API</span><span class="s2">/https:\/\/</span><span class="nv">$CLUSTER_API</span><span class="s2">:8443/&quot;</span> ~/.kube/config
-</code></pre></div>
-<ol>
-<li>Update /etc/hosts so that <code>$CLUSTER_API</code> resolves to <code>127.0.0.1</code>.</li>
-</ol>
-<p><div class="highlight"><pre><span></span><code>sudo <span class="nb">echo</span> <span class="s2">&quot;127.0.0.1 </span><span class="nv">$CLUSTER_API</span><span class="s2">&quot;</span> &gt;&gt; /etc/hosts
-</code></pre></div>
-4. Start an SSM session to forward remote port 443 to local port 8443:</p>
-<div class="highlight"><pre><span></span><code>aws ssm start-session <span class="se">\</span>
-  --target <span class="nv">$instance_id</span> <span class="se">\</span>
-  --document-name AWS-StartPortForwardingSession <span class="se">\</span>
-  --parameters <span class="s1">&#39;{&quot;portNumber&quot;:[&quot;443&quot;], &quot;localPortNumber&quot;:[&quot;8443&quot;]}&#39;</span>
-</code></pre></div>
-<p>At this point you should be able to execute <code>kubectl ...</code> commands against your cluster API from another terminal window.</p>
-<p><strong>Limitations</strong></p>
-<ul>
-<li>This approach cannot be used for Fargate or BottleRocket based providers.</li>
-<li><code>socat</code> is available on EKS optimized AMI out of the box but may have to be explicitly installed on others AMIs.</li>
-</ul>
                 
               
               
@@ -807,39 +735,6 @@ aws ssm send-command <span class="se">\</span>
       
         
 <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        <a href="../nginx/" class="md-footer__link md-footer__link--prev" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Nginx
-            </div>
-          </div>
-        </a>
-      
-      
-        <a href="../secrets-store/" class="md-footer__link md-footer__link--next" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Secrets Store
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
