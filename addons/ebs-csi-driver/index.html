@@ -8,19 +8,19 @@
       
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.4">
     
     
       
-        <title>Overview - Amazon EKS SSP Quick Start</title>
+        <title>EBS CSI Driver Amazon EKS Add-on - Amazon EKS SSP Quick Start</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.bb3983ee.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bb3983ee.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
         
       
     
@@ -34,7 +34,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -58,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#add-ons" class="md-skip">
+        <a href="#ebs-csi-driver-amazon-eks-add-on" class="md-skip">
           Skip to content
         </a>
       
@@ -72,7 +72,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Amazon EKS SSP Quick Start" class="md-header__button md-logo" aria-label="Amazon EKS SSP Quick Start" data-md-component="logo">
+    <a href="../.." title="Amazon EKS SSP Quick Start" class="md-header__button md-logo" aria-label="Amazon EKS SSP Quick Start" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -91,7 +91,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Overview
+              EBS CSI Driver Amazon EKS Add-on
             
           </span>
         </div>
@@ -170,7 +170,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Amazon EKS SSP Quick Start" class="md-nav__button md-logo" aria-label="Amazon EKS SSP Quick Start" data-md-component="logo">
+    <a href="../.." title="Amazon EKS SSP Quick Start" class="md-nav__button md-logo" aria-label="Amazon EKS SSP Quick Start" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -201,7 +201,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         Overview
       </a>
     </li>
@@ -216,7 +216,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting-started/" class="md-nav__link">
+      <a href="../../getting-started/" class="md-nav__link">
         Getting Started
       </a>
     </li>
@@ -231,7 +231,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../core-concepts/" class="md-nav__link">
+      <a href="../../core-concepts/" class="md-nav__link">
         Core Concepts
       </a>
     </li>
@@ -246,7 +246,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../teams/" class="md-nav__link">
+      <a href="../../teams/" class="md-nav__link">
         Teams
       </a>
     </li>
@@ -261,7 +261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pipelines/" class="md-nav__link">
+      <a href="../../pipelines/" class="md-nav__link">
         Pipelines
       </a>
     </li>
@@ -274,14 +274,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       
       
@@ -302,52 +300,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Overview
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
         Overview
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#supported-add-ons" class="md-nav__link">
-    Supported Add-ons
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -359,7 +316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="app-mesh/" class="md-nav__link">
+      <a href="../app-mesh/" class="md-nav__link">
         AWS App Mesh
       </a>
     </li>
@@ -373,7 +330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="argo-cd/" class="md-nav__link">
+      <a href="../argo-cd/" class="md-nav__link">
         ArgoCD
       </a>
     </li>
@@ -387,7 +344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aws-load-balancer-controller/" class="md-nav__link">
+      <a href="../aws-load-balancer-controller/" class="md-nav__link">
         AWS Load Balancer Controller
       </a>
     </li>
@@ -401,7 +358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="calico/" class="md-nav__link">
+      <a href="../calico/" class="md-nav__link">
         Calico
       </a>
     </li>
@@ -415,7 +372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="coredns/" class="md-nav__link">
+      <a href="../coredns/" class="md-nav__link">
         CoreDns
       </a>
     </li>
@@ -429,7 +386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cluster-autoscaler/" class="md-nav__link">
+      <a href="../cluster-autoscaler/" class="md-nav__link">
         Cluster Autoscaler
       </a>
     </li>
@@ -443,7 +400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="container-insights/" class="md-nav__link">
+      <a href="../container-insights/" class="md-nav__link">
         Container Insights
       </a>
     </li>
@@ -457,7 +414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="external-dns/" class="md-nav__link">
+      <a href="../external-dns/" class="md-nav__link">
         External DNS
       </a>
     </li>
@@ -471,7 +428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="kube-proxy/" class="md-nav__link">
+      <a href="../kube-proxy/" class="md-nav__link">
         Kube Proxy
       </a>
     </li>
@@ -485,7 +442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="metrics-server/" class="md-nav__link">
+      <a href="../metrics-server/" class="md-nav__link">
         Metrics Server
       </a>
     </li>
@@ -499,7 +456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="nginx/" class="md-nav__link">
+      <a href="../nginx/" class="md-nav__link">
         Nginx
       </a>
     </li>
@@ -513,7 +470,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ssm-agent/" class="md-nav__link">
+      <a href="../ssm-agent/" class="md-nav__link">
         SSM Agent
       </a>
     </li>
@@ -527,7 +484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="secrets-store/" class="md-nav__link">
+      <a href="../secrets-store/" class="md-nav__link">
         Secrets Store
       </a>
     </li>
@@ -541,7 +498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="vpc-cni/" class="md-nav__link">
+      <a href="../vpc-cni/" class="md-nav__link">
         Vpc Cni
       </a>
     </li>
@@ -569,7 +526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="xray/" class="md-nav__link">
+      <a href="../xray/" class="md-nav__link">
         AWS XRay
       </a>
     </li>
@@ -617,7 +574,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cluster-providers/" class="md-nav__link">
+      <a href="../../cluster-providers/" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -631,7 +588,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cluster-providers/asg-cluster-provider/" class="md-nav__link">
+      <a href="../../cluster-providers/asg-cluster-provider/" class="md-nav__link">
         ASG Cluster Provider
       </a>
     </li>
@@ -645,7 +602,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cluster-providers/mng-cluster-provider/" class="md-nav__link">
+      <a href="../../cluster-providers/mng-cluster-provider/" class="md-nav__link">
         MNG Cluster Provider
       </a>
     </li>
@@ -659,7 +616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cluster-providers/fargate-cluster-provider/" class="md-nav__link">
+      <a href="../../cluster-providers/fargate-cluster-provider/" class="md-nav__link">
         Fargate Cluster Provider
       </a>
     </li>
@@ -681,7 +638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../extensibility/" class="md-nav__link">
+      <a href="../../extensibility/" class="md-nav__link">
         Extensibility
       </a>
     </li>
@@ -715,8 +672,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#supported-add-ons" class="md-nav__link">
-    Supported Add-ons
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-options" class="md-nav__link">
+    Configuration Options
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation" class="md-nav__link">
+    Validation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functionality" class="md-nav__link">
+    Functionality
   </a>
   
 </li>
@@ -733,153 +718,65 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/aws-quickstart/ssp-amazon-eks/edit/master/docs/addons/index.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/aws-quickstart/ssp-amazon-eks/edit/master/docs/addons/ebs-csi-driver.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
-<h1 id="add-ons">Add-ons<a class="headerlink" href="#add-ons" title="Permanent link">&para;</a></h1>
-<p>The <code>ssp-amazon-eks</code> framework leverages a modular approach to managing <a href="https://kubernetes.io/docs/concepts/cluster-administration/addons/">Add-ons</a> that run within the context of a Kubernetes cluster. Customers are free to select the add-ons that run in each of their blueprint clusters.</p>
-<p>Within the context of the <code>ssp-amazon-eks</code> framework, an add-on is abstracted as <code>ClusterAddOn</code> interface, and the implementation of the add-on interface can do whatever is necessary to support the desired add-on functionality. This can include applying manifests to a Kubernetes cluster or calling AWS APIs to provision new resources. </p>
-<h2 id="supported-add-ons">Supported Add-ons<a class="headerlink" href="#supported-add-ons" title="Permanent link">&para;</a></h2>
-<p>The framework currently supports the following add-ons.</p>
-<table>
-<thead>
-<tr>
-<th>Add-on</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="./app-mesh"><code>AppMeshAddOn</code></a></td>
-<td>Adds an AppMesh controller and CRDs (pending validation on the latest version of CDK)</td>
-</tr>
-<tr>
-<td><a href="./argo-cd"><code>ArgoCDAddOn</code></a></td>
-<td>Provisions Argo CD into your cluster.</td>
-</tr>
-<tr>
-<td><a href="./aws-load-balancer-controller"><code>AWS Load Balancer Controller</code></a></td>
-<td>Provisions the AWS Load Balancer Controller into your cluster.</td>
-</tr>
-<tr>
-<td><a href="./calico"><code>CalicoAddOn</code></a></td>
-<td>Adds the Calico 1.7.1 CNI/Network policy engine</td>
-</tr>
-<tr>
-<td><a href="./cluster-autoscaler"><code>ClusterAutoscalerAddOn</code></a></td>
-<td>Adds the standard cluster autoscaler</td>
-</tr>
-<tr>
-<td><a href="./container-insights"><code>ContainerInsightsAddOn</code></a></td>
-<td>Adds Container Insights support integrating monitoring with CloudWatch</td>
-</tr>
-<tr>
-<td><a href="coredns/"><code>CoreDnsAddOn</code></a></td>
-<td>Adds CoreDNS Amazon EKS add-on. CoreDNS is a flexible, extensible DNS server that can serve as the Kubernetes cluster DNS</td>
-</tr>
-<tr>
-<td><a href="ebs-csi-driver/"><code>EbsCsiDriverAddOn</code></a></td>
-<td>Adds EBS CSI Driver Amazon EKS add-on. This driver manages the lifecycle of Amazon EBS volumes for persistent storage</td>
-</tr>
-<tr>
-<td><a href="./external-dns"><code>ExternalDnsAddOn</code></a></td>
-<td>Adds <a href="https://github.com/kubernetes-sigs/external-dns">External DNS</a> support for AWS to the cluster, integrating with Amazon Route 53</td>
-</tr>
-<tr>
-<td><a href="https://github.com/keptn-sandbox/keptn-ssp-addons"><code>Keptn</code></a></td>
-<td><a href="https://keptn.sh/">Keptn</a> Control Plane and Execution Plane AddOn</td>
-</tr>
-<tr>
-<td><a href="kubecost/"><code>KubecostAddOn</code></a></td>
-<td>Adds <a href="https://kubecost.com">Kubecost</a> cost analyzer to the EKS cluster</td>
-</tr>
-<tr>
-<td><a href="kubevious/"><code>KubeviousAddOn</code></a></td>
-<td>Adds <a href="https://github.com/kubevious/kubevious">Kubevious</a> open source Kubernetes dashboard to an EKS cluster</td>
-</tr>
-<tr>
-<td><a href="karpenter/"><code>KarpenterAddOn</code></a></td>
-<td>Adds <a href="https://github.com/awslabs/karpenter">Karpenter</a> support for Amazon EKS.</td>
-</tr>
-<tr>
-<td><a href="kube-proxy/"><code>KubeProxyAddOn</code></a></td>
-<td>Adds kube-proxy Amazon EKS add-on. Kube-proxy maintains network rules on each Amazon EC2 node</td>
-</tr>
-<tr>
-<td><a href="./metrics-server"><code>MetricsServerAddOn</code></a></td>
-<td>Adds metrics server (pre-req for HPA and other monitoring tools)</td>
-</tr>
-<tr>
-<td><a href="nginx/"><code>NginxAddOn</code></a></td>
-<td>Adds NGINX ingress controller</td>
-</tr>
-<tr>
-<td><a href="secrets-store/"><code>SecretsStoreAddOn</code></a></td>
-<td>Adds AWS Secrets Manager and Config Provider for Secret Store CSI Driver to the EKS Cluster</td>
-</tr>
-<tr>
-<td><a href="ssm-agent/"><code>SSMAgentAddOn</code></a></td>
-<td>Adds <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent.html">Amazon SSM Agent</a> to worker nodes</td>
-</tr>
-<tr>
-<td><a href="vpc-cni/"><code>VpcCniAddOn</code></a></td>
-<td>Adds the Amazon VPC CNI Amazon EKS addon to support native VPC networking for Amazon EKS</td>
-</tr>
-<tr>
-<td><a href="https://github.com/weaveworks/weave-gitops-ssp-addon"><code>Weave GitOps</code></a></td>
-<td><a href="https://www.weave.works/product/gitops-core/">Weave GitOps Core</a> AddOn</td>
-</tr>
-<tr>
-<td><a href="velero/"><code>VeleroAddOn</code></a></td>
-<td>Adds <a href="https://velero.io/">Velero</a> to the EKS Cluster</td>
-</tr>
-<tr>
-<td><a href="./xray"><code>XrayAddOn</code></a></td>
-<td>Adds XRay Daemon to the EKS Cluster</td>
-</tr>
-</tbody>
-</table>
-<h1 id="standard-helm-add-on-configuration-options">Standard Helm Add-On Configuration Options<a class="headerlink" href="#standard-helm-add-on-configuration-options" title="Permanent link">&para;</a></h1>
-<p>Many add-ons leverage helm to provision and maintain deployments. All provided add-ons that leverage helm allow specifying the following add-on attributes:</p>
-<div class="highlight"><pre><span></span><code>    <span class="cm">/**</span>
-<span class="cm">     * Name of the helm chart (add-on)</span>
-<span class="cm">     */</span>
-    <span class="nx">name?</span>: <span class="kt">string</span><span class="p">,</span>
+<h1 id="ebs-csi-driver-amazon-eks-add-on">EBS CSI Driver Amazon EKS Add-on<a class="headerlink" href="#ebs-csi-driver-amazon-eks-add-on" title="Permanent link">&para;</a></h1>
+<p>The <code>EBS CSI Driver Amazon EKS Add-on</code> allows Amazon Elastic Kubernetes Service (Amazon EKS) clusters to manage the lifecycle of Amazon EBS volumes for persistent volumes.</p>
+<p>This driver is not automatically installed when you first create a cluster, it must be added to the cluster in order to manage EBS volumes.</p>
+<p>For more information on the driver, please review the <a href="https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html">user guide</a>.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Amazon EKS EBS CSI Driver add-on is only available on Amazon EKS clusters running Kubernetes version 1.20 and later.</li>
+<li>Note that the version of the driver that can be used on an EKS cluster depends on the version of Kubernetes running in the cluster. See the configuration options section below for more details</li>
+</ul>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">App</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@aws-cdk/core&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">ssp</span> <span class="kr">from</span> <span class="s1">&#39;@aws-quickstart/ssp-amazon-eks&#39;</span><span class="p">;</span>
 
-    <span class="cm">/**</span>
-<span class="cm">     * Namespace where helm release will be installed</span>
-<span class="cm">     */</span>
-    <span class="nx">namespace?</span>: <span class="kt">string</span><span class="p">,</span>
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">App</span><span class="p">();</span>
 
-    <span class="cm">/**</span>
-<span class="cm">     * Chart name</span>
-<span class="cm">     */</span>
-    <span class="nx">chart?</span>: <span class="kt">string</span><span class="p">,</span>
-
-    <span class="cm">/**</span>
-<span class="cm">     * Helm chart version.</span>
-<span class="cm">     */</span>
-    <span class="nx">version?</span>: <span class="kt">string</span><span class="p">,</span> 
-
-    <span class="cm">/**</span>
-<span class="cm">     * Helm release</span>
-<span class="cm">     */</span>
-    <span class="nx">release?</span>: <span class="kt">string</span><span class="p">,</span>
-
-    <span class="cm">/**</span>
-<span class="cm">     * Helm repository</span>
-<span class="cm">     */</span>
-    <span class="nx">repository?</span>: <span class="kt">string</span><span class="p">,</span>
-
-    <span class="cm">/**</span>
-<span class="cm">     * Optional values for the helm chart. </span>
-<span class="cm">     */</span>
-    <span class="nx">values?</span>: <span class="kt">Values</span>
+<span class="nx">ssp</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">.</span><span class="nx">builder</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="ow">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">EbsCsiDriverAddOn</span><span class="p">()</span> <span class="p">)</span>
+    <span class="p">.</span><span class="nx">build</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;my-cluster&#39;</span><span class="p">);</span>
 </code></pre></div>
-<p>Ability to set repository url may be leveraged for private repositories. </p>
-<p>Version field can be modified from the default chart version, e.g. if the add-on should be upgraded to the desired version, however, since the helm chart version supplied by the customer may not have been tested as part of the SSP release process, SSP community may not be able to reproduce/fix issues related to the helm chart version upgrade.</p>
+<h2 id="configuration-options">Configuration Options<a class="headerlink" href="#configuration-options" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>version</code>: Version of the EBS CSI Driver add-on to be installed. The version must be compatible with kubernetes cluster version. </li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># Command to show versions of the EBS CSI Driver add-on available for cluster version is 1.20</span>
+ aws eks describe-addon-versions <span class="se">\</span>
+--addon-name aws-ebs-csi-driver <span class="se">\</span>
+--kubernetes-version <span class="m">1</span>.20 <span class="se">\</span>
+--query <span class="s2">&quot;addons[].addonVersions[].[addonVersion, compatibilities[].defaultVersion]&quot;</span> --output text
+
+<span class="c1"># Output</span>
+v1.4.0-eksbuild.preview
+</code></pre></div>
+<h2 id="validation">Validation<a class="headerlink" href="#validation" title="Permanent link">&para;</a></h2>
+<p>To validate that EBS CSI Driver add-on is installed properly, ensure that the ebs pods are running in the cluster</p>
+<div class="highlight"><pre><span></span><code>kubectl get pods -n kube-system <span class="p">|</span> grep ebs
+
+<span class="c1"># Output</span>
+ebs-csi-controller-95848f4d9-hlrzs   <span class="m">4</span>/4     Running   <span class="m">0</span>          5m8s
+ebs-csi-controller-95848f4d9-m4f54   <span class="m">4</span>/4     Running   <span class="m">0</span>          4m38s
+ebs-csi-node-c9xdf                   <span class="m">3</span>/3     Running   <span class="m">0</span>          5m8s
+</code></pre></div>
+<p>Additionally, the <code>aws cli</code> can be used to determine which version of the add-on is installed in the cluster
+<div class="highlight"><pre><span></span><code><span class="c1"># Assuming cluster-name is my-cluster, below command shows the version of coredns installed. Check if it is same as the version installed via EKS add-on</span>
+aws eks describe-addon <span class="se">\</span>
+    --cluster-name my-cluster <span class="se">\</span>
+    --addon-name aws-ebs-csi-driver <span class="se">\</span>
+    --query <span class="s2">&quot;addon.addonVersion&quot;</span> <span class="se">\</span>
+    --output text
+
+<span class="c1"># Output</span>
+v1.4.0-eksbuild.preview
+</code></pre></div></p>
+<h2 id="functionality">Functionality<a class="headerlink" href="#functionality" title="Permanent link">&para;</a></h2>
+<p>Applies the EBS CSI Driver add-on to an Amazon EKS cluster. </p>
 
               
             </article>
@@ -889,41 +786,6 @@
       </main>
       
         <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        
-        <a href="../pipelines/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Pipelines" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Pipelines
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="app-mesh/" class="md-footer__link md-footer__link--next" aria-label="Next: AWS App Mesh" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              AWS App Mesh
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -945,10 +807,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.361d90f1.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.361d90f1.min.js"}</script>
     
     
-      <script src="../assets/javascripts/bundle.289a2a4b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.289a2a4b.min.js"></script>
       
     
   </body>
