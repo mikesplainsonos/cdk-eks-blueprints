@@ -704,6 +704,10 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="./generic-cluster-provider"><code>GenericClusterProvider</code></a></td>
+<td>Provisions an EKS cluster with one or more managed or Auto Scaling groups as well as Fargate Profiles.</td>
+</tr>
+<tr>
 <td><a href="./asg-cluster-provider"><code>AsgClusterProvider</code></a></td>
 <td>Provisions an EKS cluster with an Auto Scaling group used for compute capacity.</td>
 </tr>
@@ -717,7 +721,8 @@
 </tr>
 </tbody>
 </table>
-<p>By default, the framework will leverage the <code>MngClusterProvider</code>.</p>
+<p>By default, the framework will leverage the <code>MngClusterProvider</code> which creates a single managed node group.</p>
+<p>If you would like to add more node groups to a single cluster, you can leverage <code>GenericClusterProvider</code>, which allows multiple managed node groups or autoscaling (self-managed) node groups along with Fargate profiles.</p>
 
               
             </article>

@@ -830,17 +830,24 @@
 <span class="p">});</span>
 </code></pre></div>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
-<p>Once the Container Insights add-on has been installed in your cluster, validate that the CloudWatch Agent and the FluentD daemons are running. </p>
-<div class="highlight"><pre><span></span><code><span class="sb">`</span>kubectl get all -n amazon-cloudwatch<span class="sb">`</span>
+<p>Once the Container Insights add-on has been installed in your cluster, validate that the <a href="https://aws.amazon.com/otel">AWS Distro for Open Telemetry</a> (ADOT) and the FluentBit daemons are running. </p>
+<div class="highlight"><pre><span></span><code>kubectl get all -n amazon-cloudwatch 
+kubectl get all -n amzn-cloudwatch-metrics
 </code></pre></div>
-<p>You should see output similar to the following: </p>
-<div class="highlight"><pre><span></span><code>NAME                           READY   STATUS    RESTARTS   AGE
-pod/cloudwatch-agent-k8wxl     1/1     Running   0          105s
-pod/fluentd-cloudwatch-78zv4   1/1     Running   0          105s
+<p>You should see output similar to the following respectively (assuming two node cluster): </p>
+<div class="highlight"><pre><span></span><code>NAME                   READY   STATUS    RESTARTS   AGE
+pod/fluent-bit-5chvg   1/1     Running   2          100s
+pod/fluent-bit-px7r6   1/1     Running   0          101s
 
-NAME                                DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
-daemonset.apps/cloudwatch-agent     1         1         1       1            1           &lt;none&gt;          107s
-daemonset.apps/fluentd-cloudwatch   1         1         1       1            1           &lt;none&gt;          106s
+NAME                        DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+daemonset.apps/fluent-bit   2         2         2       2            2           &lt;none&gt;          100s
+
+NAME                                 READY   STATUS    RESTARTS   AGE
+pod/adot-collector-daemonset-b2rpc   1/1     Running   0          106s
+pod/adot-collector-daemonset-k6tfw   1/1     Running   2          106s
+
+NAME                                      DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+daemonset.apps/adot-collector-daemonset   2         2         2       2            2           &lt;none&gt;          106s
 </code></pre></div>
 <p>To enable or disable control plane logs with the console, run the following command in your terminal.</p>
 <div class="highlight"><pre><span></span><code>aws eks update-cluster-config <span class="se">\</span>

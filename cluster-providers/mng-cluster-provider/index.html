@@ -811,7 +811,7 @@
 <span class="ow">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="p">{</span> <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;blueprint&#39;</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[],</span> <span class="nx">clusterProvider</span> <span class="p">});</span>
 </code></pre></div>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
-<p>THe <code>EC2ClusterProvider</code> supports the following configuration options. </p>
+<p>The <code>MngClusterProvider</code> supports the following configuration options. </p>
 <table>
 <thead>
 <tr>
@@ -822,7 +822,11 @@
 <tbody>
 <tr>
 <td>name</td>
-<td>The name for the cluster.</td>
+<td>The name for the cluster. @Deprecated</td>
+</tr>
+<tr>
+<td>clusterName</td>
+<td>Cluster name</td>
 </tr>
 <tr>
 <td>minSize</td>
@@ -846,7 +850,7 @@
 </tr>
 <tr>
 <td>amiReleaseVersion</td>
-<td>The AMI Kuberenetes release version for the node group.</td>
+<td>The AMI Kubernetes release version for the node group.</td>
 </tr>
 <tr>
 <td>customAmi</td>
@@ -862,10 +866,11 @@
 </tr>
 <tr>
 <td>privateCluster</td>
-<td>public cluster, you will need to provide a list of subnets. There should be public and private subnets for EKS cluster to work. For more information see <a href="https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">Cluster VPC Considerations</a>.</td>
+<td>If <code>true</code> Kubernetes API server is private.</td>
 </tr>
 </tbody>
 </table>
+<p>There should be public and private subnets for EKS cluster to work. For more information see <a href="https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">Cluster VPC Considerations</a>.</p>
 <p>Configuration can also be supplied via context variables (specify in cdk.json, cdk.context.json, ~/.cdk.json or pass with -c command line option):</p>
 <ul>
 <li><code>eks.default.min-size</code></li>

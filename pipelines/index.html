@@ -825,6 +825,14 @@
 <p>To accomplish this, the EKS SSP - Reference Solution leverages the <a href="https://docs.aws.amazon.com/cdk/api/latest/docs/pipelines-readme.html"><code>Pipelines</code></a> CDK module. This module makes it trivial to create Continuous Delivery (CD) pipelines via CodePipeline that are responsible for deploying and updating your infrastructure. </p>
 <p>Additionally, the EKS SSP - Reference Solution leverages the GitHub integration that the <code>Pipelines</code> CDK module provides in order to integrate our pipelines with GitHub. The end result is that any new configuration pushed to a GitHub repository containing our CDK will be automatically deployed.</p>
 <h2 id="defining-your-blueprint-to-use-with-pipeline">Defining your blueprint to use with pipeline<a class="headerlink" href="#defining-your-blueprint-to-use-with-pipeline" title="Permanent link">&para;</a></h2>
+<p>Pipeline support requires enabling a setting for <em>modern</em> stack synthesis. This setting should be enabled for blueprints that leverage CDKv1 explicitly. 
+To enable this setting set the following in the <code>cdk.json</code> file in the project root directory:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;@aws-cdk/core:newStyleStackSynthesis&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
 <p>Creation of a pipeline starts with defining the blueprint that will be deployed across the pipeline stages.</p>
 <p>The framework allows defining a blueprint builder without instantiating the stack.</p>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">ssp</span> <span class="kr">from</span> <span class="s1">&#39;@aws-quickstart/ssp-amazon-eks&#39;</span>

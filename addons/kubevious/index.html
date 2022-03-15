@@ -707,6 +707,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#persistent-volume-usage" class="md-nav__link">
+    Persistent Volume usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#functionality" class="md-nav__link">
     Functionality
   </a>
@@ -769,6 +776,12 @@ After the port-forwarding has started, the application can be accessed by naviga
 for the MySQL root user. While it is not usually necessary to access the Kubevious MySQL database externally, it is possible to retrieve the 
 generated value by executing the command below:</p>
 <div class="highlight"><pre><span></span><code>    <span class="nb">echo</span> <span class="k">$(</span>kubectl get secret kubevious-mysql-secret-root  -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.data.MYSQL_ROOT_PASSWORD}&#39;</span> -n kubevious<span class="k">)</span> <span class="p">|</span> base64 --decode
+</code></pre></div>
+<h2 id="persistent-volume-usage">Persistent Volume usage<a class="headerlink" href="#persistent-volume-usage" title="Permanent link">&para;</a></h2>
+<p>Kubevious automatically creates a Persistent Volume (PV) to store the MySQL database data. However, per the <a href="https://github.com/kubevious/helm#uninstalling-the-chart">Kubevious
+documentation</a>, the PV is not removed when Kubevious is 
+uninstalled and must be removed manually:</p>
+<div class="highlight"><pre><span></span><code>    kubectl delete pvc data-kubevious-mysql-0 -n kubevious
 </code></pre></div>
 <h2 id="functionality">Functionality<a class="headerlink" href="#functionality" title="Permanent link">&para;</a></h2>
 <ol>
