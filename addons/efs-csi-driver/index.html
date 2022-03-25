@@ -14,7 +14,7 @@
     
     
       
-        <title>Cluster Autoscaler - Amazon EKS Blueprints Quick Start</title>
+        <title>EFS CSI Driver Amazon EKS Add-on - Amazon EKS Blueprints Quick Start</title>
       
     
     
@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cluster-autoscaler-add-on" class="md-skip">
+        <a href="#efs-csi-driver-amazon-eks-add-on" class="md-skip">
           Skip to content
         </a>
       
@@ -89,7 +89,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Cluster Autoscaler
+              EFS CSI Driver Amazon EKS Add-on
             
           </span>
         </div>
@@ -268,14 +268,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       <label class="md-nav__link" for="__nav_6">
         AddOns
@@ -363,99 +361,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Cluster Autoscaler
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../cluster-autoscaler/" class="md-nav__link">
         Cluster Autoscaler
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
-    Usage
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#functionality" class="md-nav__link">
-    Functionality
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testing-the-scaling-functionality" class="md-nav__link">
-    Testing the scaling functionality
-  </a>
-  
-    <nav class="md-nav" aria-label="Testing the scaling functionality">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#deploy-a-sample-app" class="md-nav__link">
-    Deploy a sample app
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#create-hpa-resource" class="md-nav__link">
-    Create HPA resource
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#generate-load" class="md-nav__link">
-    Generate load
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#verify-that-cluster-autoscaler-works" class="md-nav__link">
-    Verify that Cluster Autoscaler works
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -705,8 +615,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#usage" class="md-nav__link">
     Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-options" class="md-nav__link">
+    Configuration Options
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation" class="md-nav__link">
+    Validation
   </a>
   
 </li>
@@ -715,47 +646,6 @@
   <a href="#functionality" class="md-nav__link">
     Functionality
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testing-the-scaling-functionality" class="md-nav__link">
-    Testing the scaling functionality
-  </a>
-  
-    <nav class="md-nav" aria-label="Testing the scaling functionality">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#deploy-a-sample-app" class="md-nav__link">
-    Deploy a sample app
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#create-hpa-resource" class="md-nav__link">
-    Create HPA resource
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#generate-load" class="md-nav__link">
-    Generate load
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#verify-that-cluster-autoscaler-works" class="md-nav__link">
-    Verify that Cluster Autoscaler works
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -771,101 +661,51 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/aws-quickstart/cdk-eks-blueprints/edit/master/docs/addons/cluster-autoscaler.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/aws-quickstart/cdk-eks-blueprints/edit/master/docs/addons/efs-csi-driver.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="cluster-autoscaler-add-on">Cluster Autoscaler Add-on<a class="headerlink" href="#cluster-autoscaler-add-on" title="Permanent link">&para;</a></h1>
-<p>The Cluster Autoscaler add-on adds support for <a href="https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler">Cluster Autoscaler</a> to an EKS cluster. Cluster Autoscaler is a tool that automatically adjusts the number of nodes in your cluster when:</p>
+                <h1 id="efs-csi-driver-amazon-eks-add-on">EFS CSI Driver Amazon EKS Add-on<a class="headerlink" href="#efs-csi-driver-amazon-eks-add-on" title="Permanent link">&para;</a></h1>
+<p>The <code>EFS CSI Driver Amazon EKS Add-on</code> provides a CSI interface that allows Kubernetes clusters running on AWS to manage the lifecycle of Amazon EFS volumes for persistent storage.
+EFS CSI driver supports both dynamic and static provisioning of storage</p>
+<p>A couple of things to note:</p>
 <ul>
-<li>pods fail due to insufficient resources, or </li>
-<li>pods are rescheduled onto other nodes due to being in nodes that are underutilized for an extended period of time.</li>
+<li>Driver is not compatible with Windows-based container images</li>
+<li>The number of replicas to be deployed must be less or equal to the number of nodes in the cluster</li>
+</ul>
+<p>For more information on the driver, please review the <a href="https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html">user guide</a>.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The EFS file system itself must be created in AWS separately as the driver uses the EFS for storage, but it does not create it.</li>
 </ul>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ClusterAutoScalerAddOn</span><span class="p">,</span> <span class="nx">ClusterAddOn</span><span class="p">,</span> <span class="nx">EksBlueprint</span> <span class="p">}</span>  <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/eks-blueprints&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">App</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">&#39;aws-cdk-lib&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">blueprints</span> <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/eks-blueprints&#39;</span><span class="p">;</span>
 
-<span class="kd">const</span> <span class="nx">addOn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ClusterAutoscalerAddOn</span><span class="p">()</span>
-<span class="kd">const</span> <span class="nx">addOns</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">ClusterAddOn</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">addOn</span> <span class="p">];</span>
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">App</span><span class="p">();</span>
 
-<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
-<span class="k">new</span> <span class="nx">EksBlueprint</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;my-stack-name&#39;</span><span class="p">,</span> <span class="nx">addOns</span><span class="p">,</span> <span class="p">[],</span> <span class="p">{</span>
-  <span class="nx">env</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">account</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">AWS_ACCOUNT_ID</span><span class="o">&gt;</span><span class="p">,</span>
-      <span class="nx">region</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">AWS_REGION</span><span class="o">&gt;</span><span class="p">,</span>
-  <span class="p">},</span>
-<span class="p">});</span>
+<span class="nx">blueprints</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">.</span><span class="nx">builder</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="k">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">EfsCsiDriverAddOn</span><span class="p">()</span> <span class="p">)</span>
+    <span class="p">.</span><span class="nx">build</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;my-cluster&#39;</span><span class="p">);</span>
 </code></pre></div>
+<h2 id="configuration-options">Configuration Options<a class="headerlink" href="#configuration-options" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>version</code>: Version of the EFS CSI Driver add-on to be installed. Version 2.2.3 will be installed by default if a value is not provided</li>
+<li><code>replicaCount</code>: Number of replicas to be deployed. If not provided, two replicas will be deployed. Note that the number of replicas
+  should be less than or equal to the number of nodes in the cluster otherwise some pods will be left of pending state</li>
+</ul>
+<h2 id="validation">Validation<a class="headerlink" href="#validation" title="Permanent link">&para;</a></h2>
+<p>To validate that EFS CSI Driver add-on is installed properly, ensure that the ebs pods are running in the cluster</p>
+<div class="highlight"><pre><span></span><code>kubectl get pods -n kube-system <span class="p">|</span> grep efs
+
+<span class="c1"># Output</span>
+efs-csi-controller-7c9bd5d86d-v7jtk            <span class="m">3</span>/3     Running   <span class="m">0</span>          155m
+efs-csi-node-2c29j                             <span class="m">3</span>/3     Running   <span class="m">0</span>          155m
+</code></pre></div>
+<p>Additionally, the <a href="https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html">driver documentation</a> shows how to create an EFS file system to test the driver </p>
 <h2 id="functionality">Functionality<a class="headerlink" href="#functionality" title="Permanent link">&para;</a></h2>
-<ol>
-<li>Adds proper IAM permissions (such as modify autoscaling groups, terminate instances, etc.) to the NodeGroup IAM role. </li>
-<li>Configures service account, cluster roles, roles, role bindings and deployment.</li>
-<li>Resolves proper CA image to pull based on the Kubernetes version.</li>
-<li>Configuration allows passing a specific version of the image to pull.</li>
-<li>Applies proper tags for discoverability to the EC2 instances.</li>
-<li>Supports <a href="../#standard-helm-add-on-configuration-options">standard helm configuration options</a>.</li>
-</ol>
-<h2 id="testing-the-scaling-functionality">Testing the scaling functionality<a class="headerlink" href="#testing-the-scaling-functionality" title="Permanent link">&para;</a></h2>
-<p>The following steps will help test and validate Cluster Autoscaler functionality in your cluster.</p>
-<ol>
-<li>Deploy a sample app as a deployment.</li>
-<li>Create a Horizontal Pod Autoscaler (HPA) resource.</li>
-<li>Generate load to trigger scaling.</li>
-</ol>
-<h3 id="deploy-a-sample-app">Deploy a sample app<a class="headerlink" href="#deploy-a-sample-app" title="Permanent link">&para;</a></h3>
-<p>Take a note of the number of nodes available:</p>
-<div class="highlight"><pre><span></span><code>kubectl get nodes
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>NAME                                         STATUS   ROLES    AGE   VERSION
-ip-10-0-189-107.us-west-2.compute.internal   Ready    &lt;none&gt;   80m   v1.19.6-eks-49a6c0
-</code></pre></div>
-<p>The first step is to create a sample application via deployment and request 20m of CPU:</p>
-<div class="highlight"><pre><span></span><code>kubectl create deployment php-apache --image<span class="o">=</span>us.gcr.io/k8s-artifacts-prod/hpa-example
-kubectl <span class="nb">set</span> resources deploy php-apache --requests<span class="o">=</span><span class="nv">cpu</span><span class="o">=</span>20m 
-kubectl expose php-apache --port <span class="m">80</span>
-</code></pre></div>
-<p>You can see that there's 1 pod currently running:</p>
-<div class="highlight"><pre><span></span><code>kubectl get pod -l <span class="nv">app</span><span class="o">=</span>php-apache
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>NAME                          READY   STATUS    RESTARTS   AGE
-php-apache-55c4584468-vsbl7   1/1     Running   0          63s
-</code></pre></div>
-<h3 id="create-hpa-resource">Create HPA resource<a class="headerlink" href="#create-hpa-resource" title="Permanent link">&para;</a></h3>
-<p>Now we can create Horizontal Pod Autoscaler resource with 50% CPU target utilization, and the minimum number of pods at 1 and max at 20:
-<div class="highlight"><pre><span></span><code>kubectl autoscale deployment php-apache <span class="se">\</span>
-    --cpu-percent<span class="o">=</span><span class="m">50</span> <span class="se">\</span>
-    --min<span class="o">=</span><span class="m">1</span> <span class="se">\</span>
-    --max<span class="o">=</span><span class="m">20</span>
-</code></pre></div></p>
-<p>You can verify by looking at the hpa resource:</p>
-<div class="highlight"><pre><span></span><code>kubectl get hpa
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>NAME         REFERENCE               TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
-php-apache   Deployment/php-apache   10%/50%   1         20        2          52s
-</code></pre></div>
-<h3 id="generate-load">Generate load<a class="headerlink" href="#generate-load" title="Permanent link">&para;</a></h3>
-<p>With the resources created, you can generate load on the apache server with a busybox container:</p>
-<div class="highlight"><pre><span></span><code>kubectl --generator<span class="o">=</span>run-pod/v1 run -i --tty load-generator --image<span class="o">=</span>busybox /bin/sh
-</code></pre></div>
-<p>You can generate the actual load on the shell by running a while loop:</p>
-<div class="highlight"><pre><span></span><code><span class="k">while</span> true<span class="p">;</span> <span class="k">do</span> wget -q -O - http://php-apache<span class="p">;</span> <span class="k">done</span>
-</code></pre></div>
-<h3 id="verify-that-cluster-autoscaler-works">Verify that Cluster Autoscaler works<a class="headerlink" href="#verify-that-cluster-autoscaler-works" title="Permanent link">&para;</a></h3>
-<p>While the load is being generated, access another terminal to verify that HPA is working. The following command should return a list of many nods created (as many as 10):</p>
-<div class="highlight"><pre><span></span><code>kubectl get pods -l <span class="nv">app</span><span class="o">=</span>php-apache -o wide --watch
-</code></pre></div>
-<p>With more pods being created, you would expect more nodes to be created; you can access the Cluster Autoscaler logs to confirm:</p>
-<div class="highlight"><pre><span></span><code>kubectl -n kube-system logs -f deployment/cluster-autoscaler
-</code></pre></div>
-<p>Lastly, you can list all the nodes and see that there are now multiple nodes:</p>
-<div class="highlight"><pre><span></span><code>kubectl get nodes
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>NAME                                         STATUS   ROLES    AGE   VERSION
-ip-10-0-187-70.us-west-2.compute.internal    Ready    &lt;none&gt;   73s   v1.19.6-eks-49a6c0
-ip-10-0-189-107.us-west-2.compute.internal   Ready    &lt;none&gt;   84m   v1.19.6-eks-49a6c0
-ip-10-0-224-226.us-west-2.compute.internal   Ready    &lt;none&gt;   46s   v1.19.6-eks-49a6c0
-ip-10-0-233-105.us-west-2.compute.internal   Ready    &lt;none&gt;   90s   v1.19.6-eks-49a6c0
-</code></pre></div>
+<p>Applies the EFS CSI Driver add-on to an Amazon EKS cluster. </p>
                 
               
               
@@ -881,39 +721,6 @@ ip-10-0-233-105.us-west-2.compute.internal   Ready    &lt;none&gt;   90s   v1.19
       
         
 <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        <a href="../coredns/" class="md-footer__link md-footer__link--prev" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              CoreDns
-            </div>
-          </div>
-        </a>
-      
-      
-        <a href="../container-insights/" class="md-footer__link md-footer__link--next" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Container Insights
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

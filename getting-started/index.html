@@ -8,19 +8,20 @@
       
       
       
+      
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
     
     
       
-        <title>Getting Started - Amazon EKS SSP Quick Start</title>
+        <title>Getting Started - Amazon EKS Blueprints Quick Start</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.bb3983ee.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.bde7dde4.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ef6f36e2.min.css">
         
       
     
@@ -30,14 +31,13 @@
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
       
     
     
-    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
     
       
-
     
     
   </head>
@@ -51,6 +51,7 @@
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
   
     
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -67,12 +68,9 @@
       
     </div>
     
-    
-      
-
-<header class="md-header" data-md-component="header">
+      <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Amazon EKS SSP Quick Start" class="md-header__button md-logo" aria-label="Amazon EKS SSP Quick Start" data-md-component="logo">
+    <a href=".." title="Amazon EKS Blueprints Quick Start" class="md-header__button md-logo" aria-label="Amazon EKS Blueprints Quick Start" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -85,7 +83,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Amazon EKS SSP Quick Start
+            Amazon EKS Blueprints Quick Start
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -103,22 +101,19 @@
       <label class="md-header__button md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
-      <div class="md-search" data-md-component="search" role="dialog">
+      
+<div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-        </button>
-      </nav>
-      
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -135,26 +130,24 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/aws-quickstart/ssp-amazon-eks/" title="Go to repository" class="md-source" data-md-component="source">
+        
+<a href="https://github.com/aws-quickstart/cdk-eks-blueprints/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
-    aws-quickstart/ssp-amazon-eks
+    aws-quickstart/cdk-eks-blueprints
   </div>
 </a>
       </div>
     
   </nav>
-  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
-        
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -170,23 +163,24 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Amazon EKS SSP Quick Start" class="md-nav__button md-logo" aria-label="Amazon EKS SSP Quick Start" data-md-component="logo">
+    <a href=".." title="Amazon EKS Blueprints Quick Start" class="md-nav__button md-logo" aria-label="Amazon EKS Blueprints Quick Start" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
     </a>
-    Amazon EKS SSP Quick Start
+    Amazon EKS Blueprints Quick Start
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/aws-quickstart/ssp-amazon-eks/" title="Go to repository" class="md-source" data-md-component="source">
+      
+<a href="https://github.com/aws-quickstart/cdk-eks-blueprints/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
-    aws-quickstart/ssp-amazon-eks
+    aws-quickstart/cdk-eks-blueprints
   </div>
 </a>
     </div>
@@ -235,7 +229,6 @@
       </a>
       
         
-
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
@@ -251,7 +244,7 @@
       
         <li class="md-nav__item">
   <a href="#project-setup" class="md-nav__link">
-    Project setup
+    Project Setup
   </a>
   
 </li>
@@ -391,14 +384,10 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
-      
-      
-      
-        <label class="md-nav__link" for="__nav_6">
-          AddOns
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
+      <label class="md-nav__link" for="__nav_6">
+        AddOns
+        <span class="md-nav__icon md-icon"></span>
+      </label>
       <nav class="md-nav" aria-label="AddOns" data-md-level="1">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
@@ -407,7 +396,6 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
-              
   
   
   
@@ -418,10 +406,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -432,10 +418,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -446,10 +430,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -460,10 +442,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -474,10 +454,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -488,10 +466,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -502,10 +478,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -516,10 +490,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -530,10 +502,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -544,10 +514,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -558,10 +526,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -572,10 +538,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -586,10 +550,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -600,10 +562,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -614,10 +574,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -628,10 +586,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -642,7 +598,6 @@
     </li>
   
 
-            
           
         </ul>
       </nav>
@@ -663,14 +618,10 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
       
-      
-      
-      
-        <label class="md-nav__link" for="__nav_7">
-          Cluster Providers
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
+      <label class="md-nav__link" for="__nav_7">
+        Cluster Providers
+        <span class="md-nav__icon md-icon"></span>
+      </label>
       <nav class="md-nav" aria-label="Cluster Providers" data-md-level="1">
         <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
@@ -679,7 +630,6 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
-              
   
   
   
@@ -690,10 +640,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -704,10 +652,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -718,10 +664,8 @@
     </li>
   
 
-            
           
             
-              
   
   
   
@@ -732,7 +676,6 @@
     </li>
   
 
-            
           
         </ul>
       </nav>
@@ -767,7 +710,6 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
@@ -783,7 +725,7 @@
       
         <li class="md-nav__item">
   <a href="#project-setup" class="md-nav__link">
-    Project setup
+    Project Setup
   </a>
   
 </li>
@@ -869,51 +811,64 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/aws-quickstart/ssp-amazon-eks/edit/master/docs/getting-started.md" title="Edit this page" class="md-content__button md-icon">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-</a>
-
-
-<h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h1>
-<p>This getting started guide will walk you through setting up a new CDK project which leverages the <code>ssp-amazon-eks</code> NPM module to deploy a simple SSP. </p>
-<h2 id="project-setup">Project setup<a class="headerlink" href="#project-setup" title="Permanent link">&para;</a></h2>
-<p>To use the <code>ssp-amazon-eks</code> module, you must have the <a href="https://aws.amazon.com/cdk/">AWS Cloud Development Kit (CDK)</a> installed. Install CDK via the following.</p>
-<div class="highlight"><pre><span></span><code>npm install -g aws-cdk@1.143.0
+                  <a href="https://github.com/aws-quickstart/cdk-eks-blueprints/edit/master/docs/getting-started.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h1>
+<p>This getting started guide will walk you through setting up a new CDK project which leverages the <code>eks-blueprints</code> NPM module to deploy a simple Blueprints. </p>
+<h2 id="project-setup">Project Setup<a class="headerlink" href="#project-setup" title="Permanent link">&para;</a></h2>
+<p>Before proceeding, make sure <a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html">AWS CLI</a> is installed on your machine.</p>
+<p>To use the <code>eks-blueprints</code> module, you must have <a href="https://nodejs.org/en/">Node.js</a> and <a href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm">npm</a> installed. We will also use <code>make</code> to simplify build and other common actions. You can do it using the following instructions:</p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Mac</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>sudo brew install make
+sudo brew install node
 </code></pre></div>
-<p>Verify the installation.</p>
-<div class="highlight"><pre><span></span><code>cdk --version
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Ubuntu</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>sudo apt install make
+sudo apt install nodejs
 </code></pre></div>
-<p>Create a new <code>typescript</code> CDK project in an empty directory.</p>
-<div class="highlight"><pre><span></span><code>cdk init app --language typescript
+</div>
+</div>
+<p>Create a directory that represent you project (e.g. <code>my-blueprints</code>) and then create a new <code>typescript</code> CDK project in that directory.</p>
+<div class="highlight"><pre><span></span><code>mkdir my-blueprints
+<span class="nb">cd</span> my-blueprints
+npm install aws-cdk@2.17.0
+npx cdk init app --language typescript
 </code></pre></div>
 <h2 id="deploy-a-blueprint-eks-cluster">Deploy a Blueprint EKS Cluster<a class="headerlink" href="#deploy-a-blueprint-eks-cluster" title="Permanent link">&para;</a></h2>
-<p>Install the <code>ssp-amazon-eks</code> NPM package via the following.</p>
-<div class="highlight"><pre><span></span><code>npm i @aws-quickstart/ssp-amazon-eks
+<p>Install the <code>eks-blueprints</code> NPM package via the following.</p>
+<div class="highlight"><pre><span></span><code>npm i @aws-quickstart/eks-blueprints
 </code></pre></div>
 <p>Replace the contents of <code>bin/&lt;your-main-file&gt;.ts</code> (where <code>your-main-file</code> by default is the name of the root project directory) with the following code. This code will deploy a new EKS Cluster and install the <code>ArgoCD</code> addon.</p>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="s1">&#39;source-map-support/register&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cdk</span> <span class="kr">from</span> <span class="s1">&#39;@aws-cdk/core&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">ssp</span> <span class="kr">from</span> <span class="s1">&#39;@aws-quickstart/ssp-amazon-eks&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cdk</span> <span class="k">from</span> <span class="s1">&#39;aws-cdk-lib&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">blueprints</span> <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/eks-blueprints&#39;</span><span class="p">;</span>
 
-<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
-
-<span class="kd">const</span> <span class="nx">addOns</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">ssp</span><span class="p">.</span><span class="nx">ClusterAddOn</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="ow">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">ArgoCDAddOn</span><span class="p">,</span>
-    <span class="ow">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">CalicoAddOn</span><span class="p">,</span>
-    <span class="ow">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">MetricsServerAddOn</span><span class="p">,</span>
-    <span class="ow">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">ClusterAutoScalerAddOn</span><span class="p">,</span>
-    <span class="ow">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">ContainerInsightsAddOn</span><span class="p">,</span>
-    <span class="ow">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">AwsLoadBalancerControllerAddOn</span><span class="p">(),</span>
-    <span class="ow">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">VpcCniAddOn</span><span class="p">(),</span>
-    <span class="ow">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">CoreDnsAddOn</span><span class="p">(),</span>
-    <span class="ow">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">KubeProxyAddOn</span><span class="p">(),</span>
-    <span class="ow">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">XrayAddOn</span><span class="p">()</span>
-<span class="p">];</span>
-
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
 <span class="kd">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="s1">&#39;XXXXXXXXXXXXX&#39;</span><span class="p">;</span>
 <span class="kd">const</span> <span class="nx">region</span> <span class="o">=</span> <span class="s1">&#39;us-east-2&#39;</span><span class="p">;</span>
-<span class="kd">const</span> <span class="nx">props</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">env</span><span class="o">:</span> <span class="p">{</span> <span class="nx">account</span><span class="p">,</span> <span class="nx">region</span> <span class="p">}</span> <span class="p">};</span>
-<span class="ow">new</span> <span class="nx">ssp</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="p">{</span> <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;east-test-1&#39;</span><span class="p">,</span> <span class="nx">addOns</span><span class="p">},</span> <span class="nx">props</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">addOns</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">blueprints</span><span class="p">.</span><span class="nx">ClusterAddOn</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="k">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">ArgoCDAddOn</span><span class="p">,</span>
+    <span class="k">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">CalicoAddOn</span><span class="p">,</span>
+    <span class="k">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">MetricsServerAddOn</span><span class="p">,</span>
+    <span class="k">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">ClusterAutoScalerAddOn</span><span class="p">,</span>
+    <span class="k">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">ContainerInsightsAddOn</span><span class="p">,</span>
+    <span class="k">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">AwsLoadBalancerControllerAddOn</span><span class="p">(),</span>
+    <span class="k">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">VpcCniAddOn</span><span class="p">(),</span>
+    <span class="k">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">CoreDnsAddOn</span><span class="p">(),</span>
+    <span class="k">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">KubeProxyAddOn</span><span class="p">(),</span>
+    <span class="k">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">XrayAddOn</span><span class="p">()</span>
+<span class="p">];</span>
+
+<span class="nx">blueprints</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">.</span><span class="nx">builder</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">account</span><span class="p">(</span><span class="nx">account</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">region</span><span class="p">(</span><span class="nx">region</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="nx">addOns</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">build</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;eks-blueprint&#39;</span><span class="p">);</span>
 </code></pre></div>
 <p>Each combination of target account and region must be bootstrapped prior to deploying stacks. Bootstrapping is an process of creating IAM roles and lambda functions that can execute some of the common CDK constructs.</p>
 <p><a href="https://docs.aws.amazon.com/cdk/latest/guide/bootstrapping.html">Bootstrap</a> your environment with the following command. </p>
@@ -924,7 +879,7 @@
 <p>Deploy the stack using the following command. This command will take roughly 20 minutes to complete.</p>
 <div class="highlight"><pre><span></span><code>cdk deploy
 </code></pre></div>
-<p>Congratulations! You have deployed your first EKS cluster with <code>ssp-amazon-eks</code>. The above code will provision the following:</p>
+<p>Congratulations! You have deployed your first EKS cluster with <code>eks-blueprints</code>. The above code will provision the following:</p>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> A new Well-Architected VPC with both Public and Private subnets.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> A new Well-Architected EKS cluster in the region and account you specify.</li>
@@ -958,7 +913,7 @@ arn:aws:cloudformation:us-east-1:115717706081:stack/east-test-1/e1b9e6a0-d5f6-11
 </code></pre></div>
 <p>You should see output that lists all namespaces in your cluster. </p>
 <h2 id="deploy-workloads-with-argocd">Deploy workloads with ArgoCD<a class="headerlink" href="#deploy-workloads-with-argocd" title="Permanent link">&para;</a></h2>
-<p>Next, let's walk you through how to deploy workloads to your cluster with ArgoCD. This approach leverages the <a href="https://argoproj.github.io/argo-cd/operator-manual/cluster-bootstrapping/#app-of-apps-pattern">App of Apps</a> pattern to deploy multiple workloads across multiple namespaces. The sample app of apps repository that we use in this getting started guide can be found <a href="https://github.com/aws-samples/ssp-eks-workloads">here</a>.</p>
+<p>Next, let's walk you through how to deploy workloads to your cluster with ArgoCD. This approach leverages the <a href="https://argoproj.github.io/argo-cd/operator-manual/cluster-bootstrapping/#app-of-apps-pattern">App of Apps</a> pattern to deploy multiple workloads across multiple namespaces. The sample app of apps repository that we use in this getting started guide can be found <a href="https://github.com/aws-samples/eks-blueprints-workloads">here</a>.</p>
 <p>You can leverage <a href="../addons/argo-cd/#Bootstrapping">Automatic Bootstrapping</a> for automatic onboarding of workloads. This feature may be leveraged even when workload repositories are not ready yet, as it creates a placeholder for future workloads and decouples workload onboarding for the infrastructure provisioning pipeline. The next steps, described in this guide apply for cases when customer prefer to bootstrap their workloads manually through ArgoCD UI console.</p>
 <h3 id="install-argocd-cli">Install ArgoCD CLI<a class="headerlink" href="#install-argocd-cli" title="Permanent link">&para;</a></h3>
 <p>These steps are needed for manual workload onboarding. For automatic bootstrapping please refer to the <a href="../addons/argo-cd/#Bootstrapping">Automatic Bootstrapping</a>.</p>
@@ -991,13 +946,13 @@ arn:aws:cloudformation:us-east-1:115717706081:stack/east-test-1/e1b9e6a0-d5f6-11
 <p>Create a project in Argo by running the following command</p>
 <div class="highlight"><pre><span></span><code>argocd proj create sample \
     -d https://kubernetes.default.svc,argocd \
-    -s https://github.com/aws-samples/ssp-eks-workloads.git
+    -s https://github.com/aws-samples/eks-blueprints-workloads.git
 </code></pre></div>
 <p>Create the application within Argo by running the following command</p>
 <div class="highlight"><pre><span></span><code>argocd app create dev-apps \
     --dest-namespace argocd  \
     --dest-server https://kubernetes.default.svc  \
-    --repo https://github.com/aws-samples/ssp-eks-workloads.git \
+    --repo https://github.com/aws-samples/eks-blueprints-workloads.git \
     --path &quot;envs/dev&quot;
 </code></pre></div>
 <p>Sync the apps by running the following command</p>
@@ -1013,6 +968,11 @@ arn:aws:cloudformation:us-east-1:115717706081:stack/east-test-1/e1b9e6a0-d5f6-11
 <p>For information on deploying Continuous Delivery pipelines for your infrastructure, see <a href="../ci-cd"><code>Pipelines</code> documentation</a>.</p>
 <p>For information on supported add-ons, see <a href="../addons"><code>Add-on</code> documentation</a></p>
 <p>For information on Onboarding and managing workloads in your clusters, see <a href="../workloads"><code>Workload</code> documentation</a>. </p>
+                
+              
+              
+                
+
 
               
             </article>
@@ -1021,12 +981,12 @@ arn:aws:cloudformation:us-east-1:115717706081:stack/east-test-1/e1b9e6a0-d5f6-11
         
       </main>
       
-        <footer class="md-footer">
+        
+<footer class="md-footer">
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        
-        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Overview" rel="prev">
+        <a href=".." class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1041,8 +1001,7 @@ arn:aws:cloudformation:us-east-1:115717706081:stack/east-test-1/e1b9e6a0-d5f6-11
         </a>
       
       
-        
-        <a href="../core-concepts/" class="md-footer__link md-footer__link--next" aria-label="Next: Core Concepts" rel="next">
+        <a href="../core-concepts/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
@@ -1060,15 +1019,14 @@ arn:aws:cloudformation:us-east-1:115717706081:stack/east-test-1/e1b9e6a0-d5f6-11
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
       
     </div>
   </div>
@@ -1078,10 +1036,10 @@ arn:aws:cloudformation:us-east-1:115717706081:stack/east-test-1/e1b9e6a0-d5f6-11
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.361d90f1.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.289a2a4b.min.js"></script>
+      <script src="../assets/javascripts/bundle.a1609d9a.min.js"></script>
       
     
   </body>
