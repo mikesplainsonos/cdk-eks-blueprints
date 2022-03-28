@@ -227,7 +227,7 @@ Partner extensions (APN Partner) are expected to comply with the public extensio
 
 ## Example Extension
 
-[Example extension](https://github.com/shapirov103/blueprints-eks-extension) contains a sample implementation of a FluentBit log forwarder add-on and covers the following aspects of an extension workflow:
+[Example extension](https://github.com/shapirov103/eks-bluerprints-extension) contains a sample implementation of a FluentBit log forwarder add-on and covers the following aspects of an extension workflow:
 
 1. Pre-requisite configuration related to nodejs, npm, typescript.
 2. Project template with support to build, test and run the extension.
