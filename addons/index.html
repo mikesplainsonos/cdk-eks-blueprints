@@ -369,6 +369,18 @@
   
   
     <li class="md-nav__item">
+      <a href="aws-for-fluent-bit/" class="md-nav__link">
+        AWS For Fluent Bit
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="aws-load-balancer-controller/" class="md-nav__link">
         AWS Load Balancer Controller
       </a>
@@ -381,8 +393,8 @@
   
   
     <li class="md-nav__item">
-      <a href="calico/" class="md-nav__link">
-        Calico
+      <a href="aws-node-termination-handler/" class="md-nav__link">
+        AWS Node Termination Handler
       </a>
     </li>
   
@@ -393,8 +405,8 @@
   
   
     <li class="md-nav__item">
-      <a href="coredns/" class="md-nav__link">
-        CoreDns
+      <a href="calico/" class="md-nav__link">
+        Calico
       </a>
     </li>
   
@@ -429,8 +441,80 @@
   
   
     <li class="md-nav__item">
+      <a href="coredns/" class="md-nav__link">
+        CoreDns
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/dynatrace-oss/dynatrace-eks-blueprints-addon" class="md-nav__link">
+        Dynatrace
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ebs-csi-driver/" class="md-nav__link">
+        EBS CSI Driver
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="efs-csi-driver/" class="md-nav__link">
+        EFS CSI Driver
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="external-dns/" class="md-nav__link">
         External DNS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="karpenter/" class="md-nav__link">
+        Karpenter
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/keptn-sandbox/keptn-eks-blueprints-addon" class="md-nav__link">
+        Keptn
       </a>
     </li>
   
@@ -453,8 +537,44 @@
   
   
     <li class="md-nav__item">
+      <a href="kubecost/" class="md-nav__link">
+        Kubecost
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kubevious/" class="md-nav__link">
+        Kubevious
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="metrics-server/" class="md-nav__link">
         Metrics Server
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="newrelic/" class="md-nav__link">
+        New Relic
       </a>
     </li>
   
@@ -477,8 +597,8 @@
   
   
     <li class="md-nav__item">
-      <a href="ssm-agent/" class="md-nav__link">
-        SSM Agent
+      <a href="opa-gatekeeper/" class="md-nav__link">
+        OPA Gatekeeper
       </a>
     </li>
   
@@ -491,6 +611,30 @@
     <li class="md-nav__item">
       <a href="secrets-store/" class="md-nav__link">
         Secrets Store
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ssm-agent/" class="md-nav__link">
+        SSM Agent
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="velero/" class="md-nav__link">
+        Velero
       </a>
     </li>
   
@@ -569,6 +713,18 @@
     <li class="md-nav__item">
       <a href="../cluster-providers/" class="md-nav__link">
         Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cluster-providers/generic-cluster-provider/" class="md-nav__link">
+        Generic Cluster Provider
       </a>
     </li>
   
@@ -682,7 +838,7 @@
                 
                 <h1 id="add-ons">Add-ons<a class="headerlink" href="#add-ons" title="Permanent link">&para;</a></h1>
 <p>The <code>eks-blueprints</code> framework leverages a modular approach to managing <a href="https://kubernetes.io/docs/concepts/cluster-administration/addons/">Add-ons</a> that run within the context of a Kubernetes cluster. Customers are free to select the add-ons that run in each of their blueprint clusters.</p>
-<p>Within the context of the <code>eks-blueprints</code> framework, an add-on is abstracted as <code>ClusterAddOn</code> interface, and the implementation of the add-on interface can do whatever is necessary to support the desired add-on functionality. This can include applying manifests to a Kubernetes cluster or calling AWS APIs to provision new resources. </p>
+<p>Within the context of the <code>eks-blueprints</code> framework, an add-on is abstracted as <code>ClusterAddOn</code> interface, and the implementation of the add-on interface can do whatever is necessary to support the desired add-on functionality. This can include applying manifests to a Kubernetes cluster or calling AWS APIs to provision new resources.</p>
 <h2 id="supported-add-ons">Supported Add-ons<a class="headerlink" href="#supported-add-ons" title="Permanent link">&para;</a></h2>
 <p>The framework currently supports the following add-ons.</p>
 <table>
@@ -702,8 +858,16 @@
 <td>Provisions Argo CD into your cluster.</td>
 </tr>
 <tr>
+<td><a href="./aws-for-fluent-bit"><code>AWS for Fluent Bit</code></a></td>
+<td>Provisions Fluent Bit into your cluster for log aggregation and consumption.</td>
+</tr>
+<tr>
 <td><a href="./aws-load-balancer-controller"><code>AWS Load Balancer Controller</code></a></td>
 <td>Provisions the AWS Load Balancer Controller into your cluster.</td>
+</tr>
+<tr>
+<td><a href="./aws-node-termination-handler"><code>AWS Node Termination Handler</code></a></td>
+<td>Provisions Node Termination Handler into your cluster.</td>
 </tr>
 <tr>
 <td><a href="./calico"><code>CalicoAddOn</code></a></td>
@@ -722,15 +886,23 @@
 <td>Adds CoreDNS Amazon EKS add-on. CoreDNS is a flexible, extensible DNS server that can serve as the Kubernetes cluster DNS</td>
 </tr>
 <tr>
+<td><a href="https://github.com/dynatrace-oss/dynatrace-eks-blueprints-addon"><code>Dynatrace</code></a></td>
+<td>Adds the <a href="https://www.dynatrace.com/">Dynatrace</a> <a href="https://github.com/Dynatrace/dynatrace-oneagent-operator">OneAgent Operator</a></td>
+</tr>
+<tr>
 <td><a href="ebs-csi-driver/"><code>EbsCsiDriverAddOn</code></a></td>
 <td>Adds EBS CSI Driver Amazon EKS add-on. This driver manages the lifecycle of Amazon EBS volumes for persistent storage</td>
+</tr>
+<tr>
+<td><a href="efs-csi-driver/"><code>EfsCsiDriverAddOn</code></a></td>
+<td>Adds EFS CSI Driver Amazon EKS add-on. This driver manages the lifecycle of Amazon EFS volumes for persistent storage</td>
 </tr>
 <tr>
 <td><a href="./external-dns"><code>ExternalDnsAddOn</code></a></td>
 <td>Adds <a href="https://github.com/kubernetes-sigs/external-dns">External DNS</a> support for AWS to the cluster, integrating with Amazon Route 53</td>
 </tr>
 <tr>
-<td><a href="https://github.com/keptn-sandbox/keptn-blueprints-addons"><code>Keptn</code></a></td>
+<td><a href="https://github.com/keptn-sandbox/keptn-eks-blueprints-addon"><code>Keptn</code></a></td>
 <td><a href="https://keptn.sh/">Keptn</a> Control Plane and Execution Plane AddOn</td>
 </tr>
 <tr>
@@ -742,7 +914,7 @@
 <td>Adds <a href="https://github.com/kubevious/kubevious">Kubevious</a> open source Kubernetes dashboard to an EKS cluster</td>
 </tr>
 <tr>
-<td><a href="karpenter/"><code>KarpenterAddOn</code></a></td>
+<td><a href="karpenter/"><code>KarpenterAddOn (Currently Not Supported, In Progress)</code></a></td>
 <td>Adds <a href="https://github.com/awslabs/karpenter">Karpenter</a> support for Amazon EKS.</td>
 </tr>
 <tr>
@@ -754,8 +926,20 @@
 <td>Adds metrics server (pre-req for HPA and other monitoring tools)</td>
 </tr>
 <tr>
+<td><a href="newrelic/"><code>NewRelicAddOn</code></a></td>
+<td>Adds <a href="https://newrelic.com/">New Relic</a> and <a href="https://pixielabs.ai/">Pixie</a> observability for Amazon EKS.</td>
+</tr>
+<tr>
 <td><a href="nginx/"><code>NginxAddOn</code></a></td>
 <td>Adds NGINX ingress controller</td>
+</tr>
+<tr>
+<td><a href="opa-gatekeeper/"><code>OpaGatekeeperAddOn (Currently Not Supported, In Progress)</code></a></td>
+<td>Adds OPA Gatekeeper</td>
+</tr>
+<tr>
+<td><a href="pixie/"><code>PixieAddOn</code></a></td>
+<td>Adds <a href="https://px.dev">Pixie</a> to the EKS Cluster. Pixie provides auto-telemetry for requests, metrics, application profiles, and more.</td>
 </tr>
 <tr>
 <td><a href="secrets-store/"><code>SecretsStoreAddOn</code></a></td>
@@ -803,7 +987,7 @@
     <span class="cm">/**</span>
 <span class="cm">     * Helm chart version.</span>
 <span class="cm">     */</span>
-    <span class="nx">version?</span>: <span class="kt">string</span><span class="p">,</span> 
+    <span class="nx">version?</span>: <span class="kt">string</span><span class="p">,</span>
 
     <span class="cm">/**</span>
 <span class="cm">     * Helm release</span>
@@ -816,11 +1000,11 @@
     <span class="nx">repository?</span>: <span class="kt">string</span><span class="p">,</span>
 
     <span class="cm">/**</span>
-<span class="cm">     * Optional values for the helm chart. </span>
+<span class="cm">     * Optional values for the helm chart.</span>
 <span class="cm">     */</span>
     <span class="nx">values?</span>: <span class="kt">Values</span>
 </code></pre></div>
-<p>Ability to set repository url may be leveraged for private repositories. </p>
+<p>Ability to set repository url may be leveraged for private repositories.</p>
 <p>Version field can be modified from the default chart version, e.g. if the add-on should be upgraded to the desired version, however, since the helm chart version supplied by the customer may not have been tested as part of the Blueprints release process, Blueprints community may not be able to reproduce/fix issues related to the helm chart version upgrade.</p>
                 
               

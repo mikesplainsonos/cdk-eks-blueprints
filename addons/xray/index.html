@@ -329,6 +329,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../aws-for-fluent-bit/" class="md-nav__link">
+        AWS For Fluent Bit
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../aws-load-balancer-controller/" class="md-nav__link">
         AWS Load Balancer Controller
       </a>
@@ -341,8 +353,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../calico/" class="md-nav__link">
-        Calico
+      <a href="../aws-node-termination-handler/" class="md-nav__link">
+        AWS Node Termination Handler
       </a>
     </li>
   
@@ -353,8 +365,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../coredns/" class="md-nav__link">
-        CoreDns
+      <a href="../calico/" class="md-nav__link">
+        Calico
       </a>
     </li>
   
@@ -389,8 +401,80 @@
   
   
     <li class="md-nav__item">
+      <a href="../coredns/" class="md-nav__link">
+        CoreDns
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/dynatrace-oss/dynatrace-eks-blueprints-addon" class="md-nav__link">
+        Dynatrace
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ebs-csi-driver/" class="md-nav__link">
+        EBS CSI Driver
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../efs-csi-driver/" class="md-nav__link">
+        EFS CSI Driver
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../external-dns/" class="md-nav__link">
         External DNS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../karpenter/" class="md-nav__link">
+        Karpenter
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/keptn-sandbox/keptn-eks-blueprints-addon" class="md-nav__link">
+        Keptn
       </a>
     </li>
   
@@ -413,8 +497,44 @@
   
   
     <li class="md-nav__item">
+      <a href="../kubecost/" class="md-nav__link">
+        Kubecost
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubevious/" class="md-nav__link">
+        Kubevious
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../metrics-server/" class="md-nav__link">
         Metrics Server
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../newrelic/" class="md-nav__link">
+        New Relic
       </a>
     </li>
   
@@ -437,8 +557,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../ssm-agent/" class="md-nav__link">
-        SSM Agent
+      <a href="../opa-gatekeeper/" class="md-nav__link">
+        OPA Gatekeeper
       </a>
     </li>
   
@@ -451,6 +571,30 @@
     <li class="md-nav__item">
       <a href="../secrets-store/" class="md-nav__link">
         Secrets Store
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ssm-agent/" class="md-nav__link">
+        SSM Agent
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../velero/" class="md-nav__link">
+        Velero
       </a>
     </li>
   
@@ -586,6 +730,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../cluster-providers/generic-cluster-provider/" class="md-nav__link">
+        Generic Cluster Provider
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../cluster-providers/asg-cluster-provider/" class="md-nav__link">
         ASG Cluster Provider
       </a>
@@ -698,18 +854,17 @@
 <p><a href="https://aws.amazon.com/xray/">AWS X-Ray</a> helps developers analyze and debug production, distributed applications, such as those built using a microservices architecture. The X-Ray addon provisions X-Ray daemon into an EKS cluster. This daemon exposes an internal endpoint <code>xray-service.xray-system.svc.cluster.local:2000</code> that could be leveraged to aggregate and post traces to the AWS X-Ray service. </p>
 <p>For instructions on getting started with X-Ray on EKS refer to the <a href="https://www.eksworkshop.com/intermediate/245_x-ray/">EKS Workshop X-Ray Section</a>.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">XrayAddOn</span><span class="p">,</span> <span class="nx">ClusterAddOn</span><span class="p">,</span> <span class="nx">EksBlueprint</span> <span class="p">}</span>  <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/eks-blueprints&#39;</span><span class="p">;</span>
-
-<span class="kd">const</span> <span class="nx">addOn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XrayAddOn</span><span class="p">();</span>
-<span class="kd">const</span> <span class="nx">addOns</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">ClusterAddOn</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">addOn</span> <span class="p">];</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="s1">&#39;source-map-support/register&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cdk</span> <span class="k">from</span> <span class="s1">&#39;aws-cdk-lib&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">blueprints</span> <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/eks-blueprints&#39;</span><span class="p">;</span>
 
 <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
-<span class="k">new</span> <span class="nx">EksBlueprint</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;my-stack-name&#39;</span><span class="p">,</span> <span class="nx">addOns</span><span class="p">,</span> <span class="p">[],</span> <span class="p">{</span>
-  <span class="nx">env</span><span class="o">:</span> <span class="p">{</span>    
-      <span class="nx">account</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">AWS_ACCOUNT_ID</span><span class="o">&gt;</span><span class="p">,</span>
-      <span class="nx">region</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">AWS_REGION</span><span class="o">&gt;</span><span class="p">,</span>
-  <span class="p">},</span>
-<span class="p">});</span>
+
+<span class="kd">const</span> <span class="nx">addOn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">XrayAddOn</span><span class="p">();</span>
+
+<span class="kd">const</span> <span class="nx">blueprint</span> <span class="o">=</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">.</span><span class="nx">builder</span><span class="p">()</span>
+  <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="nx">addOn</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">build</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;my-stack-name&#39;</span><span class="p">);</span>
 </code></pre></div>
 <p>Once deployed, it allows applications to be instrumented with X-Ray by leveraging the X-Ray SDK.  Examples of such integration can be found on <a href="https://github.com/aws-samples/aws-xray-kubernetes">GitHub</a>.</p>
 <h2 id="functionality">Functionality<a class="headerlink" href="#functionality" title="Permanent link">&para;</a></h2>

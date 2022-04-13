@@ -397,6 +397,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../aws-for-fluent-bit/" class="md-nav__link">
+        AWS For Fluent Bit
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../aws-load-balancer-controller/" class="md-nav__link">
         AWS Load Balancer Controller
       </a>
@@ -409,8 +421,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../calico/" class="md-nav__link">
-        Calico
+      <a href="../aws-node-termination-handler/" class="md-nav__link">
+        AWS Node Termination Handler
       </a>
     </li>
   
@@ -421,8 +433,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../coredns/" class="md-nav__link">
-        CoreDns
+      <a href="../calico/" class="md-nav__link">
+        Calico
       </a>
     </li>
   
@@ -457,8 +469,80 @@
   
   
     <li class="md-nav__item">
+      <a href="../coredns/" class="md-nav__link">
+        CoreDns
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/dynatrace-oss/dynatrace-eks-blueprints-addon" class="md-nav__link">
+        Dynatrace
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ebs-csi-driver/" class="md-nav__link">
+        EBS CSI Driver
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../efs-csi-driver/" class="md-nav__link">
+        EFS CSI Driver
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../external-dns/" class="md-nav__link">
         External DNS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../karpenter/" class="md-nav__link">
+        Karpenter
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/keptn-sandbox/keptn-eks-blueprints-addon" class="md-nav__link">
+        Keptn
       </a>
     </li>
   
@@ -481,8 +565,44 @@
   
   
     <li class="md-nav__item">
+      <a href="../kubecost/" class="md-nav__link">
+        Kubecost
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubevious/" class="md-nav__link">
+        Kubevious
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../metrics-server/" class="md-nav__link">
         Metrics Server
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../newrelic/" class="md-nav__link">
+        New Relic
       </a>
     </li>
   
@@ -505,8 +625,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../ssm-agent/" class="md-nav__link">
-        SSM Agent
+      <a href="../opa-gatekeeper/" class="md-nav__link">
+        OPA Gatekeeper
       </a>
     </li>
   
@@ -519,6 +639,30 @@
     <li class="md-nav__item">
       <a href="../secrets-store/" class="md-nav__link">
         Secrets Store
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ssm-agent/" class="md-nav__link">
+        SSM Agent
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../velero/" class="md-nav__link">
+        Velero
       </a>
     </li>
   
@@ -597,6 +741,18 @@
     <li class="md-nav__item">
       <a href="../../cluster-providers/" class="md-nav__link">
         Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cluster-providers/generic-cluster-provider/" class="md-nav__link">
+        Generic Cluster Provider
       </a>
     </li>
   
@@ -740,18 +896,17 @@
 <p><a href="https://aws.amazon.com/app-mesh/">AWS App Mesh</a> is a service mesh that provides application-level networking to make it easy for your services to communicate with each other across multiple types of compute infrastructure. The App Mesh add-on provisions the necessary AWS resources and Helm charts into an EKS cluster that are needed to support App Mesh for EKS workloads. </p>
 <p>Full documentation on using App Mesh with EKS <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/getting-started-kubernetes.html">can be found here</a>.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">AppMeshAddOn</span><span class="p">,</span> <span class="nx">ClusterAddOn</span><span class="p">,</span> <span class="nx">EksBlueprint</span> <span class="p">}</span>  <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/eks-blueprints&#39;</span><span class="p">;</span>
-
-<span class="kd">const</span> <span class="nx">addOn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AppMeshAddOn</span><span class="p">();</span>
-<span class="kd">const</span> <span class="nx">addOns</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">ClusterAddOn</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">addOn</span> <span class="p">];</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="s1">&#39;source-map-support/register&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cdk</span> <span class="k">from</span> <span class="s1">&#39;aws-cdk-lib&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">blueprints</span> <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/eks-blueprints&#39;</span><span class="p">;</span>
 
 <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
-<span class="k">new</span> <span class="nx">EksBlueprint</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;my-stack-name&#39;</span><span class="p">,</span> <span class="nx">addOns</span><span class="p">,</span> <span class="p">[],</span> <span class="p">{</span>
-  <span class="nx">env</span><span class="o">:</span> <span class="p">{</span>    
-      <span class="nx">account</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">AWS_ACCOUNT_ID</span><span class="o">&gt;</span><span class="p">,</span>
-      <span class="nx">region</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">AWS_REGION</span><span class="o">&gt;</span><span class="p">,</span>
-  <span class="p">},</span>
-<span class="p">});</span>
+
+<span class="kd">const</span> <span class="nx">addOn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">AppMeshAddOn</span><span class="p">();</span>
+
+<span class="kd">const</span> <span class="nx">blueprint</span> <span class="o">=</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">.</span><span class="nx">builder</span><span class="p">()</span>
+  <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="nx">addOn</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">build</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;my-stack-name&#39;</span><span class="p">);</span>
 </code></pre></div>
 <h2 id="functionality">Functionality<a class="headerlink" href="#functionality" title="Permanent link">&para;</a></h2>
 <ol>
@@ -781,11 +936,14 @@
 <p>App Mesh integrates with a number of tracing providers for distributed tracing support. At the moment it supports AWS X-Ray, Jaeger, and Datadog providers. 
 The X-Ray integration at present requires either a managed node group or a self-managed auto-scaling group backed by EC2. Fargate is not supported. </p>
 <p>Enabling integration:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">appMeshAddOn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">AppMeshAddOn</span><span class="p">({</span><span class="nx">enableTracing</span>: <span class="kt">true</span><span class="p">,</span> <span class="nx">tracingProvider</span><span class="o">:</span> <span class="s2">&quot;x-ray&quot;</span><span class="p">}),</span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">appMeshAddOn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">AppMeshAddOn</span><span class="p">({</span>
+  <span class="nx">enableTracing</span>: <span class="kt">true</span><span class="p">,</span> 
+  <span class="nx">tracingProvider</span><span class="o">:</span> <span class="s2">&quot;x-ray&quot;</span>
+<span class="p">}),</span>
 </code></pre></div>
 <p>When configured, App Mesh will automatically inject an XRay sidecar to handle tracing which enables troubleshooting latency issues.</p>
 <h2 id="app-mesh-and-xray-integration-example">App Mesh and XRay Integration Example<a class="headerlink" href="#app-mesh-and-xray-integration-example" title="Permanent link">&para;</a></h2>
-<p><code>team-burnham</code> sample workload repository is configured with an <a href="https://github.com/aws-samples/blueprints-eks-workloads/tree/master/teams/team-burnham/dev">example workload</a> that demonstrates a "meshified" workload.</p>
+<p><code>team-burnham</code> sample workload repository is configured with an <a href="https://github.com/aws-samples/eks-blueprints-workloads/tree/main/teams/team-burnham/dev">example workload</a> that demonstrates a "meshified" workload.</p>
 <p>After the workload is deployed with ArgoCD or applied directly to the cluster, a <a href="https://github.com/aws/aws-app-mesh-examples/tree/main/examples/apps/djapp">DJ application</a> will be created in the <code>team-burnham</code> namespace, similar to the one used for the <a href="https://www.eksworkshop.com/intermediate/330_app_mesh/">EKS Workshop</a>. It was adapted for GitOps integration with Blueprints and relies on automatic sidecar injection as well as tracing integration with App Mesh.</p>
 <p>After the workload is deployed you can generate some traffic to populated traces:</p>
 <div class="highlight"><pre><span></span><code>$ <span class="nb">export</span> <span class="nv">DJ_POD_NAME</span><span class="o">=</span><span class="k">$(</span>kubectl get pods -n team-burnham -l <span class="nv">app</span><span class="o">=</span>dj -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.items[].metadata.name}&#39;</span><span class="k">)</span>

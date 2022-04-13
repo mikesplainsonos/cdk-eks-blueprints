@@ -424,6 +424,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../aws-for-fluent-bit/" class="md-nav__link">
+        AWS For Fluent Bit
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../aws-load-balancer-controller/" class="md-nav__link">
         AWS Load Balancer Controller
       </a>
@@ -436,8 +448,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../calico/" class="md-nav__link">
-        Calico
+      <a href="../aws-node-termination-handler/" class="md-nav__link">
+        AWS Node Termination Handler
       </a>
     </li>
   
@@ -448,8 +460,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../coredns/" class="md-nav__link">
-        CoreDns
+      <a href="../calico/" class="md-nav__link">
+        Calico
       </a>
     </li>
   
@@ -484,8 +496,80 @@
   
   
     <li class="md-nav__item">
+      <a href="../coredns/" class="md-nav__link">
+        CoreDns
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/dynatrace-oss/dynatrace-eks-blueprints-addon" class="md-nav__link">
+        Dynatrace
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ebs-csi-driver/" class="md-nav__link">
+        EBS CSI Driver
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../efs-csi-driver/" class="md-nav__link">
+        EFS CSI Driver
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../external-dns/" class="md-nav__link">
         External DNS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../karpenter/" class="md-nav__link">
+        Karpenter
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/keptn-sandbox/keptn-eks-blueprints-addon" class="md-nav__link">
+        Keptn
       </a>
     </li>
   
@@ -508,8 +592,44 @@
   
   
     <li class="md-nav__item">
+      <a href="../kubecost/" class="md-nav__link">
+        Kubecost
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubevious/" class="md-nav__link">
+        Kubevious
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../metrics-server/" class="md-nav__link">
         Metrics Server
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../newrelic/" class="md-nav__link">
+        New Relic
       </a>
     </li>
   
@@ -532,8 +652,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../ssm-agent/" class="md-nav__link">
-        SSM Agent
+      <a href="../opa-gatekeeper/" class="md-nav__link">
+        OPA Gatekeeper
       </a>
     </li>
   
@@ -546,6 +666,30 @@
     <li class="md-nav__item">
       <a href="../secrets-store/" class="md-nav__link">
         Secrets Store
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ssm-agent/" class="md-nav__link">
+        SSM Agent
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../velero/" class="md-nav__link">
+        Velero
       </a>
     </li>
   
@@ -624,6 +768,18 @@
     <li class="md-nav__item">
       <a href="../../cluster-providers/" class="md-nav__link">
         Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cluster-providers/generic-cluster-provider/" class="md-nav__link">
+        Generic Cluster Provider
       </a>
     </li>
   
@@ -797,18 +953,17 @@
 <p>Full Argo CD project documentation <a href="https://argoproj.github.io/argo-cd/">can be found here</a>.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
 <p>To provision and maintain ArgoCD components without any bootstrapping, the add-on provides a no-argument constructor to get started. </p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ArgoCDAddOn</span><span class="p">,</span> <span class="nx">ClusterAddOn</span><span class="p">,</span> <span class="nx">EksBlueprint</span> <span class="p">}</span>  <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/eks-blueprints&#39;</span><span class="p">;</span>
-
-<span class="kd">const</span> <span class="nx">addOn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ArgoCDAddOn</span><span class="p">();</span>
-<span class="kd">const</span> <span class="nx">addOns</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">ClusterAddOn</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">addOn</span> <span class="p">];</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="s1">&#39;source-map-support/register&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cdk</span> <span class="k">from</span> <span class="s1">&#39;aws-cdk-lib&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">blueprints</span> <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/eks-blueprints&#39;</span><span class="p">;</span>
 
 <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
-<span class="k">new</span> <span class="nx">EksBlueprint</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;my-stack-name&#39;</span><span class="p">,</span> <span class="nx">addOns</span><span class="p">,</span> <span class="p">[],</span> <span class="p">{</span>
-  <span class="nx">env</span><span class="o">:</span> <span class="p">{</span>    
-      <span class="nx">account</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">AWS_ACCOUNT_ID</span><span class="o">&gt;</span><span class="p">,</span>
-      <span class="nx">region</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">AWS_REGION</span><span class="o">&gt;</span><span class="p">,</span>
-  <span class="p">},</span>
-<span class="p">});</span>
+
+<span class="kd">const</span> <span class="nx">addOn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">ArgoCDAddOn</span><span class="p">();</span>
+
+<span class="kd">const</span> <span class="nx">blueprint</span> <span class="o">=</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">.</span><span class="nx">builder</span><span class="p">()</span>
+  <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="nx">addOn</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">build</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;my-stack-name&#39;</span><span class="p">);</span>
 </code></pre></div>
 <p>The above will create an <code>argocd</code> namespace and install all Argo CD components. In order to bootstrap workloads you will need to change the default ArgoCD admin password and add repositories as specified in the <a href="https://argoproj.github.io/argo-cd/getting_started/#port-forwarding">Getting Started</a> documentation.</p>
 <h2 id="functionality">Functionality<a class="headerlink" href="#functionality" title="Permanent link">&para;</a></h2>
@@ -839,12 +994,14 @@
 <li>Private HTTPS accessible GitHub repositories accessible with GitHub token. </li>
 </ol>
 <p>An example is provided below, along with an approach that could use a separate app of apps to bootstrap workloads in different stages, which is important for a software delivery platform as it allows segregating workloads specific to each stage of the SDLC and defines clear promotion processes through GitOps.</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ArgoCDAddOn</span><span class="p">,</span> <span class="nx">ClusterAddOn</span><span class="p">,</span> <span class="nx">EksBlueprint</span> <span class="p">}</span>  <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/eks-blueprints&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="s1">&#39;source-map-support/register&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cdk</span> <span class="k">from</span> <span class="s1">&#39;aws-cdk-lib&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">ArgoCDAddOn</span><span class="p">,</span> <span class="nx">ClusterAddOn</span><span class="p">,</span> <span class="nx">EksBlueprint</span><span class="p">,</span> <span class="nx">ApplicationRepository</span> <span class="p">}</span>  <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/eks-blueprints&#39;</span><span class="p">;</span>
 
-<span class="kd">const</span> <span class="nx">addOns</span> <span class="o">=</span> <span class="p">...;</span>
-<span class="kd">const</span> <span class="nx">repoUrl</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/aws-samples/eks-blueprints-workloads.git&#39;</span>
+<span class="kd">const</span> <span class="nx">secretStoreAddOn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SecretsStoreAddOn</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">repoUrl</span> <span class="o">=</span> <span class="s1">&#39;git@github.com:aws-samples/eks-blueprints-workloads.git&#39;</span>
 
-<span class="kd">const</span> <span class="nx">bootstrapRepo</span> <span class="o">=</span> <span class="p">{</span>
+<span class="kd">const</span> <span class="nx">bootstrapRepo</span>: <span class="kt">ApplicationRepository</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">repoUrl</span><span class="p">,</span>
     <span class="nx">credentialsSecretName</span><span class="o">:</span> <span class="s1">&#39;github-ssh-test&#39;</span><span class="p">,</span>
     <span class="nx">credentialsType</span><span class="o">:</span> <span class="s1">&#39;SSH&#39;</span>
@@ -868,23 +1025,24 @@
         <span class="p">...</span><span class="nx">bootstrapRepo</span><span class="p">,</span>
         <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;envs/prod&#39;</span><span class="p">,</span>
     <span class="p">},</span>
-    <span class="nx">adminPasswordSecretName</span><span class="o">:</span> <span class="s1">&#39;argo-admin-secret&#39;</span><span class="p">,</span>
+    <span class="nx">adminPasswordSecretName</span><span class="o">:</span> <span class="s1">&#39;ArgoCDAdmin&#39;</span><span class="p">,</span>
 <span class="p">});</span>
 
-<span class="kd">const</span> <span class="nx">east1</span> <span class="o">=</span> <span class="s1">&#39;us-east-1&#39;</span><span class="p">;</span>
-<span class="k">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="p">{</span> <span class="nx">id</span><span class="o">:</span> <span class="sb">`</span><span class="si">${</span><span class="nx">id</span><span class="si">}</span><span class="sb">-</span><span class="si">${</span><span class="nx">east1</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span> <span class="nx">addOns</span>: <span class="kt">addOns.concat</span><span class="p">(</span><span class="nx">devBootstrapArgo</span><span class="p">),</span> <span class="nx">teams</span> <span class="p">},</span> <span class="p">{</span>
-    <span class="nx">env</span><span class="o">:</span> <span class="p">{</span> <span class="nx">region</span>: <span class="kt">east1</span> <span class="p">}</span>
-<span class="p">});</span>
+<span class="kd">const</span> <span class="nx">blueprint</span> <span class="o">=</span> <span class="nx">EksBlueprint</span><span class="p">.</span><span class="nx">builder</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="nx">secretStoreAddOn</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">account</span><span class="p">(</span><span class="nx">account</span><span class="p">);</span>
 
-<span class="kd">const</span> <span class="nx">east2</span> <span class="o">=</span> <span class="s1">&#39;us-east-2&#39;</span><span class="p">;</span>
-<span class="k">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="p">{</span> <span class="nx">id</span><span class="o">:</span> <span class="sb">`</span><span class="si">${</span><span class="nx">id</span><span class="si">}</span><span class="sb">-</span><span class="si">${</span><span class="nx">east2</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span> <span class="nx">addOns</span>: <span class="kt">addOns.concat</span><span class="p">(</span><span class="nx">testBootstrapArgo</span><span class="p">),</span> <span class="nx">teams</span> <span class="p">},</span> <span class="p">{</span>
-    <span class="nx">env</span><span class="o">:</span> <span class="p">{</span> <span class="nx">region</span>: <span class="kt">east2</span> <span class="p">}</span>
-<span class="p">});</span>
+<span class="nx">blueprint</span><span class="p">.</span><span class="nx">clone</span><span class="p">(</span><span class="s1">&#39;us-east-1&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="nx">devBootstrapArgo</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">build</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;argo-us-east-1&#39;</span><span class="p">);</span>
 
-<span class="kd">const</span> <span class="nx">west2</span> <span class="o">=</span> <span class="s1">&#39;us-west-2&#39;</span>
-<span class="k">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="p">{</span> <span class="nx">id</span><span class="o">:</span> <span class="sb">`</span><span class="si">${</span><span class="nx">id</span><span class="si">}</span><span class="sb">-</span><span class="si">${</span><span class="nx">west2</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span> <span class="nx">addOns</span>: <span class="kt">addOns.concat</span><span class="p">(</span><span class="nx">prodBootstrapArgo</span><span class="p">),</span> <span class="nx">teams</span> <span class="p">},</span> <span class="p">{</span>
-    <span class="nx">env</span><span class="o">:</span> <span class="p">{</span> <span class="nx">region</span>: <span class="kt">west2</span> <span class="p">}</span>
-<span class="p">});</span>
+<span class="nx">blueprint</span><span class="p">.</span><span class="nx">clone</span><span class="p">(</span><span class="s1">&#39;us-east-2&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="nx">testBootstrapArgo</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">build</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;argo-us-east-2&#39;</span><span class="p">);</span>
+
+<span class="nx">blueprint</span><span class="p">.</span><span class="nx">clone</span><span class="p">(</span><span class="s1">&#39;us-west-2&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="nx">prodBootstrapArgo</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">build</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;argo-us-west-1&#39;</span><span class="p">);</span>
 </code></pre></div>
 <p>The application promotion process in the above example is handled entirely through GitOps. Each stage specific App of Apps contains references to respective application GitOps repository for each stage (e.g referencing the release vs work branches or path-based within individual app GitOps repository).</p>
 <h2 id="secrets-support">Secrets Support<a class="headerlink" href="#secrets-support" title="Permanent link">&para;</a></h2>
@@ -1009,13 +1167,13 @@
         </a>
       
       
-        <a href="../aws-load-balancer-controller/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../aws-for-fluent-bit/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              AWS Load Balancer Controller
+              AWS For Fluent Bit
             </div>
           </div>
           <div class="md-footer__button md-icon">

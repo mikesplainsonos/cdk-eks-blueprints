@@ -329,6 +329,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../aws-for-fluent-bit/" class="md-nav__link">
+        AWS For Fluent Bit
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../aws-load-balancer-controller/" class="md-nav__link">
         AWS Load Balancer Controller
       </a>
@@ -341,8 +353,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../calico/" class="md-nav__link">
-        Calico
+      <a href="../aws-node-termination-handler/" class="md-nav__link">
+        AWS Node Termination Handler
       </a>
     </li>
   
@@ -353,8 +365,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../coredns/" class="md-nav__link">
-        CoreDns
+      <a href="../calico/" class="md-nav__link">
+        Calico
       </a>
     </li>
   
@@ -477,8 +489,80 @@
   
   
     <li class="md-nav__item">
+      <a href="../coredns/" class="md-nav__link">
+        CoreDns
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/dynatrace-oss/dynatrace-eks-blueprints-addon" class="md-nav__link">
+        Dynatrace
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ebs-csi-driver/" class="md-nav__link">
+        EBS CSI Driver
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../efs-csi-driver/" class="md-nav__link">
+        EFS CSI Driver
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../external-dns/" class="md-nav__link">
         External DNS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../karpenter/" class="md-nav__link">
+        Karpenter
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/keptn-sandbox/keptn-eks-blueprints-addon" class="md-nav__link">
+        Keptn
       </a>
     </li>
   
@@ -501,8 +585,44 @@
   
   
     <li class="md-nav__item">
+      <a href="../kubecost/" class="md-nav__link">
+        Kubecost
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubevious/" class="md-nav__link">
+        Kubevious
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../metrics-server/" class="md-nav__link">
         Metrics Server
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../newrelic/" class="md-nav__link">
+        New Relic
       </a>
     </li>
   
@@ -525,8 +645,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../ssm-agent/" class="md-nav__link">
-        SSM Agent
+      <a href="../opa-gatekeeper/" class="md-nav__link">
+        OPA Gatekeeper
       </a>
     </li>
   
@@ -539,6 +659,30 @@
     <li class="md-nav__item">
       <a href="../secrets-store/" class="md-nav__link">
         Secrets Store
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ssm-agent/" class="md-nav__link">
+        SSM Agent
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../velero/" class="md-nav__link">
+        Velero
       </a>
     </li>
   
@@ -617,6 +761,18 @@
     <li class="md-nav__item">
       <a href="../../cluster-providers/" class="md-nav__link">
         Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cluster-providers/generic-cluster-provider/" class="md-nav__link">
+        Generic Cluster Provider
       </a>
     </li>
   
@@ -783,18 +939,17 @@
 <li>pods are rescheduled onto other nodes due to being in nodes that are underutilized for an extended period of time.</li>
 </ul>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ClusterAutoScalerAddOn</span><span class="p">,</span> <span class="nx">ClusterAddOn</span><span class="p">,</span> <span class="nx">EksBlueprint</span> <span class="p">}</span>  <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/eks-blueprints&#39;</span><span class="p">;</span>
-
-<span class="kd">const</span> <span class="nx">addOn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ClusterAutoscalerAddOn</span><span class="p">()</span>
-<span class="kd">const</span> <span class="nx">addOns</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">ClusterAddOn</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">addOn</span> <span class="p">];</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="s1">&#39;source-map-support/register&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cdk</span> <span class="k">from</span> <span class="s1">&#39;aws-cdk-lib&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">blueprints</span> <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/eks-blueprints&#39;</span><span class="p">;</span>
 
 <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
-<span class="k">new</span> <span class="nx">EksBlueprint</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;my-stack-name&#39;</span><span class="p">,</span> <span class="nx">addOns</span><span class="p">,</span> <span class="p">[],</span> <span class="p">{</span>
-  <span class="nx">env</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">account</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">AWS_ACCOUNT_ID</span><span class="o">&gt;</span><span class="p">,</span>
-      <span class="nx">region</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">AWS_REGION</span><span class="o">&gt;</span><span class="p">,</span>
-  <span class="p">},</span>
-<span class="p">});</span>
+
+<span class="kd">const</span> <span class="nx">addOn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">ClusterAutoscalerAddOn</span><span class="p">();</span>
+
+<span class="kd">const</span> <span class="nx">blueprint</span> <span class="o">=</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">.</span><span class="nx">builder</span><span class="p">()</span>
+  <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="nx">addOn</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">build</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;my-stack-name&#39;</span><span class="p">);</span>
 </code></pre></div>
 <h2 id="functionality">Functionality<a class="headerlink" href="#functionality" title="Permanent link">&para;</a></h2>
 <ol>
@@ -822,7 +977,7 @@ ip-10-0-189-107.us-west-2.compute.internal   Ready    &lt;none&gt;   80m   v1.19
 <p>The first step is to create a sample application via deployment and request 20m of CPU:</p>
 <div class="highlight"><pre><span></span><code>kubectl create deployment php-apache --image<span class="o">=</span>us.gcr.io/k8s-artifacts-prod/hpa-example
 kubectl <span class="nb">set</span> resources deploy php-apache --requests<span class="o">=</span><span class="nv">cpu</span><span class="o">=</span>20m 
-kubectl expose php-apache --port <span class="m">80</span>
+kubectl expose deployment php-apache --port <span class="m">80</span>
 </code></pre></div>
 <p>You can see that there's 1 pod currently running:</p>
 <div class="highlight"><pre><span></span><code>kubectl get pod -l <span class="nv">app</span><span class="o">=</span>php-apache
@@ -835,13 +990,13 @@ php-apache-55c4584468-vsbl7   1/1     Running   0          63s
 <div class="highlight"><pre><span></span><code>kubectl autoscale deployment php-apache <span class="se">\</span>
     --cpu-percent<span class="o">=</span><span class="m">50</span> <span class="se">\</span>
     --min<span class="o">=</span><span class="m">1</span> <span class="se">\</span>
-    --max<span class="o">=</span><span class="m">20</span>
+    --max<span class="o">=</span><span class="m">50</span>
 </code></pre></div></p>
 <p>You can verify by looking at the hpa resource:</p>
 <div class="highlight"><pre><span></span><code>kubectl get hpa
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>NAME         REFERENCE               TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
-php-apache   Deployment/php-apache   10%/50%   1         20        2          52s
+php-apache   Deployment/php-apache   10%/50%   1         50        2          52s
 </code></pre></div>
 <h3 id="generate-load">Generate load<a class="headerlink" href="#generate-load" title="Permanent link">&para;</a></h3>
 <p>With the resources created, you can generate load on the apache server with a busybox container:</p>
@@ -855,7 +1010,7 @@ php-apache   Deployment/php-apache   10%/50%   1         20        2          52
 <div class="highlight"><pre><span></span><code>kubectl get pods -l <span class="nv">app</span><span class="o">=</span>php-apache -o wide --watch
 </code></pre></div>
 <p>With more pods being created, you would expect more nodes to be created; you can access the Cluster Autoscaler logs to confirm:</p>
-<div class="highlight"><pre><span></span><code>kubectl -n kube-system logs -f deployment/cluster-autoscaler
+<div class="highlight"><pre><span></span><code>kubectl -n kube-system logs -f deployment/blueprints-addon-cluster-autoscaler-aws-cluster-autoscaler
 </code></pre></div>
 <p>Lastly, you can list all the nodes and see that there are now multiple nodes:</p>
 <div class="highlight"><pre><span></span><code>kubectl get nodes
@@ -884,7 +1039,7 @@ ip-10-0-233-105.us-west-2.compute.internal   Ready    &lt;none&gt;   90s   v1.19
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../coredns/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../calico/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -893,7 +1048,7 @@ ip-10-0-233-105.us-west-2.compute.internal   Ready    &lt;none&gt;   90s   v1.19
               <span class="md-footer__direction">
                 Previous
               </span>
-              CoreDns
+              Calico
             </div>
           </div>
         </a>

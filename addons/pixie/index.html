@@ -14,7 +14,7 @@
     
     
       
-        <title>Container Insights - Amazon EKS Blueprints Quick Start</title>
+        <title>Pixie Addon - Amazon EKS Blueprints Quick Start</title>
       
     
     
@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#container-insights-add-on" class="md-skip">
+        <a href="#pixie-addon" class="md-skip">
           Skip to content
         </a>
       
@@ -89,7 +89,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Container Insights
+              Pixie Addon
             
           </span>
         </div>
@@ -268,14 +268,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       <label class="md-nav__link" for="__nav_6">
         AddOns
@@ -387,86 +385,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Container Insights
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../container-insights/" class="md-nav__link">
         Container Insights
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
-    Usage
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    Prerequisites
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#view-metrics-for-cluster-and-workloads" class="md-nav__link">
-    View metrics for cluster and workloads
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#view-cluster-level-logs" class="md-nav__link">
-    View cluster level logs
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#view-workload-level-logs" class="md-nav__link">
-    View workload level logs
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#view-containers-via-that-container-map-in-container-insights" class="md-nav__link">
-    View containers via that container map in container insights.
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -848,44 +771,133 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#prerequisite" class="md-nav__link">
+    Prerequisite
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#usage" class="md-nav__link">
     Usage
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    Prerequisites
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-deploy-key" class="md-nav__link">
+    Using deploy key:
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-deploy-key-stored-in-secrets-manager" class="md-nav__link">
+    Using deploy key stored in Secrets Manager:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#view-metrics-for-cluster-and-workloads" class="md-nav__link">
-    View metrics for cluster and workloads
+  <a href="#addon-options-props" class="md-nav__link">
+    Addon Options (props)
+  </a>
+  
+    <nav class="md-nav" aria-label="Addon Options (props)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deploykey-string-optional" class="md-nav__link">
+    deployKey: string (optional)
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#view-cluster-level-logs" class="md-nav__link">
-    View cluster level logs
+        
+          <li class="md-nav__item">
+  <a href="#deploykeysecretname-string-optional" class="md-nav__link">
+    deployKeySecretName: string (optional)
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#view-workload-level-logs" class="md-nav__link">
-    View workload level logs
+        
+          <li class="md-nav__item">
+  <a href="#namespace-string-optional" class="md-nav__link">
+    namespace?: string (optional)
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#view-containers-via-that-container-map-in-container-insights" class="md-nav__link">
-    View containers via that container map in container insights.
+        
+          <li class="md-nav__item">
+  <a href="#cloudaddr-string-optional" class="md-nav__link">
+    cloudAddr?: string (optional)
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#devcloudnamespace-string-optional" class="md-nav__link">
+    devCloudNamespace?: string (optional)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clustername-string-optional" class="md-nav__link">
+    clusterName?: string (optional)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useetcdoperator-boolean-optional" class="md-nav__link">
+    useEtcdOperator?: boolean (optional)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pemmemorylimit-string-optional" class="md-nav__link">
+    pemMemoryLimit?: string (optional)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dataaccess-fullrestrictedpiirestricted-optional" class="md-nav__link">
+    dataAccess?: "Full"|"Restricted"|"PIIRestricted" (optional)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patches-key-string-string-optional" class="md-nav__link">
+    patches?: [key: string]: string (optional)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-string-optional" class="md-nav__link">
+    version?: string (optional)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repository-string-release-string-chart-string-optional" class="md-nav__link">
+    repository?: string, release?: string, chart?: string (optional)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -901,135 +913,118 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/aws-quickstart/cdk-eks-blueprints/edit/master/docs/addons/container-insights.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/aws-quickstart/cdk-eks-blueprints/edit/master/docs/addons/pixie.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="container-insights-add-on">Container Insights Add-on<a class="headerlink" href="#container-insights-add-on" title="Permanent link">&para;</a></h1>
-<p>The Container Insights add-on adds support for <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/deploy-container-insights-EKS.html">Container Insights</a> to an EKS cluster.</p>
-<p>Customers can use Container Insights to collect, aggregate, and summarize metrics and logs from your containerized applications and microservices. Container Insights collects data as performance log events using an embedded metric format. These performance log events are entries that use a structured JSON schema that enables high-cardinality data to be ingested and stored at scale. From this data, CloudWatch creates aggregated metrics at the cluster, node, pod, task, and service level as CloudWatch metrics. The metrics that Container Insights collects are available in CloudWatch automatic dashboards, and also viewable in the Metrics section of the CloudWatch console.</p>
-<p><strong>IMPORTANT</strong></p>
-<p>CloudWatch does not automatically create all possible metrics from the log data, to help you manage your Container Insights costs. However, you can view additional metrics and additional levels of granularity by using CloudWatch Logs Insights to analyze the raw performance log events.</p>
-<p>Metrics collected by Container Insights are charged as custom metrics. For more information about <a href="https://aws.amazon.com/cloudwatch/pricing/">CloudWatch pricing</a>, see Amazon CloudWatch Pricing.</p>
+                <h1 id="pixie-addon">Pixie Addon<a class="headerlink" href="#pixie-addon" title="Permanent link">&para;</a></h1>
+<p>The <code>Pixie Addon</code> deploys <a href="https://px.dev">Pixie</a> on Amazon EKS using the EKS Blueprints <a href="https://aws.amazon.com/cdk/">CDK</a>. </p>
+<p>Pixie is an open source observability tool for Kubernetes applications. Use Pixie to view the high-level state of your cluster (service maps, cluster resources, application traffic) and also drill-down into more detailed views (pod state, flame graphs, individual full-body application requests).</p>
+<p>Three features enable Pixie's magical developer experience:</p>
+<ul>
+<li>
+<p><strong>Auto-telemetry:</strong> Pixie uses eBPF to automatically collect telemetry data such as full-body requests, resource and network metrics, application profiles, and more. See the full list of data sources <a href="https://docs.px.dev/about-pixie/data-sources/">here</a>.</p>
+</li>
+<li>
+<p><strong>In-Cluster Edge Compute:</strong> Pixie collects, stores and queries all telemetry data locally in the cluster. Pixie uses less than 5% of cluster CPU, and in most cases less than 2%.</p>
+</li>
+<li>
+<p><strong>Scriptability:</strong> <a href="https://docs.px.dev/reference/pxl/">PxL</a>, Pixie’s flexible Pythonic query language, can be used across Pixie’s UI, CLI, and client APIs.</p>
+</li>
+</ul>
+<h2 id="prerequisite">Prerequisite<a class="headerlink" href="#prerequisite" title="Permanent link">&para;</a></h2>
+<p>You must have either:</p>
+<ul>
+<li>
+<p>You need to have a Pixie account and deployment key on <a href="https://withpixie.ai">Community Cloud for Pixie</a>.</p>
+</li>
+<li>
+<p>Or a Pixie account and deployment key on a <a href="https://docs.px.dev/installing-pixie/install-guides/self-hosted-pixie/">self-hosted Pixie Cloud</a>.</p>
+</li>
+</ul>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<p>Add the following as an add-on to your main.ts file to add Containers Insights to your cluster</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="s1">&#39;source-map-support/register&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cdk</span> <span class="k">from</span> <span class="s1">&#39;aws-cdk-lib&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">blueprints</span> <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/eks-blueprints&#39;</span><span class="p">;</span>
+<p>Run the following command to install the pixie-eks-blueprints-addon dependency in your project.</p>
+<div class="highlight"><pre><span></span><code>npm i @pixie-labs/pixie-eks-blueprints-addon
+</code></pre></div>
+<h4 id="using-deploy-key">Using deploy key:<a class="headerlink" href="#using-deploy-key" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>import * as cdk from &#39;aws-cdk-lib&#39;;
+import * as blueprints from &#39;@aws-quickstart/eks-blueprints&#39;;
+import { PixieAddOn } from &#39;@pixie-labs/pixie-ssp-addon&#39;;
 
-<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
+const app = new App();
 
-<span class="kd">const</span> <span class="nx">addOn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">ContainerInsightsAddOn</span><span class="p">();</span>
+const addOns: Array&lt;blueprints.ClusterAddOn&gt; = [
+    new PixieAddOn({
+        deployKey: &#39;pixie-deploy-key&#39;, // Create and copy from Pixie Admin UI
+    }),
+];
 
-<span class="kd">const</span> <span class="nx">blueprint</span> <span class="o">=</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">.</span><span class="nx">builder</span><span class="p">()</span>
-  <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="nx">addOn</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">build</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;my-stack-name&#39;</span><span class="p">);</span>
+new blueprints.EksBlueprint(
+    app, 
+    {
+        id: &#39;my-stack-name&#39;, 
+        addOns,
+    },
+    {
+        env:{
+          account: &lt;AWS_ACCOUNT_ID&gt;,
+          region: &lt;AWS_REGION&gt;, 
+        }       
+    });
 </code></pre></div>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
-<p>Once the Container Insights add-on has been installed in your cluster, validate that the <a href="https://aws.amazon.com/otel">AWS Distro for Open Telemetry</a> (ADOT) and the FluentBit daemons are running. </p>
-<div class="highlight"><pre><span></span><code>kubectl get all -n amazon-cloudwatch 
-kubectl get all -n amzn-cloudwatch-metrics
-</code></pre></div>
-<p>You should see output similar to the following respectively (assuming two node cluster): </p>
-<div class="highlight"><pre><span></span><code>NAME                   READY   STATUS    RESTARTS   AGE
-pod/fluent-bit-5chvg   1/1     Running   2          100s
-pod/fluent-bit-px7r6   1/1     Running   0          101s
+<h4 id="using-deploy-key-stored-in-secrets-manager">Using deploy key stored in Secrets Manager:<a class="headerlink" href="#using-deploy-key-stored-in-secrets-manager" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>import * as cdk from &#39;aws-cdk-lib&#39;;
+import * as blueprints from &#39;@aws-quickstart/eks-blueprints&#39;;
+import { PixieAddOn } from &#39;@pixie-labs/pixie-ssp-addon&#39;;
 
-NAME                        DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
-daemonset.apps/fluent-bit   2         2         2       2            2           &lt;none&gt;          100s
+const app = new App();
 
-NAME                                 READY   STATUS    RESTARTS   AGE
-pod/adot-collector-daemonset-b2rpc   1/1     Running   0          106s
-pod/adot-collector-daemonset-k6tfw   1/1     Running   2          106s
+const addOns: Array&lt;blueprints.ClusterAddOn&gt; = [
+    new blueprints.addons.SecretsStoreAddOn,
+    new PixieAddOn({
+        deployKeySecretName: &quot;pixie-deploy-key-secret&quot;, // Name of secret in Secrets Manager. 
+    }),
+];
 
-NAME                                      DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
-daemonset.apps/adot-collector-daemonset   2         2         2       2            2           &lt;none&gt;          106s
+new blueprints.EksBlueprint(
+    app,
+    {
+        id: &#39;my-stack-name&#39;,
+        addOns,
+    },
+    {
+        env:{
+          account: &lt;AWS_ACCOUNT_ID&gt;,
+          region: &lt;AWS_REGION&gt;,
+        }
+    });
 </code></pre></div>
-<p>To enable or disable control plane logs with the console, run the following command in your terminal.</p>
-<div class="highlight"><pre><span></span><code>aws eks update-cluster-config <span class="se">\</span>
-    --region us-east-2 <span class="se">\</span>
-    --name east-dev <span class="se">\</span>
-    --logging <span class="s1">&#39;{&quot;clusterLogging&quot;:[{&quot;types&quot;:[&quot;api&quot;,&quot;audit&quot;,&quot;authenticator&quot;,&quot;controllerManager&quot;,&quot;scheduler&quot;],&quot;enabled&quot;:true}]}&#39;</span>
-</code></pre></div>
-<p>You should see a similar output as the following.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-    <span class="nt">&quot;update&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;883405c8-65c6-4758-8cee-2a7c1340a6d9&gt;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;InProgress&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;LoggingUpdate&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;params&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">{</span>
-                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ClusterLogging&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;{\&quot;clusterLogging\&quot;:[{\&quot;types\&quot;:[\&quot;api\&quot;,\&quot;audit\&quot;,\&quot;authenticator\&quot;,\&quot;controllerManager\&quot;,\&quot;scheduler\&quot;],\&quot;enabled\&quot;:true}]}&quot;</span>
-            <span class="p">}</span>
-        <span class="p">],</span>
-        <span class="nt">&quot;createdAt&quot;</span><span class="p">:</span> <span class="mf">1553271814.684</span><span class="p">,</span>
-        <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[]</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>You can also monitor the status of your log configuration update to your cluster by running the following command. </p>
-<div class="highlight"><pre><span></span><code>aws eks describe-update <span class="se">\</span>
-    --region &lt;region-code&gt;<span class="se">\</span>
-    --name &lt;prod&gt; <span class="se">\</span>
-    --update-id &lt;883405c8-65c6-4758-8cee-2a7c1340a6d9&gt;
-</code></pre></div>
-<p>Once the update is complete, you should see a similar output.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-    <span class="nt">&quot;update&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;883405c8-65c6-4758-8cee-2a7c1340a6d9&gt;&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;Successful&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;LoggingUpdate&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;params&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">{</span>
-                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ClusterLogging&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;{\&quot;clusterLogging\&quot;:[{\&quot;types\&quot;:[\&quot;api\&quot;,\&quot;audit\&quot;,\&quot;authenticator\&quot;,\&quot;controllerManager\&quot;,\&quot;scheduler\&quot;],\&quot;enabled\&quot;:true}]}&quot;</span>
-            <span class="p">}</span>
-        <span class="p">],</span>
-        <span class="nt">&quot;createdAt&quot;</span><span class="p">:</span> <span class="mf">1553271814.684</span><span class="p">,</span>
-        <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[]</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<h2 id="view-metrics-for-cluster-and-workloads">View metrics for cluster and workloads<a class="headerlink" href="#view-metrics-for-cluster-and-workloads" title="Permanent link">&para;</a></h2>
-<p>Under Performance Monitoring, the Container Insights dashboard allows you to hone in on both cluster and workload metrics. After selecting EKS Pods and Clusters, you will see that the dashboard provides CPU and memory utilization along with other important metrics such as network performance. </p>
-<p><img alt="CloudWatch" src="../../assets/images/eks-blueprint-cwinsights-performance-monitoring.png" /></p>
-<h2 id="view-cluster-level-logs">View cluster level logs<a class="headerlink" href="#view-cluster-level-logs" title="Permanent link">&para;</a></h2>
-<p>After you have enabled any of the control plane log types for your Amazon EKS cluster, you can view them on the CloudWatch console.</p>
-<p>To view these logs on the CloudWatch console follow these steps:</p>
-<ol>
-<li>Open the CloudWatch console and choose the cluster that you want to view logs for. The log group name format is /aws/eks/<cluster-name>/cluster.</li>
-<li>Choose the log stream to view. The following list describes the log stream name format for each log type.</li>
-<li>Kubernetes API server component logs (api) – kube-apiserver-<nnn...></li>
-<li>Audit (audit) – kube-apiserver-audit-<nnn...></li>
-<li>Authenticator (authenticator) – authenticator-<nnn...></li>
-<li>Controller manager (controllerManager) – kube-controller-manager-<nnn...></li>
-<li>Scheduler (scheduler) – kube-scheduler-<nnn...></li>
-</ol>
-<p>Next in the console, click on Log groups under Logs. </p>
-<p>You will see under log streams all the log streams from your Amazon EKS control plane. </p>
-<p><img alt="CloudWatch" src="../../assets/images/eks-blueprint-cwlogs.png" /></p>
-<h2 id="view-workload-level-logs">View workload level logs<a class="headerlink" href="#view-workload-level-logs" title="Permanent link">&para;</a></h2>
-<p>In order to view workload level logs follow these steps after browsing to the CloudWatch Logs Insights console</p>
-<p>In the navigation pane, choose Insights.</p>
-<p>Near the top of the screen is the query editor. When you first open CloudWatch Logs Insights, this box contains a default query that returns the 20 most recent log events.</p>
-<p>In the box above the query editor, select one of the Container Insights log groups to query. For the following example queries to work, the log group name must end with performance. We will look at <code>/aws/containerinsights/east-dev/performance</code></p>
-<p>When you select a log group, CloudWatch Logs Insights automatically detects fields in the data in the log group and displays them in Discovered fields in the right pane. It also displays a bar graph of log events in this log group over time. This bar graph shows the distribution of events in the log group that matches your query and time range, not only the events displayed in the table.</p>
-<p>In the query editor, replace the default query with the following query and choose Run query.</p>
-<p>STATS avg(node_cpu_utilization) as avg_node_cpu_utilization by NodeName
-<code>SORT avg_node_cpu_utilization DESC</code>
-This query shows a list of nodes, sorted by average node CPU utilization. Below is an example of what the visualization should look like.</p>
-<p><img alt="CloudWatch" src="../../assets/images/eks-blueprint-cloudwatch-loginsights.png" /></p>
-<p>To try another example, replace that query with another query and choose Run query. More sample queries are listed later on this page.</p>
-<p>STATS avg(number_of_container_restarts) as avg_number_of_container_restarts by PodName
-<code>SORT avg_number_of_container_restarts DESC</code>
-This query displays a list of your pods, sorted by average number of container restarts as shown below</p>
-<p><img alt="CloudWatch" src="../../assets/images/eks-blueprint-cloudwatch-loginsights-2.png" /></p>
-<p>If you want to try another query, you can use include fields in the list at the right of the screen. For more information about query syntax, see CloudWatch Logs Insights Query Syntax.</p>
-<h2 id="view-containers-via-that-container-map-in-container-insights">View containers via that container map in container insights.<a class="headerlink" href="#view-containers-via-that-container-map-in-container-insights" title="Permanent link">&para;</a></h2>
-<p>In order to view a map of all of your containers running inside your cluster, click on <code>View your container map</code> in the Container Insights tab. You will then see a map of all of your namespaces and their associated pods and services.</p>
-<p><img alt="CloudWatch" src="../../assets/images/eks-blueprint-container-insights.png" /></p>
+<h2 id="addon-options-props">Addon Options (props)<a class="headerlink" href="#addon-options-props" title="Permanent link">&para;</a></h2>
+<h4 id="deploykey-string-optional"><code>deployKey: string</code> (optional)<a class="headerlink" href="#deploykey-string-optional" title="Permanent link">&para;</a></h4>
+<p>Pixie deployment key (plain text).  Log into the Admin UI in Pixie to generate a deployment key. This attaches your Pixie deployment to your org.</p>
+<h4 id="deploykeysecretname-string-optional"><code>deployKeySecretName: string</code> (optional)<a class="headerlink" href="#deploykeysecretname-string-optional" title="Permanent link">&para;</a></h4>
+<p>The name of the Pixie deployment key secret in Secrets Manager. The value of the key in Secrets Manager should be the deploy key in plaintext. Do not nest it inside a JSON object.</p>
+<h4 id="namespace-string-optional"><code>namespace?: string</code> (optional)<a class="headerlink" href="#namespace-string-optional" title="Permanent link">&para;</a></h4>
+<p>Namespace to deploy Pixie to. Default: <code>pl</code></p>
+<h4 id="cloudaddr-string-optional"><code>cloudAddr?: string</code> (optional)<a class="headerlink" href="#cloudaddr-string-optional" title="Permanent link">&para;</a></h4>
+<p>The address of Pixie Cloud. This should only be modified if you have deployed your own self-hosted Pixie Cloud. By default, it will be set to <a href="https://work.withpixie.dev">Community Cloud for Pixie</a>.</p>
+<h4 id="devcloudnamespace-string-optional"><code>devCloudNamespace?: string</code> (optional)<a class="headerlink" href="#devcloudnamespace-string-optional" title="Permanent link">&para;</a></h4>
+<p>If running in a self-hosted cloud with no DNS configured, the namespace in which the self-hosted cloud is running. </p>
+<h4 id="clustername-string-optional"><code>clusterName?: string</code> (optional)<a class="headerlink" href="#clustername-string-optional" title="Permanent link">&para;</a></h4>
+<p>The name of cluster. If none is specified, a random name will be generated.</p>
+<h4 id="useetcdoperator-boolean-optional"><code>useEtcdOperator?: boolean</code> (optional)<a class="headerlink" href="#useetcdoperator-boolean-optional" title="Permanent link">&para;</a></h4>
+<p>Whether the metadata store should use etcd to store metadata, or use a persistent volume store. If not specified, the operator will deploy based on the cluster's storageClass configuration.</p>
+<h4 id="pemmemorylimit-string-optional"><code>pemMemoryLimit?: string</code> (optional)<a class="headerlink" href="#pemmemorylimit-string-optional" title="Permanent link">&para;</a></h4>
+<p>The memory limit applied to the PEMs (data collectors). Set to 2Gi by default.</p>
+<h4 id="dataaccess-fullrestrictedpiirestricted-optional"><code>dataAccess?: "Full"|"Restricted"|"PIIRestricted"</code> (optional)<a class="headerlink" href="#dataaccess-fullrestrictedpiirestricted-optional" title="Permanent link">&para;</a></h4>
+<p>DataAccess defines the level of data that may be accesssed when executing a script on the cluster. If none specified, assumes full data access.</p>
+<h4 id="patches-key-string-string-optional"><code>patches?: [key: string]: string</code> (optional)<a class="headerlink" href="#patches-key-string-string-optional" title="Permanent link">&para;</a></h4>
+<p>Custom K8s patches which should be applied to the Pixie YAMLs. The key should be the name of the K8s resource, and the value is the patch that should be applied.</p>
+<h4 id="version-string-optional"><code>version?: string</code> (optional)<a class="headerlink" href="#version-string-optional" title="Permanent link">&para;</a></h4>
+<p>Helm chart version.</p>
+<h4 id="repository-string-release-string-chart-string-optional"><code>repository?: string</code>, <code>release?: string</code>, <code>chart?: string</code> (optional)<a class="headerlink" href="#repository-string-release-string-chart-string-optional" title="Permanent link">&para;</a></h4>
+<p>Additional options for customers who may need to supply their own private Helm repository.</p>
                 
               
               
@@ -1045,39 +1040,6 @@ This query displays a list of your pods, sorted by average number of container r
       
         
 <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        <a href="../cluster-autoscaler/" class="md-footer__link md-footer__link--prev" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Cluster Autoscaler
-            </div>
-          </div>
-        </a>
-      
-      
-        <a href="../coredns/" class="md-footer__link md-footer__link--next" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              CoreDns
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

@@ -250,8 +250,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#deploy-a-blueprint-eks-cluster" class="md-nav__link">
-    Deploy a Blueprint EKS Cluster
+  <a href="#configure-and-deploy-eks-clusters" class="md-nav__link">
+    Configure and Deploy EKS Clusters
   </a>
   
 </li>
@@ -436,6 +436,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../addons/aws-for-fluent-bit/" class="md-nav__link">
+        AWS For Fluent Bit
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../addons/aws-load-balancer-controller/" class="md-nav__link">
         AWS Load Balancer Controller
       </a>
@@ -448,8 +460,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../addons/calico/" class="md-nav__link">
-        Calico
+      <a href="../addons/aws-node-termination-handler/" class="md-nav__link">
+        AWS Node Termination Handler
       </a>
     </li>
   
@@ -460,8 +472,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../addons/coredns/" class="md-nav__link">
-        CoreDns
+      <a href="../addons/calico/" class="md-nav__link">
+        Calico
       </a>
     </li>
   
@@ -496,8 +508,80 @@
   
   
     <li class="md-nav__item">
+      <a href="../addons/coredns/" class="md-nav__link">
+        CoreDns
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/dynatrace-oss/dynatrace-eks-blueprints-addon" class="md-nav__link">
+        Dynatrace
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addons/ebs-csi-driver/" class="md-nav__link">
+        EBS CSI Driver
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addons/efs-csi-driver/" class="md-nav__link">
+        EFS CSI Driver
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../addons/external-dns/" class="md-nav__link">
         External DNS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addons/karpenter/" class="md-nav__link">
+        Karpenter
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/keptn-sandbox/keptn-eks-blueprints-addon" class="md-nav__link">
+        Keptn
       </a>
     </li>
   
@@ -520,8 +604,44 @@
   
   
     <li class="md-nav__item">
+      <a href="../addons/kubecost/" class="md-nav__link">
+        Kubecost
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addons/kubevious/" class="md-nav__link">
+        Kubevious
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../addons/metrics-server/" class="md-nav__link">
         Metrics Server
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addons/newrelic/" class="md-nav__link">
+        New Relic
       </a>
     </li>
   
@@ -544,8 +664,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../addons/ssm-agent/" class="md-nav__link">
-        SSM Agent
+      <a href="../addons/opa-gatekeeper/" class="md-nav__link">
+        OPA Gatekeeper
       </a>
     </li>
   
@@ -558,6 +678,30 @@
     <li class="md-nav__item">
       <a href="../addons/secrets-store/" class="md-nav__link">
         Secrets Store
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addons/ssm-agent/" class="md-nav__link">
+        SSM Agent
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../addons/velero/" class="md-nav__link">
+        Velero
       </a>
     </li>
   
@@ -636,6 +780,18 @@
     <li class="md-nav__item">
       <a href="../cluster-providers/" class="md-nav__link">
         Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cluster-providers/generic-cluster-provider/" class="md-nav__link">
+        Generic Cluster Provider
       </a>
     </li>
   
@@ -731,8 +887,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#deploy-a-blueprint-eks-cluster" class="md-nav__link">
-    Deploy a Blueprint EKS Cluster
+  <a href="#configure-and-deploy-eks-clusters" class="md-nav__link">
+    Configure and Deploy EKS Clusters
   </a>
   
 </li>
@@ -822,8 +978,8 @@
 <p>Before proceeding, make sure <a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html">AWS CLI</a> is installed on your machine.</p>
 <p>To use the <code>eks-blueprints</code> module, you must have <a href="https://nodejs.org/en/">Node.js</a> and <a href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm">npm</a> installed. We will also use <code>make</code> to simplify build and other common actions. You can do it using the following instructions:</p>
 <div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Mac</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>sudo brew install make
-sudo brew install node
+<div class="highlight"><pre><span></span><code>brew install make
+brew install node
 </code></pre></div>
 </div>
 <input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Ubuntu</label><div class="tabbed-content">
@@ -832,13 +988,14 @@ sudo apt install nodejs
 </code></pre></div>
 </div>
 </div>
-<p>Create a directory that represent you project (e.g. <code>my-blueprints</code>) and then create a new <code>typescript</code> CDK project in that directory.</p>
-<div class="highlight"><pre><span></span><code>mkdir my-blueprints
+<p>Create a directory that represents you project (e.g. <code>my-blueprints</code>) and then create a new <code>typescript</code> CDK project in that directory.</p>
+<div class="highlight"><pre><span></span><code>npm install -g aws-cdk@2.20.0 <span class="c1"># may require sudo (Ubuntu) depending on configuration</span>
+cdk --verson <span class="c1"># must produce 2.20.0</span>
+mkdir my-blueprints
 <span class="nb">cd</span> my-blueprints
-npm install aws-cdk@2.17.0
-npx cdk init app --language typescript
+cdk init app --language typescript
 </code></pre></div>
-<h2 id="deploy-a-blueprint-eks-cluster">Deploy a Blueprint EKS Cluster<a class="headerlink" href="#deploy-a-blueprint-eks-cluster" title="Permanent link">&para;</a></h2>
+<h2 id="configure-and-deploy-eks-clusters">Configure and Deploy EKS Clusters<a class="headerlink" href="#configure-and-deploy-eks-clusters" title="Permanent link">&para;</a></h2>
 <p>Install the <code>eks-blueprints</code> NPM package via the following.</p>
 <div class="highlight"><pre><span></span><code>npm i @aws-quickstart/eks-blueprints
 </code></pre></div>
@@ -867,10 +1024,11 @@ npx cdk init app --language typescript
 <span class="nx">blueprints</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">.</span><span class="nx">builder</span><span class="p">()</span>
     <span class="p">.</span><span class="nx">account</span><span class="p">(</span><span class="nx">account</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">region</span><span class="p">(</span><span class="nx">region</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="nx">addOns</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">addOns</span><span class="p">(...</span><span class="nx">addOns</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">build</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;eks-blueprint&#39;</span><span class="p">);</span>
 </code></pre></div>
-<p>Each combination of target account and region must be bootstrapped prior to deploying stacks. Bootstrapping is an process of creating IAM roles and lambda functions that can execute some of the common CDK constructs.</p>
+<p>Each combination of target account and region must be bootstrapped prior to deploying stacks. Bootstrapping is a process of creating IAM roles and lambda functions that can execute some of the common CDK constructs.</p>
+<p>For application of the EKS Blueprints Framework with <a href="https://aws.amazon.com/organizations/">AWS Organizations</a>, <a href="https://docs.aws.amazon.com/controltower/latest/userguide/aws-multi-account-landing-zone.html">Multi-account framework and Control Tower</a> consider a process to automatically or manually CDK-bootstrapping new (workload/environment) accounts when they are added to the organization. More info on account bootstrapping <a href="https://aws.amazon.com/blogs/mt/how-to-automate-the-creation-of-multiple-accounts-in-aws-control-tower/">here</a>.</p>
 <p><a href="https://docs.aws.amazon.com/cdk/latest/guide/bootstrapping.html">Bootstrap</a> your environment with the following command. </p>
 <div class="highlight"><pre><span></span><code>cdk bootstrap
 </code></pre></div>
@@ -914,9 +1072,9 @@ arn:aws:cloudformation:us-east-1:115717706081:stack/east-test-1/e1b9e6a0-d5f6-11
 <p>You should see output that lists all namespaces in your cluster. </p>
 <h2 id="deploy-workloads-with-argocd">Deploy workloads with ArgoCD<a class="headerlink" href="#deploy-workloads-with-argocd" title="Permanent link">&para;</a></h2>
 <p>Next, let's walk you through how to deploy workloads to your cluster with ArgoCD. This approach leverages the <a href="https://argoproj.github.io/argo-cd/operator-manual/cluster-bootstrapping/#app-of-apps-pattern">App of Apps</a> pattern to deploy multiple workloads across multiple namespaces. The sample app of apps repository that we use in this getting started guide can be found <a href="https://github.com/aws-samples/eks-blueprints-workloads">here</a>.</p>
-<p>You can leverage <a href="../addons/argo-cd/#Bootstrapping">Automatic Bootstrapping</a> for automatic onboarding of workloads. This feature may be leveraged even when workload repositories are not ready yet, as it creates a placeholder for future workloads and decouples workload onboarding for the infrastructure provisioning pipeline. The next steps, described in this guide apply for cases when customer prefer to bootstrap their workloads manually through ArgoCD UI console.</p>
+<p>You can leverage <a href="../addons/argo-cd/#bootstrapping">Automatic Bootstrapping</a> for automatic onboarding of workloads. This feature may be leveraged even when workload repositories are not ready yet, as it creates a placeholder for future workloads and decouples workload onboarding for the infrastructure provisioning pipeline. The next steps, described in this guide apply for cases when customer prefer to bootstrap their workloads manually through ArgoCD UI console.</p>
 <h3 id="install-argocd-cli">Install ArgoCD CLI<a class="headerlink" href="#install-argocd-cli" title="Permanent link">&para;</a></h3>
-<p>These steps are needed for manual workload onboarding. For automatic bootstrapping please refer to the <a href="../addons/argo-cd/#Bootstrapping">Automatic Bootstrapping</a>.</p>
+<p>These steps are needed for manual workload onboarding. For automatic bootstrapping please refer to the <a href="../addons/argo-cd/#bootstrapping">Automatic Bootstrapping</a>.</p>
 <p>Follow the instructions found <a href="https://argoproj.github.io/argo-cd/cli_installation/">here</a> as it will include instructions for your specific OS. You can test that the ArgoCD CLI was installed correctly using the following:</p>
 <div class="highlight"><pre><span></span><code>argocd version --short --client
 </code></pre></div>
@@ -965,9 +1123,9 @@ arn:aws:cloudformation:us-east-1:115717706081:stack/east-test-1/e1b9e6a0-d5f6-11
 <p>Open up <code>localhost:4040</code> in your browser and you should see the application.</p>
 <h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <p>For information on onboarding teams to your clusters, see <a href="../teams"><code>Team</code> documentation</a>. </p>
-<p>For information on deploying Continuous Delivery pipelines for your infrastructure, see <a href="../ci-cd"><code>Pipelines</code> documentation</a>.</p>
+<p>For information on deploying Continuous Delivery pipelines for your infrastructure, see <a href="../pipelines"><code>Pipelines</code> documentation</a>.</p>
 <p>For information on supported add-ons, see <a href="../addons"><code>Add-on</code> documentation</a></p>
-<p>For information on Onboarding and managing workloads in your clusters, see <a href="../workloads"><code>Workload</code> documentation</a>. </p>
+<p>For information on Onboarding and managing workloads in your clusters, see <a href="https://github.com/aws-samples/eks-blueprints-workloads"><code>Workload</code> documentation</a>. </p>
                 
               
               

@@ -14,7 +14,7 @@
     
     
       
-        <title>Secrets Store - Amazon EKS Blueprints Quick Start</title>
+        <title>New Relic - Amazon EKS Blueprints Quick Start</title>
       
     
     
@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#secrets-store-add-on" class="md-skip">
+        <a href="#new-relic-addon-aws-eks-blueprints-for-cdk" class="md-skip">
           Skip to content
         </a>
       
@@ -89,7 +89,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Secrets Store
+              New Relic
             
           </span>
         </div>
@@ -531,11 +531,134 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../newrelic/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          New Relic
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         New Relic
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retrieving-keys" class="md-nav__link">
+    Retrieving keys
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-secrets-manager-key-format" class="md-nav__link">
+    AWS Secrets Manager key format
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-configuration-using-keys-stored-in-secrets-manager" class="md-nav__link">
+    Example Configuration (using keys stored in Secrets Manager):
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-configuration-using-keys" class="md-nav__link">
+    Example Configuration (using keys):
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation" class="md-nav__link">
+    Validation
+  </a>
+  
+    <nav class="md-nav" aria-label="Validation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nrql-query" class="md-nav__link">
+    NRQL Query
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-relic-one-ui" class="md-nav__link">
+    New Relic One UI
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support" class="md-nav__link">
+    Support
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contributing" class="md-nav__link">
+    Contributing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    License
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -567,85 +690,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Secrets Store
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../secrets-store/" class="md-nav__link">
         Secrets Store
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
-    Usage
-  </a>
-  
-    <nav class="md-nav" aria-label="Usage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#indexts" class="md-nav__link">
-    index.ts
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#functionality" class="md-nav__link">
-    Functionality
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#security-considerations" class="md-nav__link">
-    Security Considerations
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    Example
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -847,16 +896,58 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
-    Usage
+  <a href="#installation" class="md-nav__link">
+    Installation
   </a>
   
-    <nav class="md-nav" aria-label="Usage">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retrieving-keys" class="md-nav__link">
+    Retrieving keys
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-secrets-manager-key-format" class="md-nav__link">
+    AWS Secrets Manager key format
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-configuration-using-keys-stored-in-secrets-manager" class="md-nav__link">
+    Example Configuration (using keys stored in Secrets Manager):
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-configuration-using-keys" class="md-nav__link">
+    Example Configuration (using keys):
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation" class="md-nav__link">
+    Validation
+  </a>
+  
+    <nav class="md-nav" aria-label="Validation">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#indexts" class="md-nav__link">
-    index.ts
+  <a href="#nrql-query" class="md-nav__link">
+    NRQL Query
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-relic-one-ui" class="md-nav__link">
+    New Relic One UI
   </a>
   
 </li>
@@ -867,22 +958,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#functionality" class="md-nav__link">
-    Functionality
+  <a href="#variables" class="md-nav__link">
+    Variables
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#security-considerations" class="md-nav__link">
-    Security Considerations
+  <a href="#support" class="md-nav__link">
+    Support
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    Example
+  <a href="#contributing" class="md-nav__link">
+    Contributing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    License
   </a>
   
 </li>
@@ -899,159 +997,232 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/aws-quickstart/cdk-eks-blueprints/edit/master/docs/addons/secrets-store.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/aws-quickstart/cdk-eks-blueprints/edit/master/docs/addons/newrelic.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="secrets-store-add-on">Secrets Store Add-on<a class="headerlink" href="#secrets-store-add-on" title="Permanent link">&para;</a></h1>
-<p>The Secrets Store Add-on provisions the <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/integrating_csi_driver.html">AWS Secrets Manager and Config Provider(ASCP) for Secret Store CSI Driver</a> on your EKS cluster. With ASCP, you now have a plugin for the industry-standard Kubernetes Secrets Store <a href="https://github.com/kubernetes-sigs/secrets-store-csi-driver">Container Storage Interface (CSI) Driver</a> used for providing secrets to applications operating on Amazon Elastic Kubernetes Service.</p>
-<p>With ASCP, you can securely store and manage your secrets in <a href="https://docs.aws.amazon.com/secretsmanager">AWS Secrets Manager</a> or <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html">AWS Systems Manager Parameter Store</a> and retrieve them through your application workloads running on Kubernetes. You no longer have to write custom code for your applications.</p>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<h3 id="indexts"><strong><code>index.ts</code></strong><a class="headerlink" href="#indexts" title="Permanent link">&para;</a></h3>
+                <p><a href="https://opensource.newrelic.com/oss-category/#new-relic-experimental"><img alt="New Relic Experimental header" src="https://github.com/newrelic/opensource-website/raw/master/src/images/categories/Experimental.png" /></a></p>
+<h1 id="new-relic-addon-aws-eks-blueprints-for-cdk">New Relic Addon - AWS EKS Blueprints for CDK<a class="headerlink" href="#new-relic-addon-aws-eks-blueprints-for-cdk" title="Permanent link">&para;</a></h1>
+<p>This repository contains the source code for the New Relic AddOn for AWS EKS Blueprints. EKS Blueprints for <a href="https://aws.amazon.com/cdk/">CDK</a> is a framework that makes it easy for customers to configure and deploy New Relic's Kubernetes integration as part of an EKS Blueprints cluster on <a href="https://aws.amazon.com/eks/">Amazon EKS</a>.</p>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<p>Using <a href="https://npmjs.org">npm</a>:</p>
+<div class="highlight"><pre><span></span><code>npm install @newrelic/newrelic-eks-blueprints-addon
+</code></pre></div>
+<p>For a quick tutorial on EKS Blueprints, visit the <a href="https://aws-quickstart.github.io/cdk-eks-blueprints/getting-started/">Getting Started guide</a>.</p>
+<h2 id="retrieving-keys">Retrieving keys<a class="headerlink" href="#retrieving-keys" title="Permanent link">&para;</a></h2>
+<p>The New Relic and Pixie keys can be obtained from the New Relic <a href="https://docs.newrelic.com/docs/kubernetes-pixie/kubernetes-integration/installation/kubernetes-integration-install-configure#installer">Guided Install for Kubernetes</a>.</p>
+<h2 id="aws-secrets-manager-key-format">AWS Secrets Manager key format<a class="headerlink" href="#aws-secrets-manager-key-format" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>{
+  &quot;nrLicenseKey&quot;: &quot;xxxxNRAL&quot;,
+  &quot;pixieDeployKey&quot;: &quot;px-dep-xxxx&quot;,
+  &quot;pixieApiKey&quot;: &quot;px-api-xxxx&quot;
+}
+</code></pre></div>
+<h2 id="example-configuration-using-keys-stored-in-secrets-manager">Example Configuration (using keys stored in Secrets Manager):<a class="headerlink" href="#example-configuration-using-keys-stored-in-secrets-manager" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="s1">&#39;source-map-support/register&#39;</span><span class="p">;</span>
 <span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cdk</span> <span class="k">from</span> <span class="s1">&#39;aws-cdk-lib&#39;</span><span class="p">;</span>
 <span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">blueprints</span> <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/eks-blueprints&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">NewRelicAddOn</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">&#39;@newrelic/newrelic-eks-blueprints-addon&#39;</span><span class="p">;</span>
 
 <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
 
-<span class="kd">const</span> <span class="nx">addOn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">SecretsStoreAddOn</span><span class="p">();</span>
+<span class="nx">blueprints</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">.</span><span class="nx">builder</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="k">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">MetricsServerAddOn</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="k">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">ClusterAutoScalerAddOn</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="k">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">SSMAgentAddOn</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="k">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">SecretsStoreAddOn</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="k">new</span> <span class="nx">NewRelicAddOn</span><span class="p">({</span>
+        <span class="nx">version</span><span class="o">:</span> <span class="s2">&quot;4.2.0-beta&quot;</span><span class="p">,</span>
+        <span class="nx">newRelicClusterName</span><span class="o">:</span> <span class="s2">&quot;demo-cluster&quot;</span><span class="p">,</span>
+        <span class="nx">awsSecretName</span><span class="o">:</span> <span class="s2">&quot;newrelic-pixie-combined&quot;</span><span class="p">,</span> <span class="c1">// Secret Name in AWS Secrets Manager</span>
+        <span class="nx">installPixie</span>: <span class="kt">true</span><span class="p">,</span>
+        <span class="nx">installPixieIntegration</span>: <span class="kt">true</span><span class="p">,</span>
+    <span class="p">}))</span>
+    <span class="p">.</span><span class="nx">region</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">AWS_REGION</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">account</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">AWS_ACCOUNT</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">build</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;demo-cluster&#39;</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="example-configuration-using-keys">Example Configuration (using keys):<a class="headerlink" href="#example-configuration-using-keys" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="s1">&#39;source-map-support/register&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cdk</span> <span class="k">from</span> <span class="s1">&#39;aws-cdk-lib&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">blueprints</span> <span class="k">from</span> <span class="s1">&#39;@aws-quickstart/eks-blueprints&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">NewRelicAddOn</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">&#39;@newrelic/newrelic-eks-blueprints-addon&#39;</span><span class="p">;</span>
 
-<span class="cm">/* Setup application team with secrets</span>
-<span class="cm"> * Here we are generating a new SecretManager secret for AuthPassword</span>
-<span class="cm"> * We are also looking up a pre-existing secret in Parameter Store called GITHUB_TOKEN</span>
-<span class="cm"> */</span>
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
 
-<span class="k">export</span> <span class="kd">class</span> <span class="nx">TeamBurnham</span> <span class="k">extends</span> <span class="nx">ApplicationTeam</span> <span class="p">{</span>
-    <span class="kr">constructor</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">super</span><span class="p">({</span>
-            <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;burnham&quot;</span><span class="p">,</span>
-            <span class="nx">users</span>: <span class="kt">getUserArns</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="s2">&quot;team-burnham.users&quot;</span><span class="p">),</span>
-            <span class="nx">teamSecrets</span><span class="o">:</span> <span class="p">[</span>
-                <span class="p">{</span>
-                    <span class="nx">secretProvider</span>: <span class="kt">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">GenerateSecretManagerProvider</span><span class="p">(</span><span class="s1">&#39;AuthPassword&#39;</span><span class="p">),</span>
-                    <span class="nx">kubernetesSecret</span><span class="o">:</span> <span class="p">{</span>
-                        <span class="nx">secretName</span><span class="o">:</span> <span class="s1">&#39;auth-password&#39;</span><span class="p">,</span>
-                        <span class="nx">data</span><span class="o">:</span> <span class="p">[</span>
-                            <span class="p">{</span>
-                                <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;password&#39;</span>
-                            <span class="p">}</span>
-                        <span class="p">]</span>
-                    <span class="p">}</span>
-                <span class="p">},</span>
-                <span class="p">{</span>
-                    <span class="nx">secretProvider</span>: <span class="kt">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">LookupSsmSecretByAttrs</span><span class="p">(</span><span class="s1">&#39;GITHUB_TOKEN&#39;</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span>
-                    <span class="nx">kubernetesSecret</span><span class="o">:</span> <span class="p">{</span>
-                        <span class="nx">secretName</span><span class="o">:</span> <span class="s1">&#39;github&#39;</span>
-                    <span class="p">}</span>
-                <span class="p">}</span>
-            <span class="p">]</span>
-        <span class="p">});</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">const</span> <span class="nx">blueprint</span> <span class="o">=</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">.</span><span class="nx">builder</span><span class="p">()</span>
-  <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="nx">addOn</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">teams</span><span class="p">(</span><span class="k">new</span> <span class="nx">TeamBurnham</span><span class="p">(</span><span class="nx">app</span><span class="p">))</span>
-  <span class="p">.</span><span class="nx">build</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;my-stack-name&#39;</span><span class="p">);</span>
+<span class="nx">blueprints</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">.</span><span class="nx">builder</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="k">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">MetricsServerAddOn</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="k">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">ClusterAutoScalerAddOn</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="k">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">SSMAgentAddOn</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="k">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">SecretsStoreAddOn</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="k">new</span> <span class="nx">NewRelicAddOn</span><span class="p">({</span>
+        <span class="nx">version</span><span class="o">:</span> <span class="s2">&quot;4.2.0-beta&quot;</span><span class="p">,</span>
+        <span class="nx">newRelicClusterName</span><span class="o">:</span> <span class="s2">&quot;demo-cluster&quot;</span><span class="p">,</span>
+        <span class="nx">newRelicLicenseKey</span><span class="o">:</span> <span class="s2">&quot;NEW RELIC LICENSE KEY&quot;</span><span class="p">,</span>
+        <span class="nx">installPixie</span>: <span class="kt">true</span><span class="p">,</span>
+        <span class="nx">installPixieIntegration</span>: <span class="kt">true</span><span class="p">,</span>
+        <span class="nx">pixieApiKey</span><span class="o">:</span> <span class="s2">&quot;PIXIE API KEY&quot;</span><span class="p">,</span>
+        <span class="nx">pixieDeployKey</span><span class="o">:</span> <span class="s2">&quot;PIXIE DEPLOY KEY&quot;</span>
+    <span class="p">}))</span>
+    <span class="p">.</span><span class="nx">region</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">AWS_REGION</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">account</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">AWS_ACCOUNT</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">build</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;demo-cluster&#39;</span><span class="p">);</span>
 </code></pre></div>
-<h2 id="functionality">Functionality<a class="headerlink" href="#functionality" title="Permanent link">&para;</a></h2>
-<ol>
-<li>Installs the <a href="https://github.com/kubernetes-sigs/secrets-store-csi-driver">Kubernetes Secrets Store CSI Driver</a> in the <code>kube-system</code> namespace.</li>
-<li>Installs <a href="https://github.com/aws/secrets-store-csi-driver-provider-aws">AWS Secrets Manager and Config Provider for Secret Store CSI Driver</a> in the <code>kube-system</code> namespace.</li>
-<li>Creates an IAM access policy for scoped down to just the secrets the provided namespace should have access to.</li>
-<li>Updates <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-service-account-iam-policy-and-role.html">IAM roles for service accounts</a> <code>[team-name]-sa</code> for policies to grant read access to the provided secrets.</li>
-<li>Creates a <a href="https://github.com/aws/secrets-store-csi-driver-provider-aws#secretproviderclass-options">SecretProviderClass</a> <code>[team-name]-aws-secrets</code> which tells the AWS provider which secrets can be mounted in an application pod in the provided namespace.</li>
-</ol>
-<h2 id="security-considerations">Security Considerations<a class="headerlink" href="#security-considerations" title="Permanent link">&para;</a></h2>
-<p>The AWS Secrets Manger and Config Provider provides compatibility for legacy applications that access secrets as mounted files in the pod. Security conscious applications should use the native AWS APIs to fetch secrets and optionally cache them in memory rather than storing them in the file system.</p>
-<h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<p>After the Blueprint stack is deployed you can test consuming the secret from within a <code>deployment</code>.</p>
-<p>This sample <code>deployment</code> shows how to consume the secrets as mounted volumes as well as environment variables.</p>
-<div class="highlight"><pre><span></span><code>cat <span class="s">&lt;&lt; EOF &gt;&gt; test-secrets.yaml</span>
-<span class="s">apiVersion: apps/v1</span>
-<span class="s">kind: Deployment</span>
-<span class="s">metadata:</span>
-<span class="s">  name: app-deployment</span>
-<span class="s">  labels:</span>
-<span class="s">    app: myapp</span>
-<span class="s">  namespace: team-burnham</span>
-<span class="s">spec:</span>
-<span class="s">  replicas: 1</span>
-<span class="s">  selector:</span>
-<span class="s">    matchLabels:</span>
-<span class="s">      app: myapp</span>
-<span class="s">  template:</span>
-<span class="s">    metadata:</span>
-<span class="s">      labels:</span>
-<span class="s">        app: myapp</span>
-<span class="s">    spec:</span>
-<span class="s">      serviceAccountName: burnham-sa</span>
-<span class="s">      volumes:</span>
-<span class="s">      - name: secrets-store-inline</span>
-<span class="s">        csi:</span>
-<span class="s">          driver: secrets-store.csi.k8s.io</span>
-<span class="s">          readOnly: true</span>
-<span class="s">          volumeAttributes:</span>
-<span class="s">            secretProviderClass: burnham-aws-secrets</span>
-<span class="s">      containers:</span>
-<span class="s">      - name: test-secrets</span>
-<span class="s">        image: public.ecr.aws/ubuntu/ubuntu:latest</span>
-<span class="s">        command: [ &quot;/bin/bash&quot;, &quot;-c&quot;, &quot;--&quot; ]</span>
-<span class="s">        args: [ &quot;while true; do sleep 30; done;&quot; ]</span>
-<span class="s">        resources:</span>
-<span class="s">          limits:</span>
-<span class="s">            cpu: &quot;100m&quot;</span>
-<span class="s">            memory: &quot;128Mi&quot;</span>
-<span class="s">          requests:</span>
-<span class="s">            cpu: &quot;100m&quot;</span>
-<span class="s">            memory: &quot;128Mi&quot;</span>
-<span class="s">        env:</span>
-<span class="s">          - name: PASSWORD</span>
-<span class="s">            valueFrom:</span>
-<span class="s">              secretKeyRef:</span>
-<span class="s">                name: auth-password</span>
-<span class="s">                key: password</span>
-<span class="s">          - name: GITHUB_TOKEN</span>
-<span class="s">            valueFrom:</span>
-<span class="s">              secretKeyRef:</span>
-<span class="s">                name: github</span>
-<span class="s">                key: GITHUB_TOKEN</span>
-<span class="s">        volumeMounts:</span>
-<span class="s">          - name: secrets-store-inline</span>
-<span class="s">            mountPath: /mnt/secrets-store</span>
-<span class="s">            readOnly: true</span>
-<span class="s">EOF</span>
-</code></pre></div>
-<p>The values for <code>serviceAccountName</code> and the <code>secretProviderClass</code> shown in the example above are obtained from CloudFormation outputs of the blueprint stack shown in the screenshot below as <code>burnhamsa</code> and <code>teamburnhamsecretproviderclass</code>.</p>
-<p><img alt="outputs" src="../../assets/images/cloudformation-outputs.png" /></p>
-<p>Apply the manifest.</p>
-<div class="highlight"><pre><span></span><code>$ kubectl apply -f test-secrets.yaml
-deployment.apps/app-deployment created
-</code></pre></div>
-<p>Test that kubernetes secret <code>burnham-github-secrets</code> was created.</p>
-<div class="highlight"><pre><span></span><code>kubectl get secrets -n team-burnham
-NAME                     TYPE                                  DATA   AGE
-auth-password            Opaque                                <span class="m">1</span>      19s
-burnham-sa-token-fqjqw   kubernetes.io/service-account-token   <span class="m">3</span>      64m
-default-token-7fn69      kubernetes.io/service-account-token   <span class="m">3</span>      64m
-github                   Opaque                                <span class="m">1</span>      19s
-</code></pre></div>
-<p>Test that the deployment has completed and the pod is running successfully.</p>
-<div class="highlight"><pre><span></span><code>$ kubectl get pods -n team-burnham
-NAME                              READY   STATUS    RESTARTS   AGE
-app-deployment-6867fc6bd6-jzdwh   <span class="m">1</span>/1     Running   <span class="m">0</span>          46s
-</code></pre></div>
-<p>Next, test whether the secret <code>PASSWORD</code> is available as an environment variable from within the <code>app-deployment</code> pod.</p>
-<div class="highlight"><pre><span></span><code>$ kubectl <span class="nb">exec</span> app-deployment-6867fc6bd6-jzdwh -n team-burnham -- <span class="nb">echo</span> <span class="nv">$PASSWORD</span>
-
-XXXXXXXXXXXXXXXXXX
-</code></pre></div>
-<p>Test whether <code>GITHUB_TOKEN</code> is available as an environment variable from within the <code>app-deployment</code> pod.</p>
-<div class="highlight"><pre><span></span><code>$ kubectl <span class="nb">exec</span> app-deployment-6867fc6bd6-jzdwh -n team-burnham -- <span class="nb">echo</span> <span class="nv">$GITHUB_TOKEN</span>
-
-ghp_XXXXXXXXXXXXXXXXXXXXXXXXXX
-</code></pre></div>
+<h2 id="validation">Validation<a class="headerlink" href="#validation" title="Permanent link">&para;</a></h2>
+<h3 id="nrql-query">NRQL Query<a class="headerlink" href="#nrql-query" title="Permanent link">&para;</a></h3>
+<hr />
+<p>Almost immediately after the New Relic pods enter a <code>Running</code> state in the cluster, data should be reported to New Relic.  You can validate that metrics are making it to New Relic with the following NRQL query:</p>
+<p><code>FROM K8sClusterSample, K8sNodeSample select latest(clusterK8sVersion), latest(agentVersion) as 'NR Agent Ver.', uniqueCount(nodeName) as 'Node Count' facet clusterName limit max</code></p>
+<p><img alt="New Relic Query Builder" src="https://p191.p3.n0.cdn.getcloudapp.com/items/7Kuq7ELA/e841897d-afa0-42fe-a1df-1b08be4cb750.jpg?v=7a446451520f80b5713fec32ff909f43" /></p>
+<h3 id="new-relic-one-ui">New Relic One UI<a class="headerlink" href="#new-relic-one-ui" title="Permanent link">&para;</a></h3>
+<hr />
+<p>After installing the New Relic add-on, you can validate a successful installation by visiting New Relic's Entity Explorer filtered to Kubernetes Clusters.</p>
+<p><img alt="New Relic Entity Explorer" src="https://p191.p3.n0.cdn.getcloudapp.com/items/WnuqL0A9/87e8d7ff-1dbc-4f7d-85c6-879373976c3a.jpg?v=8aa90eeecf7963fc5107e46a24b55188" /></p>
+<h2 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>newRelicLicenseKey</td>
+<td>string</td>
+<td>True</td>
+<td>New Relic License Key (plain text). Use <code>awsSecretName</code> instead for AWS Secrets Manager support and added security.</td>
+</tr>
+<tr>
+<td>awsSecretName</td>
+<td>string</td>
+<td>True</td>
+<td>AWS Secret name containing the New Relic and Pixie keys in AWS Secrets Manager. Define secret in JSON format with the following keys:  <code>{   "nrLicenseKey": "REPLACE WITH YOUR NEW RELIC LICENSE KEY",   "pixieDeployKey": "REPLACE WITH YOUR PIXIE LICENSE KEY",   "pixieApiKey": "REPLACE WITH YOUR PIXIE API KEY" }</code>  Keys can be obtained in the <a href="https://docs.newrelic.com/docs/kubernetes-pixie/kubernetes-integration/installation/kubernetes-integration-install-configure#installer">New Relic Guided Install for Kubernetes</a></td>
+</tr>
+<tr>
+<td>newRelicClusterName</td>
+<td>string</td>
+<td>True</td>
+<td>Name for the cluster in the New Relic UI.</td>
+</tr>
+<tr>
+<td>pixieApiKey</td>
+<td>string</td>
+<td></td>
+<td>Pixie Api Key can be obtained in New Relic's Guided Install for Kubernetes (plaintext).  Use <code>awsSecretName</code> instead for AWS Secrets Manager support and added security.</td>
+</tr>
+<tr>
+<td>pixieDeployKey</td>
+<td>string</td>
+<td></td>
+<td>Pixie Deploy Key can be obtained in New Relic's Guided Install for Kubernetes -  (plaintext).  Use <code>awsSecretName</code> instead for AWS Secrets Manager support and added security.</td>
+</tr>
+<tr>
+<td>namespace</td>
+<td>string</td>
+<td></td>
+<td>The namespace where New Relic components will be installed. Defaults to  <code>newrelic</code>.</td>
+</tr>
+<tr>
+<td>lowDataMode</td>
+<td>boolean</td>
+<td></td>
+<td>Default  <code>true</code>.  Set to  <code>false</code>  to disable  <code>lowDataMode</code> .  For more details, visit the <a href="https://docs.newrelic.com/docs/kubernetes-pixie/kubernetes-integration/installation/install-kubernetes-integration-using-helm/#reducedataingest">Reducing Data Ingest Docs</a></td>
+</tr>
+<tr>
+<td>installInfrastructure</td>
+<td>boolean</td>
+<td></td>
+<td>Default  <code>true</code> .  Set to  <code>false</code>  to disable installation of the New Relic Infrastructure Daemonset.</td>
+</tr>
+<tr>
+<td>installKSM</td>
+<td>boolean</td>
+<td></td>
+<td>Default  <code>true</code> .  Set to  <code>false</code>  to disable installation of Kube State Metrics.  An instance of KSM is required in the cluster for the New Relic Infrastructure Daemonset to function properly.</td>
+</tr>
+<tr>
+<td>installKubeEvents</td>
+<td>boolean</td>
+<td></td>
+<td>Default  <code>true</code> .  Set to  <code>false</code>  to disable installation of the New Relic Kubernetes Events integration.</td>
+</tr>
+<tr>
+<td>installLogging</td>
+<td>boolean</td>
+<td></td>
+<td>Default  <code>true</code> .  Set to  <code>false</code>  to disable installation of the New Relic Logging (Fluent-Bit) Daemonset.</td>
+</tr>
+<tr>
+<td>installMetricsAdapter</td>
+<td>boolean</td>
+<td></td>
+<td>Default  <code>false</code> .  Set to  <code>true</code>  to enable installation of the New Relic Kubernetes Metrics Adapter.</td>
+</tr>
+<tr>
+<td>installPrometheus</td>
+<td>boolean</td>
+<td></td>
+<td>Default  <code>true</code> .  Set to  <code>false</code>  to disable installation of the Prometheus OpenMetrics Integration.</td>
+</tr>
+<tr>
+<td>installPixie</td>
+<td>boolean</td>
+<td></td>
+<td>Default  <code>false</code> .  Set to  <code>true</code>  to enable installation Pixie into the cluster.</td>
+</tr>
+<tr>
+<td>installPixieIntegration</td>
+<td>boolean</td>
+<td></td>
+<td>Default   <code>false</code>  .  Set to   <code>true</code>   to enable installation the New Relic &lt;-&gt; Pixie integration pod into the cluster.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>string</td>
+<td></td>
+<td>Helm chart version.</td>
+</tr>
+<tr>
+<td>repository</td>
+<td>string</td>
+<td></td>
+<td>Additional options for customers who may need to supply their own private Helm repository.</td>
+</tr>
+<tr>
+<td>release</td>
+<td>string</td>
+<td></td>
+<td>Additional options for customers who may need to supply their own private Helm repository.</td>
+</tr>
+<tr>
+<td>chart</td>
+<td>string</td>
+<td></td>
+<td>Additional options for customers who may need to supply their own private Helm repository.</td>
+</tr>
+<tr>
+<td>values</td>
+<td>{ [key: string]: any }</td>
+<td></td>
+<td>Custom values to pass to the chart. Config options: https://github.com/newrelic/helm-charts/tree/master/charts/nri-bundle#configuration</td>
+</tr>
+</tbody>
+</table>
+<h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">&para;</a></h2>
+<p>New Relic hosts and moderates an online forum where customers can interact with New Relic employees as well as other customers to get help and share best practices.</p>
+<p>https://discuss.newrelic.com/</p>
+<h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h2>
+<p>We encourage your contributions to improve the New Relic Addon for EKS Blueprints! Keep in mind when you submit your pull request, you'll need to sign the CLA via the click-through using CLA-Assistant. You only have to sign the CLA one time per project.
+If you have any questions, or to execute our corporate CLA, required if your contribution is on behalf of a company,  please drop us an email at opensource@newrelic.com.</p>
+<p><strong>A note about vulnerabilities</strong></p>
+<p>As noted in our <a href="https://github.com/newrelic-experimental/newrelic-ssp-addon/security/policy">security policy</a>, New Relic is committed to the privacy and security of our customers and their data. We believe that providing coordinated disclosure by security researchers and engaging with the security community are important means to achieve our security goals.</p>
+<p>If you believe you have found a security vulnerability in this project or any of New Relic's products or websites, we welcome and greatly appreciate you reporting it to New Relic through <a href="https://hackerone.com/newrelic">HackerOne</a>.</p>
+<h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
+<p>The New Relic Addon for EKS Blueprints is licensed under the <a href="http://apache.org/licenses/LICENSE-2.0.txt">Apache 2.0</a> License.</p>
                 
               
               
@@ -1070,7 +1241,7 @@ ghp_XXXXXXXXXXXXXXXXXXXXXXXXXX
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../opa-gatekeeper/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../metrics-server/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1079,19 +1250,19 @@ ghp_XXXXXXXXXXXXXXXXXXXXXXXXXX
               <span class="md-footer__direction">
                 Previous
               </span>
-              OPA Gatekeeper
+              Metrics Server
             </div>
           </div>
         </a>
       
       
-        <a href="../ssm-agent/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../nginx/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              SSM Agent
+              Nginx
             </div>
           </div>
           <div class="md-footer__button md-icon">
