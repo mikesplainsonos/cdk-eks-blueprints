@@ -13,7 +13,7 @@
     
     
       
-        <title>AWS App Mesh - Amazon EKS Blueprints Quick Start</title>
+        <title>Kasten K10 Add-On for Amazon EKS Blueprints for CDK - Amazon EKS Blueprints Quick Start</title>
       
     
     
@@ -58,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#aws-app-mesh-add-on" class="md-skip">
+        <a href="#kasten-k10-add-on-for-amazon-eks-blueprints-for-cdk" class="md-skip">
           Skip to content
         </a>
       
@@ -91,7 +91,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AWS App Mesh
+              Kasten K10 Add-On for Amazon EKS Blueprints for CDK
             
           </span>
         </div>
@@ -274,14 +274,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       
       
@@ -316,80 +314,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          AWS App Mesh
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../app-mesh/" class="md-nav__link">
         AWS App Mesh
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
-    Usage
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#functionality" class="md-nav__link">
-    Functionality
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#app-mesh-sidecar-injection" class="md-nav__link">
-    App Mesh Sidecar Injection
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tracing-integration" class="md-nav__link">
-    Tracing Integration
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#app-mesh-and-xray-integration-example" class="md-nav__link">
-    App Mesh and XRay Integration Example
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -939,8 +868,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
-    Usage
+  <a href="#architecture" class="md-nav__link">
+    Architecture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    Basic Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-on-options" class="md-nav__link">
+    Add-on Options
   </a>
   
 </li>
@@ -953,23 +903,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#app-mesh-sidecar-injection" class="md-nav__link">
-    App Mesh Sidecar Injection
+  <a href="#validating-the-install" class="md-nav__link">
+    Validating the Install
+  </a>
+  
+    <nav class="md-nav" aria-label="Validating the Install">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validate-dashboard-access" class="md-nav__link">
+    Validate Dashboard Access
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#tracing-integration" class="md-nav__link">
-    Tracing Integration
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#app-mesh-and-xray-integration-example" class="md-nav__link">
-    App Mesh and XRay Integration Example
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -985,77 +934,164 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/aws-quickstart/cdk-eks-blueprints/edit/master/docs/addons/app-mesh.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/aws-quickstart/cdk-eks-blueprints/edit/master/docs/addons/kasten-k10.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
-<h1 id="aws-app-mesh-add-on">AWS App Mesh Add-on<a class="headerlink" href="#aws-app-mesh-add-on" title="Permanent link">&para;</a></h1>
-<p><a href="https://aws.amazon.com/app-mesh/">AWS App Mesh</a> is a service mesh that provides application-level networking to make it easy for your services to communicate with each other across multiple types of compute infrastructure. The App Mesh add-on provisions the necessary AWS resources and Helm charts into an EKS cluster that are needed to support App Mesh for EKS workloads. </p>
-<p>Full documentation on using App Mesh with EKS <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/getting-started-kubernetes.html">can be found here</a>.</p>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="s1">&#39;source-map-support/register&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cdk</span> <span class="kr">from</span> <span class="s1">&#39;aws-cdk-lib&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">blueprints</span> <span class="kr">from</span> <span class="s1">&#39;@aws-quickstart/eks-blueprints&#39;</span><span class="p">;</span>
-
-<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
-
-<span class="kd">const</span> <span class="nx">addOn</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">addons</span><span class="p">.</span><span class="nx">AppMeshAddOn</span><span class="p">();</span>
-
-<span class="kd">const</span> <span class="nx">blueprint</span> <span class="o">=</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">.</span><span class="nx">builder</span><span class="p">()</span>
-  <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="nx">addOn</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">build</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;my-stack-name&#39;</span><span class="p">);</span>
+<h1 id="kasten-k10-add-on-for-amazon-eks-blueprints-for-cdk">Kasten K10 Add-On for Amazon EKS Blueprints for CDK<a class="headerlink" href="#kasten-k10-add-on-for-amazon-eks-blueprints-for-cdk" title="Permanent link">&para;</a></h1>
+<p><strong>Kasten K10 by Veeam Overview</strong></p>
+<p>The K10 data management platform, purpose-built for Kubernetes, provides enterprise operations teams an easy-to-use, scalable, and secure system for backup/restore, disaster recovery, and mobility of Kubernetes applications.
+<img alt="Kasten-K10 Overview" src="/docs/assets/images/kastenk10_image1.png" />
+K10’s application-centric approach and deep integrations with relational and NoSQL databases, Amazon EKS and AWS Services provides teams the freedom of infrastructure choice without sacrificing operational simplicity. Policy-driven and extensible, K10 provides a native Kubernetes API and includes features such full-spectrum consistency, database integrations, automatic application discovery, application mobility, and a powerful web-based user interface.</p>
+<p>Given K10’s extensive ecosystem support you have the flexibility to choose environments (public/ private/ hybrid cloud/ on-prem) and Kubernetes distributions (cloud vendor managed or self managed) in support of three principal use cases:</p>
+<ul>
+<li>
+<p><a href="https://www.kasten.io/kubernetes/use-cases/backup-restore">Backup and Restore</a></p>
+</li>
+<li>
+<p><a href="https://www.kasten.io/kubernetes/use-cases/disaster-recovery/">Disaster Recovery</a></p>
+</li>
+<li>
+<p><a href="https://www.kasten.io/kubernetes/use-cases/application-mobility/">Application Mobility</a>
+<img alt="Kasten-K10 Use Cases " src="/docs/assets/images/kastenk10_image2.png" /></p>
+</li>
+</ul>
+<p>The Kasten K10 add-on installs Kasten K10 into your Amazon EKS cluster. </p>
+<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
+<p>Deploying this Quickstart for a new virtual private cloud (VPC) with default parameters builds the following K10 platform in the AWS Cloud. The diagram shows three Availability Zones, leveraging multiple AWS services.</p>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<p>Follow new project setup guidelines from https://github.com/aws-quickstart/cdk-eks-blueprints</p>
+<div class="highlight"><pre><span></span><code>npm install @kastenhq/kasten-eks-blueprints-addon
 </code></pre></div>
+<h2 id="basic-usage">Basic Usage<a class="headerlink" href="#basic-usage" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">App</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;aws-cdk-lib&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">blueprints</span> <span class="kr">from</span> <span class="s1">&#39;@aws-quickstart/eks-blueprints&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">KastenK10AddOn</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@kastenhq/kasten-eks-blueprints-addon&#39;</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">App</span><span class="p">();</span>
+
+<span class="nx">blueprints</span><span class="p">.</span><span class="nx">EksBlueprint</span><span class="p">.</span><span class="nx">builder</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="ow">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">ClusterAutoScalerAddOn</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">addOns</span><span class="p">(</span><span class="ow">new</span> <span class="nx">KastenK10AddOn</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">build</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;eks-with-kastenk10&#39;</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="add-on-options">Add-on Options<a class="headerlink" href="#add-on-options" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>repository</code></td>
+<td>Repository of the Helm chart</td>
+<td>"https://charts.kasten.io/"</td>
+</tr>
+<tr>
+<td><code>release</code></td>
+<td>Name of the Helm release</td>
+<td>"k10"</td>
+</tr>
+<tr>
+<td><code>namespace</code></td>
+<td>Namespace to install Kasten K10</td>
+<td>"kasten-io"</td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td>Version of Kasten K10, defaults to latest release</td>
+<td>""</td>
+</tr>
+<tr>
+<td><code>chart</code></td>
+<td>Helm Chart Name</td>
+<td>"k10"</td>
+</tr>
+<tr>
+<td><code>values</code></td>
+<td>Configuration values passed to the chart, options are documented <a href="https://docs.kasten.io/latest/install/advanced.html#complete-list-of-k10-helm-options">here</a></td>
+<td>{}</td>
+</tr>
+</tbody>
+</table>
 <h2 id="functionality">Functionality<a class="headerlink" href="#functionality" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Creates an App Mesh IAM service account.</li>
-<li>Adds both <code>AWSCloudMapFullAccess</code> and <code>AWSAppMeshFullAccess</code> roles to the service account.</li>
-<li>Adds <code>AWSXRayDaemonWriteAccess</code> to the instance role if XRay integration is enabled.</li>
-<li>Creates the <code>appmesh-system</code> namespace.</li>
-<li>Deploys the <a href="https://github.com/aws/eks-charts/tree/master/stable/appmesh-controller"><code>appmesh-controller</code></a> Helm chart into the cluster.</li>
-<li>Supports <a href="../#standard-helm-add-on-configuration-options">standard helm configuration options</a>.</li>
+<li>Create the IAM Role for Service Account for Kasten K10 pod to make API calls to AWS S3 and EC2 to backup and restore.</li>
+<li>Installs Kasten K10 in a new namespace "kasten-io".</li>
 </ol>
-<h2 id="app-mesh-sidecar-injection">App Mesh Sidecar Injection<a class="headerlink" href="#app-mesh-sidecar-injection" title="Permanent link">&para;</a></h2>
-<p>You can configure certain namespaces for automatic injection of App Mesh sidecar (Envoy) proxy. This will enable handling cross-cutting aspects such as service to service communication, resiliency patterns (circuit breaker/retries) as well handle ingress and egress for the workloads running in the namespace.</p>
-<p>Here is an example of a team with a namespace configured for automatic sidecar injection:</p>
-<div class="highlight"><pre><span></span><code><span class="k">export</span> <span class="kd">class</span> <span class="nx">TeamBurnham</span> <span class="k">extends</span> <span class="nx">ApplicationTeam</span> <span class="p">{</span>
-    <span class="kr">constructor</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">super</span><span class="p">({</span>
-            <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;burnham&quot;</span><span class="p">,</span>
-            <span class="nx">users</span>: <span class="kt">getUserArns</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="s2">&quot;team-burnham.users&quot;</span><span class="p">),</span>
-            <span class="nx">namespaceAnnotations</span><span class="o">:</span> <span class="p">{</span>
-                <span class="s2">&quot;appmesh.k8s.aws/sidecarInjectorWebhook&quot;</span><span class="o">:</span> <span class="s2">&quot;enabled&quot;</span>
-            <span class="p">}</span>
-        <span class="p">});</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<p>The IAM Policy is as follows:</p>
+<div class="highlight"><pre><span></span><code>    &quot;Version&quot;: &quot;2012-10-17&quot;,
+    &quot;Statement&quot;: [
+        {
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Action&quot;: [
+                &quot;ec2:CopySnapshot&quot;,
+                &quot;ec2:CreateSnapshot&quot;,
+                &quot;ec2:CreateTags&quot;,
+                &quot;ec2:CreateVolume&quot;,
+                &quot;ec2:DeleteTags&quot;,
+                &quot;ec2:DeleteVolume&quot;,
+                &quot;ec2:DescribeSnapshotAttribute&quot;,
+                &quot;ec2:ModifySnapshotAttribute&quot;,
+                &quot;ec2:DescribeAvailabilityZones&quot;,
+                &quot;ec2:DescribeSnapshots&quot;,
+                &quot;ec2:DescribeTags&quot;,
+                &quot;ec2:DescribeVolumeAttribute&quot;,
+                &quot;ec2:DescribeVolumesModifications&quot;,
+                &quot;ec2:DescribeVolumeStatus&quot;,
+                &quot;ec2:DescribeVolumes&quot;
+            ],
+            &quot;Resource&quot;: &quot;*&quot;
+        },
+        {
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Action&quot;: &quot;ec2:DeleteSnapshot&quot;,
+            &quot;Resource&quot;: &quot;*&quot;,
+            &quot;Condition&quot;: {
+                &quot;StringLike&quot;: {
+                    &quot;ec2:ResourceTag/Name&quot;: &quot;Kasten: Snapshot*&quot;
+                }
+            }
+        },
+        {
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Action&quot;: [
+                &quot;s3:CreateBucket&quot;,
+                &quot;s3:PutObject&quot;,
+                &quot;s3:GetObject&quot;,
+                &quot;s3:PutBucketPolicy&quot;,
+                &quot;s3:ListBucket&quot;,
+                &quot;s3:DeleteObject&quot;,
+                &quot;s3:DeleteBucketPolicy&quot;,
+                &quot;s3:GetBucketLocation&quot;,
+                &quot;s3:GetBucketPolicy&quot;
+            ],
+            &quot;Resource&quot;: &quot;*&quot;
+        }
+    ]
+}
 </code></pre></div>
-<h2 id="tracing-integration">Tracing Integration<a class="headerlink" href="#tracing-integration" title="Permanent link">&para;</a></h2>
-<p>App Mesh integrates with a number of tracing providers for distributed tracing support. At the moment it supports AWS X-Ray, Jaeger, and Datadog providers. 
-The X-Ray integration at present requires either a managed node group or a self-managed auto-scaling group backed by EC2. Fargate is not supported. </p>
-<p>Enabling integration:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">appMeshAddOn</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">blueprints</span><span class="p">.</span><span class="nx">AppMeshAddOn</span><span class="p">({</span>
-  <span class="nx">enableTracing</span>: <span class="kt">true</span><span class="p">,</span> 
-  <span class="nx">tracingProvider</span><span class="o">:</span> <span class="s2">&quot;x-ray&quot;</span>
-<span class="p">}),</span>
-</code></pre></div>
-<p>When configured, App Mesh will automatically inject an XRay sidecar to handle tracing which enables troubleshooting latency issues.</p>
-<h2 id="app-mesh-and-xray-integration-example">App Mesh and XRay Integration Example<a class="headerlink" href="#app-mesh-and-xray-integration-example" title="Permanent link">&para;</a></h2>
-<p><code>team-burnham</code> sample workload repository is configured with an <a href="https://github.com/aws-samples/eks-blueprints-workloads/tree/main/teams/team-burnham/dev">example workload</a> that demonstrates a "meshified" workload.</p>
-<p>After the workload is deployed with ArgoCD or applied directly to the cluster, a <a href="https://github.com/aws/aws-app-mesh-examples/tree/main/examples/apps/djapp">DJ application</a> will be created in the <code>team-burnham</code> namespace, similar to the one used for the <a href="https://www.eksworkshop.com/intermediate/330_app_mesh/">EKS Workshop</a>. It was adapted for GitOps integration with Blueprints and relies on automatic sidecar injection as well as tracing integration with App Mesh.</p>
-<p>After the workload is deployed you can generate some traffic to populated traces:</p>
-<div class="highlight"><pre><span></span><code>$ <span class="nb">export</span> <span class="nv">DJ_POD_NAME</span><span class="o">=</span><span class="k">$(</span>kubectl get pods -n team-burnham -l <span class="nv">app</span><span class="o">=</span>dj -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.items[].metadata.name}&#39;</span><span class="k">)</span>
-$ kubectl -n team-burnham <span class="nb">exec</span> -it <span class="si">${</span><span class="nv">DJ_POD_NAME</span><span class="si">}</span> -c dj bash
-$ <span class="k">while</span> true<span class="p">;</span> <span class="k">do</span>
-  curl http://jazz.team-burnham.svc.cluster.local:9080/
-  <span class="nb">echo</span>
-  curl http://metal.team-burnham.svc.cluster.local:9080/
-  <span class="nb">echo</span>
-<span class="k">done</span>
-</code></pre></div>
-<p>The above script will start producing load which will generate traces with XRay. Once traces are produced (for a minute or more) you can navigate to the AWS XRay console and click on Service Map. </p>
-<p>You will see a screenshot similar to this:</p>
-<p><img alt="App Mesh XRay Service Map" src="../../assets/images/appmesh-xray.png" /></p>
+<h2 id="validating-the-install">Validating the Install<a class="headerlink" href="#validating-the-install" title="Permanent link">&para;</a></h2>
+<p>To validate that K10 has been installed properly, the following command can be run in K10's namespace (the install default is <code>kasten-io</code>) to watch for the status of all K10 pods:</p>
+<p>kubectl get pods --namespace kasten-io --watch</p>
+<p>It may take a couple of minutes for all pods to come up but all pods should ultimately display the status of <code>Running</code>.
+<div class="highlight"><pre><span></span><code>kubectl get pods --namespace kasten-io
+NAMESPACE     NAME                                    READY   STATUS    RESTARTS   AGE
+kasten-io     aggregatedapis-svc-b45d98bb5-w54pr      1/1     Running   0          1m26s
+kasten-io     auth-svc-8549fc9c59-9c9fb               1/1     Running   0          1m26s
+kasten-io     catalog-svc-f64666fdf-5t5tv             2/2     Running   0          1m26s
+</code></pre></div></p>
+<p>In the unlikely scenario that pods that are stuck in any other state, please follow the <a href="https://docs.kasten.io/latest/operating/support.html#support">support</a> documentation to debug further.</p>
+<h3 id="validate-dashboard-access">Validate Dashboard Access<a class="headerlink" href="#validate-dashboard-access" title="Permanent link">&para;</a></h3>
+<p>By default, the K10 dashboard will not be exposed externally. To establish a connection to it, use the following <code>kubectl</code> command to forward a local port to the K10 ingress port:</p>
+<p><code>kubectl --namespace kasten-io port-forward service/gateway 8080:8000</code></p>
+<p>The K10 dashboard will be available at  <a href="http://127.0.0.1:8080/k10/#/">http://127.0.0.1:8080/k10/#/</a>.</p>
+<p>For a complete list of options for accessing the Kasten K10 dashboard through a LoadBalancer, Ingress or OpenShift Route you can use the instructions <a href="https://docs.kasten.io/latest/access/dashboard.html#dashboard">here</a>.</p>
+<p>For full project documentation visit the KastenHQ Github Repo at (https://github.com/kastenhq/kasten-eks-blueprints-addon).</p>
 
               
             </article>
@@ -1065,41 +1101,6 @@ $ <span class="k">while</span> true<span class="p">;</span> <span class="k">do</
       </main>
       
         <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        
-        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Overview" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Overview
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../argo-cd/" class="md-footer__link md-footer__link--next" aria-label="Next: ArgoCD" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              ArgoCD
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
