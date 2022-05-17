@@ -17,7 +17,7 @@ import { createSecretRef } from './manifest-utils';
  */
 export interface ArgoCDAddOnProps extends HelmAddOnUserProps {
     /**
-     * Namespace where add-on will be deployed. 
+     * Namespace where add-on will be deployed.
      * @default argocd
      */
     namespace?: string;
@@ -31,21 +31,21 @@ export interface ArgoCDAddOnProps extends HelmAddOnUserProps {
     /**
      * If provided, the addon will bootstrap the app or apps in the provided repository.
      * In general, the repo is expected to have the app of apps, which can enable to bootstrap all workloads,
-     * after the infrastructure and team provisioning is complete. 
+     * after the infrastructure and team provisioning is complete.
      */
     bootstrapRepo?: spi.ApplicationRepository;
 
     /**
-     * Optional values for the bootstrap application. These may contain values such as domain named provisioned by other add-ons, certifcate, and other paramters to pass 
-     * to the applications. 
+     * Optional values for the bootstrap application. These may contain values such as domain named provisioned by other add-ons, certifcate, and other paramters to pass
+     * to the applications.
      */
     bootstrapValues?: spi.Values,
 
     /**
      * Optional admin password secret name as defined in AWS Secrets Manager (plaintext).
-     * This allows to control admin password across the enterprise. Password will be retrieved and 
-     * stored as a non-reverisble bcrypt hash. 
-     * Note: at present, change of password may require manual restart of argocd server. 
+     * This allows to control admin password across the enterprise. Password will be retrieved and
+     * stored as a non-reverisble bcrypt hash.
+     * Note: at present, change of password may require manual restart of argocd server.
      */
     adminPasswordSecretName?: string;
 
@@ -101,11 +101,16 @@ export class ArgoCDAddOn implements spi.ClusterAddOn, spi.ClusterPostDeploy {
     async deploy(clusterInfo: spi.ClusterInfo): Promise<Construct> {
         const namespace = createNamespace(this.options.namespace!, clusterInfo.cluster, true);
 
-        const sa = this.createServiceAccount(clusterInfo);
+        const sa = this.createServiceAccount(clusterInfo, "argo-cd-server", "argocd-server");
         sa.node.addDependency(namespace);
 
         const defaultValues: spi.Values = {};
         dot.set("server.serviceAccount.create", false, defaultValues);
+
+        const saApp = this.createServiceAccount(clusterInfo, "argocd-application-controller", "argocd-application-controller");
+        saApp.node.addDependency(namespace);
+
+        dot.set("controller.serviceAccount.create", false, defaultValues);
 
         const secrets = [];
 
@@ -152,9 +157,9 @@ export class ArgoCDAddOn implements spi.ClusterAddOn, spi.ClusterPostDeploy {
 
     /**
      * Post deployment step is used to create a bootstrap repository if options are provided for the add-on.
-     * @param clusterInfo 
-     * @param teams 
-     * @returns 
+     * @param clusterInfo
+     * @param teams
+     * @returns
      */
     postDeploy(clusterInfo: spi.ClusterInfo, teams: spi.Team[]) {
         assert(teams != null);
@@ -178,15 +183,15 @@ export class ArgoCDAddOn implements spi.ClusterAddOn, spi.ClusterPostDeploy {
         const secretValue = await getSecretValue(this.options.adminPasswordSecretName!, region);
         return bcrypt.hash(secretValue, 10);
     }
-    
+
     /**
      * Creates a service account that can access secrets
-     * @param clusterInfo 
-     * @returns 
+     * @param clusterInfo
+     * @returns
      */
-    protected createServiceAccount(clusterInfo: spi.ClusterInfo): ServiceAccount {
-        const sa = clusterInfo.cluster.addServiceAccount('argo-cd-server', {
-            name: "argocd-server",
+    protected createServiceAccount(clusterInfo: spi.ClusterInfo, saName: string, name: string): ServiceAccount {
+        const sa = clusterInfo.cluster.addServiceAccount(saName, {
+            name: name,
             namespace: this.options.namespace
         });
         return sa;
